@@ -159,6 +159,7 @@ SELECT pconst, pconst AS label FROM t1 WHERE pconst is not null and pconst != ''
 ALTER TABLE "Profession" ADD PRIMARY KEY (pconst);
 COMMENT ON TABLE "Profession" IS 'Contains professions.';
 COMMENT ON COLUMN "Profession".pconst IS 'alphanumeric unique identifier of the profession';
+COMMENT ON COLUMN "Profession".label IS 'label of the profession';
 
 DROP TABLE IF EXISTS "primaryProfession" CASCADE;
 CREATE TABLE "primaryProfession" AS
@@ -166,7 +167,7 @@ WITH
     t1 AS (SELECT DISTINCT nconst, trim(regexp_split_to_table("primaryProfession", ',+')) AS pconst FROM "NameBasics")
 SELECT DISTINCT nconst,pconst FROM t1 WHERE pconst is not null and pconst != '';
 COMMENT ON TABLE "primaryProfession" IS 'professions of a person';
-COMMENT ON COLUMN "NameBasics".nconst IS 'alphanumeric unique identifier of the name/person';
+COMMENT ON COLUMN "primaryProfession".nconst IS 'alphanumeric unique identifier of the name/person';
 COMMENT ON COLUMN "primaryProfession".pconst IS 'alphanumeric unique identifier of the profession';
 
 ALTER TABLE "Principal" ADD COLUMN IF NOT EXISTS pconst VARCHAR;
@@ -210,8 +211,8 @@ CREATE TABLE "hasGenre" AS
 SELECT DISTINCT tconst,trim(regexp_split_to_table(genres, ',+')) AS gconst FROM "TitleBasics";
 ALTER TABLE "hasGenre" ADD PRIMARY KEY (tconst,gconst);
 COMMENT ON TABLE "hasGenre" IS 'genres associated with titles';
-COMMENT ON COLUMN "knownForTitle".tconst IS 'alphanumeric unique identifier of the title';
-COMMENT ON COLUMN "Genre".gconst IS 'alphanumeric unique identifier of the genre';
+COMMENT ON COLUMN "hasGenre".tconst IS 'alphanumeric unique identifier of the title';
+COMMENT ON COLUMN "hasGenre".gconst IS 'alphanumeric unique identifier of the genre';
 
 ALTER TABLE "hasGenre" ADD FOREIGN KEY (tconst) REFERENCES "Title";
 ALTER TABLE "hasGenre" ADD FOREIGN KEY (gconst) REFERENCES "Genre";
@@ -225,7 +226,7 @@ SELECT tconst,nconst,pconst FROM t1 WHERE nconst is not null and nconst != '';
 ALTER TABLE "Crew" ADD PRIMARY KEY (tconst,nconst,pconst);
 COMMENT ON TABLE "Crew" IS 'Contains the director and writer information for all the titles in IMDb.';
 COMMENT ON COLUMN "Crew".tconst IS 'alphanumeric unique identifier of the title';
-COMMENT ON COLUMN "knownForTitle".nconst IS 'alphanumeric unique identifier of the name/person';
+COMMENT ON COLUMN "Crew".nconst IS 'alphanumeric unique identifier of the name/person';
 COMMENT ON COLUMN "Crew".pconst IS 'alphanumeric unique identifier of the profession';
 
 INSERT INTO "Name"(nconst)  (SELECT DISTINCT t1.nconst FROM "Crew" t1 LEFT JOIN "Name" t2 ON t1.nconst = t2.nconst WHERE t2.nconst IS NULL);
