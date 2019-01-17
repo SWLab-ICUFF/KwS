@@ -9,7 +9,7 @@ CREATE TABLE "NameBasics" (
 COPY "NameBasics" FROM '/Users/lapaesleme/OneDrive/Data/dumps/IMDb/name.basics.tsv' DELIMITER E'\t' NULL '\N' CSV HEADER QUOTE E'\b';
 ALTER TABLE "NameBasics" ADD PRIMARY KEY (nconst);
 
-COMMENT ON TABLE "NameBasics" IS 'Contains the following information for names';
+COMMENT ON TABLE "NameBasics" IS 'Contains information for names';
 COMMENT ON COLUMN "NameBasics".nconst IS 'alphanumeric unique identifier of the name/person';
 COMMENT ON COLUMN "NameBasics"."primaryName" IS 'name by which the person is most often credited';
 COMMENT ON COLUMN "NameBasics"."birthYear" IS 'in YYYY format';
@@ -29,7 +29,7 @@ CREATE TABLE "Akas" (
 COPY "Akas" FROM '/Users/lapaesleme/OneDrive/Data/dumps/IMDb/title.akas.tsv' DELIMITER E'\t' NULL '\N' CSV HEADER QUOTE E'\b';
 ALTER TABLE "Akas" ADD PRIMARY KEY (tconst,ordering);
 
-COMMENT ON TABLE "Akas" IS 'Contains the following information for titles';
+COMMENT ON TABLE "Akas" IS 'Contains versions of titles in several languages.';
 COMMENT ON COLUMN "Akas".tconst IS 'a tconst, an alphanumeric unique identifier of the title';
 COMMENT ON COLUMN "Akas".ordering IS 'a number to uniquely identify rows for a given titleId';
 COMMENT ON COLUMN "Akas".title IS 'the localized title';
@@ -54,7 +54,7 @@ CREATE TABLE "TitleBasics" (
 COPY "TitleBasics" FROM '/Users/lapaesleme/OneDrive/Data/dumps/IMDb/title.basics.tsv' WITH DELIMITER E'\t' NULL '\N' CSV HEADER QUOTE E'\b';
 ALTER TABLE "TitleBasics" ADD PRIMARY KEY (tconst);
 
-COMMENT ON TABLE "TitleBasics" IS 'Contains the following information for titles';
+COMMENT ON TABLE "TitleBasics" IS 'Contains information for titles';
 COMMENT ON COLUMN "TitleBasics".tconst IS 'alphanumeric unique identifier of the title';
 COMMENT ON COLUMN "TitleBasics"."titleType" IS 'the type/format of the title (e.g. movie, short, tvseries, tvepisode, video, etc)';
 COMMENT ON COLUMN "TitleBasics"."primaryTitle" IS 'the more popular title / the title used by the filmmakers on promotional materials at the point of release';
