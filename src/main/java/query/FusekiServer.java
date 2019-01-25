@@ -26,17 +26,17 @@ import org.apache.jena.update.UpdateRequest;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-public class SWLabHost {
+public class FusekiServer {
 
     public String hostname;
     public int httpPort;
 
-    private SWLabHost() {
+    public FusekiServer() {
         hostname = "localhost";
         httpPort = 3030;
     }
 
-    public SWLabHost(String hostname, int httpPort) {
+    public FusekiServer(String hostname, int httpPort) {
         this.hostname = hostname;
         this.httpPort = httpPort;
     }
@@ -46,27 +46,27 @@ public class SWLabHost {
     }
 
     public String getBackupURL(String datasetname) {
-        return String.format(baseHttpUrl() + "fuseki/$/backup/%1$s", datasetname);
+        return String.format(baseHttpUrl() + "$/backup/%1$s", datasetname);
     }
 
     public String getQuadsURL(String datasetname) {
-        return String.format(baseHttpUrl() + "fuseki/%1s/", datasetname);
+        return String.format(baseHttpUrl() + "%1s/", datasetname);
     }
 
     public String getSparqlURL(String datasetname) {
-        return String.format(baseHttpUrl() + "fuseki/%1s/sparql", datasetname);
+        return String.format(baseHttpUrl() + "%1s/sparql", datasetname);
     }
 
     public String getUpdateURL(String datasetname) {
-        return String.format(baseHttpUrl() + "fuseki/%1$s/update", datasetname);
+        return String.format(baseHttpUrl() + "%1$s/update", datasetname);
     }
 
     public String getDataURL(String datasetname) {
-        return String.format(baseHttpUrl() + "fuseki/%1s/data", datasetname);
+        return String.format(baseHttpUrl() + "%1s/data", datasetname);
     }
 
     public String updateURL(String datasetname) {
-        return String.format(baseHttpUrl() + "fuseki/%1s/update", datasetname);
+        return String.format(baseHttpUrl() + "%1s/update", datasetname);
     }
 
     public synchronized List<String> listGraphNames(String datasetname) {
@@ -75,9 +75,8 @@ public class SWLabHost {
         String queryString = "select distinct ?g where {graph ?g {[] ?p [].}}";
         try (QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
             ResultSet rs = exec.execSelect();
-            while (rs.hasNext()) {
+            while (rs.hasNext())
                 graphNames.add(rs.next().getResource("g").getURI());
-            }
         } catch (Exception e) {
         }
 
@@ -91,9 +90,8 @@ public class SWLabHost {
         try (QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
             ((QueryEngineHTTP) exec).setTimeout(timeout);
             ResultSet rs = exec.execSelect();
-            while (rs.hasNext()) {
+            while (rs.hasNext())
                 graphNames.add(rs.next().getResource("g").getURI());
-            }
         } catch (Exception e) {
         }
 
@@ -123,26 +121,25 @@ public class SWLabHost {
             HttpResponse response = httpclient.execute(new HttpPost(backupUrl));
             int statuscode = response.getStatusLine().getStatusCode();
             HttpEntity entity = response.getEntity();
-            if (entity != null && statuscode == 200) {
+            if (entity != null && statuscode == 200)
                 try (final InputStream instream = entity.getContent()) {
                     System.out.println(IOUtils.toString(instream, "utf-8"));
                     System.out.println("Done.");
                 }
-            } else {
+            else
                 System.out.println("Backup request failed.");
-            }
         } catch (Throwable e) {
             System.out.println("Backup request failed.");
         }
     }
 
-    public synchronized void putModel(String datasetname, Model sourceModel) throws InvalidNameException {
+    public synchronized void putModel(Model sourceModel, String datasetname) throws InvalidNameException {
         DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
         accessor.putModel(sourceModel);
         Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", "default graph"));
     }
 
-    public synchronized void putModel(String datasetname, String graphUri, Model sourceModel) throws InvalidNameException {
+    public synchronized void putModel(Model sourceModel, String datasetname, String graphUri) throws InvalidNameException {
         if (graphUri != null && !graphUri.equals("")) {
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
             accessor.putModel(graphUri, sourceModel);
@@ -156,11 +153,10 @@ public class SWLabHost {
         if (graphUri != null && !graphUri.equals("")) {
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
             Model model = accessor.getModel(graphUri);
-            if (model != null) {
+            if (model != null)
                 return model;
-            } else {
+            else
                 return ModelFactory.createDefaultModel();
-            }
         }
         throw new InvalidNameException(String.format("Invalid graph URI: %1s.", graphUri));
     }
@@ -168,11 +164,10 @@ public class SWLabHost {
     public synchronized Model getModel(String datasetname) {
         DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
         Model model = accessor.getModel();
-        if (model != null) {
+        if (model != null)
             return model;
-        } else {
+        else
             return ModelFactory.createDefaultModel();
-        }
     }
 
 }
