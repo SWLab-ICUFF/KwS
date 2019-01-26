@@ -35,7 +35,7 @@ construct {
 where {
   {select ?a ?b ?sca2 ?scb2
     where {
-      {select ?a (sum(?sca) as ?sca2)
+      {select ?a (max(?sca) as ?sca2)
         where {{{SELECT (imdb:profession as ?pred) where {}}
             union {SELECT (imdb:originalTitle as ?pred) where {}}
             union {SELECT (imdb:primaryTitle as ?pred) where {}}
@@ -48,13 +48,13 @@ where {
 			union {SELECT (imdb:types as ?pred) where {}}
 			union {SELECT (imdb:language as ?pred) where {}}
   			union {SELECT (imdb:attributes as ?pred) where {}}}
-          	{(?a ?sca) text:query (?pred "(actress out of africa Meryl Streep)").}}
+          	{(?a ?sca) text:query (?pred "(actress^2 out of africa Meryl Streep)").}}
 		group by ?a
-		order by desc(sum(?sca))
+		order by desc(max(?sca))
 		limit 50
       }
 
-      {select ?b (sum(?scb) as ?scb2)
+      {select ?b (max(?scb) as ?scb2)
         where {{{SELECT (imdb:profession as ?pred) where {}}
             union {SELECT (imdb:originalTitle as ?pred) where {}}
 			union {SELECT (imdb:primaryTitle as ?pred) where {}}
@@ -67,9 +67,9 @@ where {
 			union {SELECT (imdb:types as ?pred) where {}}
 			union {SELECT (imdb:language as ?pred) where {}}
   			union {SELECT (imdb:attributes as ?pred) where {}}}
-          	{(?b ?scb) text:query (?pred "(actress out of africa Meryl Streep)").}}
+          	{(?b ?scb) text:query (?pred "(actress^2 out of africa Meryl Streep)").}}
 		group by ?b
-		order by desc(sum(?scb))
+		order by desc(max(?scb))
 		limit 50
       }
       filter (str(?a) > str(?b)).

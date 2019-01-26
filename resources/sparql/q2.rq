@@ -22,7 +22,7 @@ where{
       optional {?b kws:score ?scb.}
     }
     order by desc(coalesce(?sca,0) + coalesce(?sc1,0) + coalesce(?sc2,0) + coalesce(?scb,0))
-    limit 30
+    limit 50
   }
   {?seq ?p1 ?e.
       optional {?e ?p2 ?o.}
