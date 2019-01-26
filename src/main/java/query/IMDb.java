@@ -7,6 +7,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import javax.naming.InvalidNameException;
+import org.apache.jena.query.Query;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QueryFactory;
+import org.apache.jena.query.Syntax;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
@@ -17,24 +22,19 @@ public class IMDb {
         FusekiServer fuseki = new FusekiServer();
         String queryString = readQuery("./resources/sparql/q1.rq");
         Model model = fuseki.execConstruct(queryString, "IMDb");
-        queryString = readQuery("./resources/sparql/q1.rq");
-        model.add(fuseki.execConstruct(queryString, "IMDb"));
-        queryString = readQuery("./resources/sparql/q2.rq");
-        model.add(fuseki.execConstruct(queryString, "IMDb"));
-        queryString = readQuery("./resources/sparql/q3.rq");
-        model.add(fuseki.execConstruct(queryString, "IMDb"));
-        queryString = readQuery("./resources/sparql/q4.rq");
-        model.add(fuseki.execConstruct(queryString, "IMDb"));
-        queryString = readQuery("./resources/sparql/q5.rq");
-        model.add(fuseki.execConstruct(queryString, "IMDb"));
-        queryString = readQuery("./resources/sparql/q6.rq");
-        model.add(fuseki.execConstruct(queryString, "IMDb"));
-        queryString = readQuery("./resources/sparql/q7.rq");
-        model.add(fuseki.execConstruct(queryString, "IMDb"));
-        queryString = readQuery("./resources/sparql/q8.rq");
-        model.add(fuseki.execConstruct(queryString, "IMDb"));
         fuseki.putModel(model, "Result");
         writeModel(model, "./resources/dat/result.ttl");
+
+        if (true) {
+            queryString = readQuery("./resources/sparql/q2.rq");
+            Query query = QueryFactory.create();
+            QueryFactory.parse(query, queryString, "", Syntax.syntaxSPARQL_11);
+            QueryExecution qexec = QueryExecutionFactory.create(query, model);
+            model = qexec.execConstruct();
+        }
+
+        fuseki.putModel(model, "Result2");
+        writeModel(model, "./resources/dat/result2.ttl");
 
     }
 

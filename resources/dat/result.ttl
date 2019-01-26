@@ -1,352 +1,1788 @@
 @prefix rsc:   <http://localhost:8080/resource/> .
 @prefix imdb:  <http://localhost:8080/resource/vocab/> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix kws:   <http://localhost:8080/kws/vocab/> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix text:  <http://jena.apache.org/text#> .
 
-rsc:Principal.tt7739398.nm0000658.3
-        rdfs:label  "Meryl Streep as self of Meryl Streep; Tom Hanks; Mark Weinberg" ;
-        imdb:name   rsc:Name.nm0000658 ;
-        imdb:title  rsc:Title.tt7739398 .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
 
-rsc:Principal.tt0611276.nm0000658.2
-        rdfs:label  "Meryl Streep as self of Meryl Streep" ;
-        imdb:name   rsc:Name.nm0000658 ;
-        imdb:title  rsc:Title.tt0611276 .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt4898774 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt4898774.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
 
-rsc:Principal.tt2219715.nm0000658.2
-        rdfs:label  "Meryl Streep as self of Meryl Streep" ;
-        imdb:name   rsc:Name.nm0000658 ;
-        imdb:title  rsc:Title.tt2219715 .
+rsc:Title.tt7739398  rdfs:label  "Episode #291 of Meryl Streep; Tom Hanks; Mark Weinberg" , "Meryl Streep; Tom Hanks; Mark Weinberg" ;
+        kws:score       "32.581787"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:principal  rsc:Principal.tt7739398.nm0000658.3 .
 
-rsc:Title.tt4201396  a    imdb:Title ;
-        rdfs:label        "Meryl Streep/Jessye Norman" , "Episode #56 of Meryl Streep/Jessye Norman" ;
-        imdb:parentTitle  rsc:Title.tt0106053 .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt3449828 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt3449828.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
 
-rsc:Title.tt0108724  a  imdb:Title ;
-        rdfs:label  "Chicago Hope" .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt7739398 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt7739398.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
 
-rsc:Title.tt1699756  a  imdb:Title ;
-        rdfs:label  "Hollywood's Top Ten" .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt1119968 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt1119968.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
 
-rsc:Title.tt0283528  a  imdb:Title ;
-        rdfs:label  "Out of Africa" .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
 
-rsc:Title.tt5686170  a    imdb:Title ;
-        rdfs:label        "Meryl Streep" , "Episode #394 of Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt3833318 .
-
-rsc:Title.tt2908362  a  imdb:Title ;
-        rdfs:label  "Geeking Out On..." .
-
-rsc:Title.tt7745774  a    imdb:Title ;
-        rdfs:label        "Sheila Nevins on Storytelling, Sex, & Meryl Streep" , "Episode #49 of Sheila Nevins on Storytelling, Sex, & Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt2322438 .
-
-rsc:Title.tt4218164  a    imdb:Title ;
-        rdfs:label        "Episode #368 of Meryl Streep/Laura Dern/Lawrence Zarian" , "Meryl Streep/Laura Dern/Lawrence Zarian" ;
-        imdb:parentTitle  rsc:Title.tt0096636 ;
-        imdb:principal    rsc:Principal.tt4218164.nm0000658.4 .
-
-rsc:Title.tt0458254  a  imdb:Title ;
-        rdfs:label  "The Colbert Report" .
-
-rsc:Title.tt5229716  a    imdb:Title ;
-        rdfs:label        "Episode #41 of Meryl Streep" , "Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt2576350 ;
-        imdb:principal    rsc:Principal.tt5229716.nm0000658.4 .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
 
 rsc:Principal.tt7846560.nm0000658.3
         rdfs:label  "Meryl Streep as self of Tom Hanks/Meryl Streep" ;
         imdb:name   rsc:Name.nm0000658 ;
         imdb:title  rsc:Title.tt7846560 .
 
-rsc:Title.tt2219715  a    imdb:Title ;
-        rdfs:label        "Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt1299047 ;
-        imdb:principal    rsc:Principal.tt2219715.nm0000658.2 .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
 
-rsc:Title.tt3833318  a  imdb:Title ;
-        rdfs:label  "Time & Again" .
-
-rsc:Title.tt6440238  a    imdb:Title ;
-        rdfs:label        "The Golden Globes and Meryl Streep" , "Episode #3 of The Golden Globes and Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt6279292 .
-
-rsc:Title.tt1755361  a    imdb:Title ;
-        rdfs:label        "Meryl Streep Movies" , "Episode #50 of Meryl Streep Movies" ;
-        imdb:parentTitle  rsc:Title.tt1699756 .
-
-rsc:Title.tt0092322  a  imdb:Title ;
-        rdfs:label  "Biography" .
-
-rsc:Title.tt0115147  a  imdb:Title ;
-        rdfs:label  "The Daily Show" .
-
-rsc:Title.tt1299047  a  imdb:Title ;
-        rdfs:label  "Huckabee" .
-
-rsc:Title.tt0320037  a  imdb:Title ;
-        rdfs:label  "Jimmy Kimmel Live!" .
-
-rsc:Title.tt0183250  a  imdb:Title ;
-        rdfs:label  "In and Out of Africa" .
-
-rsc:Title.tt2132638  a  imdb:Title ;
-        rdfs:label  "Close Up" .
-
-rsc:Title.tt2918420  a    imdb:Title ;
-        rdfs:label        "Meryl Streep" , "Episode #5 of Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt2908362 .
-
-rsc:Principal.tt3449828.nm0000658.3
-        rdfs:label  "Meryl Streep as self of Meryl Streep/Vanessa Hudgens" ;
-        imdb:name   rsc:Name.nm0000658 ;
-        imdb:title  rsc:Title.tt3449828 .
-
-rsc:Principal.tt2134508.nm0000658.1
-        rdfs:label  "Meryl Streep as self of Meryl Streep" ;
-        imdb:name   rsc:Name.nm0000658 ;
-        imdb:title  rsc:Title.tt2134508 .
-
-rsc:Principal.tt5229716.nm0000658.4
-        rdfs:label  "Meryl Streep as self of Meryl Streep" ;
-        imdb:name   rsc:Name.nm0000658 ;
-        imdb:title  rsc:Title.tt5229716 .
-
-rsc:Title.tt3433436  a    imdb:Title ;
-        rdfs:label        "Meryl Streep" , "Episode #12 of Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt3426830 .
-
-rsc:Title.tt1368881  a    imdb:Title ;
-        rdfs:label        "Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt0092322 .
-
-rsc:Title.tt0106053  a  imdb:Title ;
-        rdfs:label  "Late Show with David Letterman" .
-
-rsc:Title.tt4920934  a  imdb:Title ;
-        rdfs:label  "Film Journeys" .
-
-rsc:Title.tt0089755  a  imdb:Title ;
-        rdfs:label  "Out of Africa" .
-
-imdb:Title  rdfs:label  "Episode"@en , "Title"@en .
-
-rsc:Title.tt2224693  a    imdb:Title ;
-        rdfs:label        "The Meryl Streep Showdown" , "Episode #4 of The Meryl Streep Showdown" ;
-        imdb:parentTitle  rsc:Title.tt2191991 .
-
-rsc:Title.tt7739398  a    imdb:Title ;
-        rdfs:label        "Episode #291 of Meryl Streep; Tom Hanks; Mark Weinberg" , "Meryl Streep; Tom Hanks; Mark Weinberg" ;
-        imdb:parentTitle  rsc:Title.tt2163227 ;
-        imdb:principal    rsc:Principal.tt7739398.nm0000658.3 .
-
-rsc:Title.tt0540279  a    imdb:Title ;
-        rdfs:label        "Out of Africa" , "Episode #1 of Out of Africa" ;
-        imdb:parentTitle  rsc:Title.tt0108724 .
-
-rsc:Title.tt0379623  a  imdb:Title ;
-        rdfs:label  "Ellen: The Ellen DeGeneres Show" .
-
-rsc:Title.tt2427784  a    imdb:Title ;
-        rdfs:label        "Meryl Streep" , "Episode #107 of Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt0458254 .
-
-rsc:Title.tt0993209  a    imdb:Title ;
-        rdfs:label        "Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt0382416 ;
-        imdb:principal    rsc:Principal.tt0993209.nm0000658.2 .
-
-rsc:Title.tt7846560  a    imdb:Title ;
-        rdfs:label        "Episode #78 of Tom Hanks/Meryl Streep" , "Tom Hanks/Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt0379623 ;
-        imdb:principal    rsc:Principal.tt7846560.nm0000658.3 .
-
-rsc:Title.tt2336298  a    imdb:Title ;
-        rdfs:label        "Episode #35 of Meryl Streep" , "Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt2057880 ;
-        imdb:principal    rsc:Principal.tt2336298.nm0000658.3 .
-
-rsc:Title.tt4151552  a  imdb:Title ;
-        rdfs:label  "Out of Frame" .
-
-rsc:Title.tt2322438  a  imdb:Title ;
-        rdfs:label  "Larry King Now" .
-
-rsc:Title.tt1300281  a  imdb:Title ;
-        rdfs:label  "Premio Donostia a Meryl Streep" .
+rsc:Title.tt0993209  rdfs:label  "Meryl Streep" ;
+        kws:score       "53.24254"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:principal  rsc:Principal.tt0993209.nm0000658.2 .
 
 rsc:Principal.tt1119968.nm0000658.3
         rdfs:label  "Meryl Streep as self of Meryl Streep" ;
         imdb:name   rsc:Name.nm0000658 ;
         imdb:title  rsc:Title.tt1119968 .
 
-rsc:Title.tt2134508  a    imdb:Title ;
-        rdfs:label        "Episode #12 of Meryl Streep" , "Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt2132638 ;
-        imdb:principal    rsc:Principal.tt2134508.nm0000658.1 .
-
-rsc:Title.tt0899126  a  imdb:Title ;
-        rdfs:label  "The Tonight Show with Conan O'Brien" .
-
-rsc:Title.tt5092558  a    imdb:Title ;
-        rdfs:label        "Meryl Streep" , "Episode #79 of Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt4595298 .
-
-rsc:Name.nm0000658  rdfs:label  "Meryl Streep" ;
-        imdb:knownForTitle  rsc:Title.tt0089755 .
-
 rsc:Principal.tt4898774.nm0000658.3
         rdfs:label  "Meryl Streep as self of Meryl Streep/Michael B. Jordan" ;
         imdb:name   rsc:Name.nm0000658 ;
         imdb:title  rsc:Title.tt4898774 .
 
-rsc:Name.nm2351858  rdfs:label  "Liz Lanteri" ;
-        imdb:knownForTitle  rsc:Title.tt2180309 , rsc:Title.tt2191991 .
-
-rsc:Title.tt7031928  a    imdb:Title ;
-        rdfs:label        "Jeremy & Anna's Meryl Streep Costume Party" , "Episode #5 of Jeremy & Anna's Meryl Streep Costume Party" ;
-        imdb:parentTitle  rsc:Title.tt2211129 .
-
-rsc:Principal.tt4218164.nm0000658.4
-        rdfs:label  "Meryl Streep as self of Meryl Streep/Laura Dern/Lawrence Zarian" ;
+rsc:Principal.tt0611276.nm0000658.2
+        rdfs:label  "Meryl Streep as self of Meryl Streep" ;
         imdb:name   rsc:Name.nm0000658 ;
-        imdb:title  rsc:Title.tt4218164 .
+        imdb:title  rsc:Title.tt0611276 .
 
-rsc:Title.tt0096636  a  imdb:Title ;
-        rdfs:label  "Live! with Kelly" .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
 
-rsc:Title.tt1147366  a  imdb:Title ;
-        rdfs:label  "Tetsuko's Room" .
+rsc:Title.tt4898774  rdfs:label  "Episode #240 of Meryl Streep/Michael B. Jordan" , "Meryl Streep/Michael B. Jordan" ;
+        kws:score       "36.08221"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:principal  rsc:Principal.tt4898774.nm0000658.3 .
 
-rsc:Title.tt7717550  a  imdb:Title ;
-        rdfs:label      "Meryl Streep: Shut the F*ck Up" ;
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt0611276 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt0611276.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt7739398 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt7739398.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt7717550 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt7717550.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt4898774 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt4898774.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt3449828 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt3449828.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt5229716 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt5229716.nm0000658.4 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2315415 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt2315415.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt7846560 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt7846560.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+rsc:Title.tt7717550  rdfs:label  "Meryl Streep: Shut the F*ck Up" ;
+        kws:score       "32.581787"^^<http://www.w3.org/2001/XMLSchema#float> ;
         imdb:principal  rsc:Principal.tt7717550.nm0000658.2 .
 
-rsc:Title.tt7756052  a    imdb:Title ;
-        rdfs:label        "Episode #1 of Meryl Streep/Jason Ritter/Blake Shelton" , "Meryl Streep/Jason Ritter/Blake Shelton" ;
-        imdb:parentTitle  rsc:Title.tt0320037 ;
-        imdb:principal    rsc:Principal.tt7756052.nm0000658.2 .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
 
-rsc:Title.tt5022708  a    imdb:Title ;
-        rdfs:label        "A Close Up on Meryl Streep" , "Episode #7 of A Close Up on Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt4151552 .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
 
-rsc:Title.tt4595298  a  imdb:Title ;
-        rdfs:label  "Celebrated" .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
 
-rsc:Principal.tt0993209.nm0000658.2
-        rdfs:label  "Meryl Streep as self of Meryl Streep" ;
-        imdb:name   rsc:Name.nm0000658 ;
-        imdb:title  rsc:Title.tt0993209 .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt5229716 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt5229716.nm0000658.4 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
 
-rsc:Title.tt1481915  a    imdb:Title ;
-        rdfs:label        "Episode #36 of Meryl Streep/Judd Apatow/The Fray" , "Meryl Streep/Judd Apatow/The Fray" ;
-        imdb:parentTitle  rsc:Title.tt0899126 ;
-        imdb:principal    rsc:Principal.tt1481915.nm0000658.2 .
+rsc:Title.tt5229716  rdfs:label  "Episode #41 of Meryl Streep" , "Meryl Streep" ;
+        kws:score       "53.24254"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:principal  rsc:Principal.tt5229716.nm0000658.4 .
 
-rsc:Title.tt6279292  a  imdb:Title ;
-        rdfs:label  "Chew on This" .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt1481915 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt1481915.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
 
-rsc:Title.tt4237440  a    imdb:Title ;
-        rdfs:label        "Meryl Streep/Rebel Wilson/J. Cole" , "Episode #62 of Meryl Streep/Rebel Wilson/J. Cole" ;
-        imdb:parentTitle  rsc:Title.tt0106053 .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
 
-rsc:Title.tt3449828  a    imdb:Title ;
-        rdfs:label        "Episode #92 of Meryl Streep/Vanessa Hudgens" , "Meryl Streep/Vanessa Hudgens" ;
-        imdb:parentTitle  rsc:Title.tt0379623 ;
-        imdb:principal    rsc:Principal.tt3449828.nm0000658.3 .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
 
-rsc:Title.tt0101041  a  imdb:Title ;
-        rdfs:label  "Baby Talk" .
-
-rsc:Title.tt2315415  a    imdb:Title ;
-        rdfs:label        "Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt1147366 ;
-        imdb:principal    rsc:Principal.tt2315415.nm0000658.2 .
-
-rsc:Title.tt4130522  a    imdb:Title ;
-        rdfs:label        "Meryl Streep Should Adopt Me!" , "Episode #33 of Meryl Streep Should Adopt Me!" ;
-        imdb:parentTitle  rsc:Title.tt4109664 .
-
-rsc:Title.tt2057880  a  imdb:Title ;
-        rdfs:label  "Watch What Happens: Live" .
-
-rsc:Title.tt0611276  a    imdb:Title ;
-        rdfs:label        "Episode #1 of Meryl Streep" , "Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt0169455 ;
-        imdb:principal    rsc:Principal.tt0611276.nm0000658.2 .
-
-rsc:Title.tt0169455  a  imdb:Title ;
-        rdfs:label  "Inside the Actors Studio" .
-
-rsc:Title.tt2191991  a  imdb:Title ;
-        rdfs:label  "Billy on the Street with Billy Eichner" .
-
-rsc:Title.tt1119968  a    imdb:Title ;
-        rdfs:label        "Episode #132 of Meryl Streep" , "Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt0115147 ;
-        imdb:principal    rsc:Principal.tt1119968.nm0000658.3 .
-
-rsc:Principal.tt1481915.nm0000658.2
-        rdfs:label  "Meryl Streep as self of Meryl Streep/Judd Apatow/The Fray" ;
-        imdb:name   rsc:Name.nm0000658 ;
-        imdb:title  rsc:Title.tt1481915 .
-
-rsc:Title.tt3426830  a  imdb:Title ;
-        rdfs:label  "Stars!" .
-
-rsc:Title.tt4109664  a  imdb:Title ;
-        rdfs:label  "The Finer Things in Life" .
-
-rsc:Title.tt7880346  a    imdb:Title ;
-        rdfs:label        "Meryl Streep" ;
-        imdb:parentTitle  rsc:Title.tt4920934 .
-
-rsc:Title.tt4898774  a    imdb:Title ;
-        rdfs:label        "Episode #240 of Meryl Streep/Michael B. Jordan" , "Meryl Streep/Michael B. Jordan" ;
-        imdb:parentTitle  rsc:Title.tt0096636 ;
-        imdb:principal    rsc:Principal.tt4898774.nm0000658.3 .
-
-rsc:Principal.tt2336298.nm0000658.3
-        rdfs:label  "Meryl Streep as self of Meryl Streep" ;
-        imdb:name   rsc:Name.nm0000658 ;
-        imdb:title  rsc:Title.tt2336298 .
-
-rsc:Title.tt2576350  a  imdb:Title ;
-        rdfs:label  "Celebrity Style Story" .
-
-rsc:Title.tt5875366  a  imdb:Title ;
-        rdfs:label  "Meryl Fuckin Streep" .
-
-rsc:Principal.tt7756052.nm0000658.2
-        rdfs:label  "Meryl Streep as self of Meryl Streep/Jason Ritter/Blake Shelton" ;
-        imdb:name   rsc:Name.nm0000658 ;
-        imdb:title  rsc:Title.tt7756052 .
-
-rsc:Principal.tt7717550.nm0000658.2
-        rdfs:label  "Meryl Streep as archive_footage of Meryl Streep: Shut the F*ck Up" ;
-        imdb:name   rsc:Name.nm0000658 ;
-        imdb:title  rsc:Title.tt7717550 .
-
-rsc:Title.tt2211129  a  imdb:Title ;
-        rdfs:label  "The Mindy Project" .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
 
 rsc:Principal.tt2315415.nm0000658.2
         rdfs:label  "Meryl Streep as self of Meryl Streep" ;
         imdb:name   rsc:Name.nm0000658 ;
         imdb:title  rsc:Title.tt2315415 .
 
-rsc:Title.tt0517571  a    imdb:Title ;
-        rdfs:label        "Out of Africa" , "Episode #12 of Out of Africa" ;
-        imdb:parentTitle  rsc:Title.tt0101041 .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
 
-rsc:Title.tt2163227  a  imdb:Title ;
-        rdfs:label  "CBS This Morning" .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
 
-rsc:Title.tt2180309  a  imdb:Title ;
-        rdfs:label  "Billy on the Street: The Meryl Streep Showdown" .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
 
-rsc:Title.tt0382416  a  imdb:Title ;
-        rdfs:label  "Famous" .
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt4898774 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt4898774.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt7756052 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt7756052.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2336298 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt2336298.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt0611276 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt0611276.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt7739398 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt7739398.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt7756052 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt7756052.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt1119968 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt1119968.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2315415 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt2315415.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt7846560 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt7846560.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt1119968 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt1119968.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2134508 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt2134508.nm0000658.1 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+rsc:Title.tt7756052  rdfs:label  "Episode #1 of Meryl Streep/Jason Ritter/Blake Shelton" , "Meryl Streep/Jason Ritter/Blake Shelton" ;
+        kws:score       "32.581787"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:principal  rsc:Principal.tt7756052.nm0000658.2 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+rsc:Name.nm2351858  rdfs:label  "Liz Lanteri" ;
+        imdb:knownForTitle  rsc:Title.tt2180309 , rsc:Title.tt2191991 .
+
+rsc:Title.tt0089755  rdfs:label  "Out of Africa" ;
+        kws:score   "32.181084"^^<http://www.w3.org/2001/XMLSchema#float> .
+
+rsc:Principal.tt0993209.nm0000658.2
+        rdfs:label  "Meryl Streep as self of Meryl Streep" ;
+        imdb:name   rsc:Name.nm0000658 ;
+        imdb:title  rsc:Title.tt0993209 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+rsc:Principal.tt7717550.nm0000658.2
+        rdfs:label  "Meryl Streep as archive_footage of Meryl Streep: Shut the F*ck Up" ;
+        imdb:name   rsc:Name.nm0000658 ;
+        imdb:title  rsc:Title.tt7717550 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+rsc:Principal.tt3449828.nm0000658.3
+        rdfs:label  "Meryl Streep as self of Meryl Streep/Vanessa Hudgens" ;
+        imdb:name   rsc:Name.nm0000658 ;
+        imdb:title  rsc:Title.tt3449828 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt0611276 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt0611276.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+rsc:Title.tt0611276  rdfs:label  "Episode #1 of Meryl Streep" , "Meryl Streep" ;
+        kws:score       "53.24254"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:principal  rsc:Principal.tt0611276.nm0000658.2 .
+
+rsc:Title.tt1119968  rdfs:label  "Episode #132 of Meryl Streep" , "Meryl Streep" ;
+        kws:score       "53.24254"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:principal  rsc:Principal.tt1119968.nm0000658.3 .
+
+rsc:Title.tt2219715  rdfs:label  "Meryl Streep" ;
+        kws:score       "53.24254"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:principal  rsc:Principal.tt2219715.nm0000658.2 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2219715 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt2219715.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt3449828 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt3449828.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2219715 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt2219715.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2134508 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt2134508.nm0000658.1 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+rsc:Title.tt2191991  rdfs:label  "Billy on the Street with Billy Eichner" .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+rsc:Title.tt2224693  rdfs:label  "Episode #4 of The Meryl Streep Showdown" , "The Meryl Streep Showdown" ;
+        kws:score         "45.956978"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:parentTitle  rsc:Title.tt2191991 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt0993209 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt0993209.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+rsc:Principal.tt1481915.nm0000658.2
+        rdfs:label  "Meryl Streep as self of Meryl Streep/Judd Apatow/The Fray" ;
+        imdb:name   rsc:Name.nm0000658 ;
+        imdb:title  rsc:Title.tt1481915 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt4218164 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt4218164.nm0000658.4 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt4218164 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt4218164.nm0000658.4 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt0611276 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt0611276.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt1481915 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt1481915.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2336298 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt2336298.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt7846560 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt7846560.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt7717550 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt7717550.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+rsc:Principal.tt7756052.nm0000658.2
+        rdfs:label  "Meryl Streep as self of Meryl Streep/Jason Ritter/Blake Shelton" ;
+        imdb:name   rsc:Name.nm0000658 ;
+        imdb:title  rsc:Title.tt7756052 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+rsc:Title.tt3449828  rdfs:label  "Episode #92 of Meryl Streep/Vanessa Hudgens" , "Meryl Streep/Vanessa Hudgens" ;
+        kws:score       "40.425297"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:principal  rsc:Principal.tt3449828.nm0000658.3 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt4218164 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt4218164.nm0000658.4 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt7756052 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt7756052.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+rsc:Title.tt1481915  rdfs:label  "Episode #36 of Meryl Streep/Judd Apatow/The Fray" , "Meryl Streep/Judd Apatow/The Fray" ;
+        kws:score       "36.08221"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:principal  rsc:Principal.tt1481915.nm0000658.2 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt7846560 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt7846560.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2336298 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt2336298.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt5229716 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt5229716.nm0000658.4 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt0993209 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt0993209.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+rsc:Principal.tt2134508.nm0000658.1
+        rdfs:label  "Meryl Streep as self of Meryl Streep" ;
+        imdb:name   rsc:Name.nm0000658 ;
+        imdb:title  rsc:Title.tt2134508 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+rsc:Principal.tt2219715.nm0000658.2
+        rdfs:label  "Meryl Streep as self of Meryl Streep" ;
+        imdb:name   rsc:Name.nm0000658 ;
+        imdb:title  rsc:Title.tt2219715 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2336298 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt2336298.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt1481915 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt1481915.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt1481915 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt1481915.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt3449828 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt3449828.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+rsc:Title.tt4218164  rdfs:label  "Episode #368 of Meryl Streep/Laura Dern/Lawrence Zarian" , "Meryl Streep/Laura Dern/Lawrence Zarian" ;
+        kws:score       "32.581787"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:principal  rsc:Principal.tt4218164.nm0000658.4 .
+
+rsc:Title.tt7846560  rdfs:label  "Episode #78 of Tom Hanks/Meryl Streep" , "Tom Hanks/Meryl Streep" ;
+        kws:score       "40.425297"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:principal  rsc:Principal.tt7846560.nm0000658.3 .
+
+rsc:Title.tt2315415  rdfs:label  "Meryl Streep" ;
+        kws:score       "53.24254"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:principal  rsc:Principal.tt2315415.nm0000658.2 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+rsc:Principal.tt2336298.nm0000658.3
+        rdfs:label  "Meryl Streep as self of Meryl Streep" ;
+        imdb:name   rsc:Name.nm0000658 ;
+        imdb:title  rsc:Title.tt2336298 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt7739398 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt7739398.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+rsc:Title.tt2134508  rdfs:label  "Episode #12 of Meryl Streep" , "Meryl Streep" ;
+        kws:score       "53.24254"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:principal  rsc:Principal.tt2134508.nm0000658.1 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+rsc:Title.tt2180309  rdfs:label  "Billy on the Street: The Meryl Streep Showdown" ;
+        kws:score   "36.08221"^^<http://www.w3.org/2001/XMLSchema#float> .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+rsc:Title.tt2336298  rdfs:label  "Episode #35 of Meryl Streep" , "Meryl Streep" ;
+        kws:score       "53.24254"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:principal  rsc:Principal.tt2336298.nm0000658.3 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt4898774 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt4898774.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+rsc:Principal.tt4218164.nm0000658.4
+        rdfs:label  "Meryl Streep as self of Meryl Streep/Laura Dern/Lawrence Zarian" ;
+        imdb:name   rsc:Name.nm0000658 ;
+        imdb:title  rsc:Title.tt4218164 .
+
+rsc:Name.nm0000658  rdfs:label  "Meryl Streep" ;
+        imdb:knownForTitle  rsc:Title.tt0089755 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2134508 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt2134508.nm0000658.1 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+rsc:Principal.tt7739398.nm0000658.3
+        rdfs:label  "Meryl Streep as self of Meryl Streep; Tom Hanks; Mark Weinberg" ;
+        imdb:name   rsc:Name.nm0000658 ;
+        imdb:title  rsc:Title.tt7739398 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2134508 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt2134508.nm0000658.1 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+rsc:Principal.tt5229716.nm0000658.4
+        rdfs:label  "Meryl Streep as self of Meryl Streep" ;
+        imdb:name   rsc:Name.nm0000658 ;
+        imdb:title  rsc:Title.tt5229716 .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt1119968 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt1119968.nm0000658.3 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt4218164 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt4218164.nm0000658.4 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt7756052 ;
+  rdf:_2  imdb:title ;
+  rdf:_3  rsc:Principal.tt7756052.nm0000658.2 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt2224693 ;
+  rdf:_2  imdb:parentTitle ;
+  rdf:_3  rsc:Title.tt2191991 ;
+  rdf:_4  imdb:knownForTitle ;
+  rdf:_5  rsc:Name.nm2351858 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt2180309
+] .
+
+[ a       rdf:Seq ;
+  rdf:_1  rsc:Title.tt5229716 ;
+  rdf:_2  imdb:principal ;
+  rdf:_3  rsc:Principal.tt5229716.nm0000658.4 ;
+  rdf:_4  imdb:name ;
+  rdf:_5  rsc:Name.nm0000658 ;
+  rdf:_6  imdb:knownForTitle ;
+  rdf:_7  rsc:Title.tt0089755
+] .
