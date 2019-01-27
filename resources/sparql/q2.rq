@@ -12,21 +12,19 @@ construct {
   ?e ?p2 ?o.
   ?s ?_p2 ?e.
 }
-where{
-  {select ?seq ((coalesce(?sca,0) + coalesce(?sc1,0) + coalesce(?sc2,0) + coalesce(?scb,0)) as ?score)
+where{{
+    select ?seq (sum(?sc) as ?score)
     where {
-      ?seq a rdf:Seq; rdf:_1 ?a; rdf:_3 ?s1; rdf:_5 ?s2; rdf:_7 ?b.
-      optional {?a kws:score ?sca.}
-      optional {?s1 kws:score ?scs1.}
-      optional {?s2 kws:score ?scs2.}
-      optional {?b kws:score ?scb.}
+      ?seq a rdf:Seq;
+           ?p [kws:score ?sc].
     }
-    order by desc(coalesce(?sca,0) + coalesce(?sc1,0) + coalesce(?sc2,0) + coalesce(?scb,0))
-    limit 50
+    group By ?seq
+    order by desc(sum(?sc))
+    limit 20
   }
-  {?seq ?p1 ?e.
-      optional {?e ?p2 ?o.}
-      optional {?s ?_p2 ?e.}
-      filter (!(?_p1 in (rdf:_1,rdf:_2,rdf:_3,rdf:_4,rdf:_5,rdf:_6,rdf:_7,rdf:_8) && ?s != ?seq))
+  {
+    ?seq ?p1 ?e.optional {?e ?p2 ?o.}
+    optional {?s ?_p2 ?e.}
+    filter (!(?_p1 in (rdf:_1,rdf:_2,rdf:_3,rdf:_4,rdf:_5,rdf:_6,rdf:_7,rdf:_8) && ?s != ?seq))
   }
 }
