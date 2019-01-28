@@ -5,26 +5,38 @@ prefix imdb: <http://localhost:8080/resource/vocab/>
 prefix rsc: <http://localhost:8080/resource/>
 prefix kws: <http://localhost:8080/kws/vocab/>
 
-construct {
-  ?seq kws:score ?score.
-  ?seq a rdf:Seq.
-  ?seq ?p1 ?e.
-  ?e ?p2 ?o.
-  ?s ?_p2 ?e.
-}
-where{{
-    select ?seq (sum(?sc) as ?score)
+construct {?e kws:score ?score.}
+where {
+    select ?e (sum(?sc) as ?score)
     where {
-      ?seq a rdf:Seq;
-           ?p [kws:score ?sc].
+        {
+            select distinct ?e
+            where {
+                {[] rdf:_3 ?e.}
+                union {[] rdf:_5 ?e.}
+                union {[] rdf:_7 ?e.}
+                union {[] rdf:_9 ?e.}
+                union {[] rdf:_11 ?e.}
+            }
+        }
+  	{
+            {SELECT (imdb:profession as ?pred) where {}}
+            union {SELECT (imdb:originalTitle as ?pred) where {}}
+            union {SELECT (imdb:primaryTitle as ?pred) where {}}
+            union {SELECT (imdb:titleType as ?pred) where {}}
+            union {SELECT (imdb:genre as ?pred) where {}}
+            union {SELECT (imdb:job as ?pred) where {}}
+            union {SELECT (imdb:primaryName as ?pred) where {}}
+            union {SELECT (imdb:primaryProfession as ?pred) where {}}
+            union {SELECT (imdb:region as ?pred) where {}}
+            union {SELECT (imdb:types as ?pred) where {}}
+            union {SELECT (imdb:language as ?pred) where {}}
+            union {SELECT (imdb:attributes as ?pred) where {}}
+  	}
+  	service <http://localhost:3030/IMDb/sparql> {
+            (?e ?sc) text:query (?pred "(actress \"out of africa\"^3 Meryl Streep)").
+  	}
     }
-    group By ?seq
-    order by desc(sum(?sc))
-    limit 20
-  }
-  {
-    ?seq ?p1 ?e.optional {?e ?p2 ?o.}
-    optional {?s ?_p2 ?e.}
-    filter (!(?_p1 in (rdf:_1,rdf:_2,rdf:_3,rdf:_4,rdf:_5,rdf:_6,rdf:_7,rdf:_8) && ?s != ?seq))
-  }
+    group by ?e
 }
+

@@ -20,13 +20,22 @@ public class IMDb {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer();
-        String queryString = readQuery("./resources/sparql/q1.rq");
+        String queryString = readQuery("./resources/sparql/q1_2.rq");
         Model model = fuseki.execConstruct(queryString, "IMDb");
+
+        if (true) {
+            queryString = readQuery("./resources/sparql/q2.rq");
+            Query query = QueryFactory.create();
+            QueryFactory.parse(query, queryString, "", Syntax.syntaxSPARQL_11);
+            QueryExecution qexec = QueryExecutionFactory.create(query, model);
+            qexec.execConstruct(model);
+        }
+
         fuseki.putModel(model, "Result");
         writeModel(model, "./resources/dat/result.ttl");
 
         if (true) {
-            queryString = readQuery("./resources/sparql/q2.rq");
+            queryString = readQuery("./resources/sparql/q3.rq");
             Query query = QueryFactory.create();
             QueryFactory.parse(query, queryString, "", Syntax.syntaxSPARQL_11);
             QueryExecution qexec = QueryExecutionFactory.create(query, model);

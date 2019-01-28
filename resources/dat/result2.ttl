@@ -5,232 +5,211 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix text:  <http://jena.apache.org/text#> .
 
+[ a          rdf:Seq ;
+  rdf:_1     rsc:Title.tt0549339 ;
+  rdf:_2     imdb:parentTitle ;
+  rdf:_3     rsc:Title.tt0086689 ;
+  rdf:_4     imdb:parentTitle ;
+  rdf:_5     rsc:Title.tt0549338 ;
+  kws:score  "73.302124"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+rsc:Principal.tt0089755.nm0000658.1
+        rdfs:label  "Meryl Streep as actress of Out of Africa" ;
+        kws:score   "2.0406463"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:name   rsc:Name.nm0000658 .
+
 rsc:Title.tt0089755  rdfs:label  "Out of Africa" ;
-        kws:score       "32.181084"^^<http://www.w3.org/2001/XMLSchema#float> ;
-        imdb:akas       rsc:Akas.tt0089755.32 , rsc:Akas.tt0089755.19 , rsc:Akas.tt0089755.28 , rsc:Akas.tt0089755.4 , rsc:Akas.tt0089755.20 , rsc:Akas.tt0089755.38 , rsc:Akas.tt0089755.30 , rsc:Akas.tt0089755.26 , rsc:Akas.tt0089755.35 , rsc:Akas.tt0089755.6 , rsc:Akas.tt0089755.2 , rsc:Akas.tt0089755.14 , rsc:Akas.tt0089755.34 , rsc:Akas.tt0089755.39 , rsc:Akas.tt0089755.22 , rsc:Akas.tt0089755.31 , rsc:Akas.tt0089755.18 , rsc:Akas.tt0089755.10 , rsc:Akas.tt0089755.41 , rsc:Akas.tt0089755.37 , rsc:Akas.tt0089755.9 , rsc:Akas.tt0089755.16 , rsc:Akas.tt0089755.25 , rsc:Akas.tt0089755.5 , rsc:Akas.tt0089755.12 , rsc:Akas.tt0089755.1 , rsc:Akas.tt0089755.13 , rsc:Akas.tt0089755.33 , rsc:Akas.tt0089755.29 , rsc:Akas.tt0089755.21 , rsc:Akas.tt0089755.17 , rsc:Akas.tt0089755.40 , rsc:Akas.tt0089755.27 , rsc:Akas.tt0089755.36 , rsc:Akas.tt0089755.7 , rsc:Akas.tt0089755.3 , rsc:Akas.tt0089755.23 , rsc:Akas.tt0089755.8 , rsc:Akas.tt0089755.15 , rsc:Akas.tt0089755.24 , rsc:Akas.tt0089755.11 ;
-        imdb:crew       rsc:Crew.tt0089755.nm0227598.writer , rsc:Crew.tt0089755.nm0001628.director , rsc:Crew.tt0089755.nm1429643.writer , rsc:Crew.tt0089755.nm0525104.writer , rsc:Crew.tt0089755.nm0862189.writer ;
-        imdb:principal  rsc:Principal.tt0089755.nm0001970.3 , rsc:Principal.tt0089755.nm1429643.8 , rsc:Principal.tt0089755.nm0862189.7 , rsc:Principal.tt0089755.nm0000290.10 , rsc:Principal.tt0089755.nm0000602.2 , rsc:Principal.tt0089755.nm0001628.5 , rsc:Principal.tt0089755.nm0525104.9 , rsc:Principal.tt0089755.nm0227598.6 , rsc:Principal.tt0089755.nm0457655.4 , rsc:Principal.tt0089755.nm0000658.1 .
+        kws:score       "96.54324"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:principal  rsc:Principal.tt0089755.nm0227598.6 , rsc:Principal.tt0089755.nm0000658.1 .
 
 [ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
+  rdf:_1     rsc:Principal.tt0089755.nm0227598.6 ;
+  rdf:_2     imdb:title ;
+  rdf:_3     rsc:Title.tt0089755 ;
   rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
+  rdf:_5     rsc:Name.nm0000658 ;
+  kws:score  "43.983196"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+rsc:Title.tt0086689  rdfs:label  "A Country Practice" .
+
+[ a          rdf:Seq ;
+  rdf:_1     rsc:Principal.tt0089755.nm0227598.6 ;
+  rdf:_2     imdb:title ;
+  rdf:_3     rsc:Title.tt0089755 ;
+  rdf:_4     imdb:knownForTitle ;
+  rdf:_5     rsc:Name.nm0000658 ;
+  kws:score  "43.983196"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
 [ a          rdf:Seq ;
   rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
-  rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
+  rdf:_2     imdb:principal ;
+  rdf:_3     rsc:Principal.tt0089755.nm0000658.1 ;
+  rdf:_4     imdb:name ;
+  rdf:_5     rsc:Name.nm0000658 ;
+  kws:score  "37.58557"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
 [ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
-  rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
+  rdf:_1     rsc:Title.tt0549339 ;
+  rdf:_2     imdb:parentTitle ;
+  rdf:_3     rsc:Title.tt0086689 ;
+  rdf:_4     imdb:parentTitle ;
+  rdf:_5     rsc:Title.tt0549338 ;
+  kws:score  "73.302124"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
 [ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
+  rdf:_1     rsc:Principal.tt0089755.nm0227598.6 ;
+  rdf:_2     imdb:title ;
+  rdf:_3     rsc:Title.tt0089755 ;
   rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
+  rdf:_5     rsc:Name.nm0000658 ;
+  kws:score  "43.983196"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
 [ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
+  rdf:_1     rsc:Principal.tt0089755.nm0227598.6 ;
+  rdf:_2     imdb:title ;
+  rdf:_3     rsc:Title.tt0089755 ;
   rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
+  rdf:_5     rsc:Name.nm0000658 ;
+  kws:score  "43.983196"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
 [ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
+  rdf:_1     rsc:Principal.tt0089755.nm0227598.6 ;
+  rdf:_2     imdb:title ;
+  rdf:_3     rsc:Title.tt0089755 ;
   rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
+  rdf:_5     rsc:Name.nm0000658 ;
+  kws:score  "43.983196"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
 [ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
-  rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
+  rdf:_1     rsc:Title.tt0549339 ;
+  rdf:_2     imdb:parentTitle ;
+  rdf:_3     rsc:Title.tt0086689 ;
+  rdf:_4     imdb:parentTitle ;
+  rdf:_5     rsc:Title.tt0549338 ;
+  kws:score  "73.302124"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
 [ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
+  rdf:_1     rsc:Principal.tt0089755.nm0227598.6 ;
+  rdf:_2     imdb:title ;
+  rdf:_3     rsc:Title.tt0089755 ;
   rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
+  rdf:_5     rsc:Name.nm0000658 ;
+  kws:score  "43.983196"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
 [ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
+  rdf:_1     rsc:Principal.tt0089755.nm0227598.6 ;
+  rdf:_2     imdb:title ;
+  rdf:_3     rsc:Title.tt0089755 ;
   rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
+  rdf:_5     rsc:Name.nm0000658 ;
+  kws:score  "43.983196"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
 [ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
+  rdf:_1     rsc:Principal.tt0089755.nm0227598.6 ;
+  rdf:_2     imdb:title ;
+  rdf:_3     rsc:Title.tt0089755 ;
   rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
+  rdf:_5     rsc:Name.nm0000658 ;
+  kws:score  "43.983196"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
 [ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
+  rdf:_1     rsc:Principal.tt0089755.nm0227598.6 ;
+  rdf:_2     imdb:title ;
+  rdf:_3     rsc:Title.tt0089755 ;
   rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
+  rdf:_5     rsc:Name.nm0000658 ;
+  kws:score  "43.983196"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
 [ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
-  rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
+  rdf:_1     rsc:Title.tt0549339 ;
+  rdf:_2     imdb:parentTitle ;
+  rdf:_3     rsc:Title.tt0086689 ;
+  rdf:_4     imdb:parentTitle ;
+  rdf:_5     rsc:Title.tt0549338 ;
+  kws:score  "73.302124"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
 [ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
+  rdf:_1     rsc:Principal.tt0089755.nm0227598.6 ;
+  rdf:_2     imdb:title ;
+  rdf:_3     rsc:Title.tt0089755 ;
   rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
+  rdf:_5     rsc:Name.nm0000658 ;
+  kws:score  "43.983196"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
 [ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
+  rdf:_1     rsc:Principal.tt0089755.nm0227598.6 ;
+  rdf:_2     imdb:title ;
+  rdf:_3     rsc:Title.tt0089755 ;
   rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
+  rdf:_5     rsc:Name.nm0000658 ;
+  kws:score  "43.983196"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
+
+[ a          rdf:Seq ;
+  rdf:_1     rsc:Principal.tt0089755.nm0227598.6 ;
+  rdf:_2     imdb:title ;
+  rdf:_3     rsc:Title.tt0089755 ;
+  rdf:_4     imdb:knownForTitle ;
+  rdf:_5     rsc:Name.nm0000658 ;
+  kws:score  "43.983196"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a          rdf:Seq ;
+  rdf:_1     rsc:Principal.tt0089755.nm0227598.6 ;
+  rdf:_2     imdb:title ;
+  rdf:_3     rsc:Title.tt0089755 ;
+  rdf:_4     imdb:knownForTitle ;
+  rdf:_5     rsc:Name.nm0000658 ;
+  kws:score  "43.983196"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a          rdf:Seq ;
+  rdf:_1     rsc:Principal.tt0089755.nm0227598.6 ;
+  rdf:_2     imdb:title ;
+  rdf:_3     rsc:Title.tt0089755 ;
+  rdf:_4     imdb:knownForTitle ;
+  rdf:_5     rsc:Name.nm0000658 ;
+  kws:score  "43.983196"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a          rdf:Seq ;
+  rdf:_1     rsc:Principal.tt0089755.nm0227598.6 ;
+  rdf:_2     imdb:principal ;
+  rdf:_3     rsc:Title.tt0089755 ;
+  rdf:_4     imdb:knownForTitle ;
+  rdf:_5     rsc:Name.nm0000658 ;
+  kws:score  "43.983196"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+rsc:Title.tt0549339  rdfs:label  "Out of Africa: Part 2" , "Episode #22 of Out of Africa: Part 2" ;
+        kws:score         "73.302124"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:parentTitle  rsc:Title.tt0086689 .
 
 rsc:Name.nm0000658  rdfs:label  "Meryl Streep" ;
-        kws:score           "24.846989"^^<http://www.w3.org/2001/XMLSchema#float> ;
-        imdb:knownForTitle  rsc:Title.tt0458352 , rsc:Title.tt0918927 , rsc:Title.tt1322269 , rsc:Title.tt0089755 .
+        kws:score           "24.846989"^^<http://www.w3.org/2001/XMLSchema#float> , "26.911407"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:knownForTitle  rsc:Title.tt0089755 .
 
-[ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
-  rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
-] .
+rsc:Principal.tt0089755.nm0227598.6
+        rdfs:label  "Karen Blixen as writer of Out of Africa" ;
+        kws:score   "27.631147"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:name   rsc:Name.nm0227598 ;
+        imdb:title  rsc:Title.tt0089755 .
 
-[ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
-  rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
-] .
-
-[ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
-  rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
-] .
-
-[ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
-  rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
-] .
-
-[ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
-  rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
-] .
-
-[ a          rdf:Seq ;
-  rdf:_1     rsc:Title.tt0089755 ;
-  rdf:_2     imdb:knownForTitle ;
-  rdf:_3     rsc:Name.nm0000658 ;
-  rdf:_4     imdb:knownForTitle ;
-  rdf:_5     rsc:Title.tt0089755 ;
-  rdf:_6     imdb:knownForTitle ;
-  rdf:_7     rsc:Name.nm0000658 ;
-  kws:score  "114.056145"^^<http://www.w3.org/2001/XMLSchema#float>
-] .
+rsc:Title.tt0549338  rdfs:label  "Out of Africa: Part 1" , "Episode #21 of Out of Africa: Part 1" ;
+        kws:score         "73.302124"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        imdb:parentTitle  rsc:Title.tt0086689 .

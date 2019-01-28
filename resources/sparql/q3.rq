@@ -1,65 +1,32 @@
+
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix text: <http://jena.apache.org/text#>
 prefix imdb: <http://localhost:8080/resource/vocab/>
 prefix rsc: <http://localhost:8080/resource/>
+prefix kws: <http://localhost:8080/kws/vocab/>
 
 construct {
-  ?a rdfs:label ?lbla.
-  ?b rdfs:label ?lblb.
-  ?s1 rdfs:label ?lbls1.
-  ?s2 rdfs:label ?lbls2.
-  ?a ?p1 ?s1. ?s2 ?_p2 ?s1. ?s2 ?p3 ?b.
+    ?seq kws:score ?score.
+    ?seq a rdf:Seq.
+    ?seq ?p1 ?e.
+    ?e ?p2 ?o.
 }
 where {
-  {select ?a ?b (?sca2 + ?scb2 as ?sc)
-    where {
-      {select ?a (sum(?sca) as ?sca2)
-        where {{{SELECT (imdb:profession as ?pred) where {}}
-            union {SELECT (imdb:originalTitle as ?pred) where {}}
-            union {SELECT (imdb:primaryTitle as ?pred) where {}}
-            union {SELECT (imdb:titleType as ?pred) where {}}
-			union {SELECT (imdb:genre as ?pred) where {}}
-			union {SELECT (imdb:job as ?pred) where {}}
-			union {SELECT (imdb:primaryName as ?pred) where {}}
-			union {SELECT (imdb:primaryProfession as ?pred) where {}}
-			union {SELECT (imdb:region as ?pred) where {}}
-			union {SELECT (imdb:types as ?pred) where {}}
-			union {SELECT (imdb:language as ?pred) where {}}
-  			union {SELECT (imdb:attributes as ?pred) where {}}}
-          	{(?a ?sca) text:query (?pred "(out of africa Meryl Streep)").}}
-		group by ?a
-		order by desc(sum(?sca))
-		limit 40
-      }
-
-      {select ?b (sum(?scb) as ?scb2)
-        where {{{SELECT (imdb:profession as ?pred) where {}}
-            union {SELECT (imdb:originalTitle as ?pred) where {}}
-			union {SELECT (imdb:primaryTitle as ?pred) where {}}
-			union {SELECT (imdb:titleType as ?pred) where {}}
-			union {SELECT (imdb:genre as ?pred) where {}}
-			union {SELECT (imdb:job as ?pred) where {}}
-			union {SELECT (imdb:primaryName as ?pred) where {}}
-			union {SELECT (imdb:primaryProfession as ?pred) where {}}
-			union {SELECT (imdb:region as ?pred) where {}}
-			union {SELECT (imdb:types as ?pred) where {}}
-			union {SELECT (imdb:language as ?pred) where {}}
-  			union {SELECT (imdb:attributes as ?pred) where {}}}
-          	{(?b ?scb) text:query (?pred "(out of africa Meryl Streep)").}}
-		group by ?b
-		order by desc(sum(?scb))
-		limit 40
-      }
-      filter (str(?a) > str(?b)).
+    {
+        select ?seq (avg(?sc) as ?score)
+        where {
+            ?seq a rdf:Seq;
+                 ?p [kws:score ?sc].
+        }
+        group By ?seq
+        order by desc(sum(?sc))
+        limit 20
     }
-  }
-  ?a ?p1 ?s1.
-  ?s1 ?p [].
-  ?s2 ?p3 ?b.
-  ?s2 ?_p2 ?s1.
-  OPTIONAL {?a rdfs:label ?lbla.}
-  OPTIONAL {?b rdfs:label ?lblb.}
-  OPTIONAL {?s1 rdfs:label ?lbls1.}
-  OPTIONAL {?s2 rdfs:label ?lbls2.}
+    {
+        ?seq a rdf:Seq;
+             ?p1 ?e.
+        optional {?e rdfs:label ?lbl.}
+        optional {?e ?p2 ?o.}
+    }
 }
