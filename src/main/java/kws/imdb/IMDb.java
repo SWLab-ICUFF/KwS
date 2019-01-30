@@ -1,4 +1,4 @@
-package query;
+package kws.imdb;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,6 +15,7 @@ import org.apache.jena.query.Syntax;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
+import kws.FusekiServer;
 
 public class IMDb {
 

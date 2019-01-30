@@ -1,4 +1,4 @@
-package query;
+package kws;
 
 import java.io.IOException;
 import java.io.InputStream;
