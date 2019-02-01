@@ -34,10 +34,10 @@ COMMENT ON COLUMN "Akas".tconst IS 'a tconst, an alphanumeric unique identifier 
 COMMENT ON COLUMN "Akas".ordering IS 'a number to uniquely identify rows for a given titleId';
 COMMENT ON COLUMN "Akas".title IS 'the localized title';
 COMMENT ON COLUMN "Akas".region IS 'the region for this version of the title';
-COMMENT ON COLUMN "Akas"."language" IS 'the language of the title'; 
-COMMENT ON COLUMN "Akas".types IS 'Enumerated set of attributes for this alternative title. One or more of the following: "alternative", "dvd", "festival", "tv", "video", "working", "original", "imdbDisplay". New values may be added in the future without warning'; 
-COMMENT ON COLUMN "Akas".attributes IS 'Additional terms to describe this alternative title, not enumerated'; 
-COMMENT ON COLUMN "Akas"."isOriginalTitle" IS '0: not original title; 1: original title'; 
+COMMENT ON COLUMN "Akas"."language" IS 'the language of the title';
+COMMENT ON COLUMN "Akas".types IS 'Enumerated set of attributes for this alternative title. One or more of the following: "alternative", "dvd", "festival", "tv", "video", "working", "original", "imdbDisplay". New values may be added in the future without warning';
+COMMENT ON COLUMN "Akas".attributes IS 'Additional terms to describe this alternative title, not enumerated';
+COMMENT ON COLUMN "Akas"."isOriginalTitle" IS '0: not original title; 1: original title';
 
 
 DROP TABLE IF EXISTS "TitleBasics" CASCADE;
@@ -155,8 +155,9 @@ DROP TABLE IF EXISTS "Profession" CASCADE;
 CREATE TABLE "Profession" AS
 WITH
     t1 AS (SELECT DISTINCT trim(regexp_split_to_table("primaryProfession", ',+')) AS pconst FROM "NameBasics")
-SELECT pconst, pconst AS label FROM t1 WHERE pconst is not null and pconst != '';
+SELECT pconst::varchar, regexp_replace(pconst,'_+',' ')::varchar AS label FROM t1 WHERE pconst is not null and pconst != '';
 ALTER TABLE "Profession" ADD PRIMARY KEY (pconst);
+ALTER TABLE "Profession" ALTER COLUMN label SET NOT NULL;
 COMMENT ON TABLE "Profession" IS 'Contains professions.';
 COMMENT ON COLUMN "Profession".pconst IS 'alphanumeric unique identifier of the profession';
 COMMENT ON COLUMN "Profession".label IS 'label of the profession';
@@ -200,8 +201,9 @@ DROP TABLE IF EXISTS "Genre" CASCADE;
 CREATE TABLE "Genre" AS
 WITH
     t1 AS (SELECT DISTINCT trim(regexp_split_to_table(genres, ',+')) AS gconst FROM "TitleBasics")
-SELECT gconst, gconst AS label FROM t1 WHERE gconst is not null and gconst != '';
+SELECT gconst::varchar, regexp_replace(gconst,'_+',' ')::varchar AS label FROM t1 WHERE gconst is not null and gconst != '';
 ALTER TABLE "Genre" ADD PRIMARY KEY (gconst);
+ALTER TABLE "Genre" ALTER COLUMN label SET NOT NULL;
 COMMENT ON TABLE "Genre" IS 'genres of titles';
 COMMENT ON COLUMN "Genre".gconst IS 'alphanumeric unique identifier of the genre';
 COMMENT ON COLUMN "Genre".label IS 'label of the genre';
@@ -243,3 +245,85 @@ ALTER TABLE "Principal" DROP COLUMN IF EXISTS category;
 DROP TABLE IF EXISTS "TitleCrew" CASCADE;
 -------------------------------------------------------------------------------------------------------------------------
 UPDATE "Akas" SET types = trim(regexp_replace(replace(replace(replace(replace(replace(replace(replace(replace(types,'alternative','alternative '),'dvd','dvd '),'festival','festival '),'tv','tv '),'video','video '),'working','working '),'original','original '),'imdbDisplay','imdbDisplay '),'\s+',' ', 'g'));
+-------------------------------------------------------------------------------------------------------------------------
+DROP TABLE IF EXISTS "EntityTitle" CASCADE;
+CREATE TABLE "EntityTitle" AS
+with t1 as (
+	select tconst, trim(' ' from "titleType") as "comment"
+	from "TitleBasics" where "TitleBasics" is not null
+	union select tconst, trim(' ' from "primaryTitle")
+	from "TitleBasics" where "primaryTitle" is not null
+	union select tconst, trim(' ' from "originalTitle")
+	from "TitleBasics" where "originalTitle" is not null
+        union select t1.tconst, t3.label
+        from "Title" t1 inner join "hasGenre" t2 on t1.tconst = t2.tconst
+                        inner join "Genre" t3 on t2.gconst = t3.gconst
+        where t3.label is not null
+)
+select tconst, trim(' ' from string_agg("comment", ' ')) as "comment"
+from t1
+group by tconst
+having trim(' ' from string_agg("comment", ' ')) != '';
+ALTER TABLE "EntityTitle" ADD PRIMARY KEY (tconst);
+ALTER TABLE "EntityTitle" ADD FOREIGN KEY (tconst) REFERENCES "Title";
+-------------------------------------------------------------------------------------------------------------------------
+DROP TABLE IF EXISTS "EntityName" CASCADE;
+CREATE TABLE "EntityName" AS
+select nconst, trim(' ' from "primaryName") as "comment"
+from "NameBasics"
+where "primaryName" is not null and trim(' ' from "primaryName") != '';
+ALTER TABLE "EntityName" ADD PRIMARY KEY (nconst);
+ALTER TABLE "EntityName" ADD FOREIGN KEY (nconst) REFERENCES "Name";
+-------------------------------------------------------------------------------------------------------------------------
+DROP TABLE IF EXISTS "EntityPrincipal" CASCADE;
+CREATE TABLE "EntityPrincipal" AS
+with t1 as (
+	select tconst, nconst, ordering, trim(' ' from regexp_replace("characters",'[\_\[\]\"]+',' ','g')) as "comment"
+	from "Principal" where "characters" is not null
+	union select tconst, nconst, ordering, trim(' ' from regexp_replace("job",'[\_\[\]\"]+',' ','g'))
+	from "Principal" where "job" is not null
+        union select t1.tconst, t1.nconst, t1.ordering, trim(' ' from regexp_replace(t2.label,'[\_\[\]\"]+',' ','g'))
+        from "Principal" t1 inner join "Profession" t2 on t1.pconst = t2.pconst
+        where t2.label is not null
+)
+select tconst, nconst, ordering, trim(' ' from string_agg("comment", ' ')) as "comment"
+from t1
+group by tconst, nconst, ordering
+having trim(' ' from string_agg("comment", ' ')) != '';
+ALTER TABLE "EntityPrincipal" ADD PRIMARY KEY (tconst,nconst,ordering);
+ALTER TABLE "EntityPrincipal" ADD FOREIGN KEY (tconst) REFERENCES "Title";
+ALTER TABLE "EntityPrincipal" ADD FOREIGN KEY (nconst) REFERENCES "Name";
+-------------------------------------------------------------------------------------------------------------------------
+DROP TABLE IF EXISTS "EntityCrew" CASCADE;
+CREATE TABLE "EntityCrew" AS
+select t1.tconst, t1.nconst, t1.pconst, trim(' ' from regexp_replace(t2.label,'[\_\[\]\"]+',' ','g')) as comment
+from "Crew" t1 inner join "Profession" t2 on t1.pconst = t2.pconst
+where t2.label is not null;
+ALTER TABLE "EntityCrew" ADD PRIMARY KEY (tconst,nconst,pconst);
+ALTER TABLE "EntityCrew" ADD FOREIGN KEY (tconst) REFERENCES "Title";
+ALTER TABLE "EntityCrew" ADD FOREIGN KEY (nconst) REFERENCES "Name";
+-------------------------------------------------------------------------------------------------------------------------
+DROP TABLE IF EXISTS "EntityAkas" CASCADE;
+CREATE TABLE "EntityAkas" AS
+with t1 as (
+	select tconst, ordering, trim(' ' from "title") as "comment"
+	from "Akas" where "title" is not null
+	union select tconst, ordering, trim(' ' from "region")
+	from "Akas" where "region" is not null
+	union select tconst, ordering, trim(' ' from "language")
+	from "Akas" where "language" is not null
+        union select tconst, ordering, trim(' ' from "types")
+	from "Akas" where "types" is not null
+        union select tconst, ordering, trim(' ' from "attributes")
+	from "Akas" where "attributes" is not null
+)
+select tconst, ordering, trim(' ' from string_agg("comment", ' ')) as "comment"
+from t1
+group by tconst, ordering
+having trim(' ' from string_agg("comment", ' ')) != '';
+ALTER TABLE "EntityAkas" ADD PRIMARY KEY (tconst,ordering);
+ALTER TABLE "EntityAkas" ADD FOREIGN KEY (tconst) REFERENCES "Title";
+
+
+
+
