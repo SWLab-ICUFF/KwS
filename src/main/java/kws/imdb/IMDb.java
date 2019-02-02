@@ -7,44 +7,46 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import javax.naming.InvalidNameException;
-import org.apache.jena.query.Query;
-import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.query.QueryFactory;
-import org.apache.jena.query.Syntax;
+import kws.FusekiServer;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
-import kws.FusekiServer;
 
 public class IMDb {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer();
-        String queryString = readQuery("./resources/sparql/q1_2.rq");
-        Model model = fuseki.execConstruct(queryString, "IMDb");
+        String kwsString = "(actress \\\"out of africa\\\"^3 Meryl Streep)";
+        String queryString = "";
+
+        fuseki.execUpdate("clear all", "Temp");
+        fuseki.execUpdate("clear all", "Result");
+
+        if (true) {
+            queryString = readQuery("./resources/sparql/q1.rq");
+            queryString = queryString.format(queryString, kwsString);
+            fuseki.execUpdate(queryString, "Temp");
+        }
 
         if (true) {
             queryString = readQuery("./resources/sparql/q2.rq");
-            Query query = QueryFactory.create();
-            QueryFactory.parse(query, queryString, "", Syntax.syntaxSPARQL_11);
-            QueryExecution qexec = QueryExecutionFactory.create(query, model);
-            qexec.execConstruct(model);
+            queryString = queryString.format(queryString, kwsString);
+            fuseki.execUpdate(queryString, "Temp");
         }
-
-        fuseki.putModel(model, "Result");
-        writeModel(model, "./resources/dat/result.ttl");
 
         if (true) {
             queryString = readQuery("./resources/sparql/q3.rq");
-            Query query = QueryFactory.create();
-            QueryFactory.parse(query, queryString, "", Syntax.syntaxSPARQL_11);
-            QueryExecution qexec = QueryExecutionFactory.create(query, model);
-            model = qexec.execConstruct();
+            queryString = queryString.format(queryString, kwsString);
+            fuseki.execUpdate(queryString, "Result");
         }
 
-        fuseki.putModel(model, "Result2");
-        writeModel(model, "./resources/dat/result2.ttl");
+        if (true) {
+            Model model = ModelFactory.createDefaultModel();
+            queryString = "construct {?s ?p ?o.} where {?s ?p ?o.}";
+            model = fuseki.execConstruct(queryString, "Result");
+            writeModel(model, "./resources/dat/result.ttl");
+        }
 
     }
 
