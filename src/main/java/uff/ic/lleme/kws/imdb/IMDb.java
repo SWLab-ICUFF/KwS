@@ -1,4 +1,4 @@
-package kws.imdb;
+package uff.ic.lleme.kws.imdb;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,11 +7,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import javax.naming.InvalidNameException;
-import kws.FusekiServer;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
+import uff.ic.lleme.util.FusekiServer;
 
 public class IMDb {
 
@@ -24,36 +23,46 @@ public class IMDb {
         fuseki.execUpdate("clear all", "Result");
 
         if (true) {
-            queryString = readQuery("./resources/sparql/q1.rq");
+            queryString = readQuery("./resources/sparql/q0.rq");
             queryString = queryString.format(queryString, kwsString);
             fuseki.execUpdate(queryString, "Temp");
         }
 
         if (true) {
-            queryString = readQuery("./resources/sparql/q2.rq");
-            queryString = queryString.format(queryString, kwsString);
+            queryString = readQuery("./resources/sparql/q10.rq");
             fuseki.execUpdate(queryString, "Temp");
         }
 
         if (true) {
-            queryString = readQuery("./resources/sparql/q3.rq");
+            queryString = readQuery("./resources/sparql/q20.rq");
+            queryString = queryString.format(queryString, kwsString);
+            fuseki.execUpdate(queryString, "Temp");
+        }
+
+        if (true)
+            for (int i = 0; i < 50; i++) {
+                queryString = readQuery("./resources/sparql/q30.rq");
+                queryString = queryString.format(queryString, kwsString);
+                fuseki.execUpdate(queryString, "Temp");
+            }
+
+        if (false) {
+            queryString = readQuery("./resources/sparql/q40.rq");
             queryString = queryString.format(queryString, kwsString);
             fuseki.execUpdate(queryString, "Result");
         }
 
-        if (true) {
-            Model model = ModelFactory.createDefaultModel();
-            queryString = "construct {?s ?p ?o.} where {?s ?p ?o.}";
-            model = fuseki.execConstruct(queryString, "Result");
-            writeModel(model, "./resources/dat/result.ttl");
-        }
+        Model model = fuseki.getModel("Temp");
+        writeModel(model, "./resources/dat/temp.ttl");
+        model = fuseki.getModel("Result");
+        writeModel(model, "./resources/dat/result.ttl");
 
     }
 
     private static String readQuery(String filename) throws FileNotFoundException, IOException {
         File file = new File(filename);
         byte[] data = new byte[(int) file.length()];
-        try (FileInputStream fis = new FileInputStream(file)) {
+        try ( FileInputStream fis = new FileInputStream(file)) {
             fis.read(data);
         }
         return new String(data, "UTF-8");

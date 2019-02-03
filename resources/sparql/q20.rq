@@ -7,7 +7,7 @@ prefix kws: <http://localhost:8080/kws/vocab/>
 
 insert {?e kws:score ?score.}
 where {
-  select ?e (sum(?sc) as ?score)
+  select ?e ?score
   where {
     {
       select distinct ?e
@@ -22,10 +22,10 @@ where {
       }
     }
   	service <http://localhost:3030/IMDb/sparql> {
-            graph <urn:kws:indexed> {(?e ?sc) text:query ('%1$s').}
+      graph <urn:kws:indexed> {(?e ?score) text:query ('%1$s').}
   	}
   }
-  group by ?e
 }
+
 
 

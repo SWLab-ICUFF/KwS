@@ -1,4 +1,4 @@
-package kws;
+package uff.ic.lleme.util;
 
 import java.io.IOException;
 import java.io.InputStream;
