@@ -1,0 +1,91 @@
+@prefix map: <#> .
+@prefix db: <> .
+@prefix vocab: <vocab/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix d2r: <http://sites.wiwiss.fu-berlin.de/suhl/bizer/d2r-server/config.rdf#> .
+@prefix jdbc: <http://d2rq.org/terms/jdbc/> .
+@prefix kws: <http://localhost:8080/kws/vocab/> .
+
+<> a d2r:Server;
+	d2r:limitPerPropertyBridge "100";
+	d2r:limitPerClassMap "1000";
+	.
+
+map:database a d2rq:Database;
+	d2rq:jdbcDriver "org.postgresql.Driver";
+	d2rq:jdbcDSN "jdbc:postgresql://localhost:5432/IMDb";
+	d2rq:username "postgres";
+	d2rq:password "fluzao00";
+	.
+
+# Table Crew
+map:Crew a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "Crew.@@EntityCrew.tconst|urlify@@.@@EntityCrew.nconst|urlify@@.@@EntityCrew.pconst|urlify@@";
+	d2rq:class kws:Entity;
+	d2rq:classDefinitionLabel "Entity";
+	.
+map:Crew_pconst__ref a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Crew;
+	d2rq:property kws:comment;
+	d2rq:column "EntityCrew.comment";
+	.
+
+
+# Table Name
+map:Name a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "Name.@@EntityName.nconst|urlify@@";
+	d2rq:class kws:Entity;
+	d2rq:classDefinitionLabel "Entity";
+	.
+map:Name_primaryName a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Name;
+	d2rq:property kws:comment;
+	d2rq:column "EntityName.comment";
+	.
+
+
+# Table Principal
+map:Principal a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "Principal.@@EntityPrincipal.tconst|urlify@@.@@EntityPrincipal.nconst|urlify@@.@@EntityPrincipal.ordering|urlify@@";
+	d2rq:class kws:Entity;
+	d2rq:classDefinitionLabel "Entity";
+	.
+map:Principal_pconst__ref a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Principal;
+	d2rq:property kws:comment;
+	d2rq:column "EntityPrincipal.comment";
+	.
+
+
+# Table Title
+map:Title a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "Title.@@EntityTitle.tconst|urlify@@";
+	d2rq:class kws:Entity;
+	d2rq:classDefinitionLabel "Entity";
+	.
+map:Title_titleType a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Title;
+	d2rq:property kws:comment;
+	d2rq:column "EntityTitle.comment";
+	.
+
+
+# Table Akas
+map:Akas a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "Akas.@@EntityAkas.tconst|urlify@@.@@EntityAkas.ordering@@";
+	d2rq:class kws:Entity;
+	d2rq:classDefinitionLabel "Entity";
+	.
+map:Akas_title a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Akas;
+	d2rq:property kws:comment;
+	d2rq:column "EntityAkas.comment";
+	.

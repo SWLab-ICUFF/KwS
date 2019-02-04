@@ -1,0 +1,3 @@
+#!/bin/bash
+#cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+/Users/lapaesleme/local/d2rq/d2rq-0.8.1/generate-mapping -o /Users/lapaesleme/Library/Mobile\ Documents/com~apple~CloudDocs/Install/Scripts/IMDb/imdb-mapping-2.ttl -d org.postgresql.Driver -u postgres -p fluzao00 jdbc:postgresql://localhost:5432/IMDb

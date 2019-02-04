@@ -1,0 +1,3 @@
+#!/bin/bash
+cp -r -f /Users/lapaesleme/local/pubby/pubby-0.3.3/webapp /Users/lapaesleme/local/tomcat/apache-tomcat-8.5.35/webapps/ROOT
+cp -f /Users/lapaesleme/Library/Mobile Documents/com~apple~CloudDocs/Install/Scripts/IMDb/config.pubby.ttl /Users/lapaesleme/local/tomcat/apache-tomcat-8.5.35/webapps/ROOT/WEB-INF/config.ttl

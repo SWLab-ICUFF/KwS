@@ -1,0 +1,4 @@
+#!/bin/bash
+#cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+cd /Users/lapaesleme/local/d2rq/d2rq-0.8.1/
+d2r-server /Users/lapaesleme/Library/Mobile\ Documents/com~apple~CloudDocs/Install/Scripts/IMDb/imdb-mapping.ttl

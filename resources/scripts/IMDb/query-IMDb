@@ -1,0 +1,4 @@
+#export JVM_ARGS=${JVM_ARGS:--Xmx1024}
+export JENA_HOME=/Users/lapaesleme/local/jena/apache-jena-3.10.0
+export PATH=$PATH:$JENA_HOME/bin
+tdb2.tdbquery --tdb=/Users/lapaesleme/local/jena/apache-jena-fuseki-3.10.0/run/configuration/IMDb.ttl --query "/Users/lapaesleme/Library/Mobile Documents/com~apple~CloudDocs/Install/Scripts/IMDb/query.rq"

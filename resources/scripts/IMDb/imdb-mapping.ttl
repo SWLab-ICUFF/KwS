@@ -1,0 +1,427 @@
+@prefix map: <#> .
+@prefix db: <> .
+@prefix vocab: <vocab/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix d2r: <http://sites.wiwiss.fu-berlin.de/suhl/bizer/d2r-server/config.rdf#> .
+@prefix jdbc: <http://d2rq.org/terms/jdbc/> .
+@prefix meta: <http://www4.wiwiss.fu-berlin.de/bizer/d2r-server/metadata#> .
+
+<> a d2r:Server;
+	d2r:limitPerPropertyBridge "100";
+	d2r:limitPerClassMap "1000";
+	d2r:baseURI <http://localhost:2020/>;
+	meta:datasetTitle "IMDb";
+  meta:datasetDescription "Subsets of IMDb data are available for access to customers for personal and non-commercial use. You can hold local copies of this data, and it is subject to our terms and conditions. Please refer to the Non-Commercial Licensing and copyright/license and verify compliance." ;
+  meta:datasetSource "The dataset files can be accessed and downloaded from https://datasets.imdbws.com/. The data is refreshed daily." ;
+	d2r:autoReloadMapping true;
+	.
+
+map:database a d2rq:Database;
+	d2rq:jdbcDriver "org.postgresql.Driver";
+	d2rq:jdbcDSN "jdbc:postgresql://localhost:5432/IMDb";
+	d2rq:username "postgres";
+	d2rq:password "fluzao00";
+	.
+
+map:Configuration a d2rq:Configuration;
+	d2rq:serveVocabulary true;
+	d2rq:useAllOptimizations false;
+	.
+
+# Table Crew
+map:Crew a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "Crew.@@Crew.tconst|urlify@@.@@Crew.nconst|urlify@@.@@Crew.pconst|urlify@@";
+	d2rq:class vocab:Crew;
+	d2rq:classDefinitionLabel "Crew"@en;
+	d2rq:classDefinitionComment "Contains the director and writer information for all the titles in IMDb."@en;
+	.
+map:Crew__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Crew;
+	d2rq:property rdfs:label;
+	d2rq:pattern "@@NameBasics.primaryName@@ as @@Crew.pconst@@ of @@TitleBasics.primaryTitle@@";
+	d2rq:join "Crew.nconst => Name.nconst";
+	d2rq:join "Name.nconst => NameBasics.nconst";
+	d2rq:join "Crew.tconst => Title.tconst";
+	d2rq:join "Title.tconst => TitleBasics.tconst";
+	.
+map:Crew_pconst__ref a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Crew;
+	d2rq:property vocab:profession;
+	d2rq:column "Profession.label";
+	d2rq:join "Crew.pconst => Profession.pconst";
+	d2rq:propertyDefinitionLabel "profession"@en;
+	d2rq:propertyDefinitionComment "unique identifier of the profession"@en;
+	.
+map:Crew_nconst__ref a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Crew;
+	d2rq:property vocab:name;
+	d2rq:refersToClassMap map:Name;
+	d2rq:join "Crew.nconst => Name.nconst";
+	d2rq:propertyDefinitionComment "unique identifier of the name/ person"@en;
+	.
+map:Crew_tconst__ref a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Crew;
+	d2rq:property vocab:title;
+	d2rq:refersToClassMap map:Title;
+	d2rq:join "Crew.tconst => Title.tconst";
+	d2rq:propertyDefinitionComment "unique identifier of the title"@en;
+	.
+
+
+
+# Table Episode
+map:Episode a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "Title.@@Episode.tconst|urlify@@";
+	d2rq:class vocab:Episode, vocab:Title;
+	d2rq:classDefinitionLabel "Episode"@en;
+	d2rq:classDefinitionComment "Contains the tv episode information."@en;
+	d2rq:additionalClassDefinitionProperty map:EpisodeSuperClass;
+	.
+map:EpisodeSuperClass a d2rq:AdditionalProperty;
+	d2rq:propertyName rdfs:subClassOf;
+  d2rq:propertyValue map:Title;
+  .
+map:Episode__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Episode;
+	d2rq:property rdfs:label;
+	d2rq:pattern "Episode #@@Episode.episodeNumber@@ of @@TitleBasics.primaryTitle@@";
+	d2rq:join "Episode.tconst => TitleBasics.tconst";
+	.
+map:Episode_seasonNumber a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Episode;
+	d2rq:property vocab:seasonNumber;
+	d2rq:propertyDefinitionLabel "Season number"@en;
+	d2rq:column "Episode.seasonNumber";
+	d2rq:datatype xsd:integer;
+	d2rq:propertyDefinitionComment "season number the episode belongs to"@en;
+	.
+map:Episode_episodeNumber a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Episode;
+	d2rq:property vocab:episodeNumber;
+	d2rq:propertyDefinitionLabel "Episode number"@en;
+	d2rq:column "Episode.episodeNumber";
+	d2rq:datatype xsd:integer;
+	d2rq:propertyDefinitionComment "episode number of the tconst in the TV series"@en;
+	.
+map:Episode_parentTconst__ref a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Episode;
+	d2rq:property vocab:parentTitle;
+	d2rq:refersToClassMap map:Title;
+	d2rq:join "Episode.parentTconst => Title.tconst";
+	d2rq:propertyDefinitionComment "alphanumeric identifier of the parent TV Series"@en;
+	.
+
+# Table Name
+map:Name a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "Name.@@Name.nconst|urlify@@";
+	d2rq:class vocab:Name;
+	d2rq:classDefinitionLabel "Name"@en;
+	d2rq:classDefinitionComment "Contains information for names."@en;
+	.
+map:Name__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Name;
+	d2rq:property rdfs:label;
+	#d2rq:pattern "Name #@@Name.nconst@@";
+	d2rq:column "NameBasics.primaryName";
+	d2rq:join "Name.nconst => NameBasics.nconst";
+	.
+map:Name_primaryName a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Name;
+	d2rq:property vocab:primaryName;
+	d2rq:propertyDefinitionLabel "Name primaryName"@en;
+	d2rq:column "NameBasics.primaryName";
+	d2rq:join "Name.nconst => NameBasics.nconst";
+	d2rq:propertyDefinitionComment "name by which the person is most often credited"@en;
+	.
+map:Name_birthYear a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Name;
+	d2rq:property vocab:birthYear;
+	d2rq:propertyDefinitionLabel "Name birthYear"@en;
+	d2rq:column "NameBasics.birthYear";
+	d2rq:datatype xsd:integer;
+	d2rq:join "Name.nconst => NameBasics.nconst";
+	d2rq:propertyDefinitionComment "in YYYY format"@en;
+	.
+map:Name_deathYear a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Name;
+	d2rq:property vocab:deathYear;
+	d2rq:propertyDefinitionLabel "Name deathYear"@en;
+	d2rq:column "NameBasics.deathYear";
+	d2rq:datatype xsd:integer;
+	d2rq:join "Name.nconst => NameBasics.nconst";
+	d2rq:propertyDefinitionComment "in YYYY format if applicable, else 'N'"@en;
+	.
+map:Name_primaryProfession a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Name;
+	d2rq:property vocab:primaryProfession;
+	d2rq:propertyDefinitionLabel "Name primaryProfession"@en;
+	d2rq:column "Profession.label";
+	d2rq:join "Name.nconst => primaryProfession.nconst";
+	d2rq:join "primaryProfession.pconst => Profession.pconst";
+	d2rq:propertyDefinitionComment "unique identifier of the primary profession of the name/ person"@en;
+	.
+
+# Table Principal
+map:Principal a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "Principal.@@Principal.tconst|urlify@@.@@Principal.nconst|urlify@@.@@Principal.ordering|urlify@@";
+	d2rq:class vocab:Principal;
+	d2rq:classDefinitionLabel "Principal"@en;
+	d2rq:classDefinitionComment "Contains the principal cast/crew for titles."@en;
+	.
+map:Principal__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Principal;
+	d2rq:property rdfs:label;
+	d2rq:pattern "@@NameBasics.primaryName@@ as @@Profession.label@@ of @@TitleBasics.primaryTitle@@";
+	d2rq:join "Principal.nconst => NameBasics.nconst";
+	d2rq:join "Principal.pconst => Profession.pconst";
+	d2rq:join "Principal.tconst => TitleBasics.tconst";
+	.
+#map:Principal_ordering a d2rq:PropertyBridge;
+#	d2rq:belongsToClassMap map:Principal;
+#	d2rq:property vocab:ordering;
+#	d2rq:propertyDefinitionLabel "Principal ordering"@en;
+#	d2rq:column "Principal.ordering";
+#	d2rq:propertyDefinitionComment "";
+#	.
+map:Principal_job a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Principal;
+	d2rq:property vocab:job;
+	d2rq:propertyDefinitionLabel "Principal job"@en;
+	d2rq:column "Principal.job";
+	d2rq:propertyDefinitionComment "the specific job title if applicable, else 'N'"@en;
+	.
+map:Principal_characters a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Principal;
+	d2rq:property vocab:characters;
+	d2rq:propertyDefinitionLabel "Principal characters"@en;
+	d2rq:column "Principal.characters";
+	d2rq:propertyDefinitionComment "the name of the character played if applicable, else 'N'"@en;
+	.
+map:Principal_pconst__ref a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Principal;
+	d2rq:property vocab:profession;
+	d2rq:column "Profession.label";
+	d2rq:join "Principal.pconst => Profession.pconst";
+	d2rq:propertyDefinitionComment "unique identifier of the profession"@en;
+	.
+map:Principal_nconst__ref a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Principal;
+	d2rq:property vocab:name;
+	d2rq:refersToClassMap map:Name;
+	d2rq:join "Principal.nconst => Name.nconst";
+	d2rq:propertyDefinitionComment "unique identifier of the name/person"@en;
+	.
+map:Principal_tconst__ref a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Principal;
+	d2rq:property vocab:title;
+	d2rq:refersToClassMap map:Title;
+	d2rq:join "Principal.tconst => Title.tconst";
+	d2rq:propertyDefinitionComment "unique identifier of the title"@en;
+	.
+
+# Table Title
+map:Title a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "Title.@@Title.tconst|urlify@@";
+	d2rq:class vocab:Title;
+	d2rq:classDefinitionLabel "Title"@en;
+	d2rq:classDefinitionComment "Contains information for titles."@en;
+	.
+map:Title__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Title;
+	d2rq:property rdfs:label;
+	#d2rq:pattern "Title #@@Title.tconst@@";
+	d2rq:column "TitleBasics.primaryTitle";
+	d2rq:join "Title.tconst => TitleBasics.tconst"@en;
+	.
+map:Title_titleType a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Title;
+	d2rq:property vocab:titleType;
+	d2rq:propertyDefinitionLabel "Title titleType"@en;
+	d2rq:column "TitleBasics.titleType";
+	d2rq:join "Title.tconst => TitleBasics.tconst";
+	d2rq:propertyDefinitionComment "the type/format of the title (e.g. movie, short, tvseries, tvepisode, video, etc)"@en;
+	.
+map:Title_primaryTitle a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Title;
+	d2rq:property vocab:primaryTitle;
+	d2rq:propertyDefinitionLabel "Title primaryTitle"@en;
+	d2rq:column "TitleBasics.primaryTitle";
+	d2rq:join "Title.tconst => TitleBasics.tconst";
+	d2rq:propertyDefinitionComment "the more popular title / the title used by the filmmakers on promotional materials at the point of release"@en;
+	.
+map:Title_originalTitle a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Title;
+	d2rq:property vocab:originalTitle;
+	d2rq:propertyDefinitionLabel "Title originalTitle"@en;
+	d2rq:column "TitleBasics.originalTitle";
+	d2rq:join "Title.tconst => TitleBasics.tconst";
+	d2rq:propertyDefinitionComment "original title, in the original language"@en;
+	.
+map:Title_isAdult a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Title;
+	d2rq:property vocab:isAdult;
+	d2rq:propertyDefinitionLabel "Title isAdult"@en;
+	d2rq:column "TitleBasics.isAdult";
+	#d2rq:valueRegex "^[01]*$";
+	d2rq:join "Title.tconst => TitleBasics.tconst";
+	d2rq:propertyDefinitionComment "0: non-adult title; 1: adult title"@en;
+	.
+map:Title_startYear a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Title;
+	d2rq:property vocab:startYear;
+	d2rq:propertyDefinitionLabel "Title startYear"@en;
+	d2rq:column "TitleBasics.startYear";
+	d2rq:datatype xsd:integer;
+	d2rq:join "Title.tconst => TitleBasics.tconst";
+	d2rq:propertyDefinitionComment "represents the release year of a title. In the case of TV Series, it is the series start year"@en;
+	.
+map:Title_endYear a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Title;
+	d2rq:property vocab:endYear;
+	d2rq:propertyDefinitionLabel "Title endYear"@en;
+	d2rq:column "TitleBasics.endYear";
+	d2rq:datatype xsd:integer;
+	d2rq:join "Title.tconst => TitleBasics.tconst";
+	d2rq:propertyDefinitionComment "TV Series end year. ‘N’ for all other title types"@en;
+	.
+map:Title_runtimeMinutes a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Title;
+	d2rq:property vocab:runtimeMinutes;
+	d2rq:propertyDefinitionLabel "Title runtimeMinutes"@en;
+	d2rq:column "TitleBasics.runtimeMinutes";
+	d2rq:datatype xsd:integer;
+	d2rq:join "Title.tconst => TitleBasics.tconst";
+	d2rq:propertyDefinitionComment "primary runtime of the title, in minutes"@en;
+	.
+map:Title_genre a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Title;
+	d2rq:property vocab:genre;
+	d2rq:propertyDefinitionLabel "Title genre"@en;
+	d2rq:column "Genre.label";
+	d2rq:join "Title.tconst => hasGenre.tconst";
+	d2rq:join "hasGenre.gconst => Genre.gconst";
+	d2rq:propertyDefinitionComment "genre associated with the title"@en;
+	.
+map:Rating_averageRating a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Title;
+	d2rq:property vocab:averageRating;
+	d2rq:propertyDefinitionLabel "Title averageRating"@en;
+	d2rq:column "Rating.averageRating";
+	d2rq:datatype xsd:double;
+	d2rq:join "Title.tconst => Rating.tconst";
+	d2rq:propertyDefinitionComment "weighted average of all the individual user ratings"@en;
+	.
+map:Rating_numVotes a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Title;
+	d2rq:property vocab:numVotes;
+	d2rq:propertyDefinitionLabel "Title numVotes"@en;
+	d2rq:column "Rating.numVotes";
+	d2rq:datatype xsd:integer;
+	d2rq:join "Title.tconst => Rating.tconst";
+	d2rq:propertyDefinitionComment "number of votes the title has received"@en;
+	.
+map:akas__link a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Title;
+	d2rq:property vocab:akas;
+	d2rq:refersToClassMap map:Akas;
+	d2rq:join "Title.tconst => Akas.tconst";
+	d2rq:propertyDefinitionComment "alternate name for the title"@en;
+	.
+map:principal__link a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Title;
+	d2rq:property vocab:principal;
+	d2rq:refersToClassMap map:Principal;
+	d2rq:join "Title.tconst => Principal.tconst";
+	d2rq:propertyDefinitionComment "cast/crew for the title"@en;
+	.
+map:crew__link a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Title;
+	d2rq:property vocab:crew;
+	d2rq:refersToClassMap map:Crew;
+	d2rq:join "Title.tconst => Crew.tconst";
+	d2rq:propertyDefinitionComment "director or writer for the title"@en;
+	.
+
+# Table Akas
+map:Akas a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "Akas.@@Akas.tconst|urlify@@.@@Akas.ordering@@";
+	d2rq:class vocab:Akas;
+	d2rq:classDefinitionLabel "Also known as"@en;
+	d2rq:classDefinitionComment "Contains versions of titles in several languages."@en;
+	.
+map:Akas__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Akas;
+	d2rq:property rdfs:label;
+	d2rq:pattern "@@TitleBasics.primaryTitle@@ akas @@Akas.title@@";
+	d2rq:join "Akas.tconst => TitleBasics.tconst";
+	.
+#map:Akas_ordering a d2rq:PropertyBridge;
+#	d2rq:belongsToClassMap map:Akas;
+#	d2rq:property vocab:ordering;
+#	d2rq:propertyDefinitionLabel "Akas ordering"@en;
+#	d2rq:column "Akas.ordering";
+#	d2rq:datatype xsd:integer;
+#	d2rq:propertyDefinitionComment "a number to uniquely identify rows for a given titleId"@en;
+#	.
+map:Akas_title a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Akas;
+	d2rq:property vocab:title;
+	d2rq:propertyDefinitionLabel "Akas title"@en;
+	d2rq:column "Akas.title";
+	d2rq:propertyDefinitionComment "the localized title"@en;
+	.
+map:Akas_region a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Akas;
+	d2rq:property vocab:region;
+	d2rq:propertyDefinitionLabel "Akas region"@en;
+	d2rq:column "Akas.region";
+	d2rq:propertyDefinitionComment "the region for this version of the title"@en;
+	.
+map:Akas_language a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Akas;
+	d2rq:property vocab:language;
+	d2rq:propertyDefinitionLabel "Akas language"@en;
+	d2rq:column "Akas.language";
+	d2rq:propertyDefinitionComment "the language of the title"@en;
+	.
+map:Akas_types a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Akas;
+	d2rq:property vocab:types;
+	d2rq:propertyDefinitionLabel "Akas types"@en;
+	d2rq:column "Akas.types";
+	d2rq:propertyDefinitionComment "Enumerated set of attributes for this alternative title. One or more of the following: alternative, dvd, festival, tv, video, working, original, imdbDisplay. New values may be added in the future without warning"@en;
+	.
+map:Akas_attributes a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Akas;
+	d2rq:property vocab:attributes;
+	d2rq:propertyDefinitionLabel "Akas attributes"@en;
+	d2rq:column "Akas.attributes";
+	d2rq:propertyDefinitionComment "Additional terms to describe this alternative title, not enumerated"@en;
+	.
+map:Akas_isOriginalTitle a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Akas;
+	d2rq:property vocab:isOriginalTitle;
+	d2rq:propertyDefinitionLabel "Akas isOriginalTitle"@en;
+	d2rq:column "Akas.isOriginalTitle";
+	d2rq:valueRegex "^[01]*$";
+	d2rq:propertyDefinitionComment "0: not original title; 1: original title"@en;
+	.
+
+# Table knownForTitle (n:m)
+map:knownForTitle__link a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:Name;
+	d2rq:property vocab:knownForTitle;
+	d2rq:refersToClassMap map:Title;
+	d2rq:join "knownForTitle.nconst => Name.nconst";
+	d2rq:join "knownForTitle.tconst => Title.tconst";
+	d2rq:propertyDefinitionComment "titles the person is known for"@en;
+	.
