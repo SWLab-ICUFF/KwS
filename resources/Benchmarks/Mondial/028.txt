@@ -1,0 +1,2 @@
+# mongolia republic
+([3500, 14950], [(14950, 3500)]) # Mongolia

@@ -1,0 +1,2 @@
+# suriname ethnic_group
+([3387, 4062], [(4062, 3387)]) # Suriname
