@@ -17,6 +17,10 @@ insert {
      rdf:_6 ?p3;
      rdf:_6 ?_p3;
      rdf:_7 ?b.
+
+  ?a ?p0 ?b.
+  ?b ?_p0 ?a.
+
   ?a ?p1 ?s1. ?s1 ?p3 ?b.
   ?a ?p1 ?s1. ?b ?_p3 ?s1.
   ?s1 ?_p1 ?a. ?s1 ?p3 ?b.
@@ -32,20 +36,32 @@ insert {
   ?s1 ?_p1 ?a. ?s2 ?_p2 ?s1. ?b ?_p3 ?s2.
 }
 where {
-  {
+  { # busca caminhos de distância 1
+    {graph <urn:kws:seeds> {[] rdfs:member ?a.}}
+    {graph <urn:kws:seeds> {[] rdfs:member ?b.}}
+    service <http://localhost:3030/IMDb/sparql> {
+      select distinct *
+      where {
+        {?a ?p0 ?b. filter (?p0 != rdf:type)}
+      	union {?b ?_p0 ?a. filter (?_p0 != rdf:type)}
+      }
+    }
+  }
+
+  union {  # busca caminhos de distância 2
     {graph <urn:kws:seeds> {[] rdfs:member ?a.}}
     {graph <urn:kws:seeds> {[] rdfs:member ?b.}}
     service <http://localhost:3030/IMDb/sparql> {
       select distinct *
       where {
         {?a ?p1 ?s1. ?s1 ?p3 ?b. filter ((?p1 != rdf:type) && (?p3 != rdf:type))}
-      	union {?a ?p1 ?s1. ?b ?_p3 ?s1. ?s1 ?P [] filter ((?p1 != rdf:type) && (?_p3 != rdf:type))}
+      	union {?a ?p1 ?s1. ?b ?_p3 ?s1. ?s1 ?p []. filter ((?p1 != rdf:type) && (?_p3 != rdf:type))}
       	union {?s1 ?_p1 ?a. ?s1 ?p3 ?b. filter ((?_p1 != rdf:type) && (?_p3 != rdf:type))}
       	union {?s1 ?_p1 ?a. ?b ?_p3 ?s1. filter ((?_p1 != rdf:type) && (?_p3 != rdf:type))}
       }
     }
   }
-  union {
+  union {  # busca caminhos de distância 3
     {graph <urn:kws:seeds> {[] rdfs:member ?a.}}
     {graph <urn:kws:seeds> {[] rdfs:member ?b.}}
     service <http://localhost:3030/IMDb/sparql>{

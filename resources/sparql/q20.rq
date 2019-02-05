@@ -5,9 +5,12 @@ prefix imdb: <http://localhost:8080/resource/vocab/>
 prefix rsc: <http://localhost:8080/resource/>
 prefix kws: <http://localhost:8080/kws/vocab/>
 
-insert {?e kws:score ?score.}
+insert {
+  ?e kws:score ?score;
+     rdfs:label ?label;
+     kws:comment ?comment.}
 where {
-  select ?e ?score
+  select ?e ?score ?label ?comment
   where {
     {
       select distinct ?e
@@ -21,11 +24,20 @@ where {
         union {[] rdf:_13 ?e.}
       }
     }
-  	service <http://localhost:3030/IMDb/sparql> {
+  	optional {
+      service <http://localhost:3030/IMDb/sparql> {
       graph <urn:kws:indexed> {(?e ?score) text:query ('%1$s').}
-  	}
+      }
+    }
+    optional {
+      service <http://localhost:3030/IMDb/sparql> {
+        {?e rdfs:label ?label.}
+      }
+    }
+    optional {
+      service <http://localhost:3030/IMDb/sparql> {
+        graph <urn:kws:indexed> {?e kws:comment ?comment.}
+      }
+    }
   }
 }
-
-
-

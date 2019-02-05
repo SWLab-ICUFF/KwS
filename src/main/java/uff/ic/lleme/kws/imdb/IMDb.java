@@ -46,7 +46,7 @@ public class IMDb {
                 fuseki.execUpdate(queryString, "Temp");
             }
 
-        if (false) {
+        if (true) {
             queryString = readQuery("./resources/sparql/q40.rq");
             queryString = queryString.format(queryString, kwsString);
             fuseki.execUpdate(queryString, "Result");
@@ -62,7 +62,7 @@ public class IMDb {
     private static String readQuery(String filename) throws FileNotFoundException, IOException {
         File file = new File(filename);
         byte[] data = new byte[(int) file.length()];
-        try ( FileInputStream fis = new FileInputStream(file)) {
+        try (FileInputStream fis = new FileInputStream(file)) {
             fis.read(data);
         }
         return new String(data, "UTF-8");
