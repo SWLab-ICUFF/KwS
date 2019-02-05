@@ -1,0 +1,392 @@
+<http://localhost:8080/resource/Principal.tt0993209.nm0999971.1>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Wade Major as self of Meryl Streep" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "self Himself" ;
+        <http://localhost:8080/resource/vocab/title>
+                <http://localhost:8080/resource/Title.tt0993209> .
+
+<http://localhost:8080/resource/Title.tt5047486>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Meryl: The Lifetime Biopic with Christina Applegate" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Comedy Meryl: The Lifetime Biopic with Christina Applegate Short" ;
+        <http://localhost:8080/kws/vocab/score>
+                "7.561695"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        <http://localhost:8080/resource/vocab/principal>
+                <http://localhost:8080/resource/Principal.tt5047486.nm0000775.1> .
+
+<http://localhost:8080/resource/Name.nm0000775>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Christina Applegate" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Christina Applegate" .
+
+<http://localhost:8080/resource/Principal.tt5047486.nm0000775.1>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Christina Applegate as actress of Meryl: The Lifetime Biopic with Christina Applegate" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Meryl Streep actress" ;
+        <http://localhost:8080/kws/vocab/score>
+                "25.478683"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        <http://localhost:8080/resource/vocab/name>
+                <http://localhost:8080/resource/Name.nm0000775> ;
+        <http://localhost:8080/resource/vocab/title>
+                <http://localhost:8080/resource/Title.tt5047486> .
+
+<http://localhost:8080/resource/Title.tt3824586>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Episode #3.8" , "Episode #8 of Episode #3.8" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Comedy Episode #3.8 Game-Show Reality-TV" ;
+        <http://localhost:8080/resource/vocab/principal>
+                <http://localhost:8080/resource/Principal.tt3824586.nm4765660.3> .
+
+<http://localhost:8080/resource/Name.nm5412435>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Melanie Rogers" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Melanie Rogers" ;
+        <http://localhost:8080/resource/vocab/knownForTitle>
+                <http://localhost:8080/resource/Title.tt2180309> ;
+        <http://localhost:8080/resource/vocab/principal>
+                <http://localhost:8080/resource/Principal.tt2180309.nm5412435.2> .
+
+<http://localhost:8080/resource/Name.nm4765660>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Brittany Olinkiewicz" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Brittany Olinkiewicz" .
+
+<http://localhost:8080/resource/Title.tt0918927>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Doubt" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Doubt Drama Mystery" ;
+        <http://localhost:8080/resource/vocab/name>
+                <http://localhost:8080/resource/Name.nm0000658> ;
+        <http://localhost:8080/resource/vocab/principal>
+                <http://localhost:8080/resource/Principal.tt0918927.nm0000658.1> .
+
+<http://localhost:8080/resource/Crew.tt7880346.nm5411247.writer>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Jasmin Egner as writer of Meryl Streep" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "writer" ;
+        <http://localhost:8080/resource/vocab/title>
+                <http://localhost:8080/resource/Title.tt7880346> .
+
+<http://localhost:8080/resource/Principal.tt0448755.nm0236356.4>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Gillian Doyle as actress of The Show Formerly Known as the Martin Short Show" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Meryl Streep actress" ;
+        <http://localhost:8080/kws/vocab/score>
+                "25.478683"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        <http://localhost:8080/resource/vocab/name>
+                <http://localhost:8080/resource/Name.nm0236356> ;
+        <http://localhost:8080/resource/vocab/title>
+                <http://localhost:8080/resource/Title.tt0448755> .
+
+<http://localhost:8080/resource/Principal.tt0544893.nm0766837.2>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Jennifer Saunders as actress of The Strike" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Meryl Streep actress" ;
+        <http://localhost:8080/kws/vocab/score>
+                "25.478683"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        <http://localhost:8080/resource/vocab/name>
+                <http://localhost:8080/resource/Name.nm0766837> ;
+        <http://localhost:8080/resource/vocab/title>
+                <http://localhost:8080/resource/Title.tt0544893> .
+
+<http://localhost:8080/resource/Principal.tt2180309.nm5412435.2>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Melanie Rogers as actress of Billy on the Street: The Meryl Streep Showdown" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "actress Meryl Streep" ;
+        <http://localhost:8080/kws/vocab/score>
+                "25.478683"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        <http://localhost:8080/resource/vocab/name>
+                <http://localhost:8080/resource/Name.nm5412435> , <http://localhost:8080/resource/Title.tt2180309> ;
+        <http://localhost:8080/resource/vocab/title>
+                <http://localhost:8080/resource/Name.nm5412435> , <http://localhost:8080/resource/Title.tt2180309> .
+
+<http://localhost:8080/resource/Title.tt0089755>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Out of Africa" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Biography Drama Out of Africa Romance" ;
+        <http://localhost:8080/kws/vocab/score>
+                "13.155779"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        <http://localhost:8080/resource/vocab/name>
+                <http://localhost:8080/resource/Name.nm0000658> ;
+        <http://localhost:8080/resource/vocab/principal>
+                <http://localhost:8080/resource/Principal.tt0089755.nm0000658.1> .
+
+<http://localhost:8080/resource/Title.tt4920934>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Film Journeys" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Biography Film Journeys" .
+
+<http://localhost:8080/resource/Name.nm2356003>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Rachel Butera" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Rachel Butera" .
+
+<http://localhost:8080/resource/Principal.tt3824586.nm4765660.3>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Brittany Olinkiewicz as actress of Episode #3.8" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Meryl Streep actress" ;
+        <http://localhost:8080/kws/vocab/score>
+                "25.478683"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        <http://localhost:8080/resource/vocab/name>
+                <http://localhost:8080/resource/Name.nm4765660> ;
+        <http://localhost:8080/resource/vocab/title>
+                <http://localhost:8080/resource/Title.tt3824586> .
+
+<http://localhost:8080/resource/vocab/title>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Akas title"@en .
+
+<http://localhost:8080/resource/Title.tt0993209>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Meryl Streep" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Meryl Streep" ;
+        <http://localhost:8080/kws/vocab/score>
+                "27.512484"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        <http://localhost:8080/resource/vocab/parentTitle>
+                <http://localhost:8080/resource/Title.tt0382416> ;
+        <http://localhost:8080/resource/vocab/principal>
+                <http://localhost:8080/resource/Principal.tt0993209.nm0000658.2> , <http://localhost:8080/resource/Principal.tt0993209.nm0999971.1> .
+
+<http://localhost:8080/resource/Title.tt0458352>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "The Devil Wears Prada" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Comedy Drama The Devil Wears Prada" ;
+        <http://localhost:8080/resource/vocab/name>
+                <http://localhost:8080/resource/Name.nm0000658> ;
+        <http://localhost:8080/resource/vocab/principal>
+                <http://localhost:8080/resource/Principal.tt0458352.nm0000658.2> .
+
+<http://localhost:8080/resource/Principal.tt0458352.nm0000658.2>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Meryl Streep as actress of The Devil Wears Prada" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "actress Miranda Priestly" ;
+        <http://localhost:8080/kws/vocab/score>
+                "3.4896939"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        <http://localhost:8080/resource/vocab/name>
+                <http://localhost:8080/resource/Name.nm0000658> ;
+        <http://localhost:8080/resource/vocab/title>
+                <http://localhost:8080/resource/Title.tt0458352> .
+
+<http://localhost:8080/resource/Name.nm0000658>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Meryl Streep" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Meryl Streep" ;
+        <http://localhost:8080/kws/vocab/score>
+                "27.512484"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        <http://localhost:8080/resource/vocab/knownForTitle>
+                <http://localhost:8080/resource/Title.tt1322269> , <http://localhost:8080/resource/Principal.tt0458352.nm0000658.2> , <http://localhost:8080/resource/Title.tt0918927> , <http://localhost:8080/resource/Principal.tt0089755.nm0000658.1> , <http://localhost:8080/resource/Title.tt0458352> , <http://localhost:8080/resource/Principal.tt0918927.nm0000658.1> , <http://localhost:8080/resource/Principal.tt1322269.nm0000658.1> , <http://localhost:8080/resource/Title.tt0089755> .
+
+<http://localhost:8080/resource/Name.nm0766837>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Jennifer Saunders" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Jennifer Saunders" .
+
+<http://localhost:8080/resource/Principal.tt7880346.nm5411247.3>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Jasmin Egner as writer of Meryl Streep" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "writer" ;
+        <http://localhost:8080/resource/vocab/title>
+                <http://localhost:8080/resource/Title.tt7880346> .
+
+[ a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
+  <http://www.w3.org/2000/01/rdf-schema#member>
+          <http://localhost:8080/resource/Crew.tt7880346.nm5411247.writer> , <http://localhost:8080/resource/Principal.tt7880346.nm7064895.2> , <http://localhost:8080/resource/vocab/parentTitle> , <http://localhost:8080/resource/vocab/principal> , <http://localhost:8080/resource/Name.nm0236356> , <http://localhost:8080/resource/Title.tt0993209> , <http://localhost:8080/resource/Title.tt2180309> , <http://localhost:8080/resource/Principal.tt0089755.nm0000658.1> , <http://localhost:8080/resource/Principal.tt0993209.nm0000658.2> , <http://localhost:8080/resource/vocab/title> , <http://localhost:8080/resource/Title.tt0448755> , <http://localhost:8080/resource/Principal.tt7852062.nm2356003.9> , <http://localhost:8080/resource/Title.tt5047486> , <http://localhost:8080/resource/Title.tt7852062> , <http://localhost:8080/resource/Title.tt2171829> , <http://localhost:8080/resource/Principal.tt0448755.nm0236356.4> , <http://localhost:8080/resource/Principal.tt0458352.nm0000658.2> , <http://localhost:8080/resource/Title.tt0382416> , <http://localhost:8080/resource/Name.nm0000658> , <http://localhost:8080/resource/vocab/name> , <http://localhost:8080/resource/Name.nm5412435> , <http://localhost:8080/resource/Title.tt7880346> , <http://localhost:8080/resource/Principal.tt0918927.nm0000658.1> , <http://localhost:8080/resource/Principal.tt7880346.nm1101808.1> , <http://localhost:8080/resource/vocab/crew> , <http://localhost:8080/resource/Name.nm4765660> , <http://localhost:8080/resource/Principal.tt2171829.nm4843516.4> , <http://localhost:8080/resource/Principal.tt2180309.nm5412435.2> , <http://localhost:8080/resource/Title.tt4920934> , <http://localhost:8080/resource/Principal.tt5047486.nm0000775.1> , <http://localhost:8080/resource/Title.tt3824586> , <http://localhost:8080/resource/Title.tt0089755> , <http://localhost:8080/resource/Title.tt0458352> , <http://localhost:8080/resource/Principal.tt7880346.nm5411247.3> , <http://localhost:8080/resource/Name.nm0766837> , <http://localhost:8080/resource/Principal.tt0993209.nm0999971.1> , <http://localhost:8080/resource/Name.nm2356003> , <http://localhost:8080/resource/Name.nm4843516> , <http://localhost:8080/resource/Principal.tt3824586.nm4765660.3> , <http://localhost:8080/resource/Title.tt1322269> , <http://localhost:8080/resource/Principal.tt1322269.nm0000658.1> , <http://localhost:8080/resource/Name.nm0000775> , <http://localhost:8080/resource/Principal.tt0544893.nm0766837.2> , <http://localhost:8080/resource/Title.tt0544893> , <http://localhost:8080/resource/Title.tt0918927> , <http://localhost:8080/resource/vocab/knownForTitle> ;
+  <http://localhost:8080/kws/vocab/score>
+          "6.6590953"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+<http://localhost:8080/resource/Title.tt7852062>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "The Woof of Wall Street" , "Episode #15 of The Woof of Wall Street" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Animation Comedy The Woof of Wall Street" ;
+        <http://localhost:8080/resource/vocab/principal>
+                <http://localhost:8080/resource/Principal.tt7852062.nm2356003.9> .
+
+<http://localhost:8080/resource/Principal.tt7880346.nm1101808.1>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Adam Jennings as self of Meryl Streep" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Himself - Presenter self" ;
+        <http://localhost:8080/resource/vocab/title>
+                <http://localhost:8080/resource/Title.tt7880346> .
+
+<http://localhost:8080/resource/Title.tt1322269>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "August: Osage County" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "August: Osage County Drama" ;
+        <http://localhost:8080/resource/vocab/name>
+                <http://localhost:8080/resource/Name.nm0000658> ;
+        <http://localhost:8080/resource/vocab/principal>
+                <http://localhost:8080/resource/Principal.tt1322269.nm0000658.1> .
+
+<http://localhost:8080/resource/Principal.tt0993209.nm0000658.2>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Meryl Streep as self of Meryl Streep" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "self Herself" ;
+        <http://localhost:8080/resource/vocab/name>
+                <http://localhost:8080/resource/Name.nm0000658> ;
+        <http://localhost:8080/resource/vocab/title>
+                <http://localhost:8080/resource/Title.tt0993209> .
+
+<http://localhost:8080/resource/Principal.tt0918927.nm0000658.1>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Meryl Streep as actress of Doubt" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Sister Aloysius Beauvier actress" ;
+        <http://localhost:8080/kws/vocab/score>
+                "3.198007"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        <http://localhost:8080/resource/vocab/name>
+                <http://localhost:8080/resource/Name.nm0000658> ;
+        <http://localhost:8080/resource/vocab/title>
+                <http://localhost:8080/resource/Title.tt0918927> .
+
+<http://localhost:8080/resource/Title.tt2171829>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Couch Surf" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Comedy Couch Surf Drama" ;
+        <http://localhost:8080/resource/vocab/principal>
+                <http://localhost:8080/resource/Principal.tt2171829.nm4843516.4> .
+
+<http://localhost:8080/resource/Name.nm0236356>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Gillian Doyle" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Gillian Doyle" .
+
+<http://localhost:8080/resource/Principal.tt1322269.nm0000658.1>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Meryl Streep as actress of August: Osage County" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "actress Violet Weston" ;
+        <http://localhost:8080/kws/vocab/score>
+                "3.4896939"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        <http://localhost:8080/resource/vocab/name>
+                <http://localhost:8080/resource/Name.nm0000658> ;
+        <http://localhost:8080/resource/vocab/title>
+                <http://localhost:8080/resource/Title.tt1322269> .
+
+<http://localhost:8080/resource/Name.nm4843516>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Zsuzsa Csillag" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Zsuzsa Csillag" ;
+        <http://localhost:8080/resource/vocab/knownForTitle>
+                <http://localhost:8080/resource/Title.tt2171829> ;
+        <http://localhost:8080/resource/vocab/principal>
+                <http://localhost:8080/resource/Principal.tt2171829.nm4843516.4> .
+
+<http://localhost:8080/resource/Principal.tt7880346.nm7064895.2>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Lilley Mitchell as self of Meryl Streep" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Herself - Presenter self" ;
+        <http://localhost:8080/resource/vocab/title>
+                <http://localhost:8080/resource/Title.tt7880346> .
+
+<http://localhost:8080/resource/Principal.tt7852062.nm2356003.9>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Rachel Butera as actress of The Woof of Wall Street" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "actress Meryl Streep" ;
+        <http://localhost:8080/kws/vocab/score>
+                "25.478683"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        <http://localhost:8080/resource/vocab/name>
+                <http://localhost:8080/resource/Name.nm2356003> ;
+        <http://localhost:8080/resource/vocab/title>
+                <http://localhost:8080/resource/Title.tt7852062> .
+
+<http://localhost:8080/resource/Principal.tt0089755.nm0000658.1>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Meryl Streep as actress of Out of Africa" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Karen actress" ;
+        <http://localhost:8080/kws/vocab/score>
+                "3.8917272"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        <http://localhost:8080/resource/vocab/name>
+                <http://localhost:8080/resource/Name.nm0000658> ;
+        <http://localhost:8080/resource/vocab/title>
+                <http://localhost:8080/resource/Title.tt0089755> .
+
+<http://localhost:8080/resource/Title.tt7880346>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Meryl Streep" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Biography Meryl Streep" ;
+        <http://localhost:8080/kws/vocab/score>
+                "23.35323"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        <http://localhost:8080/resource/vocab/crew>
+                <http://localhost:8080/resource/Crew.tt7880346.nm5411247.writer> ;
+        <http://localhost:8080/resource/vocab/parentTitle>
+                <http://localhost:8080/resource/Title.tt4920934> ;
+        <http://localhost:8080/resource/vocab/principal>
+                <http://localhost:8080/resource/Principal.tt7880346.nm5411247.3> , <http://localhost:8080/resource/Principal.tt7880346.nm7064895.2> , <http://localhost:8080/resource/Principal.tt7880346.nm1101808.1> .
+
+<http://localhost:8080/resource/Title.tt0544893>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "The Strike" , "Episode #1 of The Strike" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Comedy The Strike" ;
+        <http://localhost:8080/resource/vocab/principal>
+                <http://localhost:8080/resource/Principal.tt0544893.nm0766837.2> .
+
+<http://localhost:8080/resource/Principal.tt2171829.nm4843516.4>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Zsuzsa Csillag as actress of Couch Surf" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Meryl Streep actress" ;
+        <http://localhost:8080/kws/vocab/score>
+                "25.478683"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        <http://localhost:8080/resource/vocab/name>
+                <http://localhost:8080/resource/Name.nm4843516> , <http://localhost:8080/resource/Title.tt2171829> ;
+        <http://localhost:8080/resource/vocab/title>
+                <http://localhost:8080/resource/Name.nm4843516> , <http://localhost:8080/resource/Title.tt2171829> .
+
+<http://localhost:8080/resource/Title.tt2180309>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Billy on the Street: The Meryl Streep Showdown" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Billy on the Street: The Meryl Streep Showdown Comedy Short" ;
+        <http://localhost:8080/kws/vocab/score>
+                "14.802826"^^<http://www.w3.org/2001/XMLSchema#float> ;
+        <http://localhost:8080/resource/vocab/principal>
+                <http://localhost:8080/resource/Principal.tt2180309.nm5412435.2> .
+
+<http://localhost:8080/resource/Title.tt0448755>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "The Show Formerly Known as the Martin Short Show" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Comedy The Show Formerly Known as the Martin Short Show" ;
+        <http://localhost:8080/resource/vocab/principal>
+                <http://localhost:8080/resource/Principal.tt0448755.nm0236356.4> .
+
+<http://localhost:8080/resource/Title.tt0382416>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Famous" ;
+        <http://localhost:8080/kws/vocab/comment>
+                "Famous" .

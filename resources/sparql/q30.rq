@@ -17,8 +17,6 @@ where {
     }
     limit 1
   }
-  ?s (!rdf:type | ^(!rdf:type))+ ?member.
+  ?s (!(rdf:type | rdfs:member) | ^(!(rdf:type | rdfs:member)))+ ?member.
   filter (!isLiteral(?member) && not exists {?member a rdf:Bag} && not exists {?member a rdf:Seq})
 }
-
-

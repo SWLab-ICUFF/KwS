@@ -11,6 +11,6 @@ insert {
 where {
   {select (bnode() as ?bag) where {}}
   service <http://localhost:3030/IMDb/sparql> {
-    graph <urn:kws:indexed> {?s text:query ('%1$s' 50).}
+    graph <urn:kws:indexed> {?s text:query ('%1$s' 10).}
   }
 }

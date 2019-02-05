@@ -1,0 +1,50 @@
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix text: <http://jena.apache.org/text#>
+prefix imdb: <http://localhost:8080/resource/vocab/>
+prefix kws: <http://localhost:8080/kws/vocab/>
+prefix rsc: <http://localhost:8080/resource/>
+
+insert {
+  [] a rdf:Seq;
+     rdf:_1 ?a;
+     rdf:_2 ?p1;
+     rdf:_2 ?_p1;
+     rdf:_3 ?s1;
+     rdf:_4 ?p2;
+     rdf:_4 ?_p2;
+     rdf:_5 ?s2;
+     rdf:_6 ?p3;
+     rdf:_6 ?_p3;
+     rdf:_7 ?b.
+
+
+  ?a ?p1 ?s1. ?s1 ?p3 ?b.
+  ?a ?p1 ?s1. ?b ?_p3 ?s1.
+  ?s1 ?_p1 ?a. ?s1 ?p3 ?b.
+  ?s1 ?_p1 ?a. ?b ?_p3 ?s1.
+
+
+}
+where {
+   {
+    {graph <urn:kws:seeds> {[] rdfs:member ?a.}}
+    {graph <urn:kws:seeds> {[] rdfs:member ?b.}}
+    service <http://localhost:3030/IMDb/sparql> {
+      select distinct *
+      where {
+        {?a ?p1 ?s1. ?s1 ?p3 ?b. filter ((?p1 != rdf:type) && (?p3 != rdf:type))}
+      	union {?a ?p1 ?s1. ?b ?_p3 ?s1. ?s1 ?p []. filter ((?p1 != rdf:type) && (?_p3 != rdf:type))}
+      	union {?s1 ?_p1 ?a. ?s1 ?p3 ?b. filter ((?_p1 != rdf:type) && (?_p3 != rdf:type))}
+      	union {?s1 ?_p1 ?a. ?b ?_p3 ?s1. filter ((?_p1 != rdf:type) && (?_p3 != rdf:type))}
+      }
+    }
+  }
+
+}
+
+
+
+
+
+

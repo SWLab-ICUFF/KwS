@@ -12,19 +12,8 @@ insert {
 where {
   select ?e ?score ?label ?comment
   where {
-    {
-      select distinct ?e
-      where {
-        {[] rdf:_1 ?e.}
-        union {[] rdf:_3 ?e.}
-        union {[] rdf:_5 ?e.}
-        union {[] rdf:_7 ?e.}
-        union {[] rdf:_9 ?e.}
-        union {[] rdf:_11 ?e.}
-        union {[] rdf:_13 ?e.}
-      }
-    }
-  	optional {
+    {select distinct ?e where {[] rdfs:member ?e.}}
+    optional {
       service <http://localhost:3030/IMDb/sparql> {
       graph <urn:kws:indexed> {(?e ?score) text:query ('%1$s').}
       }

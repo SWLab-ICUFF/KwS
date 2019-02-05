@@ -1,4 +1,3 @@
-
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix text: <http://jena.apache.org/text#>
@@ -7,24 +6,22 @@ prefix rsc: <http://localhost:8080/resource/>
 prefix kws: <http://localhost:8080/kws/vocab/>
 
 insert {
-  ?bag a rdf:Bag.
-  ?bag kws:score ?score.
-  ?bag rdfs:member ?e.
-  ?e ?p ?o.
+  ?container kws:score ?score.
+  ?member ?p ?o.
 }
 where {
   service <http://localhost:3030/Temp/sparql> {
     {
-      select ?bag (avg(?sc) as ?score)
+      select ?container (avg(coalesce(?sc,0)) as ?score)
       where {
-        ?bag a rdf:Bag;
-             rdfs:member [kws:score ?sc].
+        ?container a rdf:Seq; rdfs:member ?m.
+        optional {?m kws:score ?sc}.
       }
-      group By ?bag
-      order by desc(avg(?sc))
+      group By ?container
+      #order by desc(avg(coalesce(?sc,0)))
       limit 10
     }
-    ?bag a rdf:Bag; rdfs:member ?e.
-    optional {?e ?p ?o.}
+    ?container a rdf:Seq; rdfs:member ?member.
+    optional {?member ?p ?o.}
   }
 }
