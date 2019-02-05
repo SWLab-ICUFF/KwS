@@ -37,8 +37,11 @@ insert {
 }
 where {
   { # busca caminhos de distância 1
-    {graph <urn:kws:seeds> {[] rdfs:member ?a.}}
-    {graph <urn:kws:seeds> {[] rdfs:member ?b.}}
+    {
+      {graph <urn:kws:seeds> {[] rdfs:member ?a.}}
+      {graph <urn:kws:seeds> {[] rdfs:member ?b.}}
+      filter (str(?b) > str(?a))
+    }
     service <http://localhost:3030/IMDb/sparql> {
       select distinct *
       where {
@@ -49,8 +52,11 @@ where {
   }
 
   union {  # busca caminhos de distância 2
-    {graph <urn:kws:seeds> {[] rdfs:member ?a.}}
-    {graph <urn:kws:seeds> {[] rdfs:member ?b.}}
+    {
+      {graph <urn:kws:seeds> {[] rdfs:member ?a.}}
+      {graph <urn:kws:seeds> {[] rdfs:member ?b.}}
+      filter (str(?b) > str(?a))
+    }
     service <http://localhost:3030/IMDb/sparql> {
       select distinct *
       where {
@@ -62,8 +68,11 @@ where {
     }
   }
   union {  # busca caminhos de distância 3
-    {graph <urn:kws:seeds> {[] rdfs:member ?a.}}
-    {graph <urn:kws:seeds> {[] rdfs:member ?b.}}
+    {
+      {graph <urn:kws:seeds> {[] rdfs:member ?a.}}
+      {graph <urn:kws:seeds> {[] rdfs:member ?b.}}
+      filter (str(?b) > str(?a))
+    }
     service <http://localhost:3030/IMDb/sparql>{
         select distinct *
         where {

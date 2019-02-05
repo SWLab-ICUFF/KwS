@@ -6,23 +6,26 @@ prefix rsc: <http://localhost:8080/resource/>
 prefix kws: <http://localhost:8080/kws/vocab/>
 
 insert {
-  ?container kws:score ?score.
-  ?member ?p ?o.
+  ?c a rdf:Seq;
+     kws:score ?score;
+     ?p1 ?m.
+  ?m ?p2 ?o.
 }
 where {
   service <http://localhost:3030/Temp/sparql> {
     {
-      select ?container (avg(coalesce(?sc,0)) as ?score)
+      select ?c (sum(coalesce(?sc,0)) as ?score)
       where {
-        ?container a rdf:Seq; rdfs:member ?m.
+        ?c a rdf:Seq; rdfs:member ?m.
         optional {?m kws:score ?sc}.
       }
-      group By ?container
-      #order by desc(avg(coalesce(?sc,0)))
+      group By ?c
       limit 10
     }
-    ?container a rdf:Seq; rdfs:member ?member.
-    optional {?member ?p ?o.}
+    {?c a rdf:Seq; rdfs:member ?m. ?c ?p1 ?m.}
+    optional {?m ?p2 ?o.}
   }
 }
+
+
 

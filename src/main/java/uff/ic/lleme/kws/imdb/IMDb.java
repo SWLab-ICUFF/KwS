@@ -16,7 +16,7 @@ public class IMDb {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer();
-        String kwsString = "(actress \\\"out of africa\\\" Meryl Streep)";
+        String kwsString = "(actress \\\"out of africa\\\"^2 Meryl Streep)";
         String queryString = "";
 
         fuseki.execUpdate("clear all", "Temp");
