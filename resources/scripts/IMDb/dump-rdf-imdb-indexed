@@ -1,3 +1,3 @@
 #!/bin/bash
 #cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-/Users/lapaesleme/local/d2rq/d2rq-0.8.1/dump-rdf --verbose -f N-TRIPLE -b http://localhost:8080/resource/ /Users/lapaesleme/Library/Mobile\ Documents/com~apple~CloudDocs/Install/Scripts/IMDb/imdb-mapping-indexed.ttl > /Volumes/Data/Users/lapaesleme/local/var/temp/imdb-indexed.nt
+/Users/lapaesleme/local/etc/d2rq/d2rq-0.8.1/dump-rdf --verbose -f N-TRIPLE -b http://localhost:8080/resource/ /Users/lapaesleme/Library/Mobile\ Documents/com~apple~CloudDocs/Install/Scripts/IMDb/imdb-mapping-indexed.ttl > /Volumes/Data/Users/lapaesleme/local/var/temp/imdb-indexed.nt
