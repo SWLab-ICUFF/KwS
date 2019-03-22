@@ -1,0 +1,64 @@
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix kws: <http://localhost:8080/kws/vocab/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+delete {?s kws:coment ?o} where {?s kws:comment ?o.};
+insert {graph ?g {?s kws:comment ?comment}}
+where {
+  {
+    select ?g ?s (group_concat(?o) as ?comment)
+    where {
+      {?s ?p ?o.
+        filter (isLiteral(?o)
+          && !isNumeric(?o)
+          && datatype(?o) not in (xsd:date,xsd:datetime)
+          && isBlank(?s)
+          && !sameTerm(?p,kws:comment))}
+    }
+    group by ?g ?s
+  }
+};
+
+delete {graph ?g {?s kws:coment ?o}} where {graph ?g {?s kws:comment ?o.}};
+insert {graph ?g {?s kws:comment ?comment}}
+where {
+  select ?g ?s (group_concat(?o) as ?comment)
+  where {
+    graph ?g {?s ?p ?o.
+      filter (isLiteral(?o)
+        && !isNumeric(?o)
+        && datatype(?o) not in (xsd:date,xsd:datetime)
+        && isBlank(?s)
+        && !sameTerm(?p,kws:comment))}
+  }
+  group by ?g ?s
+};
+
+
+drop graph <urn:kws:indexed>;
+insert {graph <urn:kws:indexed> {?s kws:comment ?comment}}
+using <urn:x-arq:DefaultGraph>
+using <urn:x-arq:UnionGraph>
+where {
+  select ?s (group_concat(?o) as ?comment)
+  where {
+    {?s ?p ?o.
+      filter (isLiteral(?o)
+        && !isNumeric(?o)
+        && datatype(?o) not in (xsd:date,xsd:datetime)
+        && !isBlank(?s)
+        && !sameTerm(?p,kws:comment))}
+    union {
+      graph ?g {?s ?p ?o.
+        filter (isLiteral(?o)
+          && !isNumeric(?o)
+          && datatype(?o) not in (xsd:date,xsd:datetime)
+          && !isBlank(?s)
+          && !sameTerm(?p,kws:comment))}}
+  }
+  group by ?s
+};
+
+
+
