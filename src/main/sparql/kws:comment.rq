@@ -3,34 +3,40 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix kws: <http://localhost:8080/kws/vocab/>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
-delete {?s kws:coment ?o} where {?s kws:comment ?o.};
-insert {graph ?g {?s kws:comment ?comment}}
+delete {?s kws:coment ?o} where {?s kws:comment ?o};
+insert {?s kws:comment ?comment}
 where {
   {
-    select ?g ?s (group_concat(?o) as ?comment)
+    select ?s (group_concat(?o) as ?comment)
     where {
       {?s ?p ?o.
-        filter (isLiteral(?o)
+        filter (
+          isLiteral(?o)
           && !isNumeric(?o)
           && datatype(?o) not in (xsd:date,xsd:datetime)
           && isBlank(?s)
-          && !sameTerm(?p,kws:comment))}
+          && !sameTerm(?p,kws:comment)
+        )
+      }
     }
-    group by ?g ?s
+    group by ?s
   }
 };
 
-delete {graph ?g {?s kws:coment ?o}} where {graph ?g {?s kws:comment ?o.}};
+delete {graph ?g {?s kws:coment ?o}} where {graph ?g {?s kws:comment ?o}};
 insert {graph ?g {?s kws:comment ?comment}}
 where {
   select ?g ?s (group_concat(?o) as ?comment)
   where {
     graph ?g {?s ?p ?o.
-      filter (isLiteral(?o)
+      filter (
+        isLiteral(?o)
         && !isNumeric(?o)
         && datatype(?o) not in (xsd:date,xsd:datetime)
         && isBlank(?s)
-        && !sameTerm(?p,kws:comment))}
+        && !sameTerm(?p,kws:comment)
+      )
+    }
   }
   group by ?g ?s
 };
@@ -44,18 +50,25 @@ where {
   select ?s (group_concat(?o) as ?comment)
   where {
     {?s ?p ?o.
-      filter (isLiteral(?o)
+      filter (
+        isLiteral(?o)
         && !isNumeric(?o)
         && datatype(?o) not in (xsd:date,xsd:datetime)
         && !isBlank(?s)
-        && !sameTerm(?p,kws:comment))}
+        && !sameTerm(?p,kws:comment)
+      )
+    }
     union {
       graph ?g {?s ?p ?o.
-        filter (isLiteral(?o)
+        filter (
+          isLiteral(?o)
           && !isNumeric(?o)
           && datatype(?o) not in (xsd:date,xsd:datetime)
           && !isBlank(?s)
-          && !sameTerm(?p,kws:comment))}}
+          && !sameTerm(?p,kws:comment)
+        )
+      }
+    }
   }
   group by ?s
 };

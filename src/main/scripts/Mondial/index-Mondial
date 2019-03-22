@@ -1,0 +1,5 @@
+export JVM_ARGS=${JVM_ARGS:--Xmx14G}
+export JENA_HOME=/Users/lapaesleme/local/etc/jena/apache-jena-3.10.0
+export PATH=$PATH:$JENA_HOME/bin
+cp /Users/lapaesleme/GitHub/KwS/src/main/scripts/Mondial/Mondial.ttl.new /Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/configuration/Mondial.ttl
+java -cp "/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/fuseki-server.jar" jena.textindexer --desc="/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/configuration/Mondial.ttl"
