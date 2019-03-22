@@ -7,7 +7,7 @@
 @prefix fuseki: <http://jena.apache.org/fuseki#> .
 @prefix text:		<http://jena.apache.org/text#> .
 @prefix vocab: <http://localhost:8080/resource/vocab/> .
-@prefix kws: <http://localhost:8080/kws/vocab/> .
+@prefix kws: <http://localhost:8080/vocab/kws#> .
 
 []                    ja:loadClass      "org.apache.jena.query.text.TextQuery" .
 text:TextDataset      rdfs:subClassOf   ja:RDFDataset .

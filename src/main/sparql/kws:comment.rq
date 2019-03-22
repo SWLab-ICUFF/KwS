@@ -1,9 +1,15 @@
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix kws: <http://localhost:8080/kws/vocab/>
+prefix kws0: <http://localhost:8080/kws/vocab/>
+prefix kws: <http://localhost:8080/vocab/kws#>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
+delete {?s kws0:comment ?o} where {?s kws0:comment ?o};
+delete {graph ?g {?s kws0:comment ?o}} where {graph ?g {?s kws0:comment ?o}};
 delete {?s kws:coment ?o} where {?s kws:comment ?o};
+delete {graph ?g {?s kws:comment ?o}} where {graph ?g {?s kws:comment ?o}};
+drop graph <urn:kws:indexed>;
+
 insert {?s kws:comment ?comment}
 where {
   {
@@ -23,7 +29,6 @@ where {
   }
 };
 
-delete {graph ?g {?s kws:coment ?o}} where {graph ?g {?s kws:comment ?o}};
 insert {graph ?g {?s kws:comment ?comment}}
 where {
   select ?g ?s (group_concat(?o) as ?comment)
@@ -42,7 +47,6 @@ where {
 };
 
 
-drop graph <urn:kws:indexed>;
 insert {graph <urn:kws:indexed> {?s kws:comment ?comment}}
 using <urn:x-arq:DefaultGraph>
 using <urn:x-arq:UnionGraph>
@@ -72,6 +76,7 @@ where {
   }
   group by ?s
 };
+
 
 
 
