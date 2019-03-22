@@ -10,13 +10,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
-    <build>
-        <resources>
-            <resource>
-                <directory>src/main/sql</directory>
-            </resource>
-        </resources>
-    </build>
+
     <dependencies>
         <dependency>
             <groupId>log4j</groupId>
