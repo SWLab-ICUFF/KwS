@@ -6,7 +6,43 @@ prefix kws0:	<http://localhost:8080/kws/vocab/>
 prefix kwsg0:	<urn:kws:>
 prefix rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
 prefix xsd:	<http://www.w3.org/2001/XMLSchema#>
+
+DELETE {?bnode ?p ?o}
+INSERT {?iri ?p ?o; owl:sameAs ?bnode.}
+WHERE {
+  {SELECT ?bnode (uuid() AS ?iri) WHERE {SELECT DISTINCT ?bnode WHERE {?bnode ?p []. FILTER isBlank(?bnode)}}}
+  ?bnode ?p ?o.
+};
+
+DELETE {?s ?p ?bnode.}
+INSERT {?s ?p ?iri .}
+WHERE {
+  {SELECT ?bnode (coalesce(?_iri, uuid()) AS ?iri) WHERE {{SELECT DISTINCT ?bnode WHERE {[] ?p ?bnode. FILTER isBlank(?bnode)}} OPTIONAL {?_iri owl:sameAs ?bnode.}}}
+  ?s ?p ?bnode .
+};
+
+DELETE {graph ?g {?bnode ?p ?o}}
+INSERT {graph ?g {?iri ?p ?o. ?iri owl:sameAs ?bnode.}}
+WHERE {
+  {SELECT ?g ?bnode (uuid() AS ?iri) WHERE {SELECT DISTINCT ?g ?bnode WHERE {GRAPH ?g {?bnode ?p [] .FILTER isBlank(?bnode)}}}}
+  GRAPH ?g {?bnode ?p ?o.}
+};
+
+DELETE {GRAPH ?g {?s ?p ?bnode}}
+INSERT {GRAPH ?g {?s ?p ?iri}}
+WHERE {
+  {SELECT ?bnode (coalesce(?_iri, uuid()) AS ?iri) WHERE {{SELECT DISTINCT ?g ?bnode WHERE {GRAPH ?g {[] ?p ?bnode. FILTER isBlank(?bnode)}}} OPTIONAL {GRAPH ?g {?_iri owl:sameAs ?bnode.}}}}
+  GRAPH ?g {?s ?p ?bnode.}
+};
+
+DELETE {?s ?p ?o} WHERE {?s ?p ?o. FILTER isBlank(?o)};
+DELETE {GRAPH ?g {?s ?p ?o}} WHERE {GRAPH ?g {?s ?p ?o. FILTER isBlank(?o)}};
+
+
+
+
 
 drop graph kwsg0:indexed;
 drop graph kwsg:indexed;
@@ -16,7 +52,6 @@ delete {graph ?g {?s kws0:comment ?o}} where {graph ?g {?s kws0:comment ?o}};
 delete {graph ?g {?s kws1:comment ?o}} where {graph ?g {?s kws1:comment ?o}};
 delete {?s :comment ?o} where {?s :comment ?o};
 delete {graph ?g {?s :comment ?o}} where {graph ?g {?s :comment ?o}};
-
 
 insert {graph kwsg:indexed {?s :comment ?comment}}
 using <urn:x-arq:DefaultGraph>
@@ -47,7 +82,5 @@ where {
   }
   group by ?s
 };
-
-
 
 

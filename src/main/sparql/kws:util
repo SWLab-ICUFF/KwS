@@ -1,0 +1,11 @@
+select *
+from <urn:x-arq:DefaultGraph>
+from <urn:x-arq:UnionGraph>
+where {
+  {?s ?p ?o. filter isBlank(?s)}
+  union {?s ?p ?o. filter isBlank(?o)}
+  union {graph ?g {?s ?p ?o. filter isBlank(?s)}}
+  union {graph ?g {?s ?p ?o. filter isBlank(?o)}}
+}
+
+
