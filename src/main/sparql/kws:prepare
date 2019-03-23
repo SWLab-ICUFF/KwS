@@ -53,6 +53,7 @@ delete {graph ?g {?s kws1:comment ?o}} where {graph ?g {?s kws1:comment ?o}};
 delete {?s :comment ?o} where {?s :comment ?o};
 delete {graph ?g {?s :comment ?o}} where {graph ?g {?s :comment ?o}};
 
+
 insert {graph kwsg:indexed {?s :comment ?comment}}
 using <urn:x-arq:DefaultGraph>
 using <urn:x-arq:UnionGraph>
@@ -82,5 +83,4 @@ where {
   }
   group by ?s
 };
-
 
