@@ -10,7 +10,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 prefix xsd:	<http://www.w3.org/2001/XMLSchema#>
 
 DELETE {?bnode ?p ?o}
-INSERT {?iri ?p ?o; owl:sameAs ?bnode.}
+INSERT {?iri ?p ?o. ?bnode owl:sameAs ?iri.}
 WHERE {
   {SELECT ?bnode (uuid() AS ?iri) WHERE {SELECT DISTINCT ?bnode WHERE {?bnode ?p []. FILTER isBlank(?bnode)}}}
   ?bnode ?p ?o.
@@ -19,12 +19,12 @@ WHERE {
 DELETE {?s ?p ?bnode.}
 INSERT {?s ?p ?iri .}
 WHERE {
-  {SELECT ?bnode (coalesce(?_iri, uuid()) AS ?iri) WHERE {{SELECT DISTINCT ?bnode WHERE {[] ?p ?bnode. FILTER isBlank(?bnode)}} OPTIONAL {?_iri owl:sameAs ?bnode.}}}
+  {SELECT ?bnode (coalesce(?_iri, uuid()) AS ?iri) WHERE {{SELECT DISTINCT ?bnode WHERE {[] ?p ?bnode. FILTER isBlank(?bnode)}} OPTIONAL {?bnode owl:sameAs ?_iri.}}}
   ?s ?p ?bnode .
 };
 
 DELETE {graph ?g {?bnode ?p ?o}}
-INSERT {graph ?g {?iri ?p ?o. ?iri owl:sameAs ?bnode.}}
+INSERT {graph ?g {?iri ?p ?o. ?bnode owl:sameAs ?iri.}}
 WHERE {
   {SELECT ?g ?bnode (uuid() AS ?iri) WHERE {SELECT DISTINCT ?g ?bnode WHERE {GRAPH ?g {?bnode ?p [] .FILTER isBlank(?bnode)}}}}
   GRAPH ?g {?bnode ?p ?o.}
@@ -33,16 +33,12 @@ WHERE {
 DELETE {GRAPH ?g {?s ?p ?bnode}}
 INSERT {GRAPH ?g {?s ?p ?iri}}
 WHERE {
-  {SELECT ?bnode (coalesce(?_iri, uuid()) AS ?iri) WHERE {{SELECT DISTINCT ?g ?bnode WHERE {GRAPH ?g {[] ?p ?bnode. FILTER isBlank(?bnode)}}} OPTIONAL {GRAPH ?g {?_iri owl:sameAs ?bnode.}}}}
+  {SELECT ?bnode (coalesce(?_iri, uuid()) AS ?iri) WHERE {{SELECT DISTINCT ?g ?bnode WHERE {GRAPH ?g {[] ?p ?bnode. FILTER isBlank(?bnode)}}} OPTIONAL {GRAPH ?g {?bnode owl:sameAs ?_iri.}}}}
   GRAPH ?g {?s ?p ?bnode.}
 };
 
-DELETE {?s ?p ?o} WHERE {?s ?p ?o. FILTER isBlank(?o)};
-DELETE {GRAPH ?g {?s ?p ?o}} WHERE {GRAPH ?g {?s ?p ?o. FILTER isBlank(?o)}};
-
-
-
-
+DELETE {?s ?p ?o} WHERE {?s ?p ?o. FILTER isBlank(?s)};
+DELETE {GRAPH ?g {?s ?p ?o}} WHERE {GRAPH ?g {?s ?p ?o. FILTER isBlank(?s)}};
 
 drop graph kwsg0:indexed;
 drop graph kwsg:indexed;
@@ -84,3 +80,4 @@ where {
   group by ?s
 };
 
+  

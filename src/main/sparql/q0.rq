@@ -1,33 +1,14 @@
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix text: <http://jena.apache.org/text#>
-prefix imdb: <http://localhost:8080/resource/vocab/>
-prefix rsc: <http://localhost:8080/resource/>
 prefix kws: <http://localhost:8080/kws/vocab/>
+prefix kwsg: <urn:graph:kws:>
 
-insert {
-  graph <urn:kws:seeds> {?bag a rdf:Bag; rdfs:member ?s.}
-}
-where {
-  {select (bnode() as ?bag) where {}}
-  service <http://localhost:3030/IMDb/sparql> {
-    graph <urn:kws:indexed> {?s text:query ('%1$s' 80).}
-  }
-}
-
-
-prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix text: <http://jena.apache.org/text#>
-prefix imdb: <http://localhost:8080/resource/vocab/>
-prefix rsc: <http://localhost:8080/resource/>
-prefix kws: <http://localhost:8080/kws/vocab/>
-
-insert {graph <urn:kws:seeds> {?bag a rdf:Bag; rdfs:member ?s.}}
+drop graph kwsg:seeds;
+insert {graph kwsg:seeds {?bag a rdf:Bag; rdfs:member ?s.}}
 where {
   {bind(bnode() as ?bag)}
   service <http://localhost:3030/Mondial/sparql> {
-    {?s text:query '(Brasil)'.}
-    {graph ?g {?s text:query '(Brasil)'.}}
+    graph kwsg:indexed {?s text:query '(states Brazil)'.}
   }
 };
