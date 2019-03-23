@@ -1,53 +1,24 @@
-prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix kws0: <http://localhost:8080/kws/vocab/>
-prefix kws: <http://localhost:8080/vocab/kws#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX :	<urn:vocab:kws:>
+prefix kws:	<urn:vocab:kws:>
+prefix kwsg:	<urn:graph:kws:>
+PREFIX kws1:	<http://localhost:8080/vocab/kws#>
+prefix kws0:	<http://localhost:8080/kws/vocab/>
+prefix kwsg0:	<urn:kws:>
+prefix rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:	<http://www.w3.org/2001/XMLSchema#>
 
+drop graph kwsg0:indexed;
+drop graph kwsg:indexed;
 delete {?s kws0:comment ?o} where {?s kws0:comment ?o};
+delete {?s kws1:comment ?o} where {?s kws1:comment ?o};
 delete {graph ?g {?s kws0:comment ?o}} where {graph ?g {?s kws0:comment ?o}};
-delete {?s kws:coment ?o} where {?s kws:comment ?o};
-delete {graph ?g {?s kws:comment ?o}} where {graph ?g {?s kws:comment ?o}};
-drop graph <urn:kws:indexed>;
-
-insert {?s kws:comment ?comment}
-where {
-  {
-    select ?s (group_concat(?o) as ?comment)
-    where {
-      {?s ?p ?o.
-        filter (
-          isLiteral(?o)
-          && !isNumeric(?o)
-          && datatype(?o) not in (xsd:date,xsd:datetime)
-          && isBlank(?s)
-          && !sameTerm(?p,kws:comment)
-        )
-      }
-    }
-    group by ?s
-  }
-};
-
-insert {graph ?g {?s kws:comment ?comment}}
-where {
-  select ?g ?s (group_concat(?o) as ?comment)
-  where {
-    graph ?g {?s ?p ?o.
-      filter (
-        isLiteral(?o)
-        && !isNumeric(?o)
-        && datatype(?o) not in (xsd:date,xsd:datetime)
-        && isBlank(?s)
-        && !sameTerm(?p,kws:comment)
-      )
-    }
-  }
-  group by ?g ?s
-};
+delete {graph ?g {?s kws1:comment ?o}} where {graph ?g {?s kws1:comment ?o}};
+delete {?s :comment ?o} where {?s :comment ?o};
+delete {graph ?g {?s :comment ?o}} where {graph ?g {?s :comment ?o}};
 
 
-insert {graph <urn:kws:indexed> {?s kws:comment ?comment}}
+insert {graph kwsg:indexed {?s :comment ?comment}}
 using <urn:x-arq:DefaultGraph>
 using <urn:x-arq:UnionGraph>
 where {
@@ -59,7 +30,7 @@ where {
         && !isNumeric(?o)
         && datatype(?o) not in (xsd:date,xsd:datetime)
         && !isBlank(?s)
-        && !sameTerm(?p,kws:comment)
+        && !sameTerm(?p,:comment)
       )
     }
     union {
@@ -69,7 +40,7 @@ where {
           && !isNumeric(?o)
           && datatype(?o) not in (xsd:date,xsd:datetime)
           && !isBlank(?s)
-          && !sameTerm(?p,kws:comment)
+          && !sameTerm(?p,:comment)
         )
       }
     }

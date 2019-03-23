@@ -2,6 +2,6 @@ export JVM_ARGS=${JVM_ARGS:--Xmx14G}
 export JENA_HOME=/Users/lapaesleme/local/jena/apache-jena-3.10.0
 export PATH=$PATH:$JENA_HOME/bin
 cp /Users/lapaesleme/GitHub/KwS/src/main/scripts/Mondial/Mondial.ttl.old /Users/lapaesleme/local/jena/apache-jena-fuseki-3.10.0/run/configuration/Mondial.ttl
-/Users/lapaesleme/local/jena/apache-jena-3.10.0/bin/tdb2.tdbloader -v --loader parallel --loc /Users/lapaesleme/local/jena/apache-jena-fuseki-3.10.0/run/databases/Mondial /Users/lapaesleme/OneDrive/Data/dumps/Mondial/mondial.rdf
-/Users/lapaesleme/local/jena/apache-jena-3.10.0/bin/tdb2.tdbloader -v --loader parallel --loc /Users/lapaesleme/local/jena/apache-jena-fuseki-3.10.0/run/databases/Mondial /Users/lapaesleme/OneDrive/Data/dumps/Mondial/mondial-meta.rdf
-/Users/lapaesleme/local/jena/apache-jena-3.10.0/bin/tdb2.tdbloader -v --loader parallel --loc /Users/lapaesleme/local/jena/apache-jena-fuseki-3.10.0/run/databases/Mondial /Users/lapaesleme/OneDrive/Data/dumps/Mondial/mondial-sameas.n3
+/Users/lapaesleme/local/jena/apache-jena-3.10.0/bin/tdb2.tdbloader -v --loader parallel --loc /Users/lapaesleme/local/jena/apache-jena-fuseki-3.10.0/run/databases/Mondial smb://lappl-pc2/Users/lapaesleme/OneDrive/Data@swlab/Vol2/Mondial/mondial.rdf
+/Users/lapaesleme/local/jena/apache-jena-3.10.0/bin/tdb2.tdbloader -v --loader parallel --loc /Users/lapaesleme/local/jena/apache-jena-fuseki-3.10.0/run/databases/Mondial smb://lappl-pc2/Users/lapaesleme/OneDrive/Data@swlab/Vol2/Mondial/mondial-meta.rdf
+/Users/lapaesleme/local/jena/apache-jena-3.10.0/bin/tdb2.tdbloader -v --loader parallel --loc /Users/lapaesleme/local/jena/apache-jena-fuseki-3.10.0/run/databases/Mondial smb://lappl-pc2/Users/lapaesleme/OneDrive/Data@swlab/Vol2/Mondial/mondial-sameas.n3

@@ -1,0 +1,62 @@
+PREFIX :    <http://example.com/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+####################
+# Rewrite subjects #
+####################
+
+DELETE {?bnode ?p ?o}
+INSERT {?iri ?p ?o. ?iri owl:sameAs ?bnode.}
+WHERE {
+  {SELECT ?bnode (uuid() AS ?iri)
+   WHERE {{SELECT DISTINCT ?bnode WHERE {?bnode ?p [] .FILTER isBlank(?bnode)}}}}
+  ?bnode ?p ?o.
+};
+
+DELETE {graph ?g {?bnode ?p ?o}}
+INSERT {graph ?g {?iri ?p ?o. ?iri owl:sameAs ?bnode.}}
+WHERE {
+  {SELECT ?bnode (uuid() AS ?iri)
+    WHERE {{SELECT DISTINCT ?g ?bnode WHERE {graph ?g {?bnode ?p [] .FILTER isBlank(?bnode)}}}}}
+  {graph ?g {?bnode ?p ?o.}}
+};
+
+###################
+# Rewrite objects #
+###################
+
+DELETE {
+  ?s ?p ?bnode .
+}
+INSERT {
+  ?s ?p ?iri .
+}
+WHERE {
+  {
+    SELECT ?bnode ?iri
+    WHERE {
+      {
+        SELECT DISTINCT ?bnode
+        WHERE {
+          [] ?p ?bnode .
+          FILTER isBlank(?bnode)
+        }
+      }
+      OPTIONAL {
+        GRAPH :aliases {
+          ?bnode owl:sameAs ?_iri .
+        }
+      }
+      BIND (coalesce(?_iri, uuid()) AS ?iri)
+    }
+  }
+  ?s ?p ?bnode .
+}
+;
+
+############################
+# Clear blank node aliases #
+############################
+
+CLEAR GRAPH :aliases
+
