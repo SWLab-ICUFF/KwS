@@ -55,8 +55,11 @@ where {
     limit 20
   }
   {
-    {?c a rdf:Seq; rdfs:member ?m; ?p1 ?m.}
-    optional {?m ?p2 ?o. filter isLiteral(?o)}
+    select distinct *
+    where {
+        {?c a rdf:Seq; rdfs:member ?m; ?p1 ?m.}
+        optional {?m ?p2 ?o. filter isLiteral(?o)}
+    }
   }
 };
 
