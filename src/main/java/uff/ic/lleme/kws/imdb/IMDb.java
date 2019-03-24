@@ -28,17 +28,6 @@ public class IMDb {
             fuseki.execUpdate(queryString, "Temp");
         }
 
-        if (true) {
-            queryString = readQuery("./resources/sparql/q10.rq");
-            fuseki.execUpdate(queryString, "Temp");
-        }
-
-        if (true) {
-            queryString = readQuery("./resources/sparql/q20.rq");
-            queryString = queryString.format(queryString, kwsString);
-            fuseki.execUpdate(queryString, "Temp");
-        }
-
         if (true)
             for (int i = 0; i < 50; i++) {
                 queryString = readQuery("./resources/sparql/q30.rq");
