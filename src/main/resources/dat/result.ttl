@@ -5,177 +5,104 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix mond:  <http://www.semwebtech.org/mondial/10/> .
 
+[ a          rdf:Seq ;
+  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  rdf:_2     meta:capital ;
+  rdf:_3     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4     meta:hasCity ;
+  rdf:_5     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  rdf:_6     meta:hasCity ;
+  rdf:_7     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  kws:score  "7.996436"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a          rdf:Seq ;
+  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  rdf:_2     meta:hasCity ;
+  rdf:_3     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4     meta:hasCity ;
+  rdf:_5     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  rdf:_6     meta:capital ;
+  rdf:_7     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  kws:score  "7.996436"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a          rdf:Seq ;
+  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  rdf:_2     meta:hasCity ;
+  rdf:_3     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4     meta:capital ;
+  rdf:_5     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  rdf:_6     meta:capital ;
+  rdf:_7     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  kws:score  "7.996436"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a          rdf:Seq ;
+  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  rdf:_2     meta:capital ;
+  rdf:_3     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4     meta:capital ;
+  rdf:_5     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  rdf:_6     meta:hasCity ;
+  rdf:_7     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  kws:score  "7.996436"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a          rdf:Seq ;
+  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_7     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  kws:score  "9.764946"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
 <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/>
         kws:comment  "Rio de Janeiro" ;
         kws:score    "13.993763"^^<http://www.w3.org/2001/XMLSchema#float> .
 
-<http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Mesquita/>
-        kws:comment  "Mesquita" .
-
 [ a          rdf:Seq ;
   rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/> ;
-  rdf:_2     meta:locatedIn ;
-  rdf:_3     <http://www.semwebtech.org/mondial/10/rivers/Rio+Paraiba+do+Sul/> ;
-  rdf:_4     meta:locatedAt ;
-  rdf:_5     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Barra+Mansa/> ;
-  rdf:_6     meta:hasCity ;
   rdf:_7     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
-  kws:score  "23.146378"^^<http://www.w3.org/2001/XMLSchema#float>
+  kws:score  "9.764946"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
-<http://www.semwebtech.org/mondial/10/countries/RA/>
-        kws:comment  "Argentina republic RA" .
-
-<http://www.semwebtech.org/mondial/10/rivers/Iguacu/>
-        kws:comment  "Iguacu" .
-
 [ a          rdf:Seq ;
-  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/> ;
-  rdf:_2     meta:hasCity ;
-  rdf:_3     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Minas+Gerais/cities/Betim/> ;
-  rdf:_4     meta:hasCity ;
-  rdf:_5     <http://www.semwebtech.org/mondial/10/countries/BR/> ;
-  rdf:_6     meta:hasCity ;
+  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
   rdf:_7     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
-  kws:score  "25.066021"^^<http://www.w3.org/2001/XMLSchema#float>
+  kws:score  "13.993763"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
-
-[ a          rdf:Seq ;
-  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
-  rdf:_2     meta:locatedAt ;
-  rdf:_3     <http://www.semwebtech.org/mondial/10/seas/Atlantic+Ocean/> ;
-  rdf:_4     meta:locatedIn ;
-  rdf:_5     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/São+Paulo/> ;
-  rdf:_6     meta:locatedIn ;
-  rdf:_7     <http://www.semwebtech.org/mondial/10/rivers/Rio+Grande/> ;
-  kws:score  "19.353317"^^<http://www.w3.org/2001/XMLSchema#float>
-] .
-
-<http://www.semwebtech.org/mondial/10/countries/BR/provinces/Minas+Gerais/cities/Betim/>
-        kws:comment  "Betim" .
-
-<http://www.semwebtech.org/mondial/10/countries/BR/provinces/Bahia/cities/Alagoinhas/>
-        kws:comment  "Alagoinhas" .
 
 <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/>
         kws:comment  "Rio de Janeiro" ;
         kws:score    "13.993763"^^<http://www.w3.org/2001/XMLSchema#float> .
 
 [ a          rdf:Seq ;
-  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  rdf:_2     meta:capital ;
+  rdf:_3     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4     meta:capital ;
+  rdf:_5     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  rdf:_6     meta:capital ;
+  rdf:_7     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  kws:score  "7.996436"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a          rdf:Seq ;
+  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  rdf:_7     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  kws:score  "13.993763"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a          rdf:Seq ;
+  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
   rdf:_2     meta:hasCity ;
-  rdf:_3     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Bahia/cities/Alagoinhas/> ;
+  rdf:_3     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
   rdf:_4     meta:hasCity ;
-  rdf:_5     <http://www.semwebtech.org/mondial/10/countries/BR/> ;
-  rdf:_6     meta:hasCity ;
-  rdf:_7     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+Grande+do+Sul/cities/Rio+Grande/> ;
-  kws:score  "16.431812"^^<http://www.w3.org/2001/XMLSchema#float>
-] .
-
-[ a          rdf:Seq ;
-  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/> ;
-  rdf:_2     meta:ofMember ;
-  rdf:_3     <urn:uuid:13c253c8-eb17-46c0-b967-aa8fe8e40712> ;
-  rdf:_4     meta:ofMember ;
-  rdf:_5     <http://www.semwebtech.org/mondial/10/countries/BR/> ;
-  rdf:_6     meta:locatedIn ;
-  rdf:_7     <http://www.semwebtech.org/mondial/10/rivers/Rio+Grande/> ;
-  kws:score  "16.431812"^^<http://www.w3.org/2001/XMLSchema#float>
-] .
-
-[ a          rdf:Seq ;
-  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/> ;
-  rdf:_2     meta:locatedIn ;
-  rdf:_3     <http://www.semwebtech.org/mondial/10/rivers/Acre/> ;
-  rdf:_4     meta:locatedIn ;
-  rdf:_5     <http://www.semwebtech.org/mondial/10/countries/BOL/> ;
-  rdf:_6     meta:locatedIn ;
-  rdf:_7     <http://www.semwebtech.org/mondial/10/rivers/Rio+Madre+de+Dios/> ;
-  kws:score  "13.361557"^^<http://www.w3.org/2001/XMLSchema#float>
-] .
-
-<http://www.semwebtech.org/mondial/10/rivers/Rio+Madre+de+Dios/>
-        kws:comment  "Rio Madre de Dios" ;
-        kws:score    "6.4842544"^^<http://www.w3.org/2001/XMLSchema#float> .
-
-[ a          rdf:Seq ;
-  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/> ;
-  rdf:_2     meta:locatedIn ;
-  rdf:_3     <http://www.semwebtech.org/mondial/10/rivers/Iguacu/> ;
-  rdf:_4     meta:locatedIn ;
-  rdf:_5     <http://www.semwebtech.org/mondial/10/countries/BR/> ;
-  rdf:_6     meta:locatedIn ;
-  rdf:_7     <http://www.semwebtech.org/mondial/10/rivers/Rio+Grande/> ;
-  kws:score  "16.431812"^^<http://www.w3.org/2001/XMLSchema#float>
-] .
-
-[ a          rdf:Seq ;
-  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/> ;
-  rdf:_2     meta:hasCity ;
-  rdf:_3     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/São+Paulo/cities/Taubaté/> ;
-  rdf:_4     meta:hasCity ;
-  rdf:_5     <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_5     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
   rdf:_6     meta:hasCity ;
   rdf:_7     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
-  kws:score  "25.066021"^^<http://www.w3.org/2001/XMLSchema#float>
+  kws:score  "7.996436"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
-
-<http://www.semwebtech.org/mondial/10/rivers/Rio+Grande/>
-        kws:comment  "Rio Grande" ;
-        kws:score    "5.3595533"^^<http://www.w3.org/2001/XMLSchema#float> .
 
 <http://www.semwebtech.org/mondial/10/countries/BR/>
         kws:comment  "Brazil federal republic BR" ;
         kws:score    "5.536129"^^<http://www.w3.org/2001/XMLSchema#float> .
-
-<http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+Grande+do+Sul/cities/Rio+Grande/>
-        kws:comment  "Rio Grande" ;
-        kws:score    "5.3595533"^^<http://www.w3.org/2001/XMLSchema#float> .
-
-<http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Barra+Mansa/>
-        kws:comment  "Barra Mansa" .
-
-<http://www.semwebtech.org/mondial/10/countries/BR/provinces/São+Paulo/>
-        kws:comment  "São Paulo" .
-
-[ a          rdf:Seq ;
-  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/> ;
-  rdf:_2     meta:neighbor ;
-  rdf:_3     <http://www.semwebtech.org/mondial/10/countries/RA/> ;
-  rdf:_4     meta:neighbor ;
-  rdf:_5     <http://www.semwebtech.org/mondial/10/countries/BR/> ;
-  rdf:_6     meta:hasCity ;
-  rdf:_7     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
-  kws:score  "25.066021"^^<http://www.w3.org/2001/XMLSchema#float>
-] .
-
-<http://www.semwebtech.org/mondial/10/rivers/Acre/>
-        kws:comment  "Acre" .
-
-<http://www.semwebtech.org/mondial/10/seas/Atlantic+Ocean/>
-        kws:comment  "Atlantic Ocean" .
-
-[ a          rdf:Seq ;
-  rdf:_1     <http://www.semwebtech.org/mondial/10/countries/BR/> ;
-  rdf:_2     meta:hasCity ;
-  rdf:_3     <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Mesquita/> ;
-  rdf:_4     meta:hasCity ;
-  rdf:_5     <http://www.semwebtech.org/mondial/10/countries/BR/> ;
-  rdf:_6     meta:locatedIn ;
-  rdf:_7     <http://www.semwebtech.org/mondial/10/rivers/Rio+Grande/> ;
-  kws:score  "16.431812"^^<http://www.w3.org/2001/XMLSchema#float>
-] .
-
-<http://www.semwebtech.org/mondial/10/rivers/Rio+Paraiba+do+Sul/>
-        kws:comment  "Rio Paraiba do Sul" ;
-        kws:score    "3.6164846"^^<http://www.w3.org/2001/XMLSchema#float> .
-
-<http://www.semwebtech.org/mondial/10/countries/BOL/>
-        kws:comment  "Bolivia Estado Plurinacional de Bolivia (el) republic; Social Unitarian State BOL" ;
-        kws:score    "1.341174"^^<http://www.w3.org/2001/XMLSchema#float> .
-
-<urn:uuid:13c253c8-eb17-46c0-b967-aa8fe8e40712>
-        kws:comment  "member" .
-
-<http://www.semwebtech.org/mondial/10/countries/BR/provinces/São+Paulo/cities/Taubaté/>
-        kws:comment  "Taubaté" .

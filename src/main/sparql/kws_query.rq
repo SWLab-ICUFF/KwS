@@ -259,7 +259,7 @@ drop default;
 insert {?c a rdf:Seq; kws:score ?score; ?p1 ?m. ?m ?p2 ?o.}
 where {
   {
-    select ?c (sum(coalesce(?sc,0)) as ?score)
+    select ?c (avg(coalesce(?sc,0)) as ?score)
     where {
       graph kwsg:temp {
         ?c a rdf:Seq; rdfs:member ?m.
@@ -267,6 +267,7 @@ where {
       }
     }
     group By ?c
+    order by desc(avg(coalesce(?sc,0)))
     limit 10
   }
   {
