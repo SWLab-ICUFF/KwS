@@ -1,9 +1,7 @@
+prefix kwsg: <urn:graph:kws:>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix text: <http://jena.apache.org/text#>
-prefix imdb: <http://localhost:8080/resource/vocab/>
-prefix kws: <http://localhost:8080/kws/vocab/>
-prefix rsc: <http://localhost:8080/resource/>
 
 insert {
   [] a rdf:Seq;
@@ -38,8 +36,8 @@ insert {
 where {
   { # busca caminhos de distância 1
     {
-      {graph <urn:kws:seeds> {[] rdfs:member ?a.}}
-      {graph <urn:kws:seeds> {[] rdfs:member ?b.}}
+      {graph kwsg:seeds {[] rdfs:member ?a.}}
+      {graph kwsg:seeds {[] rdfs:member ?b.}}
       filter (str(?b) > str(?a))
     }
     service <http://localhost:3030/IMDb/sparql> {
@@ -53,8 +51,8 @@ where {
 
   union {  # busca caminhos de distância 2
     {
-      {graph <urn:kws:seeds> {[] rdfs:member ?a.}}
-      {graph <urn:kws:seeds> {[] rdfs:member ?b.}}
+      {graph kwsg:seeds {[] rdfs:member ?a.}}
+      {graph kwsg:seeds {[] rdfs:member ?b.}}
       filter (str(?b) > str(?a))
     }
     service <http://localhost:3030/IMDb/sparql> {
@@ -69,8 +67,8 @@ where {
   }
   union {  # busca caminhos de distância 3
     {
-      {graph <urn:kws:seeds> {[] rdfs:member ?a.}}
-      {graph <urn:kws:seeds> {[] rdfs:member ?b.}}
+      {graph kwsg:seeds {[] rdfs:member ?a.}}
+      {graph kwsg:seeds {[] rdfs:member ?b.}}
       filter (str(?b) > str(?a))
     }
     service <http://localhost:3030/IMDb/sparql>{
@@ -88,9 +86,3 @@ where {
     }
   }
 }
-
-
-
-
-
-
