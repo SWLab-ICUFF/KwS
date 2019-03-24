@@ -14,7 +14,7 @@ insert {graph kwsg:seeds {?bag a rdf:Bag; rdfs:member ?s.}}
 where {
   {bind(bnode() as ?bag)}
   service <http://localhost:3030/Mondial/sparql>
-  {graph kwsg:indexed {?s text:query ('(rio de janeiro Brazil)' 8).}}
+  {graph kwsg:indexed {?s text:query ('(%1$s)' 8).}}
 };
 
 ###################################################
@@ -271,8 +271,8 @@ where {
   }
   {
     graph kwsg:temp {
-      {?c a rdf:Seq; rdfs:member ?m. ?c ?p1 ?m.}
-      optional {?m ?p2 ?o.}
+      {?c a rdf:Seq; rdfs:member ?m; ?p1 ?m.}
+      optional {?m ?p2 ?o. filter isLiteral(?o)}
     }
   }
 };

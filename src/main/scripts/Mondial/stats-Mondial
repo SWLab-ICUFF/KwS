@@ -1,0 +1,7 @@
+export JVM_ARGS=${JVM_ARGS:--Xmx14G}
+export JENA_HOME=/Users/lapaesleme/local/jena/apache-jena-3.10.0
+export PATH=$PATH:$JENA_HOME/bin
+
+cd /Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/databases/Mondial
+/Users/lapaesleme/local/etc/jena/apache-jena-3.10.0/bin/tdb2.tdbstats --verbose --loc=/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/databases/Mondial > /Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/databases/Mondial/Data-0001/stats.opt
+#/Users/lapaesleme/local/etc/jena/apache-jena-3.10.0/bin/tdb2.tdbstats --verbose --loc=/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/databases/Mondial --graph urn:x-arq:UnionGraph >> /Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/databases/Mondial/Data-0001/stats.opt

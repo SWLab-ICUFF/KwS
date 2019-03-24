@@ -3,6 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uff.ic.lleme</groupId>
     <artifactId>kws</artifactId>
+    <name>KwS</name>
     <version>0.0.1</version>
     <packaging>jar</packaging>
     <properties>
@@ -24,16 +25,15 @@
         </dependency>
         <dependency>
             <groupId>org.apache.jena</groupId>
-            <artifactId>apache-jena</artifactId>
+            <artifactId>apache-jena-libs</artifactId>
             <version>3.10.0</version>
             <type>pom</type>
         </dependency>
         <dependency>
             <groupId>org.apache.jena</groupId>
-            <artifactId>jena-sdb</artifactId>
+            <artifactId>apache-jena-fuseki</artifactId>
             <version>3.10.0</version>
-            <type>jar</type>
+            <type>pom</type>
         </dependency>
     </dependencies>
-    <name>KwS</name>
 </project>
