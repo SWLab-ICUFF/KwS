@@ -10,7 +10,7 @@ insert {graph kwsg:seeds {?bag a rdf:Bag; rdfs:member ?s.}}
 where {
   {bind(bnode() as ?bag)}
   service <http://localhost:3030/Mondial/sparql>
-  {graph kwsg:indexed {?s text:query '(rio de janeiro Brazil)'.}}
+  {graph kwsg:indexed {?s text:query ('(rio de janeiro Brazil)' 3).}}
 };
 
 
