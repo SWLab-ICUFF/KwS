@@ -21,7 +21,13 @@ public class RunKWSQuery {
 
         fuseki.execUpdate("drop all", "Work.temp");
         if (true) {
-            queryString = readQuery("./src/main/sparql/kws_query.rq");
+            queryString = readQuery("./src/main/sparql/kws_query_1.rq");
+            queryString = queryString.format(queryString, kwsString);
+            fuseki.execUpdate(queryString, "Work.temp");
+        }
+
+        if (true) {
+            queryString = readQuery("./src/main/sparql/kws_query_2.rq");
             queryString = queryString.format(queryString, kwsString);
             fuseki.execUpdate(queryString, "Work.temp");
         }
@@ -38,14 +44,24 @@ public class RunKWSQuery {
         }
 
         {
-            Model model = fuseki.getModel("Work.temp");
+            Model model = fuseki.getModel("Work.temp", "urn:graph:kws:sol1");
             model.setNsPrefix("kws", "urn:vocab:kws:");
             model.setNsPrefix("kwsg", "urn:graph:kws:");
             model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
             model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
             model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
             model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
-            writeModel(model, "./src/main/resources/dat/result.ttl");
+            writeModel(model, "./src/main/resources/dat/sol1.ttl");
+        }
+        {
+            Model model = fuseki.getModel("Work.temp", "urn:graph:kws:sol2");
+            model.setNsPrefix("kws", "urn:vocab:kws:");
+            model.setNsPrefix("kwsg", "urn:graph:kws:");
+            model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+            model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
+            model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
+            model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
+            writeModel(model, "./src/main/resources/dat/sol2.ttl");
         }
     }
 
