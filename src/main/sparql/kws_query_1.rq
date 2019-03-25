@@ -26,14 +26,14 @@ insert {
   graph kwsg:temp{
     [] a rdf:Seq;
       rdf:_1 ?a;
-      rdf:_2 ?p1;
-      rdf:_2 ?_p1;
+      rdf:_2 [ kws:pathThrough ?p1];
+      rdf:_2 [ kws:pathThroughInverseOf ?_p1];
       rdf:_3 ?s1;
-      rdf:_4 ?p2;
-      rdf:_4 ?_p2;
+      rdf:_4 [ kws:pathThrough ?p2];
+      rdf:_4 [ kws:pathThroughInverseOf ?_p2];
       rdf:_5 ?s2;
-      rdf:_6 ?p3;
-      rdf:_6 ?_p3;
+      rdf:_6 [ kws:pathThrough ?p3];
+      rdf:_6 [ kws:pathThroughInverseOf ?_p3];
       rdf:_7 ?b.
 
     ?a ?p0 ?b.
