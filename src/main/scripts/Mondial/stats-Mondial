@@ -1,5 +1,5 @@
 export JVM_ARGS=${JVM_ARGS:--Xmx14G}
-export JENA_HOME=/Users/lapaesleme/local/jena/apache-jena-3.10.0
+export JENA_HOME=/Users/lapaesleme/local/etc/jena/apache-jena-3.10.0
 export PATH=$PATH:$JENA_HOME/bin
 
 cd /Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/databases/Mondial

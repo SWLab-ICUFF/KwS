@@ -15,7 +15,7 @@ insert {graph kwsg:seeds {?bag a rdf:Bag; rdfs:member ?s.}}
 where {
   {bind(bnode() as ?bag)}
   service <http://localhost:3030/Mondial/sparql>
-  {graph kwsg:indexed {?s text:query ('%1$s' 8).}}
+  {graph kwsg:indexed {?s text:query ('%1$s' 3).}}
 };
 
 ###################################################
@@ -24,7 +24,7 @@ where {
 
 insert {
   graph kwsg:temp{
-    ?seq a rdf:Seq;
+    [] a rdf:Seq;
         rdf:_1 ?e1; rdf:_2 ?p1; rdf:_2 ?__p1;
         rdf:_3 ?e2; rdf:_4 ?p2; rdf:_4 ?__p2;
         rdf:_5 ?e3; rdf:_6 ?p3; rdf:_6 ?__p3;
@@ -41,12 +41,12 @@ where {
       filter (str(?b) > str(?a))
     }
     service <http://localhost:3030/Mondial/sparql> {
-      select distinct
+      select
         (?a as ?e1) ?p1 ?_p1 (iri(str(?_p1)+"^") as ?__p1)
         (?b as ?e2)
       where {
-        {?a ?p0 ?b. bind(uuid() as ?seq) filter (?p0 != rdf:type)}
-      	union {?b ?_p0 ?a. bind(uuid() as ?seq) filter (?_p0 != rdf:type)}
+        {?a ?p1 ?b. filter (?p1 != rdf:type)}
+      	union {?b ?_p1 ?a. filter (?_p1 != rdf:type)}
       }
     }
   }
@@ -58,15 +58,15 @@ where {
       filter (str(?b) > str(?a))
     }
     service <http://localhost:3030/Mondial/sparql> {
-      select distinct
+      select
         (?a as ?e1) ?p1 ?_p1 (iri(str(?_p1)+"^") as ?__p1)
         (?s1 as ?e2) ?p2 ?_p2 (iri(str(?_p2)+"^") as ?__p2)
         (?b as ?e3)
       where {
-        {?a ?p1 ?s1. ?s1 ?p3 ?b. bind(uuid() as ?seq) filter ((?p1 != rdf:type) && (?p3 != rdf:type))}
-      	union {?a ?p1 ?s1. ?b ?_p3 ?s1. ?s1 ?p []. bind(uuid() as ?seq) filter ((?p1 != rdf:type) && (?_p3 != rdf:type))}
-      	union {?s1 ?_p1 ?a. ?s1 ?p3 ?b. bind(uuid() as ?seq) filter ((?_p1 != rdf:type) && (?_p3 != rdf:type))}
-      	union {?s1 ?_p1 ?a. ?b ?_p3 ?s1. bind(uuid() as ?seq) filter ((?_p1 != rdf:type) && (?_p3 != rdf:type))}
+        {{?a ?p1 ?s1. filter(?p1 != rdf:type && ?s1 not in (?a))} {?s1 ?p2 ?b. filter(?p2 != rdf:type)}}
+        union {{?a ?p1 ?s1. filter(?p1 != rdf:type && ?s1 not in (?a))} {?b ?_p2 ?s1. ?s1 ?p []. filter(?_p2 != rdf:type)}}
+        union {{?s1 ?_p1 ?a. filter(?_p1 != rdf:type && ?s1 not in (?a))} {?s1 ?p2 ?b. filter(?p2 != rdf:type)}}
+        union {{?s1 ?_p1 ?a. filter(?_p1 != rdf:type && ?s1 not in (?a))} {?b ?_p2 ?s1. filter(?_p2 != rdf:type)}}
       }
     }
   }
@@ -77,21 +77,22 @@ where {
       filter (str(?b) > str(?a))
     }
     service <http://localhost:3030/Mondial/sparql>{
-        select distinct
+        select
             (?a as ?e1) ?p1 ?_p1 (iri(str(?_p1)+"^") as ?__p1)
             (?s1 as ?e2) ?p2 ?_p2 (iri(str(?_p2)+"^") as ?__p2)
             (?s2 as ?e3) ?p3 ?_p3 (iri(str(?_p3)+"^") as ?__p3)
             (?b as ?e4)
         where {
-            {?a ?p1 ?s1. ?s2 ?p3 ?b. ?s1 ?p2 ?s2. bind(uuid() as ?seq) filter ((?p1 != rdf:type) && (?p2 != rdf:type) && (?p3 != rdf:type))}
-            union {?a ?p1 ?s1. ?b ?_p3 ?s2. ?s2 ?p []. ?s1 ?p2 ?s2. bind(uuid() as ?seq) filter ((?p1 != rdf:type) && (?p2 != rdf:type) && (?_p3 != rdf:type))}
-            union {?a ?p1 ?s1. ?s1 ?p []. ?s2 ?p3 ?b. ?s2 ?_p2 ?s1. bind(uuid() as ?seq) filter ((?p1 != rdf:type) && (?_p2 != rdf:type) && (?p3 != rdf:type))}
-            union {?a ?p1 ?s1. ?s1 ?p []. ?b ?_p3 ?s2. ?s2 ?_p2 ?s1. bind(uuid() as ?seq) filter ((?p1 != rdf:type) && (?_p2 != rdf:type) && (?_p3 != rdf:type))}
-            union {?s1 ?_p1 ?a. ?s2 ?p3 ?b. ?s1 ?p2 ?s2. bind(uuid() as ?seq) filter ((?_p1 != rdf:type) && (?p2 != rdf:type) && (?p3 != rdf:type))}
-            union {?s1 ?_p1 ?a. ?b ?_p3 ?s2. ?s2 ?p []. ?s1 ?p2 ?s2. bind(uuid() as ?seq) filter ((?_p1 != rdf:type) && (?p2 != rdf:type) && (?_p3 != rdf:type))}
-            union {?s1 ?_p1 ?a. ?s2 ?p3 ?b. ?s2 ?_p2 ?s1. bind(uuid() as ?seq) filter ((?_p1 != rdf:type) && (?_p2 != rdf:type) && (?p3 != rdf:type))}
-            union {?s1 ?_p1 ?a. ?b ?_p3 ?s2. ?s2 ?_p2 ?s1. bind(uuid() as ?seq) filter ((?_p1 != rdf:type) && (?_p2 != rdf:type) && (?_p3 != rdf:type))}
+        	{{?a ?p1 ?s1. filter(?p1 != rdf:type && ?s1 not in (?a))} {?s2 ?p3 ?b. filter(?p3 != rdf:type && ?s2 not in (?s1,?a))} {?s1 ?p2 ?s2 filter (?p2 != rdf:type)}.}
+        	union {{?a ?p1 ?s1. filter(?p1 != rdf:type && ?s1 not in (?a))} {?b ?_p3 ?s2. filter(?_p3 != rdf:type && ?s2 not in (?s1,?a))} ?s2 ?p []. {?s1 ?p2 ?s2. filter (?p2 != rdf:type)}}
+        	union {{?a ?p1 ?s1. filter(?p1 != rdf:type && ?s1 not in (?a))} ?s1 ?p []. {?s2 ?p3 ?b. filter(?p3 != rdf:type && ?s2 not in (?s1,?a))} {?s2 ?_p2 ?s1. filter (?_p2 != rdf:type )}}
+        union {{?a ?p1 ?s1. filter(?p1 != rdf:type && ?s1 not in (?a))} ?s1 ?p []. {?b ?_p3 ?s2. filter(?_p3 != rdf:type && ?s2 not in (?s1,?a))} {?s2 ?_p2 ?s1. filter (?_p2 != rdf:type)}}
+        	union {{?s1 ?_p1 ?a. filter(?_p1 != rdf:type && ?s1 not in (?a))} {?s2 ?p3 ?b. filter(?p3 != rdf:type && ?s2 not in (?s1,?a))} {?s1 ?p2 ?s2. filter (?p2 != rdf:type)}}
+        union {{?s1 ?_p1 ?a. filter(?_p1 != rdf:type && ?s1 not in (?a))} {?b ?_p3 ?s2. filter(?_p3 != rdf:type && ?s2 not in (?s1,?a))} ?s2 ?p []. {?s1 ?p2 ?s2. filter(?p2 != rdf:type)}}
+        	union {{?s1 ?_p1 ?a. filter(?_p1 != rdf:type && ?s1 not in (?a))} {?s2 ?p3 ?b. filter(?p3 != rdf:type && ?s2 not in (?s1,?a))} {?s2 ?_p2 ?s1. filter(?_p2 != rdf:type)}}
+        union {{?s1 ?_p1 ?a. filter(?_p1 != rdf:type && ?s1 not in (?a))} {?b ?_p3 ?s2. filter(?_p3 != rdf:type && ?s2 not in (?s1,?a))} {?s2 ?_p2 ?s1. filter(?_p2 != rdf:type)}}
         }
+        limit 100
     }
   }
 };
