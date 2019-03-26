@@ -19,7 +19,6 @@ public class RunKWSQuery {
         String kwsString = "(rio de janeiro Brazil)";
         String queryString = "";
 
-        fuseki.execUpdate("drop all", "Work.temp");
         if (true) {
             queryString = readQuery("./src/main/sparql/kws_query_1.rq");
             queryString = queryString.format(queryString, kwsString);
@@ -34,6 +33,7 @@ public class RunKWSQuery {
 
         {
             Model model = fuseki.getModel("Work.temp", "urn:graph:kws:temp");
+            model.setNsPrefix("urn", "urn:uuid:");
             model.setNsPrefix("kws", "urn:vocab:kws:");
             model.setNsPrefix("kwsg", "urn:graph:kws:");
             model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
@@ -45,6 +45,7 @@ public class RunKWSQuery {
 
         {
             Model model = fuseki.getModel("Work.temp", "urn:graph:kws:sol1");
+            model.setNsPrefix("urn", "urn:uuid:");
             model.setNsPrefix("kws", "urn:vocab:kws:");
             model.setNsPrefix("kwsg", "urn:graph:kws:");
             model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
@@ -55,6 +56,7 @@ public class RunKWSQuery {
         }
         {
             Model model = fuseki.getModel("Work.temp", "urn:graph:kws:sol2");
+            model.setNsPrefix("urn", "urn:uuid:");
             model.setNsPrefix("kws", "urn:vocab:kws:");
             model.setNsPrefix("kwsg", "urn:graph:kws:");
             model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
