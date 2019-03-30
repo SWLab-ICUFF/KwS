@@ -32,7 +32,7 @@ public class FusekiServer {
     public int httpPort;
 
     public FusekiServer() {
-        hostname = "localhost";
+        hostname = "lappl-mm";
         httpPort = 3030;
     }
 
