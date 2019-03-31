@@ -5,126 +5,40 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix text: <http://jena.apache.org/text#>
 
-################################
-# calcular scores dos caminhos #
-################################
-
-with kwsg:temp
-insert {?e kws:score ?score.}
-using kwsg:temp
-where {
-    {select distinct ?e where {[a rdf:Seq] rdfs:member ?e; ?p ?e. filter (?p in (rdf:_1,rdf:_3,rdf:_5,rdf:_7))}}
-    optional {(?e ?_score) text:query '%1$s'.}
-    bind (coalesce(?_score,0) as ?score)
-};
-
-#with kwsg:temp
-#insert {?e kws:score2 ?score2.}
-#using kwsg:temp
-#where {
-#    ?e a rdf:Seq.
-#    optional {(?e ?_score) text:query '%1$s'}.
-#    bind (coalesce(?_score,0) as ?score2)
-#};
-
-
-##################################
-# Agrupar entidades encontradas. #
-##################################
-
-with kwsg:temp2
-insert {?bag a rdf:Bag; rdfs:member ?m.}
-using kwsg:temp
-where {
-    {bind(bnode() as ?bag)}
-    {
-        select distinct ?m
-        where {
-            [a rdf:Seq; rdfs:member ?m] ?p ?m.
-            ?m kws:score ?score.
-            filter (?p in (rdf:_1,rdf:_3,rdf:_5,rdf:_7) && ?score > 0)
-        }
-    }
-};
-
-
-with kwsg:temp3
-insert {
-  ?bag a rdf:Bag;
-    kws:comment ?comment;
-    rdfs:member ?m1;
-    rdfs:member ?m2;
-    rdfs:member ?m3;
-    rdfs:member ?m4;
-    rdfs:member ?m4;
-    .
-}
-using kwsg:temp2
-where {
-  {select ?bag (concat(?comment1," ",?comment2) as ?comment) ?size ?m1 ?m2
-    where {
-      [] rdfs:member ?m1. optional{?m1 kws:comment ?comment1.}
-      [] rdfs:member ?m2. optional{?m2 kws:comment ?comment2.}
-      filter (str(?m2)>str(?m1))
-      bind(bnode() as ?bag)
-      bind(2 as ?size)
-    }
-  }
-  union {
-    select ?bag (concat(?comment1," ",?comment2," ",?comment3) as ?comment) ?size ?m1 ?m2 ?m3
-    where {
-      [] rdfs:member ?m1. optional{?m1 kws:comment ?comment1.}
-      [] rdfs:member ?m2. optional{?m2 kws:comment ?comment2.}
-      [] rdfs:member ?m3. optional{?m3 kws:comment ?comment3.}
-      filter (str(?m2)>str(?m1)
-        && str(?m3)>str(?m2))
-      bind(bnode() as ?bag)
-      bind(3 as ?size)
-    }
-  }
-  union {
-    select ?bag (concat(?comment1," ",?comment2," ",?comment3," ",?comment4) as ?comment) ?size ?m1 ?m2 ?m3 ?m4
-    where {
-      [] rdfs:member ?m1. optional{?m1 kws:comment ?comment1.}
-      [] rdfs:member ?m2. optional{?m2 kws:comment ?comment2.}
-      [] rdfs:member ?m3. optional{?m3 kws:comment ?comment3.}
-      [] rdfs:member ?m4. optional{?m4 kws:comment ?comment4.}
-      filter (str(?m2)>str(?m1)
-        && str(?m3)>str(?m2)
-        && str(?m4)>str(?m3))
-      bind(bnode() as ?bag)
-      bind(4 as ?size)
-    }
-  }
-};
-
-
-
-
 
 
 ##########################
 # selecionar resultado 2 #
 ##########################
 
-with kwsg:sol2
-insert {?c a rdf:Seq; kws:score2 ?score2; ?p1 ?m. ?m ?p2 ?o.}
-using kwsg:temp
+
+with kwsg:sol1
+insert {
+    ?bag a rdf:Bag;
+        kws:score ?score;
+        kws:size ?size;
+        kws:comment ?comment1;
+        rdfs:member ?m.
+    ?m kws:comment ?comment2.}
+using kwsg:temp3
+using named kwsg:temp
 where {
   {
-    select ?c ?score2
+    select ?bag (coalesce(?_score,0) as ?score) ?size
     where {
-      ?c a rdf:Seq; kws:score2 ?score2.
+      ?bag a rdf:Bag.
+      ?bag kws:size ?size
+      optional {(?bag ?_score) text:query '%1$s'}.
     }
-    order by desc(?score2)
-    limit 20
+    order by desc(coalesce(?_score,0)) ?size
+    limit 3
   }
-  {
-    select distinct *
-    where {
-        {?c a rdf:Seq; rdfs:member ?m; ?p1 ?m.}
-        optional {?m ?p2 ?o. filter isLiteral(?o)}
-    }
-  }
+  ?bag rdfs:member ?m; kws:comment ?comment1; kws:size ?size.
+  {graph ?g {?m kws:comment ?comment2.}}
 };
+
+
+
+
+
 

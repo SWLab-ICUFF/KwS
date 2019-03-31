@@ -1,0 +1,128 @@
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix text: <http://jena.apache.org/text#>
+
+#################################
+# calcular scores das entidades #
+#################################
+
+with kwsg:temp
+insert {?e kws:score ?score.}
+using kwsg:temp
+where {
+    {select distinct ?e where {[a rdf:Seq] rdfs:member ?e; ?p ?e. filter (?p in (rdf:_1,rdf:_3,rdf:_5,rdf:_7))}}
+    optional {(?e ?_score) text:query '%1$s'.}
+    bind (coalesce(?_score,0) as ?score)
+};
+
+
+
+##################################
+# Agrupar entidades encontradas. #
+##################################
+
+with kwsg:temp2
+insert {?bag a rdf:Bag; rdfs:member ?m.}
+using kwsg:temp
+where {
+    {bind(bnode() as ?bag)}
+    {
+        select distinct ?m
+        where {
+            [a rdf:Seq; rdfs:member ?m] ?p ?m.
+            ?m kws:score ?score.
+            filter (?p in (rdf:_1,rdf:_3,rdf:_5,rdf:_7) && ?score > 0)
+        }
+    }
+};
+
+
+with kwsg:temp3
+insert {
+  ?bag a rdf:Bag;
+    kws:comment ?comment;
+    kws:size ?size;
+    rdfs:member ?m1;
+    rdfs:member ?m2;
+    rdfs:member ?m3;
+    rdfs:member ?m4.
+}
+using kwsg:temp2
+using named kwsg:temp
+where {
+    {
+        select ?bag (?comment1 as ?comment) ?size ?m1
+        where {
+            [] rdfs:member ?m1.
+            optional {graph ?g {?m1 kws:comment ?comment1.}}
+            bind(bnode() as ?bag)
+            bind(1 as ?size)
+        }
+    }
+    union {
+        select ?bag (concat(?comment1," ",?comment2) as ?comment) ?size ?m1 ?m2
+        where {
+            [] rdfs:member ?m1.
+            [] rdfs:member ?m2.
+            filter (str(?m2)>str(?m1))
+            optional {graph ?g {?m1 kws:comment ?comment1.}}
+            optional {graph ?g {?m2 kws:comment ?comment2.}}
+            bind(bnode() as ?bag)
+            bind(2 as ?size)
+        }
+    }
+    union {
+        select ?bag (concat(?comment1," ",?comment2," ",?comment3) as ?comment) ?size ?m1 ?m2 ?m3
+        where {
+            {
+                {
+                    [] rdfs:member ?m1.
+                    [] rdfs:member ?m2.
+                    filter (str(?m2)>str(?m1))
+                }
+                [] rdfs:member ?m3.
+                filter (str(?m3)>str(?m2))
+            }
+            filter (str(?m2)>str(?m1) && str(?m3)>str(?m2))
+            optional {graph ?g {?m1 kws:comment ?comment1.}}
+            optional {graph ?g {?m2 kws:comment ?comment2.}}
+            optional {graph ?g {?m3 kws:comment ?comment3.}}
+            bind(bnode() as ?bag)
+            bind(3 as ?size)
+        }
+    }
+    union {
+        select ?bag (concat(?comment1," ",?comment2," ",?comment3," ",?comment4) as ?comment) ?size ?m1 ?m2 ?m3 ?m4
+        where {
+            {
+                {
+                    {
+                        [] rdfs:member ?m1.
+                        [] rdfs:member ?m2.
+                        filter (str(?m2)>str(?m1))
+                    }
+                    [] rdfs:member ?m3.
+                    filter (str(?m3)>str(?m2))
+                }
+                [] rdfs:member ?m4.
+                filter (str(?m4)>str(?m3))
+            }
+            filter (str(?m2)>str(?m1) && str(?m3)>str(?m2) && str(?m4)>str(?m3))
+            optional {graph ?g {?m1 kws:comment ?comment1.}}
+            optional {graph ?g {?m2 kws:comment ?comment2.}}
+            optional {graph ?g {?m3 kws:comment ?comment3.}}
+            optional {graph ?g {?m4 kws:comment ?comment4.}}
+            bind(bnode() as ?bag)
+            bind(4 as ?size)
+        }
+    }
+};
+
+
+
+
+
+

@@ -20,13 +20,13 @@ public class RunKWSQuery {
         String queryString = "";
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/kws_search.rq");
+            queryString = readQuery("./src/main/sparql/kws_search_1.rq");
             queryString = queryString.format(queryString, kwsString);
             fuseki.execUpdate(queryString, "Work.temp");
         }
 
-        if (false) {
-            queryString = readQuery("./src/main/sparql/kws_make_components.rq");
+        if (true) {
+            queryString = readQuery("./src/main/sparql/kws_search_2.rq");
             queryString = queryString.format(queryString, kwsString);
             fuseki.execUpdate(queryString, "Work.temp");
         }
@@ -50,7 +50,7 @@ public class RunKWSQuery {
         }
 
         {
-            Model model = fuseki.getModel("Work.temp", "urn:graph:kws:sol2");
+            Model model = fuseki.getModel("Work.temp", "urn:graph:kws:temp2");
             model.setNsPrefix("urn", "urn:uuid:");
             model.setNsPrefix("kws", "urn:vocab:kws:");
             model.setNsPrefix("kwsg", "urn:graph:kws:");
@@ -58,7 +58,31 @@ public class RunKWSQuery {
             model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
             model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
             model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
-            writeModel(model, "./src/main/resources/dat/sol2.ttl");
+            writeModel(model, "./src/main/resources/dat/temp2.ttl");
+        }
+
+        {
+            Model model = fuseki.getModel("Work.temp", "urn:graph:kws:temp3");
+            model.setNsPrefix("urn", "urn:uuid:");
+            model.setNsPrefix("kws", "urn:vocab:kws:");
+            model.setNsPrefix("kwsg", "urn:graph:kws:");
+            model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+            model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
+            model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
+            model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
+            writeModel(model, "./src/main/resources/dat/temp3.ttl");
+        }
+
+        {
+            Model model = fuseki.getModel("Work.temp", "urn:graph:kws:sol1");
+            model.setNsPrefix("urn", "urn:uuid:");
+            model.setNsPrefix("kws", "urn:vocab:kws:");
+            model.setNsPrefix("kwsg", "urn:graph:kws:");
+            model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+            model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
+            model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
+            model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
+            writeModel(model, "./src/main/resources/dat/sol1.ttl");
         }
     }
 

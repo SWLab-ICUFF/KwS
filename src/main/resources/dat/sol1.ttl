@@ -5,3 +5,33 @@
 @prefix meta:  <http://www.semwebtech.org/mondial/10/meta#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix mond:  <http://www.semwebtech.org/mondial/10/> .
+
+<http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/>
+        kws:comment  "Rio de Janeiro" .
+
+<http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/>
+        kws:comment  "Rio de Janeiro" .
+
+[ a            rdf:Bag ;
+  rdfs:member  <http://www.semwebtech.org/mondial/10/countries/BR/> , <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  kws:comment  "Brazil federal republic BR Rio de Janeiro" ;
+  kws:score    "3.17043"^^<http://www.w3.org/2001/XMLSchema#float> ;
+  kws:size     2
+] .
+
+[ a            rdf:Bag ;
+  rdfs:member  <http://www.semwebtech.org/mondial/10/countries/BR/> , <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> , <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  kws:comment  "Brazil federal republic BR Rio de Janeiro Rio de Janeiro" ;
+  kws:score    "3.1967661"^^<http://www.w3.org/2001/XMLSchema#float> ;
+  kws:size     3
+] .
+
+[ a            rdf:Bag ;
+  rdfs:member  <http://www.semwebtech.org/mondial/10/countries/BR/> , <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  kws:comment  "Brazil federal republic BR Rio de Janeiro" ;
+  kws:score    "3.17043"^^<http://www.w3.org/2001/XMLSchema#float> ;
+  kws:size     2
+] .
+
+<http://www.semwebtech.org/mondial/10/countries/BR/>
+        kws:comment  "Brazil federal republic BR" .
