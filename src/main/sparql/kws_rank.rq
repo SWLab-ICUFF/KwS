@@ -1,0 +1,72 @@
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix text: <http://jena.apache.org/text#>
+
+################################
+# calcular scores dos caminhos #
+################################
+
+with kwsg:temp
+insert {?e kws:score ?score.}
+using kwsg:temp
+where {
+    {select distinct ?e where {[a rdf:Seq] rdfs:member ?e; ?p ?e. filter (?p in (rdf:_1,rdf:_3,rdf:_5,rdf:_7))}}
+    optional {(?e ?_score) text:query '%1$s'.}
+    bind (coalesce(?_score,0) as ?score)
+};
+
+with kwsg:temp
+insert {?e kws:score2 ?score2.}
+using kwsg:temp
+where {
+    ?e a rdf:Seq.
+    optional {(?e ?_score) text:query '%1$s'}.
+    bind (coalesce(?_score,0) as ?score2)
+};
+
+
+##################################
+# Separar entidades encontradas. #
+##################################
+
+with kwsg:ent
+insert {?bag a rdf:Bag; rdfs:member ?m. ?m kws:score ?score.}
+using kwsg:temp
+where {
+    {bind(bnode() as ?bag)}
+    {select distinct ?m where {[a rdf:Seq] rdfs:member ?m; ?p ?m. filter (?p in (rdf:_1,rdf:_3,rdf:_5,rdf:_7))}}
+    {?m kws:score ?score.}
+};
+
+
+
+
+
+##########################
+# selecionar resultado 2 #
+##########################
+
+with kwsg:sol2
+insert {?c a rdf:Seq; kws:score2 ?score2; ?p1 ?m. ?m ?p2 ?o.}
+using kwsg:temp
+where {
+  {
+    select ?c ?score2
+    where {
+      ?c a rdf:Seq; kws:score2 ?score2.
+    }
+    order by desc(?score2)
+    limit 20
+  }
+  {
+    select distinct *
+    where {
+        {?c a rdf:Seq; rdfs:member ?m; ?p1 ?m.}
+        optional {?m ?p2 ?o. filter isLiteral(?o)}
+    }
+  }
+};
+

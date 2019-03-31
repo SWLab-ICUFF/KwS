@@ -6,49 +6,190 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix mond:  <http://www.semwebtech.org/mondial/10/> .
 
+<http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/>
+        kws:comment  "Rio de Janeiro" ;
+        kws:score    "3.5610073"^^<http://www.w3.org/2001/XMLSchema#float> .
+
 [ a           rdf:Seq ;
-  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
-  rdf:_2      <http://www.semwebtech.org/mondial/10/meta#locatedIn@> ;
-  rdf:_3      <http://www.semwebtech.org/mondial/10/seas/Atlantic+Ocean/> ;
-  rdf:_4      <http://www.semwebtech.org/mondial/10/meta#locatedAt@> ;
-  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
-  kws:score2  "1.1700013"^^<http://www.w3.org/2001/XMLSchema#float>
+  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_2      meta:hasCity ;
+  rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4      meta:capital_ ;
+  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a           rdf:Seq ;
+  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_2      meta:hasCity ;
+  rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4      meta:capital_ ;
+  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a           rdf:Seq ;
+  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_2      meta:hasCity ;
+  rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4      meta:hasCity_ ;
+  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a           rdf:Seq ;
+  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_2      meta:hasCity ;
+  rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4      meta:capital_ ;
+  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
 [ a           rdf:Seq ;
   rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
-  rdf:_2      <http://www.semwebtech.org/mondial/10/meta#hasProvince@> ;
+  rdf:_2      meta:hasProvince_ ;
   rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
   rdf:_4      meta:hasCity ;
   rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
-  kws:score2  "2.0049717"^^<http://www.w3.org/2001/XMLSchema#float>
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
 [ a           rdf:Seq ;
   rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
   rdf:_2      meta:capital ;
   rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
-  kws:score2  "1.2905164"^^<http://www.w3.org/2001/XMLSchema#float>
+  kws:score2  "3.9391181"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a           rdf:Seq ;
+  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_2      meta:hasCity ;
+  rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4      meta:hasCity_ ;
+  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a           rdf:Seq ;
+  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_2      meta:hasCity ;
+  rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4      meta:hasCity_ ;
+  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+<http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/>
+        kws:comment  "Rio de Janeiro" ;
+        kws:score    "3.5610073"^^<http://www.w3.org/2001/XMLSchema#float> .
+
+[ a           rdf:Seq ;
+  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_2      meta:hasCity ;
+  rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4      meta:capital_ ;
+  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a           rdf:Seq ;
+  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_2      meta:hasCity ;
+  rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4      meta:hasCity_ ;
+  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a           rdf:Seq ;
+  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_2      meta:hasCity ;
+  rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4      meta:capital_ ;
+  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+<http://www.semwebtech.org/mondial/10/countries/BR/>
+        kws:comment  "Brazil federal republic BR" ;
+        kws:score    "0.42813575"^^<http://www.w3.org/2001/XMLSchema#float> .
+
+[ a           rdf:Seq ;
+  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_2      meta:hasCity ;
+  rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4      meta:hasCity_ ;
+  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
 [ a           rdf:Seq ;
   rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
   rdf:_2      meta:hasCity ;
   rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
-  kws:score2  "1.2905164"^^<http://www.w3.org/2001/XMLSchema#float>
+  kws:score2  "3.9391181"^^<http://www.w3.org/2001/XMLSchema#float>
 ] .
 
-<http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/>
-        kws:comment  "Rio de Janeiro" ;
-        kws:score    "13.993763"^^<http://www.w3.org/2001/XMLSchema#float> .
+[ a           rdf:Seq ;
+  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_2      meta:hasCity ;
+  rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4      meta:capital_ ;
+  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
 
-<http://www.semwebtech.org/mondial/10/seas/Atlantic+Ocean/>
-        kws:comment  "Atlantic Ocean" .
+[ a           rdf:Seq ;
+  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_2      meta:hasCity ;
+  rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4      meta:hasCity_ ;
+  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
 
-<http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/>
-        kws:comment  "Rio de Janeiro" ;
-        kws:score    "13.993763"^^<http://www.w3.org/2001/XMLSchema#float> .
+[ a           rdf:Seq ;
+  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_2      meta:hasCity ;
+  rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4      meta:capital_ ;
+  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
 
-<http://www.semwebtech.org/mondial/10/countries/BR/>
-        kws:comment  "Brazil federal republic BR" ;
-        kws:score    "5.536129"^^<http://www.w3.org/2001/XMLSchema#float> .
+[ a           rdf:Seq ;
+  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_2      meta:hasProvince ;
+  rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  rdf:_4      meta:capital ;
+  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a           rdf:Seq ;
+  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_2      meta:hasCity ;
+  rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4      meta:capital_ ;
+  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a           rdf:Seq ;
+  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_2      meta:hasCity ;
+  rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  rdf:_4      meta:hasCity_ ;
+  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
+] .
+
+[ a           rdf:Seq ;
+  rdf:_1      <http://www.semwebtech.org/mondial/10/countries/BR/> ;
+  rdf:_2      meta:hasProvince ;
+  rdf:_3      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/> ;
+  rdf:_4      meta:hasCity ;
+  rdf:_5      <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/> ;
+  kws:score2  "3.8294134"^^<http://www.w3.org/2001/XMLSchema#float>
+] .

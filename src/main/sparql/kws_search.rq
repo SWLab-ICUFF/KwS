@@ -1,0 +1,123 @@
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix text: <http://jena.apache.org/text#>
+
+drop all;
+
+###################################
+# selecionar entidades relevantes #
+###################################
+
+with kwsg:seeds
+insert {?bag a rdf:Bag; rdfs:member ?s.}
+where {
+  {bind(bnode() as ?bag)}
+  service <http://localhost:3030/Mondial/sparql> {graph kwsg:indexed {?s text:query ('%1$s' 10).}}
+};
+
+###################################################
+# identificar ligacoes entre entidades relevantes #
+###################################################
+
+with kwsg:temp
+insert {
+    [] a rdf:Seq;
+        rdf:_1 ?e1; rdf:_2 ?p1; rdf:_2 ?__p1;
+        rdf:_3 ?e2; rdf:_4 ?p2; rdf:_4 ?__p2;
+        rdf:_5 ?e3; rdf:_6 ?p3; rdf:_6 ?__p3;
+        rdf:_7 ?e4.
+    ?e1 ?p1 ?e2. ?e2 ?p2 ?e3. ?e3 ?p3 ?e4.
+    ?e4 ?_p3 ?e3. ?e3 ?_p2 ?e2. ?e2 ?_p1 ?e1.
+}
+using kwsg:seeds
+where {
+  { # busca caminhos de distância 1
+    {
+      [] rdfs:member ?e1.
+      [] rdfs:member ?e2.
+      filter (str(?e2) > str(?e1))
+    }
+    service <http://localhost:3030/Mondial/sparql> {
+      select *
+      where {
+        {?e1 ?p1 ?e2. filter (?p1 != rdf:type)}
+      	union {?e2 ?_p1 ?e1. filter (?_p1 != rdf:type)}
+        bind (iri(str(?_p1)+"_") as ?__p1)
+      }
+    }
+  }
+
+  union { # busca caminhos de distância 2
+    {
+      [] rdfs:member ?e1.
+      [] rdfs:member ?e3.
+      filter (str(?e3) > str(?e1))
+    }
+    service <http://localhost:3030/Mondial/sparql> {
+      select *
+      where {
+        {{?e1 ?p1 ?e2. filter(?p1 != rdf:type && ?e2 not in (?e1))} {?e2 ?p2 ?e3. filter(?p2 != rdf:type)}}
+        union {{?e1 ?p1 ?e2. filter(?p1 != rdf:type && ?e2 not in (?e1))} {?e3 ?_p2 ?e2. ?e2 ?p []. filter(?_p2 != rdf:type)}}
+        union {{?e2 ?_p1 ?e1. filter(?_p1 != rdf:type && ?e2 not in (?e1))} {?e2 ?p2 ?e3. filter(?p2 != rdf:type)}}
+        union {{?e2 ?_p1 ?e1. filter(?_p1 != rdf:type && ?e2 not in (?e1))} {?e3 ?_p2 ?e2. filter(?_p2 != rdf:type)}}
+        bind (iri(str(?_p1)+"_") as ?__p1)
+        bind (iri(str(?_p2)+"_") as ?__p2)
+      }
+    }
+  }
+  union { # busca caminhos de distância 3
+    {
+      [] rdfs:member ?e1.
+      [] rdfs:member ?e4.
+      filter (str(?e4) > str(?e1))
+    }
+    service <http://localhost:3030/Mondial/sparql>{
+        select *
+        where {
+        	{{?e1 ?p1 ?e2. filter(?p1 != rdf:type && ?e2 not in (?e1))} {?e3 ?p3 ?b. filter(?p3 != rdf:type && ?e3 not in (?e1,?e2))} {?e2 ?p2 ?e3 filter (?p2 != rdf:type)}.}
+        	union {{?e1 ?p1 ?e2. filter(?p1 != rdf:type && ?e2 not in (?e1))} {?e4 ?_p3 ?e3. filter(?_p3 != rdf:type && ?e3 not in (?e1,?e2))} ?e3 ?p []. {?e2 ?p2 ?e3. filter (?p2 != rdf:type)}}
+        	union {{?e1 ?p1 ?e2. filter(?p1 != rdf:type && ?e2 not in (?e1))} ?e2 ?p []. {?e3 ?p3 ?b. filter(?p3 != rdf:type && ?e3 not in (?e1,?e2))} {?e3 ?_p2 ?e2. filter (?_p2 != rdf:type )}}
+        union {{?e1 ?p1 ?e2. filter(?p1 != rdf:type && ?e2 not in (?e1))} ?e2 ?p []. {?e4 ?_p3 ?e3. filter(?_p3 != rdf:type && ?e3 not in (?e1,?e2))} {?e3 ?_p2 ?e2. filter (?_p2 != rdf:type)}}
+        	union {{?e2 ?_p1 ?e1. filter(?_p1 != rdf:type && ?e2 not in (?e1))} {?e3 ?p3 ?b. filter(?p3 != rdf:type && ?e3 not in (?e1,?e2))} {?e2 ?p2 ?e3. filter (?p2 != rdf:type)}}
+        union {{?e2 ?_p1 ?e1. filter(?_p1 != rdf:type && ?e2 not in (?e1))} {?e4 ?_p3 ?e3. filter(?_p3 != rdf:type && ?e3 not in (?e1,?e2))} ?e3 ?p []. {?e2 ?p2 ?e3. filter(?p2 != rdf:type)}}
+        	union {{?e2 ?_p1 ?e1. filter(?_p1 != rdf:type && ?e2 not in (?e1))} {?e3 ?p3 ?b. filter(?p3 != rdf:type && ?e3 not in (?e1,?e2))} {?e3 ?_p2 ?e2. filter(?_p2 != rdf:type)}}
+        union {{?e2 ?_p1 ?e1. filter(?_p1 != rdf:type && ?e2 not in (?e1))} {?e4 ?_p3 ?e3. filter(?_p3 != rdf:type && ?e3 not in (?e1,?e2))} {?e3 ?_p2 ?e2. filter(?_p2 != rdf:type)}}
+        bind (iri(str(?_p1)+"_") as ?__p1)
+        bind (iri(str(?_p2)+"_") as ?__p2)
+        bind (iri(str(?_p3)+"_") as ?__p3)
+        }
+    }
+  }
+};
+
+###############################################
+# recuperar dados das entidades selecionadas. #
+###############################################
+
+with kwsg:temp
+insert {?e rdfs:label ?label; kws:comment ?comment.}
+using kwsg:temp
+where {
+  {select distinct ?e where {[a rdf:Seq] rdfs:member ?e; ?p ?e. filter (?p in (rdf:_1,rdf:_3,rdf:_5,rdf:_7))}}
+  optional {service <http://localhost:3030/Mondial/sparql> {?e rdfs:label ?label.}}
+  optional {service <http://localhost:3030/Mondial/sparql> {graph kwsg:indexed {?e kws:comment ?comment.}}}
+};
+
+with kwsg:temp
+insert {?s kws:comment ?comment.}
+using kwsg:temp
+where {
+  select ?s (group_concat(?_comment) as ?comment)
+  where {?s a rdf:Seq; rdfs:member ?m. ?m kws:comment ?_comment.}
+  group by ?s
+};
+
+
+
+
+
+
+
