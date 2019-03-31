@@ -118,6 +118,84 @@ where {
 
 
 
+##################################
+# Separar entidades encontradas. #
+##################################
 
+with kwsg:ent
+insert {?bag a rdf:Bag; rdfs:member ?m. ?m kws:comment ?comment.}
+using kwsg:temp
+where {
+    {bind(bnode() as ?bag)}
+    {select distinct ?m where {[a rdf:Seq] rdfs:member ?m; ?p ?m. filter (?p in (rdf:_1,rdf:_3,rdf:_5,rdf:_7))}}
+    {?m kws:comment ?comment.}
+};
+
+
+with kwsg:ent2
+insert {
+  ?bag a rdf:Bag;
+    kws:comment ?comment;
+    rdfs:member ?m1;
+    rdfs:member ?m2;
+    rdfs:member ?m3;
+    rdfs:member ?m4;
+    rdfs:member ?m4;
+    .
+}
+using kwsg:ent
+where {
+  {select ?bag (concat(?comment1," ",?comment2) as ?comment) ?size ?m1 ?m2
+    where {
+      [] rdfs:member ?m1. optional{?m1 kws:comment ?comment1.}
+      [] rdfs:member ?m2. optional{?m2 kws:comment ?comment2.}
+      filter (str(?m2)>str(?m1))
+      bind(bnode() as ?bag)
+      bind(2 as ?size)
+    }
+  }
+  union {
+    select ?bag (concat(?comment1," ",?comment2," ",?comment3) as ?comment) ?size ?m1 ?m2 ?m3
+    where {
+      [] rdfs:member ?m1. optional{?m1 kws:comment ?comment1.}
+      [] rdfs:member ?m2. optional{?m2 kws:comment ?comment2.}
+      [] rdfs:member ?m3. optional{?m3 kws:comment ?comment3.}
+      filter (str(?m2)>str(?m1)
+        && str(?m3)>str(?m2))
+      bind(bnode() as ?bag)
+      bind(3 as ?size)
+    }
+  }
+  union {
+    select ?bag (concat(?comment1," ",?comment2," ",?comment3," ",?comment4) as ?comment) ?size ?m1 ?m2 ?m3 ?m4
+    where {
+      [] rdfs:member ?m1. optional{?m1 kws:comment ?comment1.}
+      [] rdfs:member ?m2. optional{?m2 kws:comment ?comment2.}
+      [] rdfs:member ?m3. optional{?m3 kws:comment ?comment3.}
+      [] rdfs:member ?m4. optional{?m4 kws:comment ?comment4.}
+      filter (str(?m2)>str(?m1)
+        && str(?m3)>str(?m2)
+        && str(?m4)>str(?m3))
+      bind(bnode() as ?bag)
+      bind(4 as ?size)
+    }
+  }
+  union {
+    select ?bag (concat(?comment1," ",?comment2," ",?comment3," ",?comment4," ",?comment5) as ?comment) ?m1 ?m2 ?m3 ?m4 ?m5
+    where {
+      [] rdfs:member ?m1. optional{?m1 kws:comment ?comment1.}
+      [] rdfs:member ?m2. optional{?m2 kws:comment ?comment2.}
+      [] rdfs:member ?m3. optional{?m3 kws:comment ?comment3.}
+      [] rdfs:member ?m4. optional{?m4 kws:comment ?comment4.}
+      [] rdfs:member ?m5. optional{?m5 kws:comment ?comment5.}
+      filter (str(?m2)>str(?m1)
+        && str(?m3)>str(?m2)
+        && str(?m4)>str(?m3)
+        && str(?m5)>str(?m4))
+      bind(bnode() as ?bag)
+      bind(5 as ?size)
+    }
+  }
+};
 
 

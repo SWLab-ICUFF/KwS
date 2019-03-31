@@ -28,18 +28,7 @@ where {
 };
 
 
-##################################
-# Separar entidades encontradas. #
-##################################
 
-with kwsg:ent
-insert {?bag a rdf:Bag; rdfs:member ?m. ?m kws:score ?score.}
-using kwsg:temp
-where {
-    {bind(bnode() as ?bag)}
-    {select distinct ?m where {[a rdf:Seq] rdfs:member ?m; ?p ?m. filter (?p in (rdf:_1,rdf:_3,rdf:_5,rdf:_7))}}
-    {?m kws:score ?score.}
-};
 
 
 
