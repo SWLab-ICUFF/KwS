@@ -16,7 +16,7 @@ public class RunKWSQuery {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer();
-        String kwsString = "(rio de janeiro Brazil)";
+        String kwsString = "rio de janeiro Brazil";
         String queryString = "";
 
         if (true) {
