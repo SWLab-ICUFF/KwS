@@ -31,7 +31,7 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
 :indexLucene
   a               text:TextIndexLucene ;
   text:directory  "/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/lucene/Mondial" ;
-  text:analyzer [a text:StandardAnalyzer];
+  #text:analyzer [a text:StandardAnalyzer];
   text:entityMap  :entMap ;
   .
 
