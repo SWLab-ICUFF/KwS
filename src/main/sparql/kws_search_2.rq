@@ -13,7 +13,7 @@ with kwsg:temp
 insert {?e kws:score ?score.}
 using kwsg:temp
 where {
-    {select distinct ?e where {[a rdf:Seq] rdfs:member ?e; ?p ?e. filter (?p in (rdf:_1,rdf:_3,rdf:_5,rdf:_7))}}
+    {select distinct ?e where {[a rdf:Seq] rdfs:member ?e.}}
     optional {(?e ?_score) text:query '%1$s'.}
     bind (coalesce(?_score,0) as ?score)
 };
@@ -32,9 +32,9 @@ where {
     {
         select distinct ?m
         where {
-            [a rdf:Seq; rdfs:member ?m] ?p ?m.
+            [a rdf:Seq] rdfs:member ?m.
             ?m kws:score ?score.
-            filter (?p in (rdf:_1,rdf:_3,rdf:_5,rdf:_7) && ?score > 0)
+            filter (?score > 0)
         }
     }
 };
@@ -48,7 +48,9 @@ insert {
     rdfs:member ?m1;
     rdfs:member ?m2;
     rdfs:member ?m3;
-    rdfs:member ?m4.
+    rdfs:member ?m4;
+    rdfs:member ?m5;
+    .
 }
 using kwsg:temp2
 using named kwsg:temp

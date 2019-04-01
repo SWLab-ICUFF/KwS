@@ -101,7 +101,7 @@ with kwsg:temp
 insert {?e rdfs:label ?label; kws:comment ?comment.}
 using kwsg:temp
 where {
-  {select distinct ?e where {[a rdf:Seq] rdfs:member ?e; ?p ?e. filter (?p in (rdf:_1,rdf:_3,rdf:_5,rdf:_7))}}
+  {select distinct ?e where {[a rdf:Seq] rdfs:member ?e.}}
   optional {service <http://localhost:3030/Mondial/sparql> {?e rdfs:label ?label.}}
   optional {service <http://localhost:3030/Mondial/sparql> {graph kwsg:indexed {?e kws:comment ?comment.}}}
 };

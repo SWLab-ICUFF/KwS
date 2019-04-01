@@ -1,7 +1,0 @@
-@prefix urn:   <urn:uuid:> .
-@prefix kwsg:  <urn:graph:kws:> .
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix kws:   <urn:vocab:kws:> .
-@prefix meta:  <http://www.semwebtech.org/mondial/10/meta#> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix mond:  <http://www.semwebtech.org/mondial/10/> .

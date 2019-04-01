@@ -15,7 +15,7 @@ import uff.ic.lleme.util.FusekiServer;
 public class RunKWSQuery {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
-        FusekiServer fuseki = new FusekiServer();
+        FusekiServer fuseki = new FusekiServer("localhost", 3030);
         String kwsString = "Brazil rio janeiro";
         String queryString = "";
 
