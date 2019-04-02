@@ -6,6 +6,26 @@ prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix text: <http://jena.apache.org/text#>
 
 
+select *
+from kwsg:sol1
+from named kwsg:temp
+where {
+  { select distinct ?e1 ?e2
+    where {
+      [] a rdf:Bag;
+         rdfs:member ?e1;
+         rdfs:member ?e2. filter (str(?e2)>str(?e1))
+      filter (not exists {?e1 (!(rdf:type | rdfs:member) | ^(!(rdf:type | rdfs:member)))+ ?e2})
+    }
+  }
+  {
+    {graph ?g {?e1 ?p1 ?e2.}}
+  	union {graph ?g {?e2 ?_p1 ?e1.}}
+  }
+}
+
+
+
 
 ##########################
 # selecionar resultado 2 #
