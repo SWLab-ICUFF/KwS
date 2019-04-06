@@ -1,0 +1,4 @@
+#!/bin/bash
+#cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
+/Users/lapaesleme/local/etc/d2rq/d2rq-0.8.1/dump-rdf --verbose -f N-TRIPLE -b http://www.semwebtech.org/mondial/10/ /Users/lapaesleme/GitHub/KwS/src/main/scripts/Mondial/__search_id-mapping.ttl > /Users/lapaesleme/GitHub/KwS/src/main/resources/benchmarks/Mondial/mondial-__search_id.n3

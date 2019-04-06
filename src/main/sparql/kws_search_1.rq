@@ -15,7 +15,7 @@ with kwsg:seeds
 insert {?bag a rdf:Bag; rdfs:member ?s.}
 where {
   {bind(bnode() as ?bag)}
-  service <http://localhost:3030/Mondial/sparql> {graph kwsg:indexed {?s text:query ('%1$s' 10).}}
+  service <http://localhost:3030/Mondial/sparql> {graph kwsg:indexed {?s text:query ('%1$s' 25).}}
 };
 
 ###################################################
@@ -98,12 +98,11 @@ where {
 ###############################################
 
 with kwsg:temp
-insert {?e rdfs:label ?label; kws:comment ?comment.}
+insert {?e kws:comment ?comment.}
 using kwsg:temp
 where {
   {select distinct ?e where {[a rdf:Seq] rdfs:member ?e.}}
-  optional {service <http://localhost:3030/Mondial/sparql> {?e rdfs:label ?label.}}
-  optional {service <http://localhost:3030/Mondial/sparql> {graph kwsg:indexed {?e kws:comment ?comment.}}}
+  service <http://localhost:3030/Mondial/sparql> {graph kwsg:indexed {?e kws:comment ?comment.}}
 };
 
 

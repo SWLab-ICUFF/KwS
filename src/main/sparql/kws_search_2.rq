@@ -20,9 +20,10 @@ where {
 
 
 
-##################################
-# Agrupar entidades encontradas. #
-##################################
+#################################################################################################################
+# Fazer combinações das entidades encontradas com score > 0 e concatenar os comentários das entidades do grupo. #
+#################################################################################################################
+
 
 with kwsg:temp2
 insert {?bag a rdf:Bag; rdfs:member ?m.}
@@ -55,76 +56,100 @@ insert {
 using kwsg:temp2
 using named kwsg:temp
 where {
-    {
-        select ?bag (?comment1 as ?comment) ?size ?m1
-        where {
-            [] rdfs:member ?m1.
-            optional {graph ?g {?m1 kws:comment ?comment1.}}
-            bind(bnode() as ?bag)
-            bind(1 as ?size)
-        }
+  {
+    select ?bag (?comment1 as ?comment) ?size ?m1
+    where {
+      [] rdfs:member ?m1.
+      optional {graph ?g {?m1 kws:comment ?comment1.}}
+      bind(bnode() as ?bag)
+      bind(1 as ?size)
     }
-    union {
-        select ?bag (concat(?comment1," ",?comment2) as ?comment) ?size ?m1 ?m2
-        where {
+  }
+  union {
+    select ?bag (concat(?comment1," ",?comment2) as ?comment) ?size ?m1 ?m2
+    where {
+      [] rdfs:member ?m1.
+      [] rdfs:member ?m2.
+      filter (str(?m2)>str(?m1))
+      optional {graph ?g {?m1 kws:comment ?comment1.}}
+      optional {graph ?g {?m2 kws:comment ?comment2.}}
+      bind(bnode() as ?bag)
+      bind(2 as ?size)
+    }
+  }
+  union {
+    select ?bag (concat(?comment1," ",?comment2," ",?comment3) as ?comment) ?size ?m1 ?m2 ?m3
+    where {
+      {
+        {
+          [] rdfs:member ?m1.
+          [] rdfs:member ?m2.
+          filter (str(?m2)>str(?m1))
+        }
+        [] rdfs:member ?m3.
+        filter (str(?m3)>str(?m2))
+      }
+      filter (str(?m2)>str(?m1) && str(?m3)>str(?m2))
+      optional {graph ?g {?m1 kws:comment ?comment1.}}
+      optional {graph ?g {?m2 kws:comment ?comment2.}}
+      optional {graph ?g {?m3 kws:comment ?comment3.}}
+      bind(bnode() as ?bag)
+      bind(3 as ?size)
+    }
+  }
+  union {
+    select ?bag (concat(?comment1," ",?comment2," ",?comment3," ",?comment4) as ?comment) ?size ?m1 ?m2 ?m3 ?m4
+    where {
+      {
+        {
+          {
             [] rdfs:member ?m1.
             [] rdfs:member ?m2.
             filter (str(?m2)>str(?m1))
-            optional {graph ?g {?m1 kws:comment ?comment1.}}
-            optional {graph ?g {?m2 kws:comment ?comment2.}}
-            bind(bnode() as ?bag)
-            bind(2 as ?size)
+          }
+          [] rdfs:member ?m3.
+          filter (str(?m3)>str(?m2))
         }
+        [] rdfs:member ?m4.
+        filter (str(?m4)>str(?m3))
+      }
+      filter (str(?m2)>str(?m1) && str(?m3)>str(?m2) && str(?m4)>str(?m3))
+      optional {graph ?g {?m1 kws:comment ?comment1.}}
+      optional {graph ?g {?m2 kws:comment ?comment2.}}
+      optional {graph ?g {?m3 kws:comment ?comment3.}}
+      optional {graph ?g {?m4 kws:comment ?comment4.}}
+      bind(bnode() as ?bag)
+      bind(4 as ?size)
     }
-    union {
-        select ?bag (concat(?comment1," ",?comment2," ",?comment3) as ?comment) ?size ?m1 ?m2 ?m3
-        where {
+  }
+  union {
+    select ?bag (concat(?comment1," ",?comment2," ",?comment3," ",?comment4," ",?comment5) as ?comment) ?size ?m1 ?m2 ?m3 ?m4 ?m5
+    where {
+      {
+        {
+          {
             {
-                {
-                    [] rdfs:member ?m1.
-                    [] rdfs:member ?m2.
-                    filter (str(?m2)>str(?m1))
-                }
-                [] rdfs:member ?m3.
-                filter (str(?m3)>str(?m2))
+              [] rdfs:member ?m1.
+              [] rdfs:member ?m2.
+              filter (str(?m2)>str(?m1))
             }
-            filter (str(?m2)>str(?m1) && str(?m3)>str(?m2))
-            optional {graph ?g {?m1 kws:comment ?comment1.}}
-            optional {graph ?g {?m2 kws:comment ?comment2.}}
-            optional {graph ?g {?m3 kws:comment ?comment3.}}
-            bind(bnode() as ?bag)
-            bind(3 as ?size)
+            [] rdfs:member ?m3.
+            filter (str(?m3)>str(?m2))
+          }
+          [] rdfs:member ?m4.
+          filter (str(?m4)>str(?m3))
         }
+        [] rdfs:member ?m5.
+        filter (str(?m5)>str(?m4))
+      }
+      filter (str(?m2)>str(?m1) && str(?m3)>str(?m2) && str(?m4)>str(?m3) && str(?m5)>str(?m4))
+      optional {graph ?g {?m1 kws:comment ?comment1.}}
+      optional {graph ?g {?m2 kws:comment ?comment2.}}
+      optional {graph ?g {?m3 kws:comment ?comment3.}}
+      optional {graph ?g {?m4 kws:comment ?comment4.}}
+      optional {graph ?g {?m5 kws:comment ?comment5.}}
+      bind(bnode() as ?bag)
+      bind(5 as ?size)
     }
-    union {
-        select ?bag (concat(?comment1," ",?comment2," ",?comment3," ",?comment4) as ?comment) ?size ?m1 ?m2 ?m3 ?m4
-        where {
-            {
-                {
-                    {
-                        [] rdfs:member ?m1.
-                        [] rdfs:member ?m2.
-                        filter (str(?m2)>str(?m1))
-                    }
-                    [] rdfs:member ?m3.
-                    filter (str(?m3)>str(?m2))
-                }
-                [] rdfs:member ?m4.
-                filter (str(?m4)>str(?m3))
-            }
-            filter (str(?m2)>str(?m1) && str(?m3)>str(?m2) && str(?m4)>str(?m3))
-            optional {graph ?g {?m1 kws:comment ?comment1.}}
-            optional {graph ?g {?m2 kws:comment ?comment2.}}
-            optional {graph ?g {?m3 kws:comment ?comment3.}}
-            optional {graph ?g {?m4 kws:comment ?comment4.}}
-            bind(bnode() as ?bag)
-            bind(4 as ?size)
-        }
-    }
+  }
 };
-
-
-
-
-
-
