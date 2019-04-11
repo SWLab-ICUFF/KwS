@@ -21,8 +21,8 @@
 map:database a d2rq:Database;
     d2rq:jdbcDriver "org.postgresql.Driver";
     d2rq:jdbcDSN "jdbc:postgresql://localhost:5432/Mondial";
-    d2rq:username "user";
-    d2rq:password "";
+    d2rq:username "postgres";
+    d2rq:password "fluminense";
     .
 
 # meta:Archipelago <http://www.semwebtech.org/mondial/10/archipelagos/Svalbard/> (does not have __search_id)
@@ -41,6 +41,7 @@ map:__search_id_country a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Country;
     d2rq:property vocab:__search_id;
     d2rq:column "country.__search_id";
+    d2rq:datatype xsd:integer;
     .
 
 
@@ -54,6 +55,7 @@ map:__search_id_city a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:City;
     d2rq:property vocab:__search_id;
     d2rq:column "city.__search_id";
+    d2rq:datatype xsd:integer;
     .
 
 
@@ -67,6 +69,7 @@ map:__search_id_organization a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Organization;
     d2rq:property vocab:__search_id;
     d2rq:column "organization.__search_id";
+    d2rq:datatype xsd:integer;
     .
 
 
@@ -80,6 +83,7 @@ map:__search_id_ethnicGroup a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:EthnicGroup;
     d2rq:property vocab:__search_id;
     d2rq:column "ethnic_group.__search_id";
+    d2rq:datatype xsd:integer;
     .
 
 
@@ -93,6 +97,7 @@ map:__search_id_lake a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Lake;
     d2rq:property vocab:__search_id;
     d2rq:column "geo_lake.__search_id";
+    d2rq:datatype xsd:integer;
     .
 
 #Table continent
@@ -105,6 +110,7 @@ map:__search_id_continent a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Continent;
     d2rq:property vocab:__search_id;
     d2rq:column "continent.__search_id";
+    d2rq:datatype xsd:integer;
     .
 
 
@@ -118,6 +124,7 @@ map:__search_id_mountain a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Mountain;
     d2rq:property vocab:__search_id;
     d2rq:column "mountain.__search_id";
+    d2rq:datatype xsd:integer;
     .
 
 
@@ -131,6 +138,7 @@ map:__search_id_desert a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Desert;
     d2rq:property vocab:__search_id;
     d2rq:column "desert.__search_id";
+    d2rq:datatype xsd:integer;
     .
 
 
@@ -144,6 +152,7 @@ map:__search_id_river a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:River;
     d2rq:property vocab:__search_id;
     d2rq:column "river.__search_id";
+    d2rq:datatype xsd:integer;
     .
 
 
@@ -157,6 +166,7 @@ map:__search_id_sea a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Sea;
     d2rq:property vocab:__search_id;
     d2rq:column "sea.__search_id";
+    d2rq:datatype xsd:integer;
     .
 
 
@@ -170,6 +180,7 @@ map:__search_id_island a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Island;
     d2rq:property vocab:__search_id;
     d2rq:column "island.__search_id";
+    d2rq:datatype xsd:integer;
     .
 
 
@@ -183,6 +194,7 @@ map:__search_id_language a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Language;
     d2rq:property vocab:__search_id;
     d2rq:column "language.__search_id";
+    d2rq:datatype xsd:integer;
     .
 
 
@@ -196,6 +208,7 @@ map:__search_id_provinces a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Province;
     d2rq:property vocab:__search_id;
     d2rq:column "province.__search_id";
+    d2rq:datatype xsd:integer;
     .
 
 
@@ -209,4 +222,5 @@ map:__search_id_religion a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Religion;
     d2rq:property vocab:__search_id;
     d2rq:column "religion.__search_id";
+    d2rq:datatype xsd:integer;
     .
