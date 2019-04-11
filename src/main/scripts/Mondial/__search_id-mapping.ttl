@@ -10,7 +10,6 @@
 @prefix meta: <http://www4.wiwiss.fu-berlin.de/bizer/d2r-server/metadata#> .
 
 
-
 <> a d2r:Server;
     d2r:limitPerPropertyBridge "100";
     d2r:limitPerClassMap "1000";
