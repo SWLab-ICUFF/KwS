@@ -1,0 +1,31 @@
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
+prefix text: <http://jena.apache.org/text#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+drop all;
+insert {graph ?answer {?s1 ?p ?s2. ?s2 ?_p ?s1.}}
+where {
+  service <http://localhost:3030/Mondial.benchmark/sparql> {
+    {
+      select ?s (uuid() as ?answer)
+      where {
+        select distinct ?s
+        where {graph <urn:graph:kws:043.txt> {?s ?p []. filter (not exists {[] ?p2 ?s})}}
+      }
+    }
+    graph <urn:graph:kws:043.txt> {
+      ?s (rdf:rest|rdf:first)/(rdf:rest|rdf:first) [rdf:rest*/rdf:first [rdf:_1 [rdf:_2 ?id1]; rdf:_2 [rdf:_2 ?id2]]].
+    }
+  }
+  service <http://localhost:3030/Mondial/sparql> {
+  	?s1 meta:__search_id ?id1.
+    ?s2 meta:__search_id ?id2.
+    optional {?s2 ?p ?s1}
+    optional {?s1 ?_p ?s2}
+  }
+};
