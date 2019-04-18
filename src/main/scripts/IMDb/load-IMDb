@@ -6,8 +6,8 @@ export PATH=$PATH:$JENA_HOME/bin
 cp /Users/lapaesleme/GitHub/KwS/src/main/scripts/IMDb/IMDb.ttl.old /Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/configuration/IMDb.ttl
 for i in {1..61}
   do
-    echo "Loading /Volumes/Data/Users/lapaesleme/local/var/temp/dump/IMDb/imdb_triples_$i.n3..."
-    /Users/lapaesleme/local/etc/jena/apache-jena-3.10.0/bin/tdb2.tdbloader -v --loader parallel --loc /Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/databases/IMDb /Volumes/Data/Users/lapaesleme/local/var/temp/dump/IMDb/imdb_triples_$i.n3
+    echo ""
+    echo "Loading /Users/lapaesleme/local/var/temp/dump/IMDb/imdb_triples_$i.n3..."
+    /Users/lapaesleme/local/etc/jena/apache-jena-3.10.0/bin/tdb2.tdbloader -v --loader parallel --loc /Volumes/Time\ Machine\ Backups/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/databases/IMDb /Users/lapaesleme/local/var/temp/dump/IMDb/imdb_triples_$i.n3
+    echo "Finished /Users/lapaesleme/local/var/temp/dump/IMDb/imdb_triples_$i.n3"
   done
-
-
