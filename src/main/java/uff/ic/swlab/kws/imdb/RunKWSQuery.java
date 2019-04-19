@@ -1,4 +1,4 @@
-package uff.ic.lleme.kws.imdb;
+package uff.ic.swlab.kws.imdb;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,7 +12,7 @@ import javax.naming.InvalidNameException;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
-import uff.ic.lleme.util.FusekiServer;
+import uff.ic.swlab.util.FusekiServer;
 
 public class RunKWSQuery {
 

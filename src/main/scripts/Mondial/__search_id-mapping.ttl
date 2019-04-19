@@ -30,20 +30,6 @@ map:database a d2rq:Database;
 # meta:Source <http://www.semwebtech.org/mondial/10/sources/Sungacha/> (missing table)
 
 
-# Table Country
-# <http://www.semwebtech.org/mondial/10/countries/WV/>
-map:Country a d2rq:ClassMap;
-    d2rq:dataStorage map:database;
-    d2rq:uriPattern "countries/@@country.code|urlencode@@/";
-    .
-map:__search_id_country a d2rq:PropertyBridge;
-    d2rq:belongsToClassMap map:Country;
-    d2rq:property vocab:__search_id;
-    d2rq:column "country.__search_id";
-    d2rq:datatype xsd:integer;
-    .
-
-
 # Table city
 # <http://www.semwebtech.org/mondial/10/countries/BR/provinces/Rio+de+Janeiro/cities/Rio+de+Janeiro/>
 map:City a d2rq:ClassMap;
@@ -58,16 +44,44 @@ map:__search_id_city a d2rq:PropertyBridge;
     .
 
 
-# Table organization
-# <http://www.semwebtech.org/mondial/10/organizations/UNAMID/>
-map:Organization a d2rq:ClassMap;
+#Table continent
+#<http://www.semwebtech.org/mondial/10/continents/Europe/>
+map:Continent a d2rq:ClassMap;
     d2rq:dataStorage map:database;
-    d2rq:uriPattern "organizations/@@organization.abbreviation|urlencode@@/";
+    d2rq:uriPattern "continents/@@continent.name|urlencode@@/";
     .
-map:__search_id_organization a d2rq:PropertyBridge;
-    d2rq:belongsToClassMap map:Organization;
+map:__search_id_continent a d2rq:PropertyBridge;
+    d2rq:belongsToClassMap map:Continent;
     d2rq:property vocab:__search_id;
-    d2rq:column "organization.__search_id";
+    d2rq:column "continent.__search_id";
+    d2rq:datatype xsd:integer;
+    .
+
+
+# Table Country
+# <http://www.semwebtech.org/mondial/10/countries/WV/>
+map:Country a d2rq:ClassMap;
+    d2rq:dataStorage map:database;
+    d2rq:uriPattern "countries/@@country.code|urlencode@@/";
+    .
+map:__search_id_country a d2rq:PropertyBridge;
+    d2rq:belongsToClassMap map:Country;
+    d2rq:property vocab:__search_id;
+    d2rq:column "country.__search_id";
+    d2rq:datatype xsd:integer;
+    .
+
+
+#Table Desert
+# <http://www.semwebtech.org/mondial/10/deserts/Kalahari/>
+map:Desert a d2rq:ClassMap;
+    d2rq:dataStorage map:database;
+    d2rq:uriPattern "deserts/@@desert.name|urlencode@@/";
+    .
+map:__search_id_desert a d2rq:PropertyBridge;
+    d2rq:belongsToClassMap map:Desert;
+    d2rq:property vocab:__search_id;
+    d2rq:column "desert.__search_id";
     d2rq:datatype xsd:integer;
     .
 
@@ -86,29 +100,44 @@ map:__search_id_ethnicGroup a d2rq:PropertyBridge;
     .
 
 
-#Table geo_lake
+#Table Island
+# <http://www.semwebtech.org/mondial/10/islands/Svalbard/>
+map:Island a d2rq:ClassMap;
+    d2rq:dataStorage map:database;
+    d2rq:uriPattern "islands/@@island.name|urlencode@@/";
+    .
+map:__search_id_island a d2rq:PropertyBridge;
+    d2rq:belongsToClassMap map:Island;
+    d2rq:property vocab:__search_id;
+    d2rq:column "island.__search_id";
+    d2rq:datatype xsd:integer;
+    .
+
+
+#Table Lake
 #<http://www.semwebtech.org/mondial/10/lakes/Inarijärvi/>
 map:Lake a d2rq:ClassMap;
     d2rq:dataStorage map:database;
-    d2rq:uriPattern "lakes/@@geo_lake.lake|urlencode@@/";
+    d2rq:uriPattern "lakes/@@lake.name|urlencode@@/";
     .
 map:__search_id_lake a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Lake;
     d2rq:property vocab:__search_id;
-    d2rq:column "geo_lake.__search_id";
+    d2rq:column "lake.__search_id";
     d2rq:datatype xsd:integer;
     .
 
-#Table continent
-#<http://www.semwebtech.org/mondial/10/continents/Europe/>
-map:Continent a d2rq:ClassMap;
+
+#Table Language
+# <http://www.semwebtech.org/mondial/10/languages/Albanian/>
+map:Language a d2rq:ClassMap;
     d2rq:dataStorage map:database;
-    d2rq:uriPattern "continents/@@continent.name|urlencode@@/";
+    d2rq:uriPattern "languages/@@language.name|urlencode@@/";
     .
-map:__search_id_continent a d2rq:PropertyBridge;
-    d2rq:belongsToClassMap map:Continent;
+map:__search_id_language a d2rq:PropertyBridge;
+    d2rq:belongsToClassMap map:Language;
     d2rq:property vocab:__search_id;
-    d2rq:column "continent.__search_id";
+    d2rq:column "language.__search_id";
     d2rq:datatype xsd:integer;
     .
 
@@ -127,16 +156,44 @@ map:__search_id_mountain a d2rq:PropertyBridge;
     .
 
 
-#Table Desert
-# <http://www.semwebtech.org/mondial/10/deserts/Kalahari/>
-map:Desert a d2rq:ClassMap;
+# Table organization
+# <http://www.semwebtech.org/mondial/10/organizations/UNAMID/>
+map:Organization a d2rq:ClassMap;
     d2rq:dataStorage map:database;
-    d2rq:uriPattern "deserts/@@desert.name|urlencode@@/";
+    d2rq:uriPattern "organizations/@@organization.abbreviation|urlencode@@/";
     .
-map:__search_id_desert a d2rq:PropertyBridge;
-    d2rq:belongsToClassMap map:Desert;
+map:__search_id_organization a d2rq:PropertyBridge;
+    d2rq:belongsToClassMap map:Organization;
     d2rq:property vocab:__search_id;
-    d2rq:column "desert.__search_id";
+    d2rq:column "organization.__search_id";
+    d2rq:datatype xsd:integer;
+    .
+
+
+#Table Province
+#<http://www.semwebtech.org/mondial/10/countries/GR/provinces/Anatolikis+Makedonias+kai+Thrakis/>
+map:Province a d2rq:ClassMap;
+    d2rq:dataStorage map:database;
+     d2rq:uriPattern "countries/@@province.country|urlencode@@/provinces/@@province.name|urlencode@@/";
+    .
+map:__search_id_provinces a d2rq:PropertyBridge;
+    d2rq:belongsToClassMap map:Province;
+    d2rq:property vocab:__search_id;
+    d2rq:column "province.__search_id";
+    d2rq:datatype xsd:integer;
+    .
+
+
+#Table Religion
+#<http://www.semwebtech.org/mondial/10/religions/Muslim/>
+map:Religion a d2rq:ClassMap;
+    d2rq:dataStorage map:database;
+    d2rq:uriPattern "religions/@@religion.name|urlencode@@/";
+    .
+map:__search_id_religion a d2rq:PropertyBridge;
+    d2rq:belongsToClassMap map:Religion;
+    d2rq:property vocab:__search_id;
+    d2rq:column "religion.__search_id";
     d2rq:datatype xsd:integer;
     .
 
@@ -169,57 +226,13 @@ map:__search_id_sea a d2rq:PropertyBridge;
     .
 
 
-#Table Island
-# <http://www.semwebtech.org/mondial/10/islands/Svalbard/>
-map:Island a d2rq:ClassMap;
-    d2rq:dataStorage map:database;
-    d2rq:uriPattern "islands/@@island.name|urlencode@@/";
-    .
-map:__search_id_island a d2rq:PropertyBridge;
-    d2rq:belongsToClassMap map:Island;
-    d2rq:property vocab:__search_id;
-    d2rq:column "island.__search_id";
-    d2rq:datatype xsd:integer;
-    .
 
 
-#Table Language
-# <http://www.semwebtech.org/mondial/10/languages/Albanian/>
-map:Language a d2rq:ClassMap;
-    d2rq:dataStorage map:database;
-    d2rq:uriPattern "languages/@@language.name|urlencode@@/";
-    .
-map:__search_id_language a d2rq:PropertyBridge;
-    d2rq:belongsToClassMap map:Language;
-    d2rq:property vocab:__search_id;
-    d2rq:column "language.__search_id";
-    d2rq:datatype xsd:integer;
-    .
 
 
-#Table Province
-#<http://www.semwebtech.org/mondial/10/countries/GR/provinces/Anatolikis+Makedonias+kai+Thrakis/>
-map:Province a d2rq:ClassMap;
-    d2rq:dataStorage map:database;
-     d2rq:uriPattern "countries/@@province.country|urlencode@@/provinces/@@province.name|urlencode@@/";
-    .
-map:__search_id_provinces a d2rq:PropertyBridge;
-    d2rq:belongsToClassMap map:Province;
-    d2rq:property vocab:__search_id;
-    d2rq:column "province.__search_id";
-    d2rq:datatype xsd:integer;
-    .
 
 
-#Table Religion
-#<http://www.semwebtech.org/mondial/10/religions/Muslim/>
-map:Religion a d2rq:ClassMap;
-    d2rq:dataStorage map:database;
-    d2rq:uriPattern "religions/@@religion.name|urlencode@@/";
-    .
-map:__search_id_religion a d2rq:PropertyBridge;
-    d2rq:belongsToClassMap map:Religion;
-    d2rq:property vocab:__search_id;
-    d2rq:column "religion.__search_id";
-    d2rq:datatype xsd:integer;
-    .
+
+
+
+

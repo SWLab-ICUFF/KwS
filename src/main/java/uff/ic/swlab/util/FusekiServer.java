@@ -1,4 +1,4 @@
-package uff.ic.lleme.util;
+package uff.ic.swlab.util;
 
 import java.io.IOException;
 import java.io.InputStream;
