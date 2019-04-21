@@ -6,26 +6,31 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
 prefix text: <http://jena.apache.org/text#>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX fn: <java:uff.ic.swlab.jena.sparql.function.>
 
 drop all;
-insert {graph ?answer {?s1 ?p ?s2. ?s2 ?_p ?s1.}}
+insert {graph ?_g {?s1 ?p ?s2. ?s3 a ?T.}}
 where {
-  service <http://localhost:3030/Mondial.benchmark/sparql> {
-    {
-      select ?s (uuid() as ?answer)
-      where {
-        select distinct ?s
-        where {graph <urn:graph:kws:043.txt> {?s ?p []. filter (not exists {[] ?p2 ?s})}}
-      }
+  {
+    service <http://localhost:3030/Mondial.benchmark.temp/sparql> {
+      {graph ?g {[kws:seq ?seq; kws:member (?r ?v1); kws:member (?r ?v2)]. filter (?v1 != ?v2)}}
+      union {graph ?g {[kws:seq ?seq; kws:member (?v1 ?v2)].}}
+      union {graph ?g {[kws:seq ?seq; kws:member (?v2 ?v1)].}}
     }
-    graph <urn:graph:kws:043.txt> {
-      ?s (rdf:rest|rdf:first)/(rdf:rest|rdf:first) [rdf:rest*/rdf:first [rdf:_1 [rdf:_2 ?id1]; rdf:_2 [rdf:_2 ?id2]]].
+    service <http://localhost:3030/Mondial/sparql> {
+      ?s1 meta:__search_id ?v1.
+      ?s2 meta:__search_id ?v2.
+      ?s1 ?p ?s2.
     }
   }
-  service <http://localhost:3030/Mondial/sparql> {
-  	?s1 meta:__search_id ?id1.
-    ?s2 meta:__search_id ?id2.
-    optional {?s2 ?p ?s1}
-    optional {?s1 ?_p ?s2}
+  union {
+    service <http://localhost:3030/Mondial.benchmark.temp/sparql> {
+      graph ?g {[kws:seq ?seq; kws:member (?v3)]}
+    }
+ 	service <http://localhost:3030/Mondial/sparql> {
+      ?s3 meta:__search_id ?v3.
+      ?s3 a ?T.
+    }
   }
+  bind(iri(concat(str(?g),":",?seq)) as ?_g)
 };

@@ -54,7 +54,6 @@ where {
     && !contains(str(?uriPostgreSQL),"/islands/Dagoe/")
     && !contains(str(?uriPostgreSQL),"/provinces/Icel/")
     && !contains(str(?uriPostgreSQL),"/countries/SF/provinces/Kymi/")
-    && !contains(str(?uriPostgreSQL),"/countries/SF/provinces/Kymi/")
   )
 }
 
