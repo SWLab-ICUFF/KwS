@@ -1,0 +1,60 @@
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
+prefix text: <http://jena.apache.org/text#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX fn: <java:uff.ic.swlab.jena.sparql.function.>
+PREFIX agg: <http://uff.ic.swlab.jena.sparql.aggregate/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+
+insert {?uriMondial owl:sameAs ?uriPostgreSQL; meta:__search_id ?id.}
+where {
+  {
+    select (agg:tMinMax(?_s1,?levenshtein,?jaroWinkler) as ?uriPostgreSQL) (?_s2 as ?uriMondial)
+    where {
+      select ?_s1 ?_s2
+      (fn:levenshtein(fn:stripAccents(str(?_s1)),fn:stripAccents(str(?_s2))) as ?levenshtein)
+      (fn:jaroWinkler(fn:stripAccents(str(?_s1)),fn:stripAccents(str(?_s2))) as ?jaroWinkler)
+      {
+        select (?s1 as ?_s1) (agg:tMinMax(?s2,?levenshtein,?jaroWinkler) as ?_s2)
+        where {
+          select ?s1 ?s2
+          (fn:levenshtein(fn:stripAccents(str(?s1)),fn:stripAccents(str(?s2))) as ?levenshtein)
+          (fn:jaroWinkler(fn:stripAccents(str(?s1)),fn:stripAccents(str(?s2))) as ?jaroWinkler)
+          where {
+            select distinct ?s1 ?s2
+            where {
+              ?s1 meta:__search_id []; a ?T. filter (not exists {?s1 !(meta:__search_id|rdf:type) []})
+              ?s2 a ?T; !(meta:__search_id|rdf:type) []. filter (!regex(str(?s2),"^urn:uuid:") && not exists {?s2 meta:__search_id []})
+              filter (regex(concat(str(?s1),str(?s2)), "[À-ÿ\\-]")
+                && fn:jaroWinkler(str(?s1),str(?s2)) > 0.97
+                && fn:levenshtein(str(?s1),str(?s2)) < 5)
+            }
+          }
+        }
+        group by ?s1
+      }
+    }
+    group by ?_s2
+  }
+  ?uriPostgreSQL meta:__search_id ?id.
+  filter (!contains(str(?uriPostgreSQL),"/organizations/G-2/")
+    && !contains(str(?uriPostgreSQL),"/organizations/WADB/")
+    && !contains(str(?uriPostgreSQL),"/rivers/Jug/")
+    && !contains(str(?uriPostgreSQL),"organizations/EN/")
+    && !contains(str(?uriPostgreSQL),"mountains/Kenia/")
+    && !contains(str(?uriPostgreSQL),"mountains/Fuji-Yama/")
+    && !contains(str(?uriPostgreSQL),"lakes/Mjoesen/")
+    && !contains(str(?uriPostgreSQL),"/islands/Tilos/")
+    && !contains(str(?uriPostgreSQL),"/islands/Palau/")
+    && !contains(str(?uriPostgreSQL),"/islands/Dagoe/")
+    && !contains(str(?uriPostgreSQL),"/provinces/Icel/")
+    && !contains(str(?uriPostgreSQL),"/countries/SF/provinces/Kymi/")
+    && !contains(str(?uriPostgreSQL),"/countries/SF/provinces/Kymi/")
+  )
+}
+

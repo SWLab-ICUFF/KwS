@@ -35,6 +35,7 @@ map:database a d2rq:Database;
 map:City a d2rq:ClassMap;
     d2rq:dataStorage map:database;
     d2rq:uriPattern "countries/@@city.country|urlencode@@/provinces/@@city.province|urlencode@@/cities/@@city.name|urlencode@@/";
+    d2rq:class vocab:City;
     .
 map:__search_id_city a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:City;
@@ -49,6 +50,7 @@ map:__search_id_city a d2rq:PropertyBridge;
 map:Continent a d2rq:ClassMap;
     d2rq:dataStorage map:database;
     d2rq:uriPattern "continents/@@continent.name|urlencode@@/";
+    d2rq:class vocab:Continent;
     .
 map:__search_id_continent a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Continent;
@@ -63,6 +65,7 @@ map:__search_id_continent a d2rq:PropertyBridge;
 map:Country a d2rq:ClassMap;
     d2rq:dataStorage map:database;
     d2rq:uriPattern "countries/@@country.code|urlencode@@/";
+    d2rq:class vocab:Country;
     .
 map:__search_id_country a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Country;
@@ -77,6 +80,7 @@ map:__search_id_country a d2rq:PropertyBridge;
 map:Desert a d2rq:ClassMap;
     d2rq:dataStorage map:database;
     d2rq:uriPattern "deserts/@@desert.name|urlencode@@/";
+    d2rq:class vocab:Desert;
     .
 map:__search_id_desert a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Desert;
@@ -91,6 +95,7 @@ map:__search_id_desert a d2rq:PropertyBridge;
 map:EthnicGroup a d2rq:ClassMap;
     d2rq:dataStorage map:database;
     d2rq:uriPattern "ethnicgroups/@@ethnic_group.name|urlencode@@/";
+    d2rq:class vocab:EthnicGroup;
     .
 map:__search_id_ethnicGroup a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:EthnicGroup;
@@ -105,6 +110,7 @@ map:__search_id_ethnicGroup a d2rq:PropertyBridge;
 map:Island a d2rq:ClassMap;
     d2rq:dataStorage map:database;
     d2rq:uriPattern "islands/@@island.name|urlencode@@/";
+    d2rq:class vocab:Island;
     .
 map:__search_id_island a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Island;
@@ -119,6 +125,7 @@ map:__search_id_island a d2rq:PropertyBridge;
 map:Lake a d2rq:ClassMap;
     d2rq:dataStorage map:database;
     d2rq:uriPattern "lakes/@@lake.name|urlencode@@/";
+    d2rq:class vocab:Lake;
     .
 map:__search_id_lake a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Lake;
@@ -133,6 +140,7 @@ map:__search_id_lake a d2rq:PropertyBridge;
 map:Language a d2rq:ClassMap;
     d2rq:dataStorage map:database;
     d2rq:uriPattern "languages/@@language.name|urlencode@@/";
+    d2rq:class vocab:Language;
     .
 map:__search_id_language a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Language;
@@ -147,6 +155,7 @@ map:__search_id_language a d2rq:PropertyBridge;
 map:Mountain a d2rq:ClassMap;
     d2rq:dataStorage map:database;
     d2rq:uriPattern "mountains/@@mountain.name|urlencode@@/";
+    d2rq:class vocab:Mountain;
     .
 map:__search_id_mountain a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Mountain;
@@ -161,6 +170,7 @@ map:__search_id_mountain a d2rq:PropertyBridge;
 map:Organization a d2rq:ClassMap;
     d2rq:dataStorage map:database;
     d2rq:uriPattern "organizations/@@organization.abbreviation|urlencode@@/";
+    d2rq:class vocab:Organization;
     .
 map:__search_id_organization a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Organization;
@@ -175,6 +185,7 @@ map:__search_id_organization a d2rq:PropertyBridge;
 map:Province a d2rq:ClassMap;
     d2rq:dataStorage map:database;
      d2rq:uriPattern "countries/@@province.country|urlencode@@/provinces/@@province.name|urlencode@@/";
+    d2rq:class vocab:Province;
     .
 map:__search_id_provinces a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Province;
@@ -189,6 +200,7 @@ map:__search_id_provinces a d2rq:PropertyBridge;
 map:Religion a d2rq:ClassMap;
     d2rq:dataStorage map:database;
     d2rq:uriPattern "religions/@@religion.name|urlencode@@/";
+    d2rq:class vocab:Religion;
     .
 map:__search_id_religion a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Religion;
@@ -203,6 +215,7 @@ map:__search_id_religion a d2rq:PropertyBridge;
 map:River a d2rq:ClassMap;
     d2rq:dataStorage map:database;
     d2rq:uriPattern "rivers/@@river.name|urlencode@@/";
+    d2rq:class vocab:River;
     .
 map:__search_id_river a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:River;
@@ -217,6 +230,7 @@ map:__search_id_river a d2rq:PropertyBridge;
 map:Sea a d2rq:ClassMap;
     d2rq:dataStorage map:database;
     d2rq:uriPattern "seas/@@sea.name|urlencode@@/";
+    d2rq:class vocab:Sea;
     .
 map:__search_id_sea a d2rq:PropertyBridge;
     d2rq:belongsToClassMap map:Sea;
