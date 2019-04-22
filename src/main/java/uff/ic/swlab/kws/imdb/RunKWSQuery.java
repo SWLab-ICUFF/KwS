@@ -17,25 +17,25 @@ import uff.ic.swlab.util.FusekiServer;
 public class RunKWSQuery {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
-        FusekiServer fuseki = new FusekiServer("lappl-mm", 3030);
+        FusekiServer fuseki = new FusekiServer("localhost", 3030);
         String kwsString = "mauritius india";
         String queryString = "";
 
         Calendar t1 = Calendar.getInstance();
         if (true) {
-            queryString = readQuery("./src/main/sparql/kws_search_1.rq");
+            queryString = readQuery("./src/main/sparql/KwS/kws_search_1.rq");
             queryString = queryString.format(queryString, kwsString);
             fuseki.execUpdate(queryString, "Work.temp");
         }
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/kws_search_2.rq");
+            queryString = readQuery("./src/main/sparql/KwS/kws_search_2.rq");
             queryString = queryString.format(queryString, kwsString);
             fuseki.execUpdate(queryString, "Work.temp");
         }
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/kws_rank.rq");
+            queryString = readQuery("./src/main/sparql/KwS/kws_rank.rq");
             queryString = queryString.format(queryString, kwsString);
             fuseki.execUpdate(queryString, "Work.temp");
         }
@@ -118,7 +118,7 @@ public class RunKWSQuery {
     private static String readQuery(String filename) throws FileNotFoundException, IOException {
         File file = new File(filename);
         byte[] data = new byte[(int) file.length()];
-        try (FileInputStream fis = new FileInputStream(file)) {
+        try ( FileInputStream fis = new FileInputStream(file)) {
             fis.read(data);
         }
         return new String(data, "UTF-8");
