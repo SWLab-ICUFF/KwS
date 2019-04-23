@@ -4,16 +4,16 @@ prefix kwsg: <urn:graph:kws:>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix text: <http://jena.apache.org/text#>
-
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
 
 
 #####################################################
 # selecionar os grupos de entidades mais relevantes #
 #####################################################
 
-with kwsg:sol1
+with kwsg:solutions
 insert {
-  ?bag a rdf:Bag;
+  ?g a rdf:Bag;
     kws:score ?score;
     kws:size ?size;
     rdfs:member ?m;
@@ -24,11 +24,12 @@ using kwsg:temp3
 using named kwsg:temp
 where {
   {
-    select ?bag (coalesce(?_score,0) as ?score) ?size
+    select ?bag (coalesce(?_score,0) as ?score) ?size ?g
     where {
         ?bag a rdf:Bag.
-        ?bag kws:size ?size
-        optional {(?bag ?_score) text:query '%1$s'}.
+        ?bag kws:size ?size.
+        optional {(?bag ?_score) text:query '%1$s'}
+        bind(iri(concat("urn:graph:kws:043:sol",str(fn:sequential()))) as ?g)
     }
     order by desc(coalesce(?_score,0)) ?size
     limit 50
@@ -41,10 +42,11 @@ where {
 ##############################################
 # Buscar caminhos entre entidades dos grupos #
 ##############################################
+# bind(iri(concat("<urn:graph:kws:043:",str(fn:sequential()),">")) as ?g)
 
 with kwsg:temp4
 insert {[] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e2.}
-using kwsg:sol1
+using kwsg:solutions
 where {
 select distinct ?e1 ?e2
     where {
@@ -55,30 +57,29 @@ select distinct ?e1 ?e2
 
 
 # distancia 1
-with kwsg:sol1
-insert {?e1 ?p1 ?e2.}
+insert {graph ?g {?e1 ?p1 ?e2.}}
 where {
     graph kwsg:temp4 {
         [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e2.
-    filter (not exists {graph kwsg:sol1 {?e1 (!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size) | ^(!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size)))+ ?e2}})
+        filter (not exists {graph kwsg:sol1 {?e1 (!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size) | ^(!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size)))+ ?e2}})
   }
   graph kwsg:temp {?e1 ?p1 ?e2. filter(?p1 not in (rdf:type,rdfs:member))}
+  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e2.}
 };
 
-with kwsg:sol1
-insert {?e2 ?_p1 ?e1.}
+insert {graph ?g {?e2 ?_p1 ?e1.}}
 where {
     graph kwsg:temp4 {
         [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e2.
     filter (not exists {graph kwsg:sol1 {?e1 (!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size) | ^(!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size)))+ ?e2}})
   }
   graph kwsg:temp {?e2 ?_p1 ?e1. filter(?_p1 not in (rdf:type,rdfs:member))}
+  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e2.}
 };
 
 
 # distancia 2
-with kwsg:sol1
-insert {?e1 ?p1 ?e2. ?e2 ?p2 ?e3.}
+insert {graph ?g {?e1 ?p1 ?e2. ?e2 ?p2 ?e3.}}
 where {
     graph kwsg:temp4 {
         [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e3.
@@ -88,10 +89,11 @@ where {
     ?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1) && ?p1 not in (rdf:type,rdfs:member))
     ?e2 ?p2 ?e3. filter(?p2 not in (rdf:type,rdfs:member))
   }
+  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e3.}
 };
 
-with kwsg:sol1
-insert {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3.}
+
+insert {graph ?g {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3.}}
 where {
     graph kwsg:temp4 {
         [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e3.
@@ -101,10 +103,10 @@ where {
     ?e2 ?_p1 ?e1. filter(isIRI(?e2) && ?e2 not in (?e1) && ?_p1 not in (rdf:type,rdfs:member))
     ?e2 ?p2 ?e3. filter(?p2 not in (rdf:type,rdfs:member))
   }
+  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e3.}
 };
 
-with kwsg:sol1
-insert {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2.}
+insert {graph ?g {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2.}}
 where {
     graph kwsg:temp4 {
         [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e3.
@@ -114,10 +116,11 @@ where {
     ?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e1 not in (?e1) && ?p1 not in (rdf:type,rdfs:member))
     ?e3 ?_p2 ?e2. filter(?_p2 not in (rdf:type,rdfs:member))
   }
+  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e3.}
 };
 
-with kwsg:sol1
-insert {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2.}
+
+insert {graph ?g {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2.}}
 where {
     graph kwsg:temp4 {
         [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e3.
@@ -127,12 +130,12 @@ where {
     ?e2 ?_p1 ?e1. filter(isIRI(?e2) && ?e2 not in (?e1) && ?_p1 not in (rdf:type,rdfs:member))
     ?e3 ?_p2 ?e2. filter(?_p2 not in (rdf:type,rdfs:member))
   }
+  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e3.}
 };
 
 
 # distancia 3
-with kwsg:sol1
-insert {?e1 ?p1 ?e2. ?e2 ?p2 ?e3. ?e3 ?p3 ?e4.}
+insert {graph ?g {?e1 ?p1 ?e2. ?e2 ?p2 ?e3. ?e3 ?p3 ?e4.}}
 where {
     graph kwsg:temp4 {
         [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e4.
@@ -143,10 +146,11 @@ where {
     ?e2 ?p2 ?e3. filter (isIRI(?e3) && ?e3 not in (?e1,?e2) && ?p2 not in (rdf:type,rdfs:member))
     ?e3 ?p3 ?e4. filter (?p3 not in (rdf:type,rdfs:member))
   }
+  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e4.}
 };
 
-with kwsg:sol1
-insert {?e1 ?p1 ?e2. ?e2 ?p2 ?e3. ?e4 ?_p3 ?e3.}
+
+insert {graph ?g {?e1 ?p1 ?e2. ?e2 ?p2 ?e3. ?e4 ?_p3 ?e3.}}
 where {
     graph kwsg:temp4 {
         [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e4.
@@ -157,10 +161,11 @@ where {
     ?e2 ?p2 ?e3. filter (isIRI(?e3) && ?e3 not in (?e1,?e2) && ?p2 not in (rdf:type,rdfs:member))
     ?e4 ?_p3 ?e3. filter (?_p3 not in (rdf:type,rdfs:member))
   }
+  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e4.}
 };
 
-with kwsg:sol1
-insert {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2. ?e3 ?p3 ?e4.}
+
+insert {graph ?g {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2. ?e3 ?p3 ?e4.}}
 where {
     graph kwsg:temp4 {
         [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e4.
@@ -171,10 +176,11 @@ where {
     ?e3 ?_p2 ?e2. filter (isIRI(?e3) && ?e3 not in (?e1,?e2) && ?_p2 not in (rdf:type,rdfs:member))
     ?e3 ?p3 ?e4. filter (?p3 not in (rdf:type,rdfs:member))
   }
+  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e4.}
 };
 
-with kwsg:sol1
-insert {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2. ?e4 ?_p3 ?e3.}
+
+insert {graph ?g {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2. ?e4 ?_p3 ?e3.}}
 where {
     graph kwsg:temp4 {
         [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e4.
@@ -185,10 +191,11 @@ where {
     ?e3 ?_p2 ?e2. filter (isIRI(?e3) && ?e3 not in (?e1,?e2) && ?_p2 not in (rdf:type,rdfs:member))
     ?e4 ?_p3 ?e3. filter (?_p3 not in (rdf:type,rdfs:member))
   }
+  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e4.}
 };
 
-with kwsg:sol1
-insert {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3. ?e3 ?p3 ?e4.}
+
+insert {graph ?g {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3. ?e3 ?p3 ?e4.}}
 where {
     graph kwsg:temp4 {
         [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e4.
@@ -199,10 +206,11 @@ where {
     ?e2 ?p2 ?e3. filter (isIRI(?e3) && ?e3 not in (?e1,?e2) && ?p2 not in (rdf:type,rdfs:member))
     ?e3 ?p3 ?e4. filter (?p3 not in (rdf:type,rdfs:member))
   }
+  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e4.}
 };
 
-with kwsg:sol1
-insert {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3. ?e4 ?_p3 ?e3.}
+
+insert {graph ?g {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3. ?e4 ?_p3 ?e3.}}
 where {
     graph kwsg:temp4 {
         [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e4.
@@ -213,10 +221,11 @@ where {
     ?e2 ?p2 ?e3. filter (isIRI(?e3) && ?e3 not in (?e1,?e2) && ?p2 not in (rdf:type,rdfs:member))
     ?e4 ?_p3 ?e3. filter (?_p3 not in (rdf:type,rdfs:member))
   }
+  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e4.}
 };
 
-with kwsg:sol1
-insert {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2. ?e3 ?p3 ?e4.}
+
+insert {graph ?g {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2. ?e3 ?p3 ?e4.}}
 where {
     graph kwsg:temp4 {
         [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e4.
@@ -227,10 +236,11 @@ where {
     ?e3 ?_p2 ?e2. filter (isIRI(?e3) && ?e3 not in (?e1,?e2) && ?_p2 not in (rdf:type,rdfs:member))
     ?e3 ?p3 ?e4. filter (?p3 not in (rdf:type,rdfs:member))
   }
+  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e4.}
 };
 
-with kwsg:sol1
-insert {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2. ?e4 ?_p3 ?e3.}
+
+insert {graph ?g {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2. ?e4 ?_p3 ?e3.}}
 where {
     graph kwsg:temp4 {
         [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e4.
@@ -241,15 +251,16 @@ where {
     ?e3 ?_p2 ?e2. filter (isIRI(?e3) && ?e3 not in (?e1,?e2) && ?_p2 not in (rdf:type,rdfs:member))
     ?e4 ?_p3 ?e3. filter (?_p3 not in (rdf:type,rdfs:member))
   }
+  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e4.}
 };
 
-with kwsg:sol1
-insert {
-  ?s kws:comment ?comment.
-}
-using kwsg:sol1
-using named kwsg:temp
-where {
-  ?s ?p [].
-  graph kwsg:temp {?s kws:comment ?comment.}
-};
+#with kwsg:sol1
+#insert {
+#  ?s kws:comment ?comment.
+#}
+#using kwsg:sol1
+#using named kwsg:temp
+#where {
+#  ?s ?p [].
+#  graph kwsg:temp {?s kws:comment ?comment.}
+#};
