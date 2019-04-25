@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.time.Duration;
 import java.util.Calendar;
 import javax.naming.InvalidNameException;
+import org.apache.jena.query.Dataset;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
@@ -103,15 +104,15 @@ public class RunKWSQuery {
         }
 
         {
-            Model model = fuseki.getModel("Work.temp", "urn:graph:kws:sol1");
-            model.setNsPrefix("urn", "urn:uuid:");
-            model.setNsPrefix("kws", "urn:vocab:kws:");
-            model.setNsPrefix("kwsg", "urn:graph:kws:");
-            model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-            model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
-            model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
-            model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
-            writeModel(model, "./src/main/resources/dat/sol1.ttl");
+            Dataset dataset = fuseki.getDataset("Work.temp");
+//            model.setNsPrefix("urn", "urn:uuid:");
+//            model.setNsPrefix("kws", "urn:vocab:kws:");
+//            model.setNsPrefix("kwsg", "urn:graph:kws:");
+//            model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+//            model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
+//            model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
+//            model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
+            writeDataset(dataset, "./src/main/resources/dat/solutions.trig");
         }
     }
 
@@ -128,5 +129,11 @@ public class RunKWSQuery {
         File file = new File(filename);
         OutputStream out = new FileOutputStream(file);
         RDFDataMgr.write(out, model, RDFFormat.TURTLE_PRETTY);
+    }
+
+    private static void writeDataset(Dataset dataset, String filename) throws FileNotFoundException {
+        File file = new File(filename);
+        OutputStream out = new FileOutputStream(file);
+        RDFDataMgr.write(out, dataset, RDFFormat.TRIG_PRETTY);
     }
 }

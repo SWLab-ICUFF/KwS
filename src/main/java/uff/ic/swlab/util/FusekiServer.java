@@ -11,12 +11,15 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
+import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.update.UpdateExecutionFactory;
@@ -73,7 +76,7 @@ public class FusekiServer {
         List<String> graphNames = new ArrayList<>();
 
         String queryString = "select distinct ?g where {graph ?g {[] ?p [].}}";
-        try (QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
+        try ( QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
             ResultSet rs = exec.execSelect();
             while (rs.hasNext())
                 graphNames.add(rs.next().getResource("g").getURI());
@@ -87,7 +90,7 @@ public class FusekiServer {
         List<String> graphNames = new ArrayList<>();
 
         String queryString = "select distinct ?g where {graph ?g {[] ?p [].}}";
-        try (QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
+        try ( QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
             ((QueryEngineHTTP) exec).setTimeout(timeout);
             ResultSet rs = exec.execSelect();
             while (rs.hasNext())
@@ -168,6 +171,12 @@ public class FusekiServer {
             return model;
         else
             return ModelFactory.createDefaultModel();
+    }
+
+    public Dataset getDataset(String datasetname) {
+        Dataset dataset = DatasetFactory.create();
+        RDFDataMgr.read(dataset, getQuadsURL(datasetname));
+        return dataset;
     }
 
 }
