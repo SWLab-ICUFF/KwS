@@ -20,6 +20,7 @@ public class RunKWSQuery {
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer("localhost", 3030);
         String kwsString = "mauritius india";
+        String benchmark = "urn:graph:kws:043:";
         String queryString = "";
 
         Calendar t1 = Calendar.getInstance();
@@ -37,11 +38,17 @@ public class RunKWSQuery {
 
         if (true) {
             queryString = readQuery("./src/main/sparql/KwS/kws_rank.rq");
-            queryString = queryString.format(queryString, kwsString);
+            queryString = queryString.format(queryString, kwsString, benchmark);
             fuseki.execUpdate(queryString, "Work.temp");
         }
         Calendar t2 = Calendar.getInstance();
         System.out.println(String.format("Elapsed time: %1$d seconds", Duration.between(t1.toInstant(), t2.toInstant()).toSeconds()));
+
+        if (true) {
+            queryString = readQuery("./src/main/sparql/KwS/kws_eval.rq");
+            queryString = queryString.format(queryString, benchmark);
+            fuseki.execUpdate(queryString, "Work.temp");
+        }
 
         {
             Model model = fuseki.getModel("Work.temp", "urn:graph:kws:seeds");

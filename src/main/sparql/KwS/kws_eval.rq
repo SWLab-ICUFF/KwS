@@ -6,30 +6,35 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
 prefix text: <http://jena.apache.org/text#>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX fn: <java:uff.ic.swlab.jena.sparql.>
 
-select ?g1 ?g2 (min(?count) as ?ref) (count(?exists) as ?found)
+
+insert {graph ?g2 {?g2 kws:answers ?g1.}}
 where {
-  service <http://localhost:3030/Mondial.benchmark/sparql> {
-    graph ?g1 {?s ?p ?o}
-    filter (regex(str(?g1),"urn:graph:kws:043:"))
-  }
-  {
-    select distinct ?g2
+    select ?g1 ?g2 (min(?_reference) as ?reference) (count(*) as ?found)
     where {
-      graph ?g2 {[] ?_p [].}
-      filter (regex(str(?g2),"urn:graph:kws:043:"))
+        service <http://localhost:3030/Mondial.benchmark/sparql> {
+            graph ?g1 {?s ?p ?o}
+            filter (regex(str(?g1),"%1$s"))
+        }
+        {
+            select distinct ?g2
+            where {
+                graph ?g2 {[] ?_p [].}
+                filter (regex(str(?g2),"%1$s"))
+            }
+        }
+        {
+            select ?g1 (count(*) as ?_reference)
+            where {
+                service <http://localhost:3030/Mondial.benchmark/sparql> {
+                    graph ?g1 {[] ?_p [].} filter (regex(str(?g1),"%1$s"))
+                }
+            }
+            group by ?g1
+        }
+        filter (exists {graph ?g2 {?s ?p ?o.}})
     }
-  }
-  {
-    select ?g1 (count(*) as ?count)
-    where {
-      service <http://localhost:3030/Mondial.benchmark/sparql> {
-        graph ?g1 {[] ?_p [].} filter (regex(str(?g1),"urn:graph:kws:043:"))
-      }
-    }
-    group by ?g1
-  }
-  filter (exists {graph ?g2 {?s ?p ?o.}})
+    group by ?g1 ?g2
+    having (?reference = ?found)
 }
-group by ?g1 ?g2
+

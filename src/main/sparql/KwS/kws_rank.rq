@@ -24,15 +24,17 @@ using kwsg:temp3
 using named kwsg:temp
 where {
   {
-    select ?bag (coalesce(?_score,0) as ?score) ?size ?g
-    where {
-        ?bag a rdf:Bag.
-        ?bag kws:size ?size.
-        optional {(?bag ?_score) text:query '%1$s'}
-        bind(iri(concat("urn:graph:kws:043:sol",str(fn:sequential()))) as ?g)
+    {
+        select ?bag (coalesce(?_score,0) as ?score) ?size
+        where {
+            ?bag a rdf:Bag.
+            ?bag kws:size ?size.
+            optional {(?bag ?_score) text:query '%1$s'}
+        }
+        order by desc(coalesce(?_score,0)) ?size
+        limit 20
     }
-    order by desc(coalesce(?_score,0)) ?size
-    limit 100
+    bind(iri(concat("%2$s","sol",str(fn:sequential()))) as ?g)
   }
   ?bag rdfs:member ?m.
 };
@@ -42,125 +44,102 @@ where {
 ##############################################
 # Buscar caminhos entre entidades dos grupos #
 ##############################################
-# bind(iri(concat("<urn:graph:kws:043:",str(fn:sequential()),">")) as ?g)
 
 with kwsg:temp4
-insert {[] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e2.}
+insert {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?b.}
 using kwsg:solutions
 where {
-select distinct ?e1 ?e2
+select distinct ?b ?e1 ?e2
     where {
-      [] a rdf:Bag; rdfs:member ?e1; rdfs:member ?e2.
+      ?b a rdf:Bag; rdfs:member ?e1; rdfs:member ?e2.
       filter (str(?e2)>str(?e1))
     }
 };
 
 
-# distancia 1
+#distancia 0
 insert {
-    graph ?g {?e1 ?p1 ?e2.}
-    graph kwsg:solutions {?e1 ?p1 ?e2.}
+    graph ?sol {?e1 a ?T}
+    graph ?sol {?sol kws:score ?score; kws:size ?size.}
 }
 where {
-    graph kwsg:temp4 {
-    [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e2.
-    filter (not exists {graph kwsg:solutions {?e1 (!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size) | ^(!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size)))+ ?e2}})
-  }
-  graph kwsg:temp {?e1 ?p1 ?e2. filter(?p1 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?p1))}
-  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e2.}
+    graph kwsg:solutions {
+        ?sol a rdf:Bag; rdfs:member ?e1.
+        filter(not exists {?sol rdfs:member ?e2. filter(?e2 != ?e1)})
+    }
+    service <http://localhost:3030/Mondial/sparql> {
+        ?e1 a ?T.
+    }
+    graph kwsg:solutions {?sol kws:score ?score; kws:size ?size.}
 };
 
+
+
+# distancia 1
+delete {graph kwsg:temp4 {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?sol.}}
 insert {
-    graph ?g {?e2 ?_p1 ?e1.}
-    graph kwsg:solutions {?e1 ?_p1 ?e2.}
+    graph ?sol {?e1 ?p1 ?e2.}
+    graph ?sol {?e2 ?_p1 ?e1.}
+    graph ?sol {?sol kws:score ?score; kws:size ?size.}
 }
 where {
+    graph kwsg:temp4 {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?sol.}
+    {
+      {graph kwsg:temp {?e1 ?p1 ?e2. filter(?p1 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?p1))}}
+      union {graph kwsg:temp {?e2 ?_p1 ?e1. filter(?_p1 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?_p1))}}
+
+    }
+    graph kwsg:solutions {?sol kws:score ?score; kws:size ?size.}
+};
+
+
+delete {graph kwsg:temp4 {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3; kws:solution ?sol.}}
+where {
     graph kwsg:temp4 {
-    [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e2.
-    filter (not exists {graph kwsg:solutions {?e1 (!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size) | ^(!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size)))+ ?e2}})
-  }
-  graph kwsg:temp {?e2 ?_p1 ?e1. filter(?_p1 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?_p1))}
-  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e2.}
+        ?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3; kws:solution ?sol.
+        filter (exists {graph ?sol {?e1 (!kws:dummy|^(!kws:dummy))+ ?e3.} filter(regex(str(?sol),"%2$s"))})
+    }
 };
 
 
 # distancia 2
+delete {graph kwsg:temp4 {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3; kws:solution ?sol.}}
 insert {
-    graph ?g {?e1 ?p1 ?e2. ?e2 ?p2 ?e3.}
-    graph kwsg:solutions {?e1 ?p1 ?e2. ?e2 ?p2 ?e3.}
+    graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3.}
+    graph ?sol {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2.}
+    graph ?sol {?sol kws:score ?score; kws:size ?size.}
 }
 where {
-    graph kwsg:temp4 {
-    [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e3.
-    filter (not exists {graph kwsg:solutions {?e1 (!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size) | ^(!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size)))+ ?e3}})
-  }
-  graph kwsg:temp {
-    ?e1 ?p1 ?e2. filter(?e2 not in (?e1) && ?p1 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?p1))
-    ?e2 ?p2 ?e3. filter(?p2 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?p2))
-  }
-  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e3.}
+    graph kwsg:temp4 {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3; kws:solution ?sol.}
+    {
+      {
+          graph kwsg:temp {
+              ?e1 ?p1 ?e2. filter(?e2 not in (?e1) && ?p1 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?p1))
+              ?e2 ?p2 ?e3. filter(?p2 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?p2))
+          }
+      }
+      union {
+          graph kwsg:temp {
+              ?e2 ?_p1 ?e1. filter(?e2 not in (?e1) && ?_p1 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?_p1))
+              ?e2 ?p2 ?e3. filter(?p2 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?p2))
+          }
+      }
+      union {
+          graph kwsg:temp {
+              ?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1) && ?p1 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?p1))
+              ?e3 ?_p2 ?e2. filter(?_p2 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?_p2))
+          }
+      }
+      union {
+          graph kwsg:temp {
+              ?e2 ?_p1 ?e1. filter(?e2 not in (?e1) && ?_p1 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?_p1))
+              ?e3 ?_p2 ?e2. filter(?_p2 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?_p2))
+          }
+      }
+    }
+    graph kwsg:solutions {?sol kws:score ?score; kws:size ?size.}
 };
 
 
-insert {
-    graph ?g {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3.}
-    graph kwsg:solutions {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3.}
-}
-where {
-    graph kwsg:temp4 {
-    [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e3.
-    filter (not exists {graph kwsg:solutions {?e1 (!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size) | ^(!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size)))+ ?e3}})
-  }
-  graph kwsg:temp {
-    ?e2 ?_p1 ?e1. filter(?e2 not in (?e1) && ?_p1 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?_p1))
-    ?e2 ?p2 ?e3. filter(?p2 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?p2))
-  }
-  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e3.}
-};
-
-insert {
-    graph ?g {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2.}
-    graph kwsg:solutions {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2.}
-}
-where {
-    graph kwsg:temp4 {
-    [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e3.
-    filter (not exists {graph kwsg:solutions {?e1 (!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size) | ^(!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size)))+ ?e3}})
-  }
-  graph kwsg:temp {
-    ?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1) && ?p1 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?p1))
-    ?e3 ?_p2 ?e2. filter(?_p2 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?_p2))
-  }
-  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e3.}
-};
-
-
-insert {
-    graph ?g {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2.}
-    graph kwsg:solutions {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2.}
-}
-where {
-    graph kwsg:temp4 {
-    [] a rdf:Bag; rdf:_1 ?e1; rdf:_2 ?e3.
-    filter (not exists {graph kwsg:solutions {?e1 (!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size) | ^(!(rdf:type | rdfs:member | kws:comment | kws:score | kws:size)))+ ?e3}})
-  }
-  graph kwsg:temp {
-    ?e2 ?_p1 ?e1. filter(?e2 not in (?e1) && ?_p1 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?_p1))
-    ?e3 ?_p2 ?e2. filter(?_p2 not in (rdf:type,rdfs:member) && !fn:isContainerMembershipProperty(?_p2))
-  }
-  graph kwsg:solutions {?g a rdf:Bag; rdfs:member ?e1; rdfs:member ?e3.}
-};
-
-
-
-
-#with kwsg:sol1
-#insert {
-#  ?s kws:comment ?comment.
-#}
-#using kwsg:sol1
-#using named kwsg:temp
-#where {
-#  ?s ?p [].
-#  graph kwsg:temp {?s kws:comment ?comment.}
-#};
