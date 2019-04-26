@@ -19,8 +19,8 @@ public class RunKWSQuery {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer("localhost", 3030);
-        String kwsString = "czech republic cote divoire organization";
-        String benchmark = "urn:graph:kws:039:";
+        String kwsString = "mauritius india";
+        String benchmark = "urn:graph:kws:043:";
         String queryString = "";
 
         Calendar t1 = Calendar.getInstance();
