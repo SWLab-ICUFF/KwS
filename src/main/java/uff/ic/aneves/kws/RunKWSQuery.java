@@ -1,4 +1,4 @@
-package uff.ic.swlab.kws.imdb;
+package uff.ic.aneves.kws;
 
 import java.io.File;
 import java.io.FileInputStream;
