@@ -19,8 +19,8 @@ public class RunKWSQuery {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer("localhost", 3030);
-        String kwsString = "mauritius india";
-        String benchmark = "urn:graph:kws:043:";
+        String kwsString = "uzbek asia";
+        String benchmark = "urn:graph:kws:048:";
         String queryString = "";
 
         Calendar t1 = Calendar.getInstance();
@@ -126,7 +126,7 @@ public class RunKWSQuery {
     private static String readQuery(String filename) throws FileNotFoundException, IOException {
         File file = new File(filename);
         byte[] data = new byte[(int) file.length()];
-        try ( FileInputStream fis = new FileInputStream(file)) {
+        try (FileInputStream fis = new FileInputStream(file)) {
             fis.read(data);
         }
         return new String(data, "UTF-8");

@@ -37,6 +37,8 @@ where {
             ?m kws:score ?score.
             filter (?score > 0)
         }
+        order by desc(?score)
+        limit 8
     }
 };
 
