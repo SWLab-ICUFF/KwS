@@ -131,7 +131,7 @@ where {
 
 
 with kwsg:groups
-insert {?bag kws:comment ?comment; kws:size ?size.}
+insert {?bag kws:comment ?comment; kws:initialSize ?size.}
 where {
     select ?bag (group_concat(coalesce(?_comment,"")) as ?comment) (count(?m) as ?size)
     where {

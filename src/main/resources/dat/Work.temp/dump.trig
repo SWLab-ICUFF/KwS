@@ -1,624 +1,307 @@
-<urn:graph:kws:043:sol10> {
-    <urn:graph:kws:043:sol10>
-            <urn:vocab:kws:score>  "0.7416773"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>   2 .
+<urn:graph:kws:001:sol6> {
+    <http://www.semwebtech.org/mondial/10/countries/WAN/>
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    3405 ;
+            <http://www.semwebtech.org/mondial/10/meta#hasProvince>
+                    <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> ;
+            <urn:vocab:kws:comment>  "Nigeria the Federal Republic of Nigeria federal republic WAN" .
+    
+    <urn:graph:kws:001:sol6>
+            <urn:vocab:kws:score>  "0.30241758"^^<http://www.w3.org/2001/XMLSchema#float> ;
+            <urn:vocab:kws:size>   4 .
+    
+    <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/>
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    14067 ;
+            <http://www.semwebtech.org/mondial/10/meta#flowsInto>
+                    <http://www.semwebtech.org/mondial/10/rivers/Niger/> ;
+            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
+                    <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> ;
+            <urn:vocab:kws:comment>  "Lake Kainji dam" .
+    
+    <http://www.semwebtech.org/mondial/10/rivers/Niger/>
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    16957 ;
+            <http://www.semwebtech.org/mondial/10/meta#flowsThrough>
+                    <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> ;
+            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
+                    <http://www.semwebtech.org/mondial/10/countries/WAN/> , <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> ;
+            <urn:vocab:kws:comment>  "Niger" .
+}
+
+<urn:graph:kws:001:sol7> {
+    <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/>
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    14067 ;
+            <http://www.semwebtech.org/mondial/10/meta#flowsInto>
+                    <http://www.semwebtech.org/mondial/10/rivers/Niger/> ;
+            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
+                    <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> ;
+            <urn:vocab:kws:comment>  "Lake Kainji dam" .
+    
+    <http://www.semwebtech.org/mondial/10/countries/RN/>
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    3395 ;
+            <http://www.semwebtech.org/mondial/10/meta#capital>
+                    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> ;
+            <http://www.semwebtech.org/mondial/10/meta#hasCity>
+                    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> ;
+            <http://www.semwebtech.org/mondial/10/meta#hasProvince>
+                    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> ;
+            <http://www.semwebtech.org/mondial/10/meta#neighbor>
+                    <http://www.semwebtech.org/mondial/10/countries/RMM/> , <http://www.semwebtech.org/mondial/10/countries/WAN/> ;
+            <urn:vocab:kws:comment>  "Niger la République du Niger republic RN" .
+    
+    <urn:graph:kws:001:sol7>
+            <urn:vocab:kws:score>  "0.29757988"^^<http://www.w3.org/2001/XMLSchema#float> ;
+            <urn:vocab:kws:size>   11 .
+    
+    <http://www.semwebtech.org/mondial/10/countries/RMM/>
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    3392 ;
+            <http://www.semwebtech.org/mondial/10/meta#neighbor>
+                    <http://www.semwebtech.org/mondial/10/countries/RN/> ;
+            <urn:vocab:kws:comment>  "Mali la République du Mali  republic RMM" .
+    
+    <http://www.semwebtech.org/mondial/10/rivers/Niger/>
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    16957 ;
+            <http://www.semwebtech.org/mondial/10/meta#flowsThrough>
+                    <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> ;
+            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
+                    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> , <http://www.semwebtech.org/mondial/10/countries/WAN/> , <http://www.semwebtech.org/mondial/10/countries/RN/> , <http://www.semwebtech.org/mondial/10/countries/RMM/> , <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> ;
+            <urn:vocab:kws:comment>  "Niger" .
+    
+    <http://www.semwebtech.org/mondial/10/countries/WAN/>
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    3405 ;
+            <http://www.semwebtech.org/mondial/10/meta#hasProvince>
+                    <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> ;
+            <http://www.semwebtech.org/mondial/10/meta#neighbor>
+                    <http://www.semwebtech.org/mondial/10/countries/RN/> ;
+            <urn:vocab:kws:comment>  "Nigeria the Federal Republic of Nigeria federal republic WAN" .
+    
+    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/>
+            <http://www.semwebtech.org/mondial/10/meta#locatedAt>
+                    <http://www.semwebtech.org/mondial/10/rivers/Niger/> .
+    
+    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/>
+            <http://www.semwebtech.org/mondial/10/meta#locatedAt>
+                    <http://www.semwebtech.org/mondial/10/rivers/Niger/> .
+}
+
+<urn:graph:kws:001:sol4> {
+    <urn:graph:kws:001:sol4>
+            <urn:vocab:kws:score>  "0.29757988"^^<http://www.w3.org/2001/XMLSchema#float> ;
+            <urn:vocab:kws:size>   9 .
+    
+    <http://www.semwebtech.org/mondial/10/countries/RN/>
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    3395 ;
+            <http://www.semwebtech.org/mondial/10/meta#capital>
+                    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> ;
+            <http://www.semwebtech.org/mondial/10/meta#hasCity>
+                    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> ;
+            <http://www.semwebtech.org/mondial/10/meta#hasProvince>
+                    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> ;
+            <http://www.semwebtech.org/mondial/10/meta#neighbor>
+                    <http://www.semwebtech.org/mondial/10/countries/RMM/> , <http://www.semwebtech.org/mondial/10/countries/WAN/> ;
+            <urn:vocab:kws:comment>  "Niger la République du Niger republic RN" .
+    
+    <http://www.semwebtech.org/mondial/10/countries/RMM/>
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    3392 ;
+            <http://www.semwebtech.org/mondial/10/meta#neighbor>
+                    <http://www.semwebtech.org/mondial/10/countries/RN/> ;
+            <urn:vocab:kws:comment>  "Mali la République du Mali  republic RMM" .
+    
+    <http://www.semwebtech.org/mondial/10/rivers/Niger/>
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    16957 ;
+            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
+                    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> , <http://www.semwebtech.org/mondial/10/countries/RMM/> , <http://www.semwebtech.org/mondial/10/countries/WAN/> , <http://www.semwebtech.org/mondial/10/countries/RN/> ;
+            <urn:vocab:kws:comment>  "Niger" .
+    
+    <http://www.semwebtech.org/mondial/10/countries/WAN/>
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    3405 ;
+            <http://www.semwebtech.org/mondial/10/meta#neighbor>
+                    <http://www.semwebtech.org/mondial/10/countries/RN/> ;
+            <urn:vocab:kws:comment>  "Nigeria the Federal Republic of Nigeria federal republic WAN" .
+    
+    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/>
+            <http://www.semwebtech.org/mondial/10/meta#locatedAt>
+                    <http://www.semwebtech.org/mondial/10/rivers/Niger/> .
+    
+    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/>
+            <http://www.semwebtech.org/mondial/10/meta#locatedAt>
+                    <http://www.semwebtech.org/mondial/10/rivers/Niger/> .
+}
+
+<urn:graph:kws:001:sol5> {
+    <http://www.semwebtech.org/mondial/10/countries/WAN/>
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    3405 ;
+            <http://www.semwebtech.org/mondial/10/meta#hasProvince>
+                    <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> ;
+            <http://www.semwebtech.org/mondial/10/meta#neighbor>
+                    <http://www.semwebtech.org/mondial/10/countries/RN/> ;
+            <urn:vocab:kws:comment>  "Nigeria the Federal Republic of Nigeria federal republic WAN" .
+    
+    <urn:graph:kws:001:sol5>
+            <urn:vocab:kws:score>  "0.2902759"^^<http://www.w3.org/2001/XMLSchema#float> ;
+            <urn:vocab:kws:size>   4 .
+    
+    <http://www.semwebtech.org/mondial/10/rivers/Niger/>
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    16957 ;
+            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
+                    <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> , <http://www.semwebtech.org/mondial/10/countries/RN/> ;
+            <urn:vocab:kws:comment>  "Niger" .
+    
+    <http://www.semwebtech.org/mondial/10/countries/RN/>
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    3395 ;
+            <http://www.semwebtech.org/mondial/10/meta#neighbor>
+                    <http://www.semwebtech.org/mondial/10/countries/WAN/> ;
+            <urn:vocab:kws:comment>  "Niger la République du Niger republic RN" .
+}
+
+<urn:graph:kws:001:sol2> {
+    <urn:graph:kws:001:sol2>
+            <urn:vocab:kws:score>  "0.30241758"^^<http://www.w3.org/2001/XMLSchema#float> ;
+            <urn:vocab:kws:size>   1 .
+    
+    <http://www.semwebtech.org/mondial/10/rivers/Niger/>
+            a                        <http://www.semwebtech.org/mondial/10/meta#River> ;
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    16957 ;
+            <urn:vocab:kws:comment>  "Niger" .
+}
+
+<urn:graph:kws:001:sol3> {
+    <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/>
+            a       <http://www.semwebtech.org/mondial/10/meta#Province> .
+}
+
+<urn:graph:kws:001:sol1> {
+    <urn:graph:kws:001:sol1>
+            <urn:vocab:kws:score>  "0.2902759"^^<http://www.w3.org/2001/XMLSchema#float> ;
+            <urn:vocab:kws:size>   1 .
+    
+    <http://www.semwebtech.org/mondial/10/countries/RN/>
+            a                        <http://www.semwebtech.org/mondial/10/meta#Country> ;
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    3395 ;
+            <urn:vocab:kws:comment>  "Niger la République du Niger republic RN" .
 }
 
 <urn:graph:kws:seeds> {
-    <http://www.semwebtech.org/mondial/10/countries/MS/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3439 ;
-            <urn:vocab:kws:comment>  "Mauritius The Republic of Mauritius parliamentary democracy MS" ;
-            <urn:vocab:kws:score>    "2.244162"^^<http://www.w3.org/2001/XMLSchema#float> .
-    
     [ a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
       <http://www.w3.org/2000/01/rdf-schema#member>
-              <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> , <http://www.semwebtech.org/mondial/10/countries/IND/> , <http://www.semwebtech.org/mondial/10/countries/MS/> , <http://www.semwebtech.org/mondial/10/islands/Mauritius/>
+              <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> , <http://www.semwebtech.org/mondial/10/rivers/Niger/> , <http://www.semwebtech.org/mondial/10/countries/RN/>
     ] .
     
-    <http://www.semwebtech.org/mondial/10/islands/Mauritius/>
+    <http://www.semwebtech.org/mondial/10/rivers/Niger/>
             <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    13883 ;
-            <urn:vocab:kws:comment>  "Mauritius volcanic" ;
-            <urn:vocab:kws:score>    "2.2433183"^^<http://www.w3.org/2001/XMLSchema#float> .
+                    16957 ;
+            <urn:vocab:kws:comment>  "Niger" ;
+            <urn:vocab:kws:score>    "1.6374186"^^<http://www.w3.org/2001/XMLSchema#float> .
     
-    <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/>
+    <http://www.semwebtech.org/mondial/10/countries/RN/>
             <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    14640 ;
-            <urn:vocab:kws:comment>  "United Nations Military Observer Group in India and Pakistan UNMOGIP" ;
-            <urn:vocab:kws:score>    "2.0781991"^^<http://www.w3.org/2001/XMLSchema#float> .
-    
-    <http://www.semwebtech.org/mondial/10/countries/IND/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3489 ;
-            <urn:vocab:kws:comment>  "India the Republic of India federal republic IND" ;
-            <urn:vocab:kws:score>    "2.244162"^^<http://www.w3.org/2001/XMLSchema#float> .
-}
-
-<urn:graph:kws:043:sol14> {
-    <http://www.semwebtech.org/mondial/10/countries/IND/>
-            <http://www.semwebtech.org/mondial/10/meta#isMember>
-                    <http://www.semwebtech.org/mondial/10/organizations/ICJ/> , <http://www.semwebtech.org/mondial/10/organizations/IMO/> , <http://www.semwebtech.org/mondial/10/organizations/IPU/> , <http://www.semwebtech.org/mondial/10/organizations/IFC/> , <http://www.semwebtech.org/mondial/10/organizations/WMO/> , <http://www.semwebtech.org/mondial/10/organizations/FAO/> , <http://www.semwebtech.org/mondial/10/organizations/IHO/> , <http://www.semwebtech.org/mondial/10/organizations/UN/> , <http://www.semwebtech.org/mondial/10/organizations/UNESCO/> , <http://www.semwebtech.org/mondial/10/organizations/WFTU/> , <http://www.semwebtech.org/mondial/10/organizations/WTO/> , <http://www.semwebtech.org/mondial/10/organizations/NAM/> , <http://www.semwebtech.org/mondial/10/organizations/UNIDO/> , <http://www.semwebtech.org/mondial/10/organizations/MIGA/> , <http://www.semwebtech.org/mondial/10/organizations/UNWTO/> , <http://www.semwebtech.org/mondial/10/organizations/ITU/> , <http://www.semwebtech.org/mondial/10/organizations/IBRD/> , <http://www.semwebtech.org/mondial/10/organizations/AfDB/> , <http://www.semwebtech.org/mondial/10/organizations/IOM/> , <http://www.semwebtech.org/mondial/10/organizations/ITUC/> , <http://www.semwebtech.org/mondial/10/organizations/IMSO/> , <http://www.semwebtech.org/mondial/10/organizations/UNCTAD/> , <http://www.semwebtech.org/mondial/10/organizations/CD/> , <http://www.semwebtech.org/mondial/10/organizations/ILO/> , <http://www.semwebtech.org/mondial/10/organizations/ICAO/> , <http://www.semwebtech.org/mondial/10/organizations/IMF/> , <http://www.semwebtech.org/mondial/10/organizations/SAARC/> , <http://www.semwebtech.org/mondial/10/organizations/PCA/> , <http://www.semwebtech.org/mondial/10/organizations/OPCW/> , <http://www.semwebtech.org/mondial/10/organizations/IFRCS/> , <http://www.semwebtech.org/mondial/10/organizations/IFAD/> , <http://www.semwebtech.org/mondial/10/organizations/WHO/> , <http://www.semwebtech.org/mondial/10/organizations/IAEA/> , <http://www.semwebtech.org/mondial/10/organizations/ICC/> , <http://www.semwebtech.org/mondial/10/organizations/G-77/> , <http://www.semwebtech.org/mondial/10/organizations/ITSO/> , <http://www.semwebtech.org/mondial/10/organizations/WIPO/> , <http://www.semwebtech.org/mondial/10/organizations/Interpol/> , <http://www.semwebtech.org/mondial/10/organizations/UPU/> , <http://www.semwebtech.org/mondial/10/organizations/IOC/> , <http://www.semwebtech.org/mondial/10/organizations/WCO/> , <http://www.semwebtech.org/mondial/10/organizations/IDA/> , <http://www.semwebtech.org/mondial/10/organizations/C/> ;
-            <http://www.semwebtech.org/mondial/10/meta#wasDependentOf>
-                    <http://www.semwebtech.org/mondial/10/countries/GB/> .
-    
-    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/IND/> , <http://www.semwebtech.org/mondial/10/countries/MS/> .
-    
-    <urn:graph:kws:043:sol14>
-            <urn:vocab:kws:answers>  <urn:graph:kws:043:007> , <urn:graph:kws:043:014> , <urn:graph:kws:043:031> , <urn:graph:kws:043:008> , <urn:graph:kws:043:023> , <urn:graph:kws:043:015> , <urn:graph:kws:043:001> , <urn:graph:kws:043:018> , <urn:graph:kws:043:025> , <urn:graph:kws:043:022> , <urn:graph:kws:043:026> , <urn:graph:kws:043:032> , <urn:graph:kws:043:009> , <urn:graph:kws:043:024> , <urn:graph:kws:043:003> , <urn:graph:kws:043:010> , <urn:graph:kws:043:002> , <urn:graph:kws:043:004> , <urn:graph:kws:043:011> , <urn:graph:kws:043:033> , <urn:graph:kws:043:028> , <urn:graph:kws:043:035> , <urn:graph:kws:043:027> , <urn:graph:kws:043:006> , <urn:graph:kws:043:021> , <urn:graph:kws:043:020> , <urn:graph:kws:043:012> ;
-            <urn:vocab:kws:score>    "1.0716727"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     3 .
-    
-    <http://www.semwebtech.org/mondial/10/countries/MS/>
-            <http://www.semwebtech.org/mondial/10/meta#isMember>
-                    <http://www.semwebtech.org/mondial/10/organizations/ICAO/> , <http://www.semwebtech.org/mondial/10/organizations/UNCTAD/> , <http://www.semwebtech.org/mondial/10/organizations/IFRCS/> , <http://www.semwebtech.org/mondial/10/organizations/IMSO/> , <http://www.semwebtech.org/mondial/10/organizations/Interpol/> , <http://www.semwebtech.org/mondial/10/organizations/IHO/> , <http://www.semwebtech.org/mondial/10/organizations/IOM/> , <http://www.semwebtech.org/mondial/10/organizations/IAEA/> , <http://www.semwebtech.org/mondial/10/organizations/WCO/> , <http://www.semwebtech.org/mondial/10/organizations/ICJ/> , <http://www.semwebtech.org/mondial/10/organizations/IMF/> , <http://www.semwebtech.org/mondial/10/organizations/WIPO/> , <http://www.semwebtech.org/mondial/10/organizations/IOC/> , <http://www.semwebtech.org/mondial/10/organizations/NAM/> , <http://www.semwebtech.org/mondial/10/organizations/IBRD/> , <http://www.semwebtech.org/mondial/10/organizations/MIGA/> , <http://www.semwebtech.org/mondial/10/organizations/G-77/> , <http://www.semwebtech.org/mondial/10/organizations/ITSO/> , <http://www.semwebtech.org/mondial/10/organizations/PCA/> , <http://www.semwebtech.org/mondial/10/organizations/WMO/> , <http://www.semwebtech.org/mondial/10/organizations/UNESCO/> , <http://www.semwebtech.org/mondial/10/organizations/AfDB/> , <http://www.semwebtech.org/mondial/10/organizations/ITU/> , <http://www.semwebtech.org/mondial/10/organizations/IFC/> , <http://www.semwebtech.org/mondial/10/organizations/FAO/> , <http://www.semwebtech.org/mondial/10/organizations/IPU/> , <http://www.semwebtech.org/mondial/10/organizations/ILO/> , <http://www.semwebtech.org/mondial/10/organizations/WFTU/> , <http://www.semwebtech.org/mondial/10/organizations/WHO/> , <http://www.semwebtech.org/mondial/10/organizations/CD/> , <http://www.semwebtech.org/mondial/10/organizations/UNIDO/> , <http://www.semwebtech.org/mondial/10/organizations/C/> , <http://www.semwebtech.org/mondial/10/organizations/UPU/> , <http://www.semwebtech.org/mondial/10/organizations/OPCW/> , <http://www.semwebtech.org/mondial/10/organizations/IMO/> , <http://www.semwebtech.org/mondial/10/organizations/IFAD/> , <http://www.semwebtech.org/mondial/10/organizations/UNWTO/> , <http://www.semwebtech.org/mondial/10/organizations/SAARC/> , <http://www.semwebtech.org/mondial/10/organizations/ITUC/> , <http://www.semwebtech.org/mondial/10/organizations/UN/> , <http://www.semwebtech.org/mondial/10/organizations/ICC/> , <http://www.semwebtech.org/mondial/10/organizations/WTO/> , <http://www.semwebtech.org/mondial/10/organizations/IDA/> ;
-            <http://www.semwebtech.org/mondial/10/meta#wasDependentOf>
-                    <http://www.semwebtech.org/mondial/10/countries/GB/> .
-}
-
-<urn:graph:kws:043:sol13> {
-    <http://www.semwebtech.org/mondial/10/countries/MS/>
-            <http://www.semwebtech.org/mondial/10/meta#capital>
-                    <http://www.semwebtech.org/mondial/10/countries/MS/cities/Port+Louis/> ;
-            <http://www.semwebtech.org/mondial/10/meta#hasCity>
-                    <http://www.semwebtech.org/mondial/10/countries/MS/cities/Port+Louis/> ;
-            <http://www.semwebtech.org/mondial/10/meta#isMember>
-                    <http://www.semwebtech.org/mondial/10/organizations/ICAO/> , <http://www.semwebtech.org/mondial/10/organizations/UNCTAD/> , <http://www.semwebtech.org/mondial/10/organizations/IFRCS/> , <http://www.semwebtech.org/mondial/10/organizations/IMSO/> , <http://www.semwebtech.org/mondial/10/organizations/Interpol/> , <http://www.semwebtech.org/mondial/10/organizations/IHO/> , <http://www.semwebtech.org/mondial/10/organizations/IOM/> , <http://www.semwebtech.org/mondial/10/organizations/IAEA/> , <http://www.semwebtech.org/mondial/10/organizations/WCO/> , <http://www.semwebtech.org/mondial/10/organizations/ICJ/> , <http://www.semwebtech.org/mondial/10/organizations/IMF/> , <http://www.semwebtech.org/mondial/10/organizations/WIPO/> , <http://www.semwebtech.org/mondial/10/organizations/IOC/> , <http://www.semwebtech.org/mondial/10/organizations/NAM/> , <http://www.semwebtech.org/mondial/10/organizations/IBRD/> , <http://www.semwebtech.org/mondial/10/organizations/MIGA/> , <http://www.semwebtech.org/mondial/10/organizations/G-77/> , <http://www.semwebtech.org/mondial/10/organizations/ITSO/> , <http://www.semwebtech.org/mondial/10/organizations/PCA/> , <http://www.semwebtech.org/mondial/10/organizations/WMO/> , <http://www.semwebtech.org/mondial/10/organizations/UNESCO/> , <http://www.semwebtech.org/mondial/10/organizations/AfDB/> , <http://www.semwebtech.org/mondial/10/organizations/ITU/> , <http://www.semwebtech.org/mondial/10/organizations/IFC/> , <http://www.semwebtech.org/mondial/10/organizations/FAO/> , <http://www.semwebtech.org/mondial/10/organizations/IPU/> , <http://www.semwebtech.org/mondial/10/organizations/ILO/> , <http://www.semwebtech.org/mondial/10/organizations/WFTU/> , <http://www.semwebtech.org/mondial/10/organizations/WHO/> , <http://www.semwebtech.org/mondial/10/organizations/CD/> , <http://www.semwebtech.org/mondial/10/organizations/UNIDO/> , <http://www.semwebtech.org/mondial/10/organizations/C/> , <http://www.semwebtech.org/mondial/10/organizations/UPU/> , <http://www.semwebtech.org/mondial/10/organizations/OPCW/> , <http://www.semwebtech.org/mondial/10/organizations/IMO/> , <http://www.semwebtech.org/mondial/10/organizations/UNWTO/> , <http://www.semwebtech.org/mondial/10/organizations/IFAD/> , <http://www.semwebtech.org/mondial/10/organizations/SAARC/> , <http://www.semwebtech.org/mondial/10/organizations/ITUC/> , <http://www.semwebtech.org/mondial/10/organizations/UN/> , <http://www.semwebtech.org/mondial/10/organizations/ICC/> , <http://www.semwebtech.org/mondial/10/organizations/WTO/> , <http://www.semwebtech.org/mondial/10/organizations/IDA/> ;
-            <http://www.semwebtech.org/mondial/10/meta#wasDependentOf>
-                    <http://www.semwebtech.org/mondial/10/countries/GB/> .
-    
-    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/IND/> , <http://www.semwebtech.org/mondial/10/countries/MS/> .
-    
-    <http://www.semwebtech.org/mondial/10/islands/Mauritius/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-            <http://www.semwebtech.org/mondial/10/meta#locatedInWater>
-                    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/> .
-    
-    <http://www.semwebtech.org/mondial/10/countries/MS/cities/Port+Louis/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedOnIsland>
-                    <http://www.semwebtech.org/mondial/10/islands/Mauritius/> .
-    
-    <urn:graph:kws:043:sol13>
-            <urn:vocab:kws:answers>  <urn:graph:kws:043:001> , <urn:graph:kws:043:025> , <urn:graph:kws:043:022> , <urn:graph:kws:043:007> , <urn:graph:kws:043:032> , <urn:graph:kws:043:008> , <urn:graph:kws:043:024> , <urn:graph:kws:043:015> , <urn:graph:kws:043:003> , <urn:graph:kws:043:010> , <urn:graph:kws:043:002> , <urn:graph:kws:043:011> , <urn:graph:kws:043:033> , <urn:graph:kws:043:018> , <urn:graph:kws:043:035> , <urn:graph:kws:043:026> , <urn:graph:kws:043:021> , <urn:graph:kws:043:009> , <urn:graph:kws:043:004> , <urn:graph:kws:043:020> , <urn:graph:kws:043:012> , <urn:graph:kws:043:028> , <urn:graph:kws:043:027> , <urn:graph:kws:043:006> , <urn:graph:kws:043:014> , <urn:graph:kws:043:031> , <urn:graph:kws:043:023> ;
-            <urn:vocab:kws:score>    "1.1957618"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     3 .
-    
-    <http://www.semwebtech.org/mondial/10/countries/IND/>
-            <http://www.semwebtech.org/mondial/10/meta#isMember>
-                    <http://www.semwebtech.org/mondial/10/organizations/ICJ/> , <http://www.semwebtech.org/mondial/10/organizations/IMO/> , <http://www.semwebtech.org/mondial/10/organizations/IPU/> , <http://www.semwebtech.org/mondial/10/organizations/IFC/> , <http://www.semwebtech.org/mondial/10/organizations/WMO/> , <http://www.semwebtech.org/mondial/10/organizations/FAO/> , <http://www.semwebtech.org/mondial/10/organizations/IHO/> , <http://www.semwebtech.org/mondial/10/organizations/UN/> , <http://www.semwebtech.org/mondial/10/organizations/UNESCO/> , <http://www.semwebtech.org/mondial/10/organizations/WFTU/> , <http://www.semwebtech.org/mondial/10/organizations/WTO/> , <http://www.semwebtech.org/mondial/10/organizations/NAM/> , <http://www.semwebtech.org/mondial/10/organizations/UNIDO/> , <http://www.semwebtech.org/mondial/10/organizations/MIGA/> , <http://www.semwebtech.org/mondial/10/organizations/UNWTO/> , <http://www.semwebtech.org/mondial/10/organizations/ITU/> , <http://www.semwebtech.org/mondial/10/organizations/IBRD/> , <http://www.semwebtech.org/mondial/10/organizations/AfDB/> , <http://www.semwebtech.org/mondial/10/organizations/IOM/> , <http://www.semwebtech.org/mondial/10/organizations/ITUC/> , <http://www.semwebtech.org/mondial/10/organizations/IMSO/> , <http://www.semwebtech.org/mondial/10/organizations/UNCTAD/> , <http://www.semwebtech.org/mondial/10/organizations/CD/> , <http://www.semwebtech.org/mondial/10/organizations/ILO/> , <http://www.semwebtech.org/mondial/10/organizations/ICAO/> , <http://www.semwebtech.org/mondial/10/organizations/IMF/> , <http://www.semwebtech.org/mondial/10/organizations/SAARC/> , <http://www.semwebtech.org/mondial/10/organizations/PCA/> , <http://www.semwebtech.org/mondial/10/organizations/OPCW/> , <http://www.semwebtech.org/mondial/10/organizations/IFRCS/> , <http://www.semwebtech.org/mondial/10/organizations/IFAD/> , <http://www.semwebtech.org/mondial/10/organizations/WHO/> , <http://www.semwebtech.org/mondial/10/organizations/IAEA/> , <http://www.semwebtech.org/mondial/10/organizations/ICC/> , <http://www.semwebtech.org/mondial/10/organizations/G-77/> , <http://www.semwebtech.org/mondial/10/organizations/ITSO/> , <http://www.semwebtech.org/mondial/10/organizations/WIPO/> , <http://www.semwebtech.org/mondial/10/organizations/Interpol/> , <http://www.semwebtech.org/mondial/10/organizations/UPU/> , <http://www.semwebtech.org/mondial/10/organizations/IOC/> , <http://www.semwebtech.org/mondial/10/organizations/WCO/> , <http://www.semwebtech.org/mondial/10/organizations/IDA/> , <http://www.semwebtech.org/mondial/10/organizations/C/> ;
-            <http://www.semwebtech.org/mondial/10/meta#wasDependentOf>
-                    <http://www.semwebtech.org/mondial/10/countries/GB/> .
+                    3395 ;
+            <urn:vocab:kws:comment>  "Niger la République du Niger republic RN" ;
+            <urn:vocab:kws:score>    "1.6252769"^^<http://www.w3.org/2001/XMLSchema#float> .
 }
 
 <urn:graph:kws:groups> {
-    <http://www.semwebtech.org/mondial/10/countries/MS/>
+    <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/>
             <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3439 ;
-            <urn:vocab:kws:comment>  "Mauritius The Republic of Mauritius parliamentary democracy MS" ;
-            <urn:vocab:kws:score>    "0.777825"^^<http://www.w3.org/2001/XMLSchema#float> .
+                    14067 ;
+            <urn:vocab:kws:comment>  "Lake Kainji dam" .
     
-    <urn:graph:kws:043:sol11>
-            a                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
+    <urn:graph:kws:001:sol4>
+            a                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
             <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/> , <http://www.semwebtech.org/mondial/10/countries/MS/cities/Port+Louis/> , <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> , <http://www.semwebtech.org/mondial/10/countries/MS/> , <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-            <urn:vocab:kws:comment>  "Mauritius volcanic Mauritius The Republic of Mauritius parliamentary democracy MS United Nations Military Observer Group in India and Pakistan UNMOGIP" ;
-            <urn:vocab:kws:score>    "1.0218256"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     3 .
+                    <http://www.semwebtech.org/mondial/10/countries/WAN/> , <http://www.semwebtech.org/mondial/10/rivers/Niger/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> , <http://www.semwebtech.org/mondial/10/countries/RMM/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> , <http://www.semwebtech.org/mondial/10/countries/RN/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> ;
+            <urn:vocab:kws:comment>      "Niger la République du Niger republic RN Niger" ;
+            <urn:vocab:kws:initialSize>  2 ;
+            <urn:vocab:kws:score>        "0.29757988"^^<http://www.w3.org/2001/XMLSchema#float> ;
+            <urn:vocab:kws:size>         9 .
     
-    <urn:graph:kws:043:sol3>
-            a                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-            <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/countries/IND/> ;
-            <urn:vocab:kws:comment>  "India the Republic of India federal republic IND" ;
-            <urn:vocab:kws:score>    "0.777825"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     1 .
-    
-    <urn:graph:kws:043:sol9>
-            a                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-            <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/organizations/CD/> , <http://www.semwebtech.org/mondial/10/organizations/ICC/> , <http://www.semwebtech.org/mondial/10/organizations/IFC/> , <http://www.semwebtech.org/mondial/10/organizations/UNCTAD/> , <http://www.semwebtech.org/mondial/10/organizations/ITUC/> , <http://www.semwebtech.org/mondial/10/organizations/WMO/> , <http://www.semwebtech.org/mondial/10/organizations/ILO/> , <http://www.semwebtech.org/mondial/10/organizations/G-77/> , <http://www.semwebtech.org/mondial/10/organizations/Interpol/> , <http://www.semwebtech.org/mondial/10/organizations/IFRCS/> , <http://www.semwebtech.org/mondial/10/organizations/IMO/> , <http://www.semwebtech.org/mondial/10/organizations/IMF/> , <http://www.semwebtech.org/mondial/10/organizations/IMSO/> , <http://www.semwebtech.org/mondial/10/organizations/IBRD/> , <http://www.semwebtech.org/mondial/10/countries/MS/> , <http://www.semwebtech.org/mondial/10/organizations/UNESCO/> , <http://www.semwebtech.org/mondial/10/organizations/NAM/> , <http://www.semwebtech.org/mondial/10/organizations/ITU/> , <http://www.semwebtech.org/mondial/10/organizations/PCA/> , <http://www.semwebtech.org/mondial/10/organizations/AfDB/> , <http://www.semwebtech.org/mondial/10/organizations/ICJ/> , <http://www.semwebtech.org/mondial/10/organizations/ITSO/> , <http://www.semwebtech.org/mondial/10/organizations/ICAO/> , <http://www.semwebtech.org/mondial/10/organizations/IHO/> , <http://www.semwebtech.org/mondial/10/organizations/OPCW/> , <http://www.semwebtech.org/mondial/10/organizations/UNWTO/> , <http://www.semwebtech.org/mondial/10/organizations/C/> , <http://www.semwebtech.org/mondial/10/organizations/IFAD/> , <http://www.semwebtech.org/mondial/10/organizations/IDA/> , <http://www.semwebtech.org/mondial/10/organizations/WTO/> , <http://www.semwebtech.org/mondial/10/organizations/MIGA/> , <http://www.semwebtech.org/mondial/10/organizations/WHO/> , <http://www.semwebtech.org/mondial/10/organizations/IAEA/> , <http://www.semwebtech.org/mondial/10/organizations/SAARC/> , <http://www.semwebtech.org/mondial/10/organizations/IOM/> , <http://www.semwebtech.org/mondial/10/countries/GB/> , <http://www.semwebtech.org/mondial/10/organizations/WCO/> , <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/> , <http://www.semwebtech.org/mondial/10/countries/IND/> , <http://www.semwebtech.org/mondial/10/organizations/WIPO/> , <http://www.semwebtech.org/mondial/10/organizations/UNIDO/> , <http://www.semwebtech.org/mondial/10/organizations/IPU/> , <http://www.semwebtech.org/mondial/10/organizations/IOC/> , <http://www.semwebtech.org/mondial/10/organizations/FAO/> , <http://www.semwebtech.org/mondial/10/organizations/UPU/> , <http://www.semwebtech.org/mondial/10/organizations/UN/> , <http://www.semwebtech.org/mondial/10/organizations/WFTU/> ;
-            <urn:vocab:kws:comment>  "Mauritius The Republic of Mauritius parliamentary democracy MS India the Republic of India federal republic IND" ;
-            <urn:vocab:kws:score>    "1.1543628"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     2 .
-    
-    <http://www.semwebtech.org/mondial/10/islands/Mauritius/>
+    <http://www.semwebtech.org/mondial/10/countries/RN/>
             <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    13883 ;
-            <urn:vocab:kws:comment>  "Mauritius volcanic" ;
-            <urn:vocab:kws:score>    "0.77698123"^^<http://www.w3.org/2001/XMLSchema#float> .
+                    3395 ;
+            <urn:vocab:kws:comment>  "Niger la République du Niger republic RN" ;
+            <urn:vocab:kws:score>    "0.2902759"^^<http://www.w3.org/2001/XMLSchema#float> .
     
-    <urn:graph:kws:043:sol10>
-            a                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
+    <urn:graph:kws:001:sol7>
+            a                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
             <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> , <http://www.semwebtech.org/mondial/10/countries/IND/> ;
-            <urn:vocab:kws:comment>  "India the Republic of India federal republic IND United Nations Military Observer Group in India and Pakistan UNMOGIP" ;
-            <urn:vocab:kws:score>    "0.7416773"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     2 .
+                    <http://www.semwebtech.org/mondial/10/countries/WAN/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> , <http://www.semwebtech.org/mondial/10/rivers/Niger/> , <http://www.semwebtech.org/mondial/10/countries/RN/> , <http://www.semwebtech.org/mondial/10/countries/RMM/> , <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> , <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> ;
+            <urn:vocab:kws:comment>      "Niger la République du Niger republic RN Niger " ;
+            <urn:vocab:kws:initialSize>  3 ;
+            <urn:vocab:kws:score>        "0.29757988"^^<http://www.w3.org/2001/XMLSchema#float> ;
+            <urn:vocab:kws:size>         11 .
     
-    <urn:graph:kws:043:sol2>
-            a                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
+    <urn:graph:kws:001:sol2>
+            a                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
             <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-            <urn:vocab:kws:comment>  "Mauritius The Republic of Mauritius parliamentary democracy MS" ;
-            <urn:vocab:kws:score>    "0.777825"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     1 .
+                    <http://www.semwebtech.org/mondial/10/rivers/Niger/> ;
+            <urn:vocab:kws:comment>      "Niger" ;
+            <urn:vocab:kws:initialSize>  1 ;
+            <urn:vocab:kws:score>        "0.30241758"^^<http://www.w3.org/2001/XMLSchema#float> ;
+            <urn:vocab:kws:size>         1 .
     
-    <urn:graph:kws:043:sol8>
-            a                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-            <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/> , <http://www.semwebtech.org/mondial/10/countries/IND/> , <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-            <urn:vocab:kws:comment>  "Mauritius volcanic India the Republic of India federal republic IND" ;
-            <urn:vocab:kws:score>    "1.154309"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     2 .
-    
-    <urn:graph:kws:043:sol15>
-            a                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-            <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/organizations/MIGA/> , <http://www.semwebtech.org/mondial/10/organizations/ICC/> , <http://www.semwebtech.org/mondial/10/organizations/IFRCS/> , <http://www.semwebtech.org/mondial/10/organizations/C/> , <http://www.semwebtech.org/mondial/10/organizations/IHO/> , <http://www.semwebtech.org/mondial/10/organizations/ITSO/> , <http://www.semwebtech.org/mondial/10/organizations/UNIDO/> , <http://www.semwebtech.org/mondial/10/organizations/WTO/> , <http://www.semwebtech.org/mondial/10/organizations/UN/> , <http://www.semwebtech.org/mondial/10/organizations/IMF/> , <http://www.semwebtech.org/mondial/10/organizations/PCA/> , <http://www.semwebtech.org/mondial/10/organizations/ILO/> , <http://www.semwebtech.org/mondial/10/organizations/G-77/> , <http://www.semwebtech.org/mondial/10/organizations/UNESCO/> , <http://www.semwebtech.org/mondial/10/organizations/SAARC/> , <http://www.semwebtech.org/mondial/10/organizations/WMO/> , <http://www.semwebtech.org/mondial/10/organizations/FAO/> , <http://www.semwebtech.org/mondial/10/organizations/IMO/> , <http://www.semwebtech.org/mondial/10/organizations/IPU/> , <http://www.semwebtech.org/mondial/10/organizations/IFC/> , <http://www.semwebtech.org/mondial/10/organizations/WCO/> , <http://www.semwebtech.org/mondial/10/organizations/ICAO/> , <http://www.semwebtech.org/mondial/10/countries/MS/cities/Port+Louis/> , <http://www.semwebtech.org/mondial/10/organizations/ITUC/> , <http://www.semwebtech.org/mondial/10/islands/Mauritius/> , <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> , <http://www.semwebtech.org/mondial/10/organizations/IBRD/> , <http://www.semwebtech.org/mondial/10/organizations/IOM/> , <http://www.semwebtech.org/mondial/10/organizations/Interpol/> , <http://www.semwebtech.org/mondial/10/organizations/CD/> , <http://www.semwebtech.org/mondial/10/organizations/ITU/> , <http://www.semwebtech.org/mondial/10/countries/IND/> , <http://www.semwebtech.org/mondial/10/organizations/AfDB/> , <http://www.semwebtech.org/mondial/10/organizations/IOC/> , <http://www.semwebtech.org/mondial/10/organizations/IDA/> , <http://www.semwebtech.org/mondial/10/countries/GB/> , <http://www.semwebtech.org/mondial/10/organizations/ICJ/> , <http://www.semwebtech.org/mondial/10/organizations/OPCW/> , <http://www.semwebtech.org/mondial/10/organizations/UNWTO/> , <http://www.semwebtech.org/mondial/10/organizations/IMSO/> , <http://www.semwebtech.org/mondial/10/organizations/IFAD/> , <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/> , <http://www.semwebtech.org/mondial/10/organizations/WHO/> , <http://www.semwebtech.org/mondial/10/organizations/NAM/> , <http://www.semwebtech.org/mondial/10/countries/MS/> , <http://www.semwebtech.org/mondial/10/organizations/WIPO/> , <http://www.semwebtech.org/mondial/10/organizations/IAEA/> , <http://www.semwebtech.org/mondial/10/organizations/WFTU/> , <http://www.semwebtech.org/mondial/10/organizations/UPU/> , <http://www.semwebtech.org/mondial/10/organizations/UNCTAD/> ;
-            <urn:vocab:kws:comment>  "Mauritius volcanic Mauritius The Republic of Mauritius parliamentary democracy MS India the Republic of India federal republic IND United Nations Military Observer Group in India and Pakistan UNMOGIP" ;
-            <urn:vocab:kws:score>    "1.1286737"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     4 .
-    
-    <urn:graph:kws:043:sol1>
-            a                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-            <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-            <urn:vocab:kws:comment>  "Mauritius volcanic" ;
-            <urn:vocab:kws:score>    "0.77698123"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     1 .
-    
-    <urn:graph:kws:043:sol7>
-            a                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-            <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> , <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-            <urn:vocab:kws:comment>  "Mauritius The Republic of Mauritius parliamentary democracy MS United Nations Military Observer Group in India and Pakistan UNMOGIP" ;
-            <urn:vocab:kws:score>    "0.9750706"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     2 .
-    
-    <urn:graph:kws:043:sol14>
-            a                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-            <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/organizations/WIPO/> , <http://www.semwebtech.org/mondial/10/organizations/IMO/> , <http://www.semwebtech.org/mondial/10/organizations/ITU/> , <http://www.semwebtech.org/mondial/10/organizations/WMO/> , <http://www.semwebtech.org/mondial/10/organizations/MIGA/> , <http://www.semwebtech.org/mondial/10/organizations/IPU/> , <http://www.semwebtech.org/mondial/10/organizations/IOC/> , <http://www.semwebtech.org/mondial/10/countries/GB/> , <http://www.semwebtech.org/mondial/10/organizations/ICJ/> , <http://www.semwebtech.org/mondial/10/organizations/WCO/> , <http://www.semwebtech.org/mondial/10/organizations/IFC/> , <http://www.semwebtech.org/mondial/10/organizations/UN/> , <http://www.semwebtech.org/mondial/10/organizations/ILO/> , <http://www.semwebtech.org/mondial/10/organizations/ICAO/> , <http://www.semwebtech.org/mondial/10/organizations/G-77/> , <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> , <http://www.semwebtech.org/mondial/10/organizations/NAM/> , <http://www.semwebtech.org/mondial/10/organizations/SAARC/> , <http://www.semwebtech.org/mondial/10/organizations/IBRD/> , <http://www.semwebtech.org/mondial/10/organizations/IAEA/> , <http://www.semwebtech.org/mondial/10/countries/MS/> , <http://www.semwebtech.org/mondial/10/organizations/FAO/> , <http://www.semwebtech.org/mondial/10/organizations/UPU/> , <http://www.semwebtech.org/mondial/10/countries/IND/> , <http://www.semwebtech.org/mondial/10/organizations/IDA/> , <http://www.semwebtech.org/mondial/10/organizations/OPCW/> , <http://www.semwebtech.org/mondial/10/organizations/AfDB/> , <http://www.semwebtech.org/mondial/10/organizations/IFRCS/> , <http://www.semwebtech.org/mondial/10/organizations/WTO/> , <http://www.semwebtech.org/mondial/10/organizations/IMF/> , <http://www.semwebtech.org/mondial/10/organizations/ITSO/> , <http://www.semwebtech.org/mondial/10/organizations/IMSO/> , <http://www.semwebtech.org/mondial/10/organizations/IFAD/> , <http://www.semwebtech.org/mondial/10/organizations/IHO/> , <http://www.semwebtech.org/mondial/10/organizations/UNWTO/> , <http://www.semwebtech.org/mondial/10/organizations/ITUC/> , <http://www.semwebtech.org/mondial/10/organizations/WHO/> , <http://www.semwebtech.org/mondial/10/organizations/UNCTAD/> , <http://www.semwebtech.org/mondial/10/organizations/IOM/> , <http://www.semwebtech.org/mondial/10/organizations/WFTU/> , <http://www.semwebtech.org/mondial/10/organizations/Interpol/> , <http://www.semwebtech.org/mondial/10/organizations/CD/> , <http://www.semwebtech.org/mondial/10/organizations/C/> , <http://www.semwebtech.org/mondial/10/organizations/ICC/> , <http://www.semwebtech.org/mondial/10/organizations/UNIDO/> , <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/> , <http://www.semwebtech.org/mondial/10/organizations/PCA/> , <http://www.semwebtech.org/mondial/10/organizations/UNESCO/> ;
-            <urn:vocab:kws:comment>  "Mauritius The Republic of Mauritius parliamentary democracy MS India the Republic of India federal republic IND United Nations Military Observer Group in India and Pakistan UNMOGIP" ;
-            <urn:vocab:kws:score>    "1.0716727"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     3 .
-    
-    <urn:graph:kws:043:sol6>
-            a                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-            <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/> , <http://www.semwebtech.org/mondial/10/countries/MS/cities/Port+Louis/> , <http://www.semwebtech.org/mondial/10/countries/MS/> , <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-            <urn:vocab:kws:comment>  "Mauritius volcanic Mauritius The Republic of Mauritius parliamentary democracy MS" ;
-            <urn:vocab:kws:score>    "0.8198706"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     2 .
-    
-    <http://www.semwebtech.org/mondial/10/countries/IND/>
+    <http://www.semwebtech.org/mondial/10/countries/RMM/>
             <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3489 ;
-            <urn:vocab:kws:comment>  "India the Republic of India federal republic IND" ;
-            <urn:vocab:kws:score>    "0.777825"^^<http://www.w3.org/2001/XMLSchema#float> .
+                    3392 ;
+            <urn:vocab:kws:comment>  "Mali la République du Mali  republic RMM" .
     
-    <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/>
+    <http://www.semwebtech.org/mondial/10/rivers/Niger/>
             <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    14640 ;
-            <urn:vocab:kws:comment>  "United Nations Military Observer Group in India and Pakistan UNMOGIP" ;
-            <urn:vocab:kws:score>    "0.61186206"^^<http://www.w3.org/2001/XMLSchema#float> .
+                    16957 ;
+            <urn:vocab:kws:comment>  "Niger" ;
+            <urn:vocab:kws:score>    "0.30241758"^^<http://www.w3.org/2001/XMLSchema#float> .
     
-    <urn:graph:kws:043:sol13>
-            a                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
+    <http://www.semwebtech.org/mondial/10/countries/WAN/>
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    3405 ;
+            <urn:vocab:kws:comment>  "Nigeria the Federal Republic of Nigeria federal republic WAN" .
+    
+    <urn:graph:kws:001:sol5>
+            a                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
             <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/countries/GB/> , <http://www.semwebtech.org/mondial/10/organizations/IDA/> , <http://www.semwebtech.org/mondial/10/organizations/ICAO/> , <http://www.semwebtech.org/mondial/10/organizations/IFRCS/> , <http://www.semwebtech.org/mondial/10/organizations/G-77/> , <http://www.semwebtech.org/mondial/10/organizations/NAM/> , <http://www.semwebtech.org/mondial/10/organizations/IMF/> , <http://www.semwebtech.org/mondial/10/organizations/IBRD/> , <http://www.semwebtech.org/mondial/10/organizations/WMO/> , <http://www.semwebtech.org/mondial/10/organizations/UPU/> , <http://www.semwebtech.org/mondial/10/organizations/PCA/> , <http://www.semwebtech.org/mondial/10/organizations/UNCTAD/> , <http://www.semwebtech.org/mondial/10/organizations/WFTU/> , <http://www.semwebtech.org/mondial/10/organizations/IOM/> , <http://www.semwebtech.org/mondial/10/organizations/Interpol/> , <http://www.semwebtech.org/mondial/10/organizations/ITSO/> , <http://www.semwebtech.org/mondial/10/organizations/IMO/> , <http://www.semwebtech.org/mondial/10/organizations/C/> , <http://www.semwebtech.org/mondial/10/organizations/ITU/> , <http://www.semwebtech.org/mondial/10/organizations/ICC/> , <http://www.semwebtech.org/mondial/10/organizations/MIGA/> , <http://www.semwebtech.org/mondial/10/organizations/IPU/> , <http://www.semwebtech.org/mondial/10/organizations/FAO/> , <http://www.semwebtech.org/mondial/10/organizations/WHO/> , <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/> , <http://www.semwebtech.org/mondial/10/countries/IND/> , <http://www.semwebtech.org/mondial/10/organizations/ICJ/> , <http://www.semwebtech.org/mondial/10/organizations/UNESCO/> , <http://www.semwebtech.org/mondial/10/organizations/UN/> , <http://www.semwebtech.org/mondial/10/organizations/WIPO/> , <http://www.semwebtech.org/mondial/10/organizations/ILO/> , <http://www.semwebtech.org/mondial/10/organizations/AfDB/> , <http://www.semwebtech.org/mondial/10/organizations/WTO/> , <http://www.semwebtech.org/mondial/10/countries/MS/cities/Port+Louis/> , <http://www.semwebtech.org/mondial/10/organizations/IMSO/> , <http://www.semwebtech.org/mondial/10/organizations/IFAD/> , <http://www.semwebtech.org/mondial/10/organizations/UNIDO/> , <http://www.semwebtech.org/mondial/10/organizations/UNWTO/> , <http://www.semwebtech.org/mondial/10/organizations/IAEA/> , <http://www.semwebtech.org/mondial/10/organizations/WCO/> , <http://www.semwebtech.org/mondial/10/organizations/IFC/> , <http://www.semwebtech.org/mondial/10/organizations/OPCW/> , <http://www.semwebtech.org/mondial/10/organizations/SAARC/> , <http://www.semwebtech.org/mondial/10/organizations/CD/> , <http://www.semwebtech.org/mondial/10/organizations/IHO/> , <http://www.semwebtech.org/mondial/10/islands/Mauritius/> , <http://www.semwebtech.org/mondial/10/countries/MS/> , <http://www.semwebtech.org/mondial/10/organizations/IOC/> , <http://www.semwebtech.org/mondial/10/organizations/ITUC/> ;
-            <urn:vocab:kws:comment>  "Mauritius volcanic Mauritius The Republic of Mauritius parliamentary democracy MS India the Republic of India federal republic IND" ;
-            <urn:vocab:kws:score>    "1.1957618"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     3 .
+                    <http://www.semwebtech.org/mondial/10/countries/WAN/> , <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> , <http://www.semwebtech.org/mondial/10/rivers/Niger/> , <http://www.semwebtech.org/mondial/10/countries/RN/> ;
+            <urn:vocab:kws:comment>      "Niger la République du Niger republic RN " ;
+            <urn:vocab:kws:initialSize>  2 ;
+            <urn:vocab:kws:score>        "0.2902759"^^<http://www.w3.org/2001/XMLSchema#float> ;
+            <urn:vocab:kws:size>         4 .
     
-    <urn:graph:kws:043:sol5>
-            a                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
+    <urn:graph:kws:001:sol3>
+            a                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
             <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> , <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-            <urn:vocab:kws:comment>  "Mauritius volcanic United Nations Military Observer Group in India and Pakistan UNMOGIP" ;
-            <urn:vocab:kws:score>    "0.9614316"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     2 .
+                    <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> ;
+            <urn:vocab:kws:comment>      "" ;
+            <urn:vocab:kws:initialSize>  1 ;
+            <urn:vocab:kws:size>         1 .
     
-    <urn:graph:kws:043:sol12>
-            a                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
+    <urn:graph:kws:001:sol1>
+            a                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
             <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/> , <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> , <http://www.semwebtech.org/mondial/10/countries/IND/> , <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-            <urn:vocab:kws:comment>  "Mauritius volcanic India the Republic of India federal republic IND United Nations Military Observer Group in India and Pakistan UNMOGIP" ;
-            <urn:vocab:kws:score>    "1.0218256"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     3 .
+                    <http://www.semwebtech.org/mondial/10/countries/RN/> ;
+            <urn:vocab:kws:comment>      "Niger la République du Niger republic RN" ;
+            <urn:vocab:kws:initialSize>  1 ;
+            <urn:vocab:kws:score>        "0.2902759"^^<http://www.w3.org/2001/XMLSchema#float> ;
+            <urn:vocab:kws:size>         1 .
     
-    <urn:graph:kws:043:sol4>
-            a                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
+    <urn:graph:kws:001:sol6>
+            a                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
             <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> ;
-            <urn:vocab:kws:comment>  "United Nations Military Observer Group in India and Pakistan UNMOGIP" ;
-            <urn:vocab:kws:score>    "0.61186206"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     1 .
-}
-
-<urn:graph:kws:043:sol12> {
-    <urn:graph:kws:043:sol12>
-            <urn:vocab:kws:score>  "1.0218256"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>   3 .
-    
-    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/IND/> .
-    
-    <http://www.semwebtech.org/mondial/10/islands/Mauritius/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedInWater>
-                    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/> .
-}
-
-<urn:graph:kws:043:sol11> {
-    <urn:graph:kws:043:sol11>
-            <urn:vocab:kws:score>  "1.0218256"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>   3 .
-    
-    <http://www.semwebtech.org/mondial/10/countries/MS/>
-            <http://www.semwebtech.org/mondial/10/meta#capital>
-                    <http://www.semwebtech.org/mondial/10/countries/MS/cities/Port+Louis/> ;
-            <http://www.semwebtech.org/mondial/10/meta#hasCity>
-                    <http://www.semwebtech.org/mondial/10/countries/MS/cities/Port+Louis/> .
-    
-    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/MS/> .
-    
-    <http://www.semwebtech.org/mondial/10/islands/Mauritius/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-            <http://www.semwebtech.org/mondial/10/meta#locatedInWater>
-                    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/> .
-    
-    <http://www.semwebtech.org/mondial/10/countries/MS/cities/Port+Louis/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedOnIsland>
-                    <http://www.semwebtech.org/mondial/10/islands/Mauritius/> .
-}
-
-<urn:graph:kws:043:sol3> {
-    <http://www.semwebtech.org/mondial/10/countries/IND/>
-            a       <http://www.semwebtech.org/mondial/10/meta#Country> .
-    
-    <urn:graph:kws:043:sol3>
-            <urn:vocab:kws:score>  "0.777825"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>   1 .
-}
-
-<urn:graph:kws:043:sol2> {
-    <urn:graph:kws:043:sol2>
-            <urn:vocab:kws:score>  "0.777825"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>   1 .
-    
-    <http://www.semwebtech.org/mondial/10/countries/MS/>
-            a       <http://www.semwebtech.org/mondial/10/meta#Country> .
-}
-
-<urn:graph:kws:043:sol5> {
-    <urn:graph:kws:043:sol5>
-            <urn:vocab:kws:score>  "0.9614316"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>   2 .
-}
-
-<urn:graph:kws:043:sol4> {
-    <urn:graph:kws:043:sol4>
-            <urn:vocab:kws:score>  "0.61186206"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>   1 .
-    
-    <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/>
-            a       <http://www.semwebtech.org/mondial/10/meta#Organization> .
-}
-
-<urn:graph:kws:043:sol15> {
-    <http://www.semwebtech.org/mondial/10/countries/MS/>
-            <http://www.semwebtech.org/mondial/10/meta#capital>
-                    <http://www.semwebtech.org/mondial/10/countries/MS/cities/Port+Louis/> ;
-            <http://www.semwebtech.org/mondial/10/meta#hasCity>
-                    <http://www.semwebtech.org/mondial/10/countries/MS/cities/Port+Louis/> ;
-            <http://www.semwebtech.org/mondial/10/meta#isMember>
-                    <http://www.semwebtech.org/mondial/10/organizations/ICAO/> , <http://www.semwebtech.org/mondial/10/organizations/UNCTAD/> , <http://www.semwebtech.org/mondial/10/organizations/IFRCS/> , <http://www.semwebtech.org/mondial/10/organizations/IMSO/> , <http://www.semwebtech.org/mondial/10/organizations/Interpol/> , <http://www.semwebtech.org/mondial/10/organizations/IHO/> , <http://www.semwebtech.org/mondial/10/organizations/IOM/> , <http://www.semwebtech.org/mondial/10/organizations/IAEA/> , <http://www.semwebtech.org/mondial/10/organizations/WCO/> , <http://www.semwebtech.org/mondial/10/organizations/ICJ/> , <http://www.semwebtech.org/mondial/10/organizations/IMF/> , <http://www.semwebtech.org/mondial/10/organizations/WIPO/> , <http://www.semwebtech.org/mondial/10/organizations/IOC/> , <http://www.semwebtech.org/mondial/10/organizations/NAM/> , <http://www.semwebtech.org/mondial/10/organizations/IBRD/> , <http://www.semwebtech.org/mondial/10/organizations/MIGA/> , <http://www.semwebtech.org/mondial/10/organizations/G-77/> , <http://www.semwebtech.org/mondial/10/organizations/ITSO/> , <http://www.semwebtech.org/mondial/10/organizations/PCA/> , <http://www.semwebtech.org/mondial/10/organizations/WMO/> , <http://www.semwebtech.org/mondial/10/organizations/UNESCO/> , <http://www.semwebtech.org/mondial/10/organizations/AfDB/> , <http://www.semwebtech.org/mondial/10/organizations/ITU/> , <http://www.semwebtech.org/mondial/10/organizations/IFC/> , <http://www.semwebtech.org/mondial/10/organizations/FAO/> , <http://www.semwebtech.org/mondial/10/organizations/IPU/> , <http://www.semwebtech.org/mondial/10/organizations/ILO/> , <http://www.semwebtech.org/mondial/10/organizations/WFTU/> , <http://www.semwebtech.org/mondial/10/organizations/WHO/> , <http://www.semwebtech.org/mondial/10/organizations/CD/> , <http://www.semwebtech.org/mondial/10/organizations/UNIDO/> , <http://www.semwebtech.org/mondial/10/organizations/C/> , <http://www.semwebtech.org/mondial/10/organizations/UPU/> , <http://www.semwebtech.org/mondial/10/organizations/OPCW/> , <http://www.semwebtech.org/mondial/10/organizations/IMO/> , <http://www.semwebtech.org/mondial/10/organizations/UNWTO/> , <http://www.semwebtech.org/mondial/10/organizations/IFAD/> , <http://www.semwebtech.org/mondial/10/organizations/SAARC/> , <http://www.semwebtech.org/mondial/10/organizations/ITUC/> , <http://www.semwebtech.org/mondial/10/organizations/UN/> , <http://www.semwebtech.org/mondial/10/organizations/ICC/> , <http://www.semwebtech.org/mondial/10/organizations/WTO/> , <http://www.semwebtech.org/mondial/10/organizations/IDA/> ;
-            <http://www.semwebtech.org/mondial/10/meta#wasDependentOf>
-                    <http://www.semwebtech.org/mondial/10/countries/GB/> .
-    
-    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/IND/> , <http://www.semwebtech.org/mondial/10/countries/MS/> .
-    
-    <http://www.semwebtech.org/mondial/10/islands/Mauritius/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-            <http://www.semwebtech.org/mondial/10/meta#locatedInWater>
-                    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/> .
-    
-    <urn:graph:kws:043:sol15>
-            <urn:vocab:kws:answers>  <urn:graph:kws:043:009> , <urn:graph:kws:043:025> , <urn:graph:kws:043:007> , <urn:graph:kws:043:028> , <urn:graph:kws:043:008> , <urn:graph:kws:043:006> , <urn:graph:kws:043:003> , <urn:graph:kws:043:020> , <urn:graph:kws:043:018> , <urn:graph:kws:043:022> , <urn:graph:kws:043:015> , <urn:graph:kws:043:032> , <urn:graph:kws:043:012> , <urn:graph:kws:043:010> , <urn:graph:kws:043:031> , <urn:graph:kws:043:011> , <urn:graph:kws:043:027> , <urn:graph:kws:043:033> , <urn:graph:kws:043:024> , <urn:graph:kws:043:026> , <urn:graph:kws:043:002> , <urn:graph:kws:043:023> , <urn:graph:kws:043:021> , <urn:graph:kws:043:001> , <urn:graph:kws:043:014> , <urn:graph:kws:043:004> , <urn:graph:kws:043:035> ;
-            <urn:vocab:kws:score>    "1.1286737"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     4 .
-    
-    <http://www.semwebtech.org/mondial/10/countries/MS/cities/Port+Louis/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedOnIsland>
-                    <http://www.semwebtech.org/mondial/10/islands/Mauritius/> .
-    
-    <http://www.semwebtech.org/mondial/10/countries/IND/>
-            <http://www.semwebtech.org/mondial/10/meta#isMember>
-                    <http://www.semwebtech.org/mondial/10/organizations/ICJ/> , <http://www.semwebtech.org/mondial/10/organizations/IMO/> , <http://www.semwebtech.org/mondial/10/organizations/IPU/> , <http://www.semwebtech.org/mondial/10/organizations/IFC/> , <http://www.semwebtech.org/mondial/10/organizations/WMO/> , <http://www.semwebtech.org/mondial/10/organizations/FAO/> , <http://www.semwebtech.org/mondial/10/organizations/IHO/> , <http://www.semwebtech.org/mondial/10/organizations/UN/> , <http://www.semwebtech.org/mondial/10/organizations/UNESCO/> , <http://www.semwebtech.org/mondial/10/organizations/WFTU/> , <http://www.semwebtech.org/mondial/10/organizations/WTO/> , <http://www.semwebtech.org/mondial/10/organizations/NAM/> , <http://www.semwebtech.org/mondial/10/organizations/UNIDO/> , <http://www.semwebtech.org/mondial/10/organizations/MIGA/> , <http://www.semwebtech.org/mondial/10/organizations/UNWTO/> , <http://www.semwebtech.org/mondial/10/organizations/ITU/> , <http://www.semwebtech.org/mondial/10/organizations/IBRD/> , <http://www.semwebtech.org/mondial/10/organizations/AfDB/> , <http://www.semwebtech.org/mondial/10/organizations/IOM/> , <http://www.semwebtech.org/mondial/10/organizations/ITUC/> , <http://www.semwebtech.org/mondial/10/organizations/IMSO/> , <http://www.semwebtech.org/mondial/10/organizations/UNCTAD/> , <http://www.semwebtech.org/mondial/10/organizations/CD/> , <http://www.semwebtech.org/mondial/10/organizations/ILO/> , <http://www.semwebtech.org/mondial/10/organizations/ICAO/> , <http://www.semwebtech.org/mondial/10/organizations/IMF/> , <http://www.semwebtech.org/mondial/10/organizations/SAARC/> , <http://www.semwebtech.org/mondial/10/organizations/PCA/> , <http://www.semwebtech.org/mondial/10/organizations/OPCW/> , <http://www.semwebtech.org/mondial/10/organizations/IFRCS/> , <http://www.semwebtech.org/mondial/10/organizations/IFAD/> , <http://www.semwebtech.org/mondial/10/organizations/WHO/> , <http://www.semwebtech.org/mondial/10/organizations/IAEA/> , <http://www.semwebtech.org/mondial/10/organizations/ICC/> , <http://www.semwebtech.org/mondial/10/organizations/G-77/> , <http://www.semwebtech.org/mondial/10/organizations/ITSO/> , <http://www.semwebtech.org/mondial/10/organizations/WIPO/> , <http://www.semwebtech.org/mondial/10/organizations/Interpol/> , <http://www.semwebtech.org/mondial/10/organizations/UPU/> , <http://www.semwebtech.org/mondial/10/organizations/IOC/> , <http://www.semwebtech.org/mondial/10/organizations/WCO/> , <http://www.semwebtech.org/mondial/10/organizations/IDA/> , <http://www.semwebtech.org/mondial/10/organizations/C/> ;
-            <http://www.semwebtech.org/mondial/10/meta#wasDependentOf>
-                    <http://www.semwebtech.org/mondial/10/countries/GB/> .
-}
-
-<urn:graph:kws:043:sol1> {
-    <urn:graph:kws:043:sol1>
-            <urn:vocab:kws:score>  "0.77698123"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>   1 .
-    
-    <http://www.semwebtech.org/mondial/10/islands/Mauritius/>
-            a       <http://www.semwebtech.org/mondial/10/meta#Island> .
-}
-
-<urn:graph:kws:pairs> {
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol11>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol6>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol11>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol15>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/IND/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol9>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/IND/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol15>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/IND/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol15>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol13>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/IND/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol13>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/IND/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol8>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol7>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/IND/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol14>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol11>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/IND/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol12>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/IND/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol10>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol12>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol5>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/IND/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol15>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/IND/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol14>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/IND/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol13>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol15>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/islands/Mauritius/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol15>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol14>
-    ] .
-    
-    [ a                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
-              <http://www.semwebtech.org/mondial/10/countries/IND/> ;
-      <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
-              <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> ;
-      <urn:vocab:kws:solution>  <urn:graph:kws:043:sol12>
-    ] .
-}
-
-<urn:graph:kws:043:sol7> {
-    <urn:graph:kws:043:sol7>
-            <urn:vocab:kws:score>  "0.9750706"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>   2 .
-}
-
-<urn:graph:kws:043:sol6> {
-    <http://www.semwebtech.org/mondial/10/countries/MS/>
-            <http://www.semwebtech.org/mondial/10/meta#capital>
-                    <http://www.semwebtech.org/mondial/10/countries/MS/cities/Port+Louis/> ;
-            <http://www.semwebtech.org/mondial/10/meta#hasCity>
-                    <http://www.semwebtech.org/mondial/10/countries/MS/cities/Port+Louis/> .
-    
-    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/MS/> .
-    
-    <urn:graph:kws:043:sol6>
-            <urn:vocab:kws:score>  "0.8198706"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>   2 .
-    
-    <http://www.semwebtech.org/mondial/10/islands/Mauritius/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/MS/> ;
-            <http://www.semwebtech.org/mondial/10/meta#locatedInWater>
-                    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/> .
-    
-    <http://www.semwebtech.org/mondial/10/countries/MS/cities/Port+Louis/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedOnIsland>
-                    <http://www.semwebtech.org/mondial/10/islands/Mauritius/> .
-}
-
-<urn:graph:kws:043:sol9> {
-    <urn:graph:kws:043:sol9>
-            <urn:vocab:kws:answers>  <urn:graph:kws:043:035> , <urn:graph:kws:043:018> , <urn:graph:kws:043:001> , <urn:graph:kws:043:032> , <urn:graph:kws:043:015> , <urn:graph:kws:043:010> , <urn:graph:kws:043:025> , <urn:graph:kws:043:027> , <urn:graph:kws:043:008> , <urn:graph:kws:043:003> , <urn:graph:kws:043:031> , <urn:graph:kws:043:022> , <urn:graph:kws:043:024> , <urn:graph:kws:043:012> , <urn:graph:kws:043:026> , <urn:graph:kws:043:007> , <urn:graph:kws:043:002> , <urn:graph:kws:043:021> , <urn:graph:kws:043:004> , <urn:graph:kws:043:014> , <urn:graph:kws:043:028> , <urn:graph:kws:043:011> , <urn:graph:kws:043:033> , <urn:graph:kws:043:006> , <urn:graph:kws:043:020> , <urn:graph:kws:043:023> , <urn:graph:kws:043:009> ;
-            <urn:vocab:kws:score>    "1.1543628"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>     2 .
-    
-    <http://www.semwebtech.org/mondial/10/countries/IND/>
-            <http://www.semwebtech.org/mondial/10/meta#isMember>
-                    <http://www.semwebtech.org/mondial/10/organizations/ICJ/> , <http://www.semwebtech.org/mondial/10/organizations/IMO/> , <http://www.semwebtech.org/mondial/10/organizations/IPU/> , <http://www.semwebtech.org/mondial/10/organizations/IFC/> , <http://www.semwebtech.org/mondial/10/organizations/WMO/> , <http://www.semwebtech.org/mondial/10/organizations/FAO/> , <http://www.semwebtech.org/mondial/10/organizations/IHO/> , <http://www.semwebtech.org/mondial/10/organizations/UN/> , <http://www.semwebtech.org/mondial/10/organizations/UNESCO/> , <http://www.semwebtech.org/mondial/10/organizations/WFTU/> , <http://www.semwebtech.org/mondial/10/organizations/WTO/> , <http://www.semwebtech.org/mondial/10/organizations/NAM/> , <http://www.semwebtech.org/mondial/10/organizations/UNIDO/> , <http://www.semwebtech.org/mondial/10/organizations/MIGA/> , <http://www.semwebtech.org/mondial/10/organizations/UNWTO/> , <http://www.semwebtech.org/mondial/10/organizations/ITU/> , <http://www.semwebtech.org/mondial/10/organizations/IBRD/> , <http://www.semwebtech.org/mondial/10/organizations/AfDB/> , <http://www.semwebtech.org/mondial/10/organizations/IOM/> , <http://www.semwebtech.org/mondial/10/organizations/ITUC/> , <http://www.semwebtech.org/mondial/10/organizations/IMSO/> , <http://www.semwebtech.org/mondial/10/organizations/UNCTAD/> , <http://www.semwebtech.org/mondial/10/organizations/CD/> , <http://www.semwebtech.org/mondial/10/organizations/ILO/> , <http://www.semwebtech.org/mondial/10/organizations/ICAO/> , <http://www.semwebtech.org/mondial/10/organizations/IMF/> , <http://www.semwebtech.org/mondial/10/organizations/SAARC/> , <http://www.semwebtech.org/mondial/10/organizations/PCA/> , <http://www.semwebtech.org/mondial/10/organizations/OPCW/> , <http://www.semwebtech.org/mondial/10/organizations/IFRCS/> , <http://www.semwebtech.org/mondial/10/organizations/IFAD/> , <http://www.semwebtech.org/mondial/10/organizations/WHO/> , <http://www.semwebtech.org/mondial/10/organizations/IAEA/> , <http://www.semwebtech.org/mondial/10/organizations/ICC/> , <http://www.semwebtech.org/mondial/10/organizations/G-77/> , <http://www.semwebtech.org/mondial/10/organizations/ITSO/> , <http://www.semwebtech.org/mondial/10/organizations/WIPO/> , <http://www.semwebtech.org/mondial/10/organizations/Interpol/> , <http://www.semwebtech.org/mondial/10/organizations/UPU/> , <http://www.semwebtech.org/mondial/10/organizations/IOC/> , <http://www.semwebtech.org/mondial/10/organizations/WCO/> , <http://www.semwebtech.org/mondial/10/organizations/IDA/> , <http://www.semwebtech.org/mondial/10/organizations/C/> ;
-            <http://www.semwebtech.org/mondial/10/meta#wasDependentOf>
-                    <http://www.semwebtech.org/mondial/10/countries/GB/> .
-    
-    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/IND/> , <http://www.semwebtech.org/mondial/10/countries/MS/> .
-    
-    <http://www.semwebtech.org/mondial/10/countries/MS/>
-            <http://www.semwebtech.org/mondial/10/meta#isMember>
-                    <http://www.semwebtech.org/mondial/10/organizations/ICAO/> , <http://www.semwebtech.org/mondial/10/organizations/UNCTAD/> , <http://www.semwebtech.org/mondial/10/organizations/IFRCS/> , <http://www.semwebtech.org/mondial/10/organizations/IMSO/> , <http://www.semwebtech.org/mondial/10/organizations/Interpol/> , <http://www.semwebtech.org/mondial/10/organizations/IHO/> , <http://www.semwebtech.org/mondial/10/organizations/IOM/> , <http://www.semwebtech.org/mondial/10/organizations/IAEA/> , <http://www.semwebtech.org/mondial/10/organizations/WCO/> , <http://www.semwebtech.org/mondial/10/organizations/ICJ/> , <http://www.semwebtech.org/mondial/10/organizations/IMF/> , <http://www.semwebtech.org/mondial/10/organizations/WIPO/> , <http://www.semwebtech.org/mondial/10/organizations/IOC/> , <http://www.semwebtech.org/mondial/10/organizations/NAM/> , <http://www.semwebtech.org/mondial/10/organizations/IBRD/> , <http://www.semwebtech.org/mondial/10/organizations/MIGA/> , <http://www.semwebtech.org/mondial/10/organizations/G-77/> , <http://www.semwebtech.org/mondial/10/organizations/ITSO/> , <http://www.semwebtech.org/mondial/10/organizations/PCA/> , <http://www.semwebtech.org/mondial/10/organizations/WMO/> , <http://www.semwebtech.org/mondial/10/organizations/UNESCO/> , <http://www.semwebtech.org/mondial/10/organizations/AfDB/> , <http://www.semwebtech.org/mondial/10/organizations/ITU/> , <http://www.semwebtech.org/mondial/10/organizations/IFC/> , <http://www.semwebtech.org/mondial/10/organizations/FAO/> , <http://www.semwebtech.org/mondial/10/organizations/IPU/> , <http://www.semwebtech.org/mondial/10/organizations/ILO/> , <http://www.semwebtech.org/mondial/10/organizations/WFTU/> , <http://www.semwebtech.org/mondial/10/organizations/WHO/> , <http://www.semwebtech.org/mondial/10/organizations/CD/> , <http://www.semwebtech.org/mondial/10/organizations/UNIDO/> , <http://www.semwebtech.org/mondial/10/organizations/C/> , <http://www.semwebtech.org/mondial/10/organizations/UPU/> , <http://www.semwebtech.org/mondial/10/organizations/OPCW/> , <http://www.semwebtech.org/mondial/10/organizations/IMO/> , <http://www.semwebtech.org/mondial/10/organizations/IFAD/> , <http://www.semwebtech.org/mondial/10/organizations/UNWTO/> , <http://www.semwebtech.org/mondial/10/organizations/SAARC/> , <http://www.semwebtech.org/mondial/10/organizations/ITUC/> , <http://www.semwebtech.org/mondial/10/organizations/UN/> , <http://www.semwebtech.org/mondial/10/organizations/ICC/> , <http://www.semwebtech.org/mondial/10/organizations/WTO/> , <http://www.semwebtech.org/mondial/10/organizations/IDA/> ;
-            <http://www.semwebtech.org/mondial/10/meta#wasDependentOf>
-                    <http://www.semwebtech.org/mondial/10/countries/GB/> .
-}
-
-<urn:graph:kws:043:sol8> {
-    <urn:graph:kws:043:sol8>
-            <urn:vocab:kws:score>  "1.154309"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>   2 .
-    
-    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/IND/> .
-    
-    <http://www.semwebtech.org/mondial/10/islands/Mauritius/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedInWater>
-                    <http://www.semwebtech.org/mondial/10/seas/Indian+Ocean/> .
+                    <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> , <http://www.semwebtech.org/mondial/10/countries/WAN/> , <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> , <http://www.semwebtech.org/mondial/10/rivers/Niger/> ;
+            <urn:vocab:kws:comment>      "Niger " ;
+            <urn:vocab:kws:initialSize>  2 ;
+            <urn:vocab:kws:score>        "0.30241758"^^<http://www.w3.org/2001/XMLSchema#float> ;
+            <urn:vocab:kws:size>         4 .
 }
