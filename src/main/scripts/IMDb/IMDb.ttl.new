@@ -16,13 +16,12 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
 #text:TextIndexSolr    rdfs:subClassOf   text:TextIndex .
 
 
-:entMap
-  a text:EntityMap ;
-  text:entityField      "uri" ;
-  text:uidField         "uid" ;
-  text:langField        "lang" ;
-  text:graphField       "graph" ;
-  text:defaultField     "kwsComment" ;
+:entMap a text:EntityMap ;
+  text:entityField "uri" ;
+  text:uidField "uid" ;
+  text:langField "lang" ;
+  text:graphField "graph" ;
+  text:defaultField "kwsComment" ;
   text:map ([ text:field "kwsComment" ; text:predicate kws:comment ]
 
         # [ text:field "label" ; text:predicate rdfs:label ]
@@ -60,13 +59,11 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
         # [ text:field "field27" ; text:predicate vocab:seasonNumber ]
         ) .
 
-:tdb_dataset_readwrite
-  a              tdb2:DatasetTDB2 ;
+:tdb_dataset_readwrite a tdb2:DatasetTDB2 ;
   tdb2:location  "/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/databases/IMDb";
   .
 
-:indexLucene
-  a               text:TextIndexLucene ;
+:indexLucene a text:TextIndexLucene ;
   text:directory "/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/lucene/IMDb" ;
   text:analyzer [a text:StandardAnalyzer];
   #text:analyzer [a text:SimpleAnalyzer];
@@ -75,20 +72,19 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
   text:entityMap :entMap ;
   .
 
-:text_dataset
-  a		          text:TextDataset ;
-  text:dataset  :tdb_dataset_readwrite ;
-  text:index		:indexLucene ;
+:text_dataset a text:TextDataset ;
+  text:dataset :tdb_dataset_readwrite ;
+  text:index :indexLucene ;
   .
 
 
-:service_tdb_all  a                      fuseki:Service ;
-        rdfs:label                       "TDB2 IMDb" ;
-        fuseki:dataset                   :text_dataset ;
-        fuseki:name                       "IMDb" ;
-        fuseki:serviceQuery               "query" , "sparql" ;
-        fuseki:serviceReadGraphStore      "get" ;
+:service_tdb_all a fuseki:Service ;
+        rdfs:label "TDB2 IMDb" ;
+        fuseki:dataset :text_dataset ;
+        fuseki:name "IMDb" ;
+        fuseki:serviceQuery "query" , "sparql" ;
+        fuseki:serviceReadGraphStore "get" ;
         fuseki:serviceReadWriteGraphStore "data" ;
-        fuseki:serviceUpdate              "update" ;
-        fuseki:serviceUpload              "upload";
+        fuseki:serviceUpdate "update" ;
+        fuseki:serviceUpload "upload";
         .
