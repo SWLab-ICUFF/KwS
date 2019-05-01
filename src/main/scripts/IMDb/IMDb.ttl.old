@@ -18,4 +18,4 @@
 
 :tdb_dataset_readwrite
         a              tdb2:DatasetTDB2 ;
-        tdb2:location  "/Volumes/Time\ Machine\ Backups/Users/lapaesleme/local/jena/apache-jena-fuseki-3.10.0/run/databases/IMDb" .
+        tdb2:location  "/Volumes/Data/Users/lapaesleme/local/jena/apache-jena-fuseki-3.10.0/run/databases/IMDb" .

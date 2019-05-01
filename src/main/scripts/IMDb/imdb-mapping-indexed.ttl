@@ -7,7 +7,8 @@
 @prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
 @prefix d2r: <http://sites.wiwiss.fu-berlin.de/suhl/bizer/d2r-server/config.rdf#> .
 @prefix jdbc: <http://d2rq.org/terms/jdbc/> .
-@prefix kws: <http://localhost:8080/kws/vocab/> .
+@prefix kws:    <urn:vocab:kws:>
+@prefix kwsg:   <urn:graph:kws:>
 
 <> a d2r:Server;
 	d2r:limitPerPropertyBridge "100";

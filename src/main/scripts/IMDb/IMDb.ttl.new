@@ -5,9 +5,10 @@
 @prefix tdb2:  <http://jena.apache.org/2016/tdb#> .
 @prefix ja:    <http://jena.hpl.hp.com/2005/11/Assembler#> .
 @prefix fuseki: <http://jena.apache.org/fuseki#> .
-@prefix text:		<http://jena.apache.org/text#> .
+@prefix text:   <http://jena.apache.org/text#> .
 @prefix vocab: <http://localhost:8080/resource/vocab/> .
-@prefix kws: <http://localhost:8080/vocab/kws#> .
+@prefix kws:    <urn:vocab:kws:>
+@prefix kwsg:   <urn:graph:kws:>
 
 []                    ja:loadClass      "org.apache.jena.query.text.TextQuery" .
 text:TextDataset      rdfs:subClassOf   ja:RDFDataset .
@@ -22,42 +23,42 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
   text:langField        "lang" ;
   text:graphField       "graph" ;
   text:defaultField     "kwsComment" ;
-  text:map (
-            [ text:field "label" ; text:predicate rdfs:label ]
-            [ text:field "comment" ; text:predicate rdfs:comment ]
-            [ text:field "kwsComment" ; text:predicate kws:comment ]
-            [ text:field "field4" ; text:predicate vocab:profession ]
-            [ text:field "field10" ; text:predicate vocab:originalTitle ]
-            [ text:field "field11" ; text:predicate vocab:primaryTitle ]
-            [ text:field "field12" ; text:predicate vocab:titleType ]
-            [ text:field "field15" ; text:predicate vocab:genre ]
-            [ text:field "field17" ; text:predicate vocab:characters ]
-            [ text:field "field18" ; text:predicate vocab:job ]
-            [ text:field "field22" ; text:predicate vocab:primaryName ]
-            [ text:field "field24" ; text:predicate vocab:primaryProfession ]
-            [ text:field "field28" ; text:predicate vocab:region ]
-            [ text:field "field29" ; text:predicate vocab:types ]
-            [ text:field "field30" ; text:predicate vocab:language ]
-            [ text:field "field31" ; text:predicate vocab:attributes ]
+  text:map ([ text:field "kwsComment" ; text:predicate kws:comment ]
 
-         # [ text:field "field1" ; text:predicate vocab:title ]
-         # [ text:field "field2" ; text:predicate vocab:name ]
-         # [ text:field "field3" ; text:predicate vocab:ordering ]
-         # [ text:field "field6" ; text:predicate vocab:principal ]
-         # [ text:field "field7" ; text:predicate vocab:crew ]
-         # [ text:field "field8" ; text:predicate vocab:akas ]
-         # [ text:field "field9" ; text:predicate vocab:startYear ]
-         # [ text:field "field13" ; text:predicate vocab:numVotes ]
-         # [ text:field "field14" ; text:predicate vocab:averageRating ]
-         # [ text:field "field16" ; text:predicate vocab:runtimeMinutes ]
-         # [ text:field "field19" ; text:predicate vocab:endYear ]
-         # [ text:field "field120" ; text:predicate vocab:knownForTitle ]
-         # [ text:field "field21" ; text:predicate vocab:birthYear ]
-         # [ text:field "field23" ; text:predicate vocab:deathYear ]
-         # [ text:field "field25" ; text:predicate vocab:parentTitle ]
-         # [ text:field "field26" ; text:predicate vocab:episodeNumber ]
-         # [ text:field "field27" ; text:predicate vocab:seasonNumber ]
-         ) .
+        # [ text:field "label" ; text:predicate rdfs:label ]
+        # [ text:field "comment" ; text:predicate rdfs:comment ]
+        # [ text:field "field4" ; text:predicate vocab:profession ]
+        # [ text:field "field10" ; text:predicate vocab:originalTitle ]
+        # [ text:field "field11" ; text:predicate vocab:primaryTitle ]
+        # [ text:field "field12" ; text:predicate vocab:titleType ]
+        # [ text:field "field15" ; text:predicate vocab:genre ]
+        # [ text:field "field17" ; text:predicate vocab:characters ]
+        # [ text:field "field18" ; text:predicate vocab:job ]
+        # [ text:field "field22" ; text:predicate vocab:primaryName ]
+        # [ text:field "field24" ; text:predicate vocab:primaryProfession ]
+        # [ text:field "field28" ; text:predicate vocab:region ]
+        # [ text:field "field29" ; text:predicate vocab:types ]
+        # [ text:field "field30" ; text:predicate vocab:language ]
+        # [ text:field "field31" ; text:predicate vocab:attributes ]
+
+        # [ text:field "field1" ; text:predicate vocab:title ]
+        # [ text:field "field2" ; text:predicate vocab:name ]
+        # [ text:field "field3" ; text:predicate vocab:ordering ]
+        # [ text:field "field6" ; text:predicate vocab:principal ]
+        # [ text:field "field7" ; text:predicate vocab:crew ]
+        # [ text:field "field8" ; text:predicate vocab:akas ]
+        # [ text:field "field9" ; text:predicate vocab:startYear ]
+        # [ text:field "field13" ; text:predicate vocab:numVotes ]
+        # [ text:field "field14" ; text:predicate vocab:averageRating ]
+        # [ text:field "field16" ; text:predicate vocab:runtimeMinutes ]
+        # [ text:field "field19" ; text:predicate vocab:endYear ]
+        # [ text:field "field120" ; text:predicate vocab:knownForTitle ]
+        # [ text:field "field21" ; text:predicate vocab:birthYear ]
+        # [ text:field "field23" ; text:predicate vocab:deathYear ]
+        # [ text:field "field25" ; text:predicate vocab:parentTitle ]
+        # [ text:field "field26" ; text:predicate vocab:episodeNumber ]
+        # [ text:field "field27" ; text:predicate vocab:seasonNumber ]
+        ) .
 
 :tdb_dataset_readwrite
   a              tdb2:DatasetTDB2 ;
