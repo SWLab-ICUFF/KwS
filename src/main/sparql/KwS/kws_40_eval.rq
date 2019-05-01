@@ -36,5 +36,10 @@ where {
     }
     group by ?g1 ?g2
     having (?reference = ?found)
-}
+};
+
+insert {graph ?sol {?sol kws:score ?score; kws:size ?size.}}
+where {
+    graph kwsg:groups {?sol a rdf:Bag; kws:score ?score; kws:size ?size.}
+};
 

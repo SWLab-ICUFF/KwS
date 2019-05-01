@@ -6,7 +6,7 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
 prefix text: <http://jena.apache.org/text#>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX fn: <java:uff.ic.swlab.jena.sparql.>
+PREFIX fn: <java:uff.ic.swlab.jena.sparql.function.>
 
 select ?sol (?_score as ?score) (?_size as ?size) (?_recall/?reference as ?recall)
 {
