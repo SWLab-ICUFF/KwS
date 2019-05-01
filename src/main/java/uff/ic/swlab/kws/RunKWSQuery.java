@@ -24,28 +24,31 @@ public class RunKWSQuery {
         String queryString = "";
 
         Calendar t1 = Calendar.getInstance();
+
         if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/kws_search_1.rq");
+            queryString = readQuery("./src/main/sparql/KwS/kws_10_search.rq");
             queryString = queryString.format(queryString, kwsString);
             fuseki.execUpdate(queryString, "Work.temp");
         }
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/kws_search_2.rq");
+            queryString = readQuery("./src/main/sparql/KwS/kws_20_search.rq");
             queryString = queryString.format(queryString, kwsString);
             fuseki.execUpdate(queryString, "Work.temp");
         }
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/kws_rank.rq");
+            queryString = readQuery("./src/main/sparql/KwS/kws_30_rank.rq");
             queryString = queryString.format(queryString, kwsString, benchmark);
             fuseki.execUpdate(queryString, "Work.temp");
         }
+
         Calendar t2 = Calendar.getInstance();
-        System.out.println(String.format("Elapsed time: %1$d seconds", Duration.between(t1.toInstant(), t2.toInstant()).toSeconds()));
+        System.out.println("");
+        System.out.println(String.format("Elapsed time: %1$f seconds", Duration.between(t1.toInstant(), t2.toInstant()).toMillis() / 1000.0));
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/kws_eval.rq");
+            queryString = readQuery("./src/main/sparql/KwS/kws_40_eval.rq");
             queryString = queryString.format(queryString, benchmark);
             fuseki.execUpdate(queryString, "Work.temp");
         }
@@ -59,7 +62,7 @@ public class RunKWSQuery {
             model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
             model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
             model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
-            writeModel(model, "./src/main/resources/dat/seeds.ttl");
+            writeModel(model, "./src/main/resources/dat/Work.temp/seeds.ttl");
         }
 
         {
@@ -71,7 +74,7 @@ public class RunKWSQuery {
             model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
             model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
             model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
-            writeModel(model, "./src/main/resources/dat/temp.ttl");
+            writeModel(model, "./src/main/resources/dat/Work.temp/temp.ttl");
         }
 
         {
@@ -83,7 +86,7 @@ public class RunKWSQuery {
             model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
             model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
             model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
-            writeModel(model, "./src/main/resources/dat/temp2.ttl");
+            writeModel(model, "./src/main/resources/dat/Work.temp/temp2.ttl");
         }
 
         {
@@ -95,7 +98,7 @@ public class RunKWSQuery {
             model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
             model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
             model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
-            writeModel(model, "./src/main/resources/dat/temp3.ttl");
+            writeModel(model, "./src/main/resources/dat/Work.temp/temp3.ttl");
         }
 
         {
@@ -107,7 +110,7 @@ public class RunKWSQuery {
             model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
             model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
             model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
-            writeModel(model, "./src/main/resources/dat/temp4.ttl");
+            writeModel(model, "./src/main/resources/dat/Work.temp/temp4.ttl");
         }
 
         {
@@ -119,7 +122,7 @@ public class RunKWSQuery {
 //            model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
 //            model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
 //            model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
-            writeDataset(dataset, "./src/main/resources/dat/solutions.trig");
+            writeDataset(dataset, "./src/main/resources/dat/Work.temp/dump.trig");
         }
     }
 
