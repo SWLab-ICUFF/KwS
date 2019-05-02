@@ -26,6 +26,8 @@ public class BuildBenchmark {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
 
+        new FusekiServer("localhost", 3030).execUpdate(readQuery("./src/main/sparql/KwS/v2/kws_00_prepare.rq"), "KwS.stats");
+
         try (InputStream in = new FileInputStream(new File("./src/main/resources/benchmarks/CIKM2019/Mondial/queries_.txt"));
                 Scanner sc = new Scanner(in)) {
 
@@ -53,7 +55,6 @@ public class BuildBenchmark {
         if (true) {
             queryString = readQuery("./src/main/sparql/KwS/v2/kws_00_prepare.rq");
             fuseki.execUpdate(queryString, "KwS.temp");
-            fuseki.execUpdate(queryString, "KwS.stats");
         }
 
         Calendar t1 = Calendar.getInstance();
@@ -77,7 +78,7 @@ public class BuildBenchmark {
 
         if (true) {
             queryString = readQuery("./src/main/sparql/KwS/v2/kws_45_stats.rq");
-            queryString = queryString.format(queryString, benchmark + "case", keywordQuery, seconds);
+            queryString = queryString.format(queryString, benchmark + "query", keywordQuery, seconds);
             fuseki.execUpdate(queryString, "KwS.stats");
         }
 
