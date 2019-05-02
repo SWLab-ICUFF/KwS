@@ -1,307 +1,90 @@
-<urn:graph:kws:001:sol6> {
-    <http://www.semwebtech.org/mondial/10/countries/WAN/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3405 ;
-            <http://www.semwebtech.org/mondial/10/meta#hasProvince>
-                    <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> ;
-            <urn:vocab:kws:comment>  "Nigeria the Federal Republic of Nigeria federal republic WAN" .
-    
-    <urn:graph:kws:001:sol6>
-            <urn:vocab:kws:score>  "0.30241758"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>   4 .
-    
-    <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    14067 ;
-            <http://www.semwebtech.org/mondial/10/meta#flowsInto>
-                    <http://www.semwebtech.org/mondial/10/rivers/Niger/> ;
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> ;
-            <urn:vocab:kws:comment>  "Lake Kainji dam" .
-    
-    <http://www.semwebtech.org/mondial/10/rivers/Niger/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    16957 ;
-            <http://www.semwebtech.org/mondial/10/meta#flowsThrough>
-                    <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> ;
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/WAN/> , <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> ;
-            <urn:vocab:kws:comment>  "Niger" .
-}
-
-<urn:graph:kws:001:sol7> {
-    <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    14067 ;
-            <http://www.semwebtech.org/mondial/10/meta#flowsInto>
-                    <http://www.semwebtech.org/mondial/10/rivers/Niger/> ;
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> ;
-            <urn:vocab:kws:comment>  "Lake Kainji dam" .
-    
-    <http://www.semwebtech.org/mondial/10/countries/RN/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3395 ;
-            <http://www.semwebtech.org/mondial/10/meta#capital>
-                    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> ;
-            <http://www.semwebtech.org/mondial/10/meta#hasCity>
-                    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> ;
-            <http://www.semwebtech.org/mondial/10/meta#hasProvince>
-                    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> ;
-            <http://www.semwebtech.org/mondial/10/meta#neighbor>
-                    <http://www.semwebtech.org/mondial/10/countries/RMM/> , <http://www.semwebtech.org/mondial/10/countries/WAN/> ;
-            <urn:vocab:kws:comment>  "Niger la République du Niger republic RN" .
-    
-    <urn:graph:kws:001:sol7>
-            <urn:vocab:kws:score>  "0.29757988"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>   11 .
-    
-    <http://www.semwebtech.org/mondial/10/countries/RMM/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3392 ;
-            <http://www.semwebtech.org/mondial/10/meta#neighbor>
-                    <http://www.semwebtech.org/mondial/10/countries/RN/> ;
-            <urn:vocab:kws:comment>  "Mali la République du Mali  republic RMM" .
-    
-    <http://www.semwebtech.org/mondial/10/rivers/Niger/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    16957 ;
-            <http://www.semwebtech.org/mondial/10/meta#flowsThrough>
-                    <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> ;
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> , <http://www.semwebtech.org/mondial/10/countries/WAN/> , <http://www.semwebtech.org/mondial/10/countries/RN/> , <http://www.semwebtech.org/mondial/10/countries/RMM/> , <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> ;
-            <urn:vocab:kws:comment>  "Niger" .
-    
-    <http://www.semwebtech.org/mondial/10/countries/WAN/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3405 ;
-            <http://www.semwebtech.org/mondial/10/meta#hasProvince>
-                    <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> ;
-            <http://www.semwebtech.org/mondial/10/meta#neighbor>
-                    <http://www.semwebtech.org/mondial/10/countries/RN/> ;
-            <urn:vocab:kws:comment>  "Nigeria the Federal Republic of Nigeria federal republic WAN" .
-    
-    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedAt>
-                    <http://www.semwebtech.org/mondial/10/rivers/Niger/> .
-    
-    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedAt>
-                    <http://www.semwebtech.org/mondial/10/rivers/Niger/> .
-}
-
-<urn:graph:kws:001:sol4> {
-    <urn:graph:kws:001:sol4>
-            <urn:vocab:kws:score>  "0.29757988"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>   9 .
-    
-    <http://www.semwebtech.org/mondial/10/countries/RN/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3395 ;
-            <http://www.semwebtech.org/mondial/10/meta#capital>
-                    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> ;
-            <http://www.semwebtech.org/mondial/10/meta#hasCity>
-                    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> ;
-            <http://www.semwebtech.org/mondial/10/meta#hasProvince>
-                    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> ;
-            <http://www.semwebtech.org/mondial/10/meta#neighbor>
-                    <http://www.semwebtech.org/mondial/10/countries/RMM/> , <http://www.semwebtech.org/mondial/10/countries/WAN/> ;
-            <urn:vocab:kws:comment>  "Niger la République du Niger republic RN" .
-    
-    <http://www.semwebtech.org/mondial/10/countries/RMM/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3392 ;
-            <http://www.semwebtech.org/mondial/10/meta#neighbor>
-                    <http://www.semwebtech.org/mondial/10/countries/RN/> ;
-            <urn:vocab:kws:comment>  "Mali la République du Mali  republic RMM" .
-    
-    <http://www.semwebtech.org/mondial/10/rivers/Niger/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    16957 ;
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> , <http://www.semwebtech.org/mondial/10/countries/RMM/> , <http://www.semwebtech.org/mondial/10/countries/WAN/> , <http://www.semwebtech.org/mondial/10/countries/RN/> ;
-            <urn:vocab:kws:comment>  "Niger" .
-    
-    <http://www.semwebtech.org/mondial/10/countries/WAN/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3405 ;
-            <http://www.semwebtech.org/mondial/10/meta#neighbor>
-                    <http://www.semwebtech.org/mondial/10/countries/RN/> ;
-            <urn:vocab:kws:comment>  "Nigeria the Federal Republic of Nigeria federal republic WAN" .
-    
-    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedAt>
-                    <http://www.semwebtech.org/mondial/10/rivers/Niger/> .
-    
-    <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/>
-            <http://www.semwebtech.org/mondial/10/meta#locatedAt>
-                    <http://www.semwebtech.org/mondial/10/rivers/Niger/> .
-}
-
-<urn:graph:kws:001:sol5> {
-    <http://www.semwebtech.org/mondial/10/countries/WAN/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3405 ;
-            <http://www.semwebtech.org/mondial/10/meta#hasProvince>
-                    <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> ;
-            <http://www.semwebtech.org/mondial/10/meta#neighbor>
-                    <http://www.semwebtech.org/mondial/10/countries/RN/> ;
-            <urn:vocab:kws:comment>  "Nigeria the Federal Republic of Nigeria federal republic WAN" .
-    
-    <urn:graph:kws:001:sol5>
-            <urn:vocab:kws:score>  "0.2902759"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>   4 .
-    
-    <http://www.semwebtech.org/mondial/10/rivers/Niger/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    16957 ;
-            <http://www.semwebtech.org/mondial/10/meta#locatedIn>
-                    <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> , <http://www.semwebtech.org/mondial/10/countries/RN/> ;
-            <urn:vocab:kws:comment>  "Niger" .
-    
-    <http://www.semwebtech.org/mondial/10/countries/RN/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3395 ;
-            <http://www.semwebtech.org/mondial/10/meta#neighbor>
-                    <http://www.semwebtech.org/mondial/10/countries/WAN/> ;
-            <urn:vocab:kws:comment>  "Niger la République du Niger republic RN" .
-}
-
-<urn:graph:kws:001:sol2> {
-    <urn:graph:kws:001:sol2>
-            <urn:vocab:kws:score>  "0.30241758"^^<http://www.w3.org/2001/XMLSchema#float> ;
+<urn:graph:kws:003:sol1> {
+    <urn:graph:kws:003:sol1>
+            <urn:vocab:kws:score>  "0.4626097"^^<http://www.w3.org/2001/XMLSchema#float> ;
             <urn:vocab:kws:size>   1 .
     
-    <http://www.semwebtech.org/mondial/10/rivers/Niger/>
-            a                        <http://www.semwebtech.org/mondial/10/meta#River> ;
+    <http://www.semwebtech.org/mondial/10/countries/USA/provinces/Georgia/>
+            a                        <http://www.semwebtech.org/mondial/10/meta#Province> ;
             <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    16957 ;
-            <urn:vocab:kws:comment>  "Niger" .
+                    16515 ;
+            <urn:vocab:kws:comment>  "Georgia" .
 }
 
-<urn:graph:kws:001:sol3> {
-    <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/>
-            a       <http://www.semwebtech.org/mondial/10/meta#Province> .
-}
-
-<urn:graph:kws:001:sol1> {
-    <urn:graph:kws:001:sol1>
-            <urn:vocab:kws:score>  "0.2902759"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>   1 .
+<urn:graph:kws:003:sol2> {
+    <urn:graph:kws:003:sol2>
+            <urn:vocab:kws:answers>  <urn:graph:kws:003:001> ;
+            <urn:vocab:kws:score>    "0.43015626"^^<http://www.w3.org/2001/XMLSchema#float> ;
+            <urn:vocab:kws:size>     1 .
     
-    <http://www.semwebtech.org/mondial/10/countries/RN/>
+    <http://www.semwebtech.org/mondial/10/countries/GE/>
             a                        <http://www.semwebtech.org/mondial/10/meta#Country> ;
             <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3395 ;
-            <urn:vocab:kws:comment>  "Niger la République du Niger republic RN" .
+                    3484 ;
+            <urn:vocab:kws:comment>  "Georgia საქართველო  republic GE" .
 }
 
 <urn:graph:kws:seeds> {
     [ a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
       <http://www.w3.org/2000/01/rdf-schema#member>
-              <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> , <http://www.semwebtech.org/mondial/10/rivers/Niger/> , <http://www.semwebtech.org/mondial/10/countries/RN/>
+              <http://www.semwebtech.org/mondial/10/countries/GE/> , <http://www.semwebtech.org/mondial/10/countries/USA/provinces/Georgia/>
     ] .
     
-    <http://www.semwebtech.org/mondial/10/rivers/Niger/>
+    <http://www.semwebtech.org/mondial/10/countries/USA/provinces/Georgia/>
             <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    16957 ;
-            <urn:vocab:kws:comment>  "Niger" ;
-            <urn:vocab:kws:score>    "1.6374186"^^<http://www.w3.org/2001/XMLSchema#float> .
+                    16515 ;
+            <urn:vocab:kws:comment>  "Georgia" ;
+            <urn:vocab:kws:score>    "1.251067"^^<http://www.w3.org/2001/XMLSchema#float> .
     
-    <http://www.semwebtech.org/mondial/10/countries/RN/>
+    <http://www.semwebtech.org/mondial/10/countries/GE/>
             <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3395 ;
-            <urn:vocab:kws:comment>  "Niger la République du Niger republic RN" ;
-            <urn:vocab:kws:score>    "1.6252769"^^<http://www.w3.org/2001/XMLSchema#float> .
+                    3484 ;
+            <urn:vocab:kws:comment>  "Georgia საქართველო  republic GE" ;
+            <urn:vocab:kws:score>    "1.2186136"^^<http://www.w3.org/2001/XMLSchema#float> .
+}
+
+<urn:graph:kws:003:sol3> {
+    <urn:graph:kws:003:sol3>
+            <urn:vocab:kws:score>  "0.4479759"^^<http://www.w3.org/2001/XMLSchema#float> ;
+            <urn:vocab:kws:size>   2 .
 }
 
 <urn:graph:kws:groups> {
-    <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    14067 ;
-            <urn:vocab:kws:comment>  "Lake Kainji dam" .
-    
-    <urn:graph:kws:001:sol4>
+    <urn:graph:kws:003:sol3>
             a                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
             <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/countries/WAN/> , <http://www.semwebtech.org/mondial/10/rivers/Niger/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> , <http://www.semwebtech.org/mondial/10/countries/RMM/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> , <http://www.semwebtech.org/mondial/10/countries/RN/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> ;
-            <urn:vocab:kws:comment>      "Niger la République du Niger republic RN Niger" ;
+                    <http://www.semwebtech.org/mondial/10/countries/GE/> , <http://www.semwebtech.org/mondial/10/countries/USA/provinces/Georgia/> ;
+            <urn:vocab:kws:comment>      "Georgia Georgia საქართველო  republic GE" ;
             <urn:vocab:kws:initialSize>  2 ;
-            <urn:vocab:kws:score>        "0.29757988"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>         9 .
+            <urn:vocab:kws:score>        "0.4479759"^^<http://www.w3.org/2001/XMLSchema#float> ;
+            <urn:vocab:kws:size>         2 .
     
-    <http://www.semwebtech.org/mondial/10/countries/RN/>
+    <http://www.semwebtech.org/mondial/10/countries/GE/>
             <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3395 ;
-            <urn:vocab:kws:comment>  "Niger la République du Niger republic RN" ;
-            <urn:vocab:kws:score>    "0.2902759"^^<http://www.w3.org/2001/XMLSchema#float> .
+                    3484 ;
+            <urn:vocab:kws:comment>  "Georgia საქართველო  republic GE" ;
+            <urn:vocab:kws:score>    "0.43015626"^^<http://www.w3.org/2001/XMLSchema#float> .
     
-    <urn:graph:kws:001:sol7>
+    <urn:graph:kws:003:sol1>
             a                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
             <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/countries/WAN/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> , <http://www.semwebtech.org/mondial/10/rivers/Niger/> , <http://www.semwebtech.org/mondial/10/countries/RN/> , <http://www.semwebtech.org/mondial/10/countries/RMM/> , <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> , <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> , <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> ;
-            <urn:vocab:kws:comment>      "Niger la République du Niger republic RN Niger " ;
-            <urn:vocab:kws:initialSize>  3 ;
-            <urn:vocab:kws:score>        "0.29757988"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>         11 .
-    
-    <urn:graph:kws:001:sol2>
-            a                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-            <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/rivers/Niger/> ;
-            <urn:vocab:kws:comment>      "Niger" ;
+                    <http://www.semwebtech.org/mondial/10/countries/USA/provinces/Georgia/> ;
+            <urn:vocab:kws:comment>      "Georgia" ;
             <urn:vocab:kws:initialSize>  1 ;
-            <urn:vocab:kws:score>        "0.30241758"^^<http://www.w3.org/2001/XMLSchema#float> ;
+            <urn:vocab:kws:score>        "0.4626097"^^<http://www.w3.org/2001/XMLSchema#float> ;
             <urn:vocab:kws:size>         1 .
     
-    <http://www.semwebtech.org/mondial/10/countries/RMM/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3392 ;
-            <urn:vocab:kws:comment>  "Mali la République du Mali  republic RMM" .
-    
-    <http://www.semwebtech.org/mondial/10/rivers/Niger/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    16957 ;
-            <urn:vocab:kws:comment>  "Niger" ;
-            <urn:vocab:kws:score>    "0.30241758"^^<http://www.w3.org/2001/XMLSchema#float> .
-    
-    <http://www.semwebtech.org/mondial/10/countries/WAN/>
-            <http://www.semwebtech.org/mondial/10/meta#__search_id>
-                    3405 ;
-            <urn:vocab:kws:comment>  "Nigeria the Federal Republic of Nigeria federal republic WAN" .
-    
-    <urn:graph:kws:001:sol5>
+    <urn:graph:kws:003:sol2>
             a                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
             <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/countries/WAN/> , <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> , <http://www.semwebtech.org/mondial/10/rivers/Niger/> , <http://www.semwebtech.org/mondial/10/countries/RN/> ;
-            <urn:vocab:kws:comment>      "Niger la République du Niger republic RN " ;
-            <urn:vocab:kws:initialSize>  2 ;
-            <urn:vocab:kws:score>        "0.2902759"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>         4 .
-    
-    <urn:graph:kws:001:sol3>
-            a                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-            <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> ;
-            <urn:vocab:kws:comment>      "" ;
+                    <http://www.semwebtech.org/mondial/10/countries/GE/> ;
+            <urn:vocab:kws:comment>      "Georgia საქართველო  republic GE" ;
             <urn:vocab:kws:initialSize>  1 ;
+            <urn:vocab:kws:score>        "0.43015626"^^<http://www.w3.org/2001/XMLSchema#float> ;
             <urn:vocab:kws:size>         1 .
     
-    <urn:graph:kws:001:sol1>
-            a                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-            <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/countries/RN/> ;
-            <urn:vocab:kws:comment>      "Niger la République du Niger republic RN" ;
-            <urn:vocab:kws:initialSize>  1 ;
-            <urn:vocab:kws:score>        "0.2902759"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>         1 .
-    
-    <urn:graph:kws:001:sol6>
-            a                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-            <http://www.w3.org/2000/01/rdf-schema#member>
-                    <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> , <http://www.semwebtech.org/mondial/10/countries/WAN/> , <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> , <http://www.semwebtech.org/mondial/10/rivers/Niger/> ;
-            <urn:vocab:kws:comment>      "Niger " ;
-            <urn:vocab:kws:initialSize>  2 ;
-            <urn:vocab:kws:score>        "0.30241758"^^<http://www.w3.org/2001/XMLSchema#float> ;
-            <urn:vocab:kws:size>         4 .
+    <http://www.semwebtech.org/mondial/10/countries/USA/provinces/Georgia/>
+            <http://www.semwebtech.org/mondial/10/meta#__search_id>
+                    16515 ;
+            <urn:vocab:kws:comment>  "Georgia" ;
+            <urn:vocab:kws:score>    "0.4626097"^^<http://www.w3.org/2001/XMLSchema#float> .
 }

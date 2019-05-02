@@ -1,6 +1,6 @@
 export JVM_ARGS=${JVM_ARGS:--Xmx14G}
-export JENA_HOME=/Users/lapaesleme/local/etc/jena/apache-jena-3.10.0
+export JENA_HOME=/Users/angelo/local/apache-jena-3.11.0
 export PATH=$PATH:$JENA_HOME/bin
 
-cp /Users/lapaesleme/GitHub/KwS/src/main/scripts/Work.temp/Work.temp.ttl.new /Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/configuration/Work.temp.ttl
-java -cp "/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/fuseki-server.jar" jena.textindexer --desc="/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/configuration/Work.temp.ttl"
+cp /Users/angelo/Repositorios/KwS/src/main/scripts/Work.temp/Work.temp.ttl.new /Users/angelo/local/apache-jena-fuseki-3.11.0/run/configuration/Work.temp.ttl
+java -cp "/Users/angelo/local/apache-jena-fuseki-3.11.0/fuseki-server.jar" jena.textindexer --desc="/Users/angelo/local/apache-jena-fuseki-3.11.0/run/configuration/Work.temp.ttl"
