@@ -5,9 +5,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.time.Duration;
 import java.util.Calendar;
+import java.util.Scanner;
 import java.util.zip.GZIPOutputStream;
 import javax.naming.InvalidNameException;
 import org.apache.jena.query.Dataset;
@@ -17,36 +19,46 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
 import uff.ic.swlab.util.FusekiServer;
 
-public class RunKWSQuery_V2 {
+public class BuildBenchmark {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
-        run(args);
+
+        try (InputStream in = new FileInputStream(new File("./src/main/resources/benchmarks/CIKM2019/Mondial/queries_.txt"));
+                Scanner sc = new Scanner(in)) {
+
+            int i = 0;
+            while (sc.hasNext()) {
+                String keywordQuery = sc.nextLine().trim();
+                String benchmark = String.format("urn:graph:kws:%1$03d:", ++i);
+                String filename = String.format("./src/main/resources/benchmarks/CIKM2019/Mondial/%1$03d.nq.gz", ++i);
+                String service = "http://localhost:3030/Mondial/sparql";
+                String service2 = "http://localhost:3030/Mondial.benchmark/sparql";
+
+                run(service, service2, keywordQuery, benchmark, filename);
+                if (i == 3)
+                    break;
+            }
+
+        } finally {
+        }
     }
 
-    public static void run(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
+    public static void run(String service, String service2, String keywordQuery, String benchmark, String filename) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer("localhost", 3030);
-        String kwsString = "muritius india";
-        String benchmark = "urn:graph:kws:043:";
         String queryString = "";
 
         Calendar t1 = Calendar.getInstance();
 
-        if (false) {
-            queryString = readQuery("./src/main/sparql/KwS/kws_10_search.rq");
-            queryString = queryString.format(queryString, kwsString);
-            fuseki.execUpdate(queryString, "Work.temp");
-        }
-
         if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/kws_20_search_v2.rq");
-            queryString = queryString.format(queryString, kwsString, benchmark);
-            fuseki.execUpdate(queryString, "Work.temp");
+            queryString = readQuery("./src/main/sparql/KwS/kws_10_search_v2.rq");
+            queryString = queryString.format(queryString, service, keywordQuery, benchmark);
+            fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         if (true) {
             queryString = readQuery("./src/main/sparql/KwS/kws_30_rank_v2.rq");
-            queryString = queryString.format(queryString, kwsString, benchmark);
-            fuseki.execUpdate(queryString, "Work.temp");
+            queryString = queryString.format(queryString, keywordQuery);
+            fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         Calendar t2 = Calendar.getInstance();
@@ -55,14 +67,12 @@ public class RunKWSQuery_V2 {
 
         if (true) {
             queryString = readQuery("./src/main/sparql/KwS/kws_40_eval.rq");
-            queryString = queryString.format(queryString, benchmark);
-            fuseki.execUpdate(queryString, "Work.temp");
+            queryString = queryString.format(queryString, service, service2, benchmark);
+            fuseki.execUpdate(queryString, "KwS.temp");
         }
 
-        {
-            Dataset dataset = fuseki.getDataset("Work.temp");
-            writeDataset(dataset, "./src/main/resources/benchmarks/CIKM2019/Mondial/043.nq.gz");
-        }
+        Dataset dataset = fuseki.getDataset("KwS.temp");
+        writeDataset(dataset, filename);
     }
 
     private static String readQuery(String filename) throws FileNotFoundException, IOException {

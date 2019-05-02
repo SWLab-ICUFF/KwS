@@ -17,7 +17,7 @@ with kwsg:seeds
 insert {?bag a rdf:Bag; rdfs:member ?s.}
 where {
     {bind(bnode() as ?bag)}
-    service <http://localhost:3030/Mondial/sparql> {graph kwsg:indexed {?s text:query ('%1$s' 16)}}
+    service <%1$s> {graph kwsg:indexed {?s text:query ('%2$s' 16)}}
 };
 
 
@@ -109,7 +109,7 @@ where {
             }
         }
     }
-    bind(iri(concat("%2$s","sol",str(fn:sequential()))) as ?bag)
+    bind(iri(concat("%3$s","sol",str(fn:sequential()))) as ?bag)
 };
 
 
@@ -122,7 +122,7 @@ insert {graph ?g {?s meta:__search_id ?id; kws:comment ?comment}}
 where {
     graph ?g {
         {{?s ?p []} union {[] ?p ?s}}
-        service <http://localhost:3030/Mondial/sparql> {
+        service <%1$s> {
             optional {?s meta:__search_id ?id}
             optional {graph kwsg:indexed {?s kws:comment ?comment}}
         }
@@ -164,7 +164,7 @@ where {
         ?sol a rdf:Bag; rdfs:member ?e1.
         filter(not exists {?sol rdfs:member ?e2. filter(?e2 != ?e1)})
     }
-    service <http://localhost:3030/Mondial/sparql> {?e1 a ?T.}
+    service <%1$s> {?e1 a ?T.}
 };
 
 
@@ -179,12 +179,12 @@ where {
     graph kwsg:pairs {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?sol.}
     {
         {
-            service <http://localhost:3030/Mondial/sparql> {
+            service <%1$s> {
                 ?e1 ?p1 ?e2. filter(?p1 not in (rdf:type))
             }
         }
         union {
-            service <http://localhost:3030/Mondial/sparql> {
+            service <%1$s> {
                 ?e2 ?_p1 ?e1. filter(?_p1 not in (rdf:type))
             }
         }
@@ -196,7 +196,7 @@ where {
 #where {
 #    graph kwsg:temp4 {
 #        ?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3; kws:solution ?sol.
-#        filter (exists {graph ?sol {?e1 (!kws:dummy|^(!kws:dummy))+ ?e3.} filter(regex(str(?sol),"%2$s"))})
+#        filter (exists {graph ?sol {?e1 (!kws:dummy|^(!kws:dummy))+ ?e3.} filter(regex(str(?sol),"%3$s"))})
 #    }
 #};
 
@@ -214,25 +214,25 @@ where {
     graph kwsg:pairs {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3; kws:solution ?sol.}
     {
       {
-          service <http://localhost:3030/Mondial/sparql>  {
+          service <%1$s>  {
               ?e1 ?p1 ?e2. filter(?e2 not in (?e1) && ?p1 not in (rdf:type))
               ?e2 ?p2 ?e3. filter(?p2 not in (rdf:type))
           }
       }
       union {
-          service <http://localhost:3030/Mondial/sparql>  {
+          service <%1$s>  {
               ?e2 ?_p1 ?e1. filter(?e2 not in (?e1) && ?_p1 not in (rdf:type))
               ?e2 ?p2 ?e3. filter(?p2 not in (rdf:type))
           }
       }
       union {
-          service <http://localhost:3030/Mondial/sparql>  {
+          service <%1$s>  {
               ?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1) && ?p1 not in (rdf:type))
               ?e3 ?_p2 ?e2. filter(?_p2 not in (rdf:type))
           }
       }
       union {
-          service <http://localhost:3030/Mondial/sparql>  {
+          service <%1$s>  {
               ?e2 ?_p1 ?e1. filter(?e2 not in (?e1) && ?_p1 not in (rdf:type))
               ?e3 ?_p2 ?e2. filter(?_p2 not in (rdf:type))
           }
