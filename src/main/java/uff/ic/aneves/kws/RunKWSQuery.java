@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.time.Duration;
 import java.util.Calendar;
+import java.util.zip.GZIPOutputStream;
 import javax.naming.InvalidNameException;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.QueryExecution;
@@ -18,8 +19,12 @@ import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
+import org.apache.jena.vocabulary.RDF;
+import org.apache.jena.vocabulary.RDFS;
+import org.apache.jena.vocabulary.XSD;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -30,7 +35,11 @@ import uff.ic.swlab.util.FusekiServer;
 public class RunKWSQuery {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
-
+        
+        String service = "http://localhost:3030/Mondial/sparql";
+        String service2 = "http://localhost:3030/Mondial.benchmark/sparql";
+        
+        
         Workbook wb = new HSSFWorkbook();
         String datasetfolder = "Mondial";
         String dir = "./src/main/resources/benchmarks/Coffman/" + datasetfolder;
@@ -44,126 +53,80 @@ public class RunKWSQuery {
                 String KwS = firstLine.replace("#", "");
                 String numberTxt = file.getName().replace(".txt", "");
                 System.out.println(numberTxt + "---" + KwS);
-                RunKWS(numberTxt, KwS, wb);
+                Integer linha = Integer.parseInt(numberTxt);
+                String benchmark = String.format("urn:graph:kws:%1$03d:", linha);
+                String filename = String.format("./src/main/resources/benchmarks/CIKM2019/Mondial/%1$03d.nq.gz", linha);
+                String filename2 = String.format("./src/main/resources/benchmarks/CIKM2019/Mondial/stats.ttl", linha);
+                RunKWS(numberTxt, KwS, wb, service, service2, benchmark, filename, filename2);
+                break;
             }
         }
         wb.close();
     }
 
-    private static void RunKWS(String numberTxt, String KwS,
-            Workbook wb) throws FileNotFoundException, IOException, InvalidNameException {
+    private static void RunKWS(String numberTxt, String keywordQuery,
+            Workbook wb, String service, String service2, String benchmark,
+            String filename, String filename2) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer("localhost", 3030);
-        String kwsString = KwS;
-        String benchmark = "urn:graph:kws:" + numberTxt + ":";
         String queryString = "";
+
+        if (true) {
+            queryString = readQuery("./src/main/sparql/KwS/v2/kws_00_prepare.rq");
+            fuseki.execUpdate(queryString, "KwS.temp");
+            fuseki.execUpdate(queryString, "KwS.stats");
+        }
 
         Calendar t1 = Calendar.getInstance();
 
-        if (false) {
-            queryString = readQuery("./src/main/sparql/KwS/kws_10_search.rq");
-            queryString = queryString.format(queryString, kwsString);
-            fuseki.execUpdate(queryString, "Work.temp");
+        if (true) {
+            queryString = readQuery("./src/main/sparql/KwS/v2/kws_10_search.rq");
+            queryString = queryString.format(queryString, service, keywordQuery, benchmark);
+            fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/kws_20_search_v2.rq");
-            queryString = queryString.format(queryString, kwsString, benchmark);
-            fuseki.execUpdate(queryString, "Work.temp");
-        }
-
-        if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/kws_30_rank_v2.rq");
-            queryString = queryString.format(queryString, kwsString, benchmark);
-            fuseki.execUpdate(queryString, "Work.temp");
+            queryString = readQuery("./src/main/sparql/KwS/v2/kws_30_rank.rq");
+            queryString = queryString.format(queryString, keywordQuery);
+            fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         Calendar t2 = Calendar.getInstance();
+        double seconds = Duration.between(t1.toInstant(), t2.toInstant()).toMillis() / 1000.0;
         System.out.println("");
-        System.out.println(String.format("Elapsed time: %1$f seconds", Duration.between(t1.toInstant(), t2.toInstant()).toMillis() / 1000.0));
+        System.out.println(String.format("Elapsed time: %1$f seconds", seconds));
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/kws_40_eval.rq");
-            queryString = queryString.format(queryString, benchmark);
-            fuseki.execUpdate(queryString, "Work.temp");
+            queryString = readQuery("./src/main/sparql/KwS/v2/kws_45_stats.rq");
+            queryString = queryString.format(queryString, benchmark + "case", keywordQuery, seconds);
+            fuseki.execUpdate(queryString, "KwS.stats");
+        }
+
+        if (true) {
+            queryString = readQuery("./src/main/sparql/KwS/v2/kws_40_eval.rq");
+            queryString = queryString.format(queryString, service, service2, benchmark);
+            fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         {
-            Model model = fuseki.getModel("Work.temp", "urn:graph:kws:seeds");
+            Dataset dataset = fuseki.getDataset("KwS.temp");
+            bkpDataset(dataset, filename);
+        }
+
+        {
+            Model model = fuseki.getModel("KwS.stats");
             model.setNsPrefix("urn", "urn:uuid:");
             model.setNsPrefix("kws", "urn:vocab:kws:");
             model.setNsPrefix("kwsg", "urn:graph:kws:");
-            model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-            model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
-            model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
-            model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
-            writeModel(model, "./src/main/resources/dat/Work.temp/seeds.ttl");
+            model.setNsPrefix("rdf", RDF.uri);
+            model.setNsPrefix("rdfs", RDFS.uri);
+            model.setNsPrefix("xsd", XSD.NS);
+            writeModel(model, filename2);
         }
-
-        {
-            Model model = fuseki.getModel("Work.temp", "urn:graph:kws:temp");
-            model.setNsPrefix("urn", "urn:uuid:");
-            model.setNsPrefix("kws", "urn:vocab:kws:");
-            model.setNsPrefix("kwsg", "urn:graph:kws:");
-            model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-            model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
-            model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
-            model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
-            writeModel(model, "./src/main/resources/dat/Work.temp/temp.ttl");
-        }
-
-        {
-            Model model = fuseki.getModel("Work.temp", "urn:graph:kws:temp2");
-            model.setNsPrefix("urn", "urn:uuid:");
-            model.setNsPrefix("kws", "urn:vocab:kws:");
-            model.setNsPrefix("kwsg", "urn:graph:kws:");
-            model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-            model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
-            model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
-            model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
-            writeModel(model, "./src/main/resources/dat/Work.temp/temp2.ttl");
-        }
-
-        {
-            Model model = fuseki.getModel("Work.temp", "urn:graph:kws:temp3");
-            model.setNsPrefix("urn", "urn:uuid:");
-            model.setNsPrefix("kws", "urn:vocab:kws:");
-            model.setNsPrefix("kwsg", "urn:graph:kws:");
-            model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-            model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
-            model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
-            model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
-            writeModel(model, "./src/main/resources/dat/Work.temp/temp3.ttl");
-        }
-
-        {
-            Model model = fuseki.getModel("Work.temp", "urn:graph:kws:temp4");
-            model.setNsPrefix("urn", "urn:uuid:");
-            model.setNsPrefix("kws", "urn:vocab:kws:");
-            model.setNsPrefix("kwsg", "urn:graph:kws:");
-            model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-            model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
-            model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
-            model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
-            writeModel(model, "./src/main/resources/dat/Work.temp/temp4.ttl");
-        }
-
-        {
-            Dataset dataset = fuseki.getDataset("Work.temp");
-//            model.setNsPrefix("urn", "urn:uuid:");
-//            model.setNsPrefix("kws", "urn:vocab:kws:");
-//            model.setNsPrefix("kwsg", "urn:graph:kws:");
-//            model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-//            model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
-//            model.setNsPrefix("mond", "http://www.semwebtech.org/mondial/10/");
-//            model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
-            writeDataset(dataset, "./src/main/resources/dat/Work.temp/dump.trig");
-        }
-
-        String serviceURI = "http://localhost:3030/Work.temp";
-        ExportExcel(serviceURI, benchmark, kwsString, numberTxt, wb);
-
+        String serviceURI = "http://localhost:3030/KwS.temp/sparql";
+        ExportExcel(serviceURI, benchmark, numberTxt, wb);
+       
     }
-
+    
     private static String readQuery(String filename) throws FileNotFoundException, IOException {
         File file = new File(filename);
         byte[] data = new byte[(int) file.length()];
@@ -179,13 +142,17 @@ public class RunKWSQuery {
         RDFDataMgr.write(out, model, RDFFormat.TURTLE_PRETTY);
     }
 
-    private static void writeDataset(Dataset dataset, String filename) throws FileNotFoundException {
-        File file = new File(filename);
-        OutputStream out = new FileOutputStream(file);
-        RDFDataMgr.write(out, dataset, RDFFormat.TRIG_PRETTY);
+    private static void bkpDataset(Dataset dataset, String filename) throws FileNotFoundException, IOException {
+        try (OutputStream out = new FileOutputStream(new File(filename));
+                GZIPOutputStream out2 = new GZIPOutputStream(out)) {
+            RDFDataMgr.write(out2, dataset, Lang.NQUADS);
+            out2.finish();
+            out.flush();
+        } finally {
+        }
     }
 
-    private static void ExportExcel(String serviceURI, String benchmark, String kwsString,
+    private static void ExportExcel(String serviceURI, String benchmark,
             String numberTxt, Workbook wb) throws FileNotFoundException, IOException {
         String dirResult = "./src/main/resources/dat/Work.temp/resultsPrograma.csv";
         String[] columns = {"position", "sol", "score", "size", "recall"};
@@ -199,8 +166,8 @@ public class RunKWSQuery {
         }
 
         int rowNum = 1;
-
-        String query = "prefix : <urn:vocab:kws:>\n"
+        String query = "    \n"
+                + "prefix : <urn:vocab:kws:>\n"
                 + "prefix kws: <urn:vocab:kws:>\n"
                 + "prefix kwsg: <urn:graph:kws:>\n"
                 + "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
@@ -215,8 +182,8 @@ public class RunKWSQuery {
                 + "  {select ?sol (min(?score) as ?_score) (min(?size) as ?_size) (count(distinct ?answer) as ?_recall)\n"
                 + "    where {\n"
                 + "      graph ?sol {\n"
-                + "        ?sol kws:score ?score; kws:size ?size.\n"
-                + "        optional {graph ?betterSol {?betterSol kws:score ?score2; kws:size ?size2.}}\n"
+                + "        ?sol kws:score ?score; kws:initialSize ?size.\n"
+                + "        optional {graph ?betterSol {?betterSol kws:score ?score2; kws:initialSize ?size2.}}\n"
                 + "        filter(?score2 >= ?score || (?score2 = ?score && ?size2 <= ?size))\n"
                 + "        optional {graph ?betterSol {?betterSol kws:answers ?answer.}}\n"
                 + "      }\n"
@@ -228,12 +195,13 @@ public class RunKWSQuery {
                 + "    where {\n"
                 + "      service <http://localhost:3030/Mondial.benchmark/sparql> {\n"
                 + "        graph ?g {?s ?p [].}\n"
-                + "        filter (regex(str(?g),\"" + benchmark + "\"))\n"
+                 + "        filter (regex(str(?g),\"" + benchmark + "\"))\n"
                 + "      }\n"
                 + "    }\n"
                 + "  }\n"
                 + "}\n"
                 + "order by desc(?_score)";
+        
         QueryExecution q = QueryExecutionFactory.sparqlService(serviceURI, query);
         ResultSet resultSet = q.execSelect();
         Integer position = 1;
