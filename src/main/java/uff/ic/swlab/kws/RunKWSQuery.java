@@ -18,6 +18,10 @@ import uff.ic.swlab.util.FusekiServer;
 public class RunKWSQuery {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
+
+    }
+
+    public static void run(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer("localhost", 3030);
         String kwsString = "muritius india";
         String benchmark = "urn:graph:kws:043:";
