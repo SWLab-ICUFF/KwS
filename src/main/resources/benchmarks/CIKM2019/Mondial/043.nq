@@ -1,0 +1,46 @@
+<urn:graph:kws:043:sol3> <urn:vocab:kws:size> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:043:sol3> .
+<urn:graph:kws:043:sol3> <urn:vocab:kws:score> "0.46206868"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:043:sol3> .
+<urn:graph:kws:043:sol2> <urn:vocab:kws:size> "1"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:043:sol2> .
+<urn:graph:kws:043:sol2> <urn:vocab:kws:score> "0.4399738"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:043:sol2> .
+<http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> <urn:vocab:kws:comment> "United Nations Military Observer Group in India and Pakistan UNMOGIP" <urn:graph:kws:043:sol2> .
+<http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "14640"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:043:sol2> .
+<http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Organization> <urn:graph:kws:043:sol2> .
+<http://www.semwebtech.org/mondial/10/countries/IND/> <urn:vocab:kws:comment> "India the Republic of India federal republic IND" <urn:graph:kws:043:sol1> .
+<http://www.semwebtech.org/mondial/10/countries/IND/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3489"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:043:sol1> .
+<http://www.semwebtech.org/mondial/10/countries/IND/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:043:sol1> .
+<urn:graph:kws:043:sol1> <urn:vocab:kws:size> "1"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:043:sol1> .
+<urn:graph:kws:043:sol1> <urn:vocab:kws:score> "0.46934995"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:043:sol1> .
+<http://www.semwebtech.org/mondial/10/countries/IND/> <urn:vocab:kws:score> "1.2578073"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:seeds> .
+<http://www.semwebtech.org/mondial/10/countries/IND/> <urn:vocab:kws:comment> "India the Republic of India federal republic IND" <urn:graph:kws:seeds> .
+<http://www.semwebtech.org/mondial/10/countries/IND/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3489"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:seeds> .
+_:B1950b63f1c459577bb873d1b2d858808 <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> <urn:graph:kws:seeds> .
+_:B1950b63f1c459577bb873d1b2d858808 <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/IND/> <urn:graph:kws:seeds> .
+_:B1950b63f1c459577bb873d1b2d858808 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:seeds> .
+<http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> <urn:vocab:kws:score> "1.2284311"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:seeds> .
+<http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> <urn:vocab:kws:comment> "United Nations Military Observer Group in India and Pakistan UNMOGIP" <urn:graph:kws:seeds> .
+<http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "14640"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:seeds> .
+<urn:graph:kws:043:sol3> <urn:vocab:kws:size> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol3> <urn:vocab:kws:score> "0.46206868"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol3> <urn:vocab:kws:initialSize> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol3> <urn:vocab:kws:comment> "India the Republic of India federal republic IND United Nations Military Observer Group in India and Pakistan UNMOGIP" <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol3> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol3> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/IND/> <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol1> <urn:vocab:kws:size> "1"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol1> <urn:vocab:kws:score> "0.46934995"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol1> <urn:vocab:kws:initialSize> "1"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol1> <urn:vocab:kws:comment> "India the Republic of India federal republic IND" <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol1> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/IND/> <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol2> <urn:vocab:kws:size> "1"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol2> <urn:vocab:kws:score> "0.4399738"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol2> <urn:vocab:kws:initialSize> "1"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol2> <urn:vocab:kws:comment> "United Nations Military Observer Group in India and Pakistan UNMOGIP" <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol2> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> <urn:graph:kws:groups> .
+<urn:graph:kws:043:sol2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> <urn:vocab:kws:score> "0.4399738"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> <urn:vocab:kws:comment> "United Nations Military Observer Group in India and Pakistan UNMOGIP" <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/organizations/UNMOGIP/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "14640"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/IND/> <urn:vocab:kws:score> "0.46934995"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/IND/> <urn:vocab:kws:comment> "India the Republic of India federal republic IND" <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/IND/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3489"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
