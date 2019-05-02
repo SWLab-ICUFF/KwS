@@ -32,6 +32,7 @@ public class BuildBenchmark {
             int i = 0;
             while (sc.hasNext()) {
                 i++;
+                i = 43;
                 String keywordQuery = sc.nextLine().trim();
                 String benchmark = String.format("urn:graph:kws:%1$03d:", i);
                 String filename = String.format("./src/main/resources/benchmarks/CIKM2019/Mondial/%1$03d.nq.gz", i);
@@ -40,8 +41,6 @@ public class BuildBenchmark {
                 String service2 = "http://localhost:3030/Mondial.benchmark/sparql";
 
                 run(service, service2, keywordQuery, benchmark, filename, filename2);
-                if (i == 3)
-                    break;
             }
 
         } finally {

@@ -32,16 +32,16 @@ where {
 
 
 
-insert {graph ?sol {?sol kws:score ?score; kws:size ?size.}}
+insert {graph ?sol {?sol kws:score ?score; kws:initialSize ?size1; kws:size ?size.}}
 where {
-    graph kwsg:groups {?sol a rdf:Bag; kws:score ?score; kws:size ?size.}
+    graph kwsg:groups {?sol a rdf:Bag; kws:score ?score; kws:initialSize ?size1; kws:size ?size.}
     graph ?sol {[] ?_ []}
 };
 
 
-drop graph kwsg:seeds;
-drop graph kwsg:groups;
-drop graph kwsg:pairs;
+#drop graph kwsg:seeds;
+#drop graph kwsg:groups;
+#drop graph kwsg:pairs;
 
 
 
