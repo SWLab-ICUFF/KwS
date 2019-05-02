@@ -29,17 +29,17 @@ public class BuildBenchmark {
         try (InputStream in = new FileInputStream(new File("./src/main/resources/benchmarks/CIKM2019/Mondial/queries_.txt"));
                 Scanner sc = new Scanner(in)) {
 
-            int linha = 42;
+            int i = 1;
             while (sc.hasNext()) {
-                linha++;
                 String keywordQuery = sc.nextLine().trim();
-                String benchmark = String.format("urn:graph:kws:%1$03d:", linha);
-                String filename = String.format("./src/main/resources/benchmarks/CIKM2019/Mondial/%1$03d.nq.gz", linha);
-                String filename2 = String.format("./src/main/resources/benchmarks/CIKM2019/Mondial/stats.ttl", linha);
+                String benchmark = String.format("urn:graph:kws:%1$03d:", i);
+                String filename = String.format("./src/main/resources/benchmarks/CIKM2019/Mondial/%1$03d.nq.gz", i);
+                String filename2 = "./src/main/resources/benchmarks/CIKM2019/Mondial/stats.ttl";
                 String service = "http://localhost:3030/Mondial/sparql";
                 String service2 = "http://localhost:3030/Mondial.benchmark/sparql";
 
                 run(service, service2, keywordQuery, benchmark, filename, filename2);
+                i++;
             }
 
         } finally {
