@@ -17,6 +17,9 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
+import org.apache.jena.vocabulary.RDF;
+import org.apache.jena.vocabulary.RDFS;
+import org.apache.jena.vocabulary.XSD;
 import uff.ic.swlab.util.FusekiServer;
 
 public class BuildBenchmark {
@@ -28,13 +31,15 @@ public class BuildBenchmark {
 
             int i = 0;
             while (sc.hasNext()) {
+                i++;
                 String keywordQuery = sc.nextLine().trim();
-                String benchmark = String.format("urn:graph:kws:%1$03d:", ++i);
-                String filename = String.format("./src/main/resources/benchmarks/CIKM2019/Mondial/%1$03d.nq.gz", ++i);
+                String benchmark = String.format("urn:graph:kws:%1$03d:", i);
+                String filename = String.format("./src/main/resources/benchmarks/CIKM2019/Mondial/%1$03d.nq.gz", i);
+                String filename2 = String.format("./src/main/resources/benchmarks/CIKM2019/Mondial/stats.ttl", i);
                 String service = "http://localhost:3030/Mondial/sparql";
                 String service2 = "http://localhost:3030/Mondial.benchmark/sparql";
 
-                run(service, service2, keywordQuery, benchmark, filename);
+                run(service, service2, keywordQuery, benchmark, filename, filename2);
                 if (i == 3)
                     break;
             }
@@ -43,36 +48,62 @@ public class BuildBenchmark {
         }
     }
 
-    public static void run(String service, String service2, String keywordQuery, String benchmark, String filename) throws FileNotFoundException, IOException, InvalidNameException {
+    public static void run(String service, String service2, String keywordQuery, String benchmark, String filename, String filename2) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer("localhost", 3030);
         String queryString = "";
+
+        if (true) {
+            queryString = readQuery("./src/main/sparql/KwS/v2/kws_00_prepare.rq");
+            fuseki.execUpdate(queryString, "KwS.temp");
+            fuseki.execUpdate(queryString, "KwS.stats");
+        }
 
         Calendar t1 = Calendar.getInstance();
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/kws_10_search_v2.rq");
+            queryString = readQuery("./src/main/sparql/KwS/v2/kws_10_search.rq");
             queryString = queryString.format(queryString, service, keywordQuery, benchmark);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/kws_30_rank_v2.rq");
+            queryString = readQuery("./src/main/sparql/KwS/v2/kws_30_rank.rq");
             queryString = queryString.format(queryString, keywordQuery);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         Calendar t2 = Calendar.getInstance();
+        double seconds = Duration.between(t1.toInstant(), t2.toInstant()).toMillis() / 1000.0;
         System.out.println("");
-        System.out.println(String.format("Elapsed time: %1$f seconds", Duration.between(t1.toInstant(), t2.toInstant()).toMillis() / 1000.0));
+        System.out.println(String.format("Elapsed time: %1$f seconds", seconds));
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/kws_40_eval.rq");
+            queryString = readQuery("./src/main/sparql/KwS/v2/kws_45_stats.rq");
+            queryString = queryString.format(queryString, benchmark + "case", keywordQuery, seconds);
+            fuseki.execUpdate(queryString, "KwS.stats");
+        }
+
+        if (true) {
+            queryString = readQuery("./src/main/sparql/KwS/v2/kws_40_eval.rq");
             queryString = queryString.format(queryString, service, service2, benchmark);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
 
-        Dataset dataset = fuseki.getDataset("KwS.temp");
-        writeDataset(dataset, filename);
+        {
+            Dataset dataset = fuseki.getDataset("KwS.temp");
+            bkpDataset(dataset, filename);
+        }
+
+        {
+            Model model = fuseki.getModel("KwS.stats");
+            model.setNsPrefix("urn", "urn:uuid:");
+            model.setNsPrefix("kws", "urn:vocab:kws:");
+            model.setNsPrefix("kwsg", "urn:graph:kws:");
+            model.setNsPrefix("rdf", RDF.uri);
+            model.setNsPrefix("rdfs", RDFS.uri);
+            model.setNsPrefix("xsd", XSD.NS);
+            writeModel(model, filename2);
+        }
     }
 
     private static String readQuery(String filename) throws FileNotFoundException, IOException {
@@ -90,7 +121,7 @@ public class BuildBenchmark {
         RDFDataMgr.write(out, model, RDFFormat.TURTLE_PRETTY);
     }
 
-    private static void writeDataset(Dataset dataset, String filename) throws FileNotFoundException, IOException {
+    private static void bkpDataset(Dataset dataset, String filename) throws FileNotFoundException, IOException {
         try (OutputStream out = new FileOutputStream(new File(filename));
                 GZIPOutputStream out2 = new GZIPOutputStream(out)) {
             RDFDataMgr.write(out2, dataset, Lang.NQUADS);
@@ -99,4 +130,5 @@ public class BuildBenchmark {
         } finally {
         }
     }
+
 }

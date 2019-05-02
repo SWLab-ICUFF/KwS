@@ -1,7 +1,6 @@
 package uff.ic.aneves.kws;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,7 +8,6 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.time.Duration;
 import java.util.Calendar;
 import javax.naming.InvalidNameException;
@@ -24,21 +22,16 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.Font;
-import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import uff.ic.swlab.util.FusekiServer;
 
-
-
 public class RunKWSQuery {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
-        
-        Workbook wb = new HSSFWorkbook(); 
+
+        Workbook wb = new HSSFWorkbook();
         String datasetfolder = "Mondial";
         String dir = "./src/main/resources/benchmarks/Coffman/" + datasetfolder;
         File fileFolder = new File(dir);
@@ -63,7 +56,7 @@ public class RunKWSQuery {
         String kwsString = KwS;
         String benchmark = "urn:graph:kws:" + numberTxt + ":";
         String queryString = "";
-        
+
         Calendar t1 = Calendar.getInstance();
 
         if (false) {
@@ -165,13 +158,12 @@ public class RunKWSQuery {
 //            model.setNsPrefix("meta", "http://www.semwebtech.org/mondial/10/meta#");
             writeDataset(dataset, "./src/main/resources/dat/Work.temp/dump.trig");
         }
-        
+
         String serviceURI = "http://localhost:3030/Work.temp";
         ExportExcel(serviceURI, benchmark, kwsString, numberTxt, wb);
-        
+
     }
-    
-    
+
     private static String readQuery(String filename) throws FileNotFoundException, IOException {
         File file = new File(filename);
         byte[] data = new byte[(int) file.length()];
@@ -192,25 +184,22 @@ public class RunKWSQuery {
         OutputStream out = new FileOutputStream(file);
         RDFDataMgr.write(out, dataset, RDFFormat.TRIG_PRETTY);
     }
-    
+
     private static void ExportExcel(String serviceURI, String benchmark, String kwsString,
-            String numberTxt, Workbook wb) throws FileNotFoundException, IOException{
+            String numberTxt, Workbook wb) throws FileNotFoundException, IOException {
         String dirResult = "./src/main/resources/dat/Work.temp/resultsPrograma.csv";
         String[] columns = {"position", "sol", "score", "size", "recall"};
         Sheet sheet = wb.createSheet(numberTxt);
-        
 
-        
-        
         Row headerRow = sheet.createRow(0);
-        for(int i = 0; i < columns.length; i++) {
+        for (int i = 0; i < columns.length; i++) {
             Cell cell = headerRow.createCell(i);
             cell.setCellValue(columns[i]);
-            
+
         }
-        
+
         int rowNum = 1;
-        
+
         String query = "prefix : <urn:vocab:kws:>\n"
                 + "prefix kws: <urn:vocab:kws:>\n"
                 + "prefix kwsg: <urn:graph:kws:>\n"
@@ -239,7 +228,7 @@ public class RunKWSQuery {
                 + "    where {\n"
                 + "      service <http://localhost:3030/Mondial.benchmark/sparql> {\n"
                 + "        graph ?g {?s ?p [].}\n"
-                + "        filter (regex(str(?g),\""+benchmark+"\"))\n"
+                + "        filter (regex(str(?g),\"" + benchmark + "\"))\n"
                 + "      }\n"
                 + "    }\n"
                 + "  }\n"
@@ -250,7 +239,7 @@ public class RunKWSQuery {
         Integer position = 1;
         while (resultSet.hasNext()) {
             QuerySolution soln = resultSet.nextSolution();
-            String sol =  String.valueOf(soln.get("sol"));
+            String sol = String.valueOf(soln.get("sol"));
             Literal scoreLiteral = soln.getLiteral("score");
             Float score = scoreLiteral.getFloat();
             Literal sizeLiteral = soln.getLiteral("size");
@@ -260,9 +249,9 @@ public class RunKWSQuery {
             //System.out.println(sol + "----" + score  + "----" + size  + "----" + recall);
             Row row = sheet.createRow(rowNum++);
             row.createCell(0)
-                   .setCellValue(position);
+                    .setCellValue(position);
             row.createCell(1)
-                   .setCellValue(sol);
+                    .setCellValue(sol);
             row.createCell(2)
                     .setCellValue(score);
             row.createCell(3)
@@ -270,17 +259,13 @@ public class RunKWSQuery {
             row.createCell(4)
                     .setCellValue(recall);
             position++;
-           
+
         }
 
-       FileOutputStream fileOut = new FileOutputStream(dirResult); 
-        
-       wb.write(fileOut);
-       fileOut.close();
-       
+        FileOutputStream fileOut = new FileOutputStream(dirResult);
 
-      
-
+        wb.write(fileOut);
+        fileOut.close();
 
     }
 

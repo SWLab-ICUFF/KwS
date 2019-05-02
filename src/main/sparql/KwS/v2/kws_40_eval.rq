@@ -7,6 +7,8 @@ prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
 prefix text: <http://jena.apache.org/text#>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
+
+
 insert {graph ?g {?s meta:__search_id ?id; kws:comment ?comment}}
 where {
     graph ?g {
@@ -18,21 +20,30 @@ where {
     }
 };
 
+
+
 with kwsg:groups
 insert {?bag kws:size ?size.}
 where {
     select ?bag (count(?m) as ?size)
-    where {
-        graph kwsg:groups {
-            ?bag a rdf:Bag; rdfs:member ?m.
-        }
-    }
+    where {graph kwsg:groups {?bag a rdf:Bag; rdfs:member ?m.}}
     group by ?bag
 };
+
+
+
+insert {graph ?sol {?sol kws:score ?score; kws:size ?size.}}
+where {
+    graph kwsg:groups {?sol a rdf:Bag; kws:score ?score; kws:size ?size.}
+    graph ?sol {[] ?_ []}
+};
+
 
 drop graph kwsg:seeds;
 drop graph kwsg:groups;
 drop graph kwsg:pairs;
+
+
 
 insert {graph ?g2 {?g2 kws:answers ?g1.}}
 where {
@@ -64,8 +75,5 @@ where {
     having (?reference = ?found)
 };
 
-insert {graph ?sol {?sol kws:score ?score; kws:size ?size.}}
-where {
-    graph kwsg:groups {?sol a rdf:Bag; kws:score ?score; kws:size ?size.}
-};
+
 

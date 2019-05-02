@@ -1,0 +1,34 @@
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
+prefix text: <http://jena.apache.org/text#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX fn: <java:uff.ic.swlab.jena.sparql.function.>
+
+select ?sol (?_score as ?score) (?_size as ?size) (?_recall/?reference as ?recall)
+{
+  {select ?sol (min(?score) as ?_score) (min(?size) as ?_size) (count(distinct ?answer) as ?_recall)
+    where {
+      graph ?sol {
+        ?sol kws:score ?score; kws:size ?size.
+        optional {graph ?betterSol {?betterSol kws:score ?score2; kws:size ?size2.}}
+        filter(?score2 >= ?score || (?score2 = ?score && ?size2 <= ?size))
+        optional {graph ?betterSol {?betterSol kws:answers ?answer.}}
+      }
+    }
+    group by ?sol
+  }
+  {
+    select (count(distinct ?g) as ?reference)
+    where {
+      service <http://localhost:3030/Mondial.benchmark/sparql> {
+        graph ?g {?s ?p [].}
+        filter (regex(str(?g),"urn:graph:kws:043:"))
+      }
+    }
+  }
+}
+order by desc(?_score)
