@@ -33,7 +33,7 @@ public class BuildBenchmark {
             int i = 0;
             while (sc.hasNext()) {
                 i++;
-                if (i < 14)
+                if (i < 23)
                     continue;
                 String keywordQuery = sc.nextLine().trim();
                 if (keywordQuery != null && !keywordQuery.equals("")) {
