@@ -26,9 +26,10 @@ public class BuildBenchmark {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
 
-        String benchmark = "CoffmanRDF";
+        String version = "v3";
+        String benchmark = "CoffmanRDF_1";
 
-        new FusekiServer("localhost", 3030).execUpdate(readQuery("./src/main/sparql/KwS/v2/kws_00_prepare.rq"), "KwS.stats");
+        new FusekiServer("localhost", 3030).execUpdate(readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", version)), "KwS.stats");
 
         try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/Mondial/queries_.txt", benchmark)));
                 Scanner sc = new Scanner(in)) {
@@ -45,7 +46,7 @@ public class BuildBenchmark {
                     String service2 = "http://localhost:3030/Mondial.benchmark/sparql";
                     String service3 = "http://localhost:3030/KwS.temp/sparql";
 
-                    run(service1, service2, service3, keywordQuery, benchmarkNS, filename, filename2);
+                    run(version, service1, service2, service3, keywordQuery, benchmarkNS, filename, filename2);
                 }
             }
 
@@ -53,25 +54,25 @@ public class BuildBenchmark {
         }
     }
 
-    public static void run(String service1, String service2, String service3, String keywordQuery, String benchmark, String filename, String filename2) throws FileNotFoundException, IOException, InvalidNameException {
+    public static void run(String version, String service1, String service2, String service3, String keywordQuery, String benchmark, String filename, String filename2) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer("localhost", 3030);
         String queryString = "";
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/v2/kws_00_prepare.rq");
+            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", version));
             fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         Calendar t1 = Calendar.getInstance();
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/v2/kws_10_search.rq");
+            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_10_search.rq", version));
             queryString = queryString.format(queryString, service1, keywordQuery, benchmark);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/v2/kws_30_rank.rq");
+            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_30_rank.rq", version));
             queryString = queryString.format(queryString, keywordQuery);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
@@ -82,13 +83,13 @@ public class BuildBenchmark {
         System.out.println(String.format("Elapsed time: %1$f seconds", seconds));
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/v2/kws_40_finish.rq");
+            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_40_finish.rq", version));
             queryString = queryString.format(queryString, service1, service2, benchmark);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/v2/kws_50_eval.rq");
+            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_50_eval.rq", version));
             queryString = queryString.format(queryString, service2, service3, benchmark, keywordQuery, seconds);
             fuseki.execUpdate(queryString, "KwS.stats");
         }
