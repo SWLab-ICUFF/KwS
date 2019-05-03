@@ -58,8 +58,9 @@ public class RunKWSQuery {
                 String filename = String.format("./src/main/resources/benchmarks/CIKM2019/Mondial/%1$03d.nq.gz", linha);
                 String filename2 = String.format("./src/main/resources/benchmarks/CIKM2019/Mondial/stats.ttl", linha);
                 RunKWS(numberTxt, KwS, wb, service, service2, benchmark, filename, filename2);
-                break;
+        
             }
+          
         }
         wb.close();
     }
@@ -72,7 +73,7 @@ public class RunKWSQuery {
 
         if (true) {
             queryString = readQuery("./src/main/sparql/KwS/v2/kws_00_prepare.rq");
-            fuseki.execUpdate(queryString, "KwS.temp");
+            fuseki.execUpdate(queryString, "Work.temp");
             fuseki.execUpdate(queryString, "KwS.stats");
         }
 
@@ -81,13 +82,13 @@ public class RunKWSQuery {
         if (true) {
             queryString = readQuery("./src/main/sparql/KwS/v2/kws_10_search.rq");
             queryString = queryString.format(queryString, service, keywordQuery, benchmark);
-            fuseki.execUpdate(queryString, "KwS.temp");
+            fuseki.execUpdate(queryString, "Work.temp");
         }
 
         if (true) {
             queryString = readQuery("./src/main/sparql/KwS/v2/kws_30_rank.rq");
             queryString = queryString.format(queryString, keywordQuery);
-            fuseki.execUpdate(queryString, "KwS.temp");
+            fuseki.execUpdate(queryString, "Work.temp");
         }
 
         Calendar t2 = Calendar.getInstance();
@@ -104,11 +105,11 @@ public class RunKWSQuery {
         if (true) {
             queryString = readQuery("./src/main/sparql/KwS/v2/kws_40_eval.rq");
             queryString = queryString.format(queryString, service, service2, benchmark);
-            fuseki.execUpdate(queryString, "KwS.temp");
+            fuseki.execUpdate(queryString, "Work.temp");
         }
 
         {
-            Dataset dataset = fuseki.getDataset("KwS.temp");
+            Dataset dataset = fuseki.getDataset("Work.temp");
             bkpDataset(dataset, filename);
         }
 
@@ -122,7 +123,7 @@ public class RunKWSQuery {
             model.setNsPrefix("xsd", XSD.NS);
             writeModel(model, filename2);
         }
-        String serviceURI = "http://localhost:3030/KwS.temp/sparql";
+        String serviceURI = "http://localhost:3030/Work.temp/sparql";
         ExportExcel(serviceURI, benchmark, numberTxt, wb);
        
     }
@@ -213,7 +214,14 @@ public class RunKWSQuery {
             Literal sizeLiteral = soln.getLiteral("size");
             Integer size = sizeLiteral.getInt();
             Literal recallLiteral = soln.getLiteral("recall");
-            Double recall = recallLiteral.getDouble();
+            String recall_String = "";
+            Double recall = 0.0;
+            if(recallLiteral == null){
+                recall_String = "Null";
+            }else{
+                recall = recallLiteral.getDouble();
+            }
+            
             //System.out.println(sol + "----" + score  + "----" + size  + "----" + recall);
             Row row = sheet.createRow(rowNum++);
             row.createCell(0)
@@ -224,8 +232,12 @@ public class RunKWSQuery {
                     .setCellValue(score);
             row.createCell(3)
                     .setCellValue(size);
-            row.createCell(4)
-                    .setCellValue(recall);
+            if(recall_String.equals("Null"))
+                row.createCell(4)
+                        .setCellValue(recall_String);
+            else
+                row.createCell(4)
+                        .setCellValue(recall);
             position++;
 
         }
