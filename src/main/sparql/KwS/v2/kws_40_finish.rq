@@ -39,11 +39,6 @@ where {
 };
 
 
-#drop graph kwsg:seeds;
-#drop graph kwsg:groups;
-#drop graph kwsg:pairs;
-
-
 
 insert {graph ?g2 {?g2 kws:answers ?g1.}}
 where {
@@ -76,4 +71,7 @@ where {
 };
 
 
+drop graph kwsg:seeds;
+drop graph kwsg:groups;
+drop graph kwsg:pairs;
 

@@ -28,19 +28,22 @@ public class BuildBenchmark {
 
         new FusekiServer("localhost", 3030).execUpdate(readQuery("./src/main/sparql/KwS/v2/kws_00_prepare.rq"), "KwS.stats");
 
-        try (InputStream in = new FileInputStream(new File("./src/main/resources/benchmarks/CIKM2019/Mondial/queries_.txt"));
+        try (InputStream in = new FileInputStream(new File("./src/main/resources/benchmarks/CIKM2019_1/Mondial/queries_.txt"));
                 Scanner sc = new Scanner(in)) {
 
             int i = 1;
             while (sc.hasNext()) {
                 String keywordQuery = sc.nextLine().trim();
-                String benchmark = String.format("urn:graph:kws:%1$03d:", i);
-                String filename = String.format("./src/main/resources/benchmarks/CIKM2019/Mondial/%1$03d.nq.gz", i);
-                String filename2 = "./src/main/resources/benchmarks/CIKM2019/Mondial/stats.ttl";
-                String service = "http://localhost:3030/Mondial/sparql";
-                String service2 = "http://localhost:3030/Mondial.benchmark/sparql";
+                if (keywordQuery != null && !keywordQuery.equals("")) {
+                    String benchmark = String.format("urn:graph:kws:%1$03d:", i);
+                    String filename = String.format("./src/main/resources/benchmarks/CIKM2019_1/Mondial/%1$03d.nq.gz", i);
+                    String filename2 = "./src/main/resources/benchmarks/CIKM2019_1/Mondial/ranking.ttl";
+                    String service1 = "http://localhost:3030/Mondial/sparql";
+                    String service2 = "http://localhost:3030/Mondial.benchmark/sparql";
+                    String service3 = "http://localhost:3030/KwS.temp/sparql";
 
-                run(service, service2, keywordQuery, benchmark, filename, filename2);
+                    run(service1, service2, service3, keywordQuery, benchmark, filename, filename2);
+                }
                 i++;
             }
 
@@ -48,7 +51,7 @@ public class BuildBenchmark {
         }
     }
 
-    public static void run(String service, String service2, String keywordQuery, String benchmark, String filename, String filename2) throws FileNotFoundException, IOException, InvalidNameException {
+    public static void run(String service1, String service2, String service3, String keywordQuery, String benchmark, String filename, String filename2) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer("localhost", 3030);
         String queryString = "";
 
@@ -61,7 +64,7 @@ public class BuildBenchmark {
 
         if (true) {
             queryString = readQuery("./src/main/sparql/KwS/v2/kws_10_search.rq");
-            queryString = queryString.format(queryString, service, keywordQuery, benchmark);
+            queryString = queryString.format(queryString, service1, keywordQuery, benchmark);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
 
@@ -77,15 +80,15 @@ public class BuildBenchmark {
         System.out.println(String.format("Elapsed time: %1$f seconds", seconds));
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/v2/kws_45_stats.rq");
-            queryString = queryString.format(queryString, benchmark + "query", keywordQuery, seconds);
-            fuseki.execUpdate(queryString, "KwS.stats");
+            queryString = readQuery("./src/main/sparql/KwS/v2/kws_40_finish.rq");
+            queryString = queryString.format(queryString, service1, service2, benchmark);
+            fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         if (true) {
-            queryString = readQuery("./src/main/sparql/KwS/v2/kws_40_eval.rq");
-            queryString = queryString.format(queryString, service, service2, benchmark);
-            fuseki.execUpdate(queryString, "KwS.temp");
+            queryString = readQuery("./src/main/sparql/KwS/v2/kws_50_eval.rq");
+            queryString = queryString.format(queryString, service2, service3, benchmark, keywordQuery, seconds);
+            fuseki.execUpdate(queryString, "KwS.stats");
         }
 
         {
@@ -98,6 +101,7 @@ public class BuildBenchmark {
             model.setNsPrefix("urn", "urn:uuid:");
             model.setNsPrefix("kws", "urn:vocab:kws:");
             model.setNsPrefix("kwsg", "urn:graph:kws:");
+            model.setNsPrefix("time", "http://www.w3.org/2006/time#");
             model.setNsPrefix("rdf", RDF.uri);
             model.setNsPrefix("rdfs", RDFS.uri);
             model.setNsPrefix("xsd", XSD.NS);
