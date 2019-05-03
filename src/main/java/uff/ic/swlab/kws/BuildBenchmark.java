@@ -30,7 +30,6 @@ public class BuildBenchmark {
         String benchmark = "CoffmanRDF_1";
 
         new FusekiServer("localhost", 3030).execUpdate(readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", version)), "KwS.stats");
-
         try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/Mondial/queries_.txt", benchmark)));
                 Scanner sc = new Scanner(in)) {
 
