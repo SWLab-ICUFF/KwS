@@ -30,6 +30,7 @@ public class BuildBenchmark {
         String benchmark = "CoffmanRDF_1";
 
         new FusekiServer("localhost", 3030).execUpdate(readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", version)), "KwS.stats");
+
         try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/Mondial/queries_.txt", benchmark)));
                 Scanner sc = new Scanner(in)) {
 
@@ -53,7 +54,7 @@ public class BuildBenchmark {
         }
     }
 
-    public static void run(String version, String service1, String service2, String service3, String keywordQuery, String benchmark, String filename, String filename2) throws FileNotFoundException, IOException, InvalidNameException {
+    public static void run(String version, String service1, String service2, String service3, String keywordQuery, String benchmarkNS, String filename, String filename2) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer("localhost", 3030);
         String queryString = "";
 
@@ -66,7 +67,7 @@ public class BuildBenchmark {
 
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_10_search.rq", version));
-            queryString = queryString.format(queryString, service1, keywordQuery, benchmark);
+            queryString = queryString.format(queryString, service1, keywordQuery, benchmarkNS);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
 
@@ -83,13 +84,13 @@ public class BuildBenchmark {
 
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_40_finish.rq", version));
-            queryString = queryString.format(queryString, service1, service2, benchmark);
+            queryString = queryString.format(queryString, service1, service2, benchmarkNS);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_50_eval.rq", version));
-            queryString = queryString.format(queryString, service2, service3, benchmark, keywordQuery, seconds);
+            queryString = queryString.format(queryString, service2, service3, benchmarkNS, keywordQuery, seconds);
             fuseki.execUpdate(queryString, "KwS.stats");
         }
 
