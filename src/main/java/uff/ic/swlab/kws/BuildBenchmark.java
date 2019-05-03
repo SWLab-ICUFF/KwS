@@ -26,25 +26,26 @@ public class BuildBenchmark {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
 
-        //new FusekiServer("localhost", 3030).execUpdate(readQuery("./src/main/sparql/KwS/v2/kws_00_prepare.rq"), "KwS.stats");
-        try (InputStream in = new FileInputStream(new File("./src/main/resources/benchmarks/CIKM2019_1/Mondial/queries_.txt"));
+        String benchmark = "CoffmanRDF";
+
+        new FusekiServer("localhost", 3030).execUpdate(readQuery("./src/main/sparql/KwS/v2/kws_00_prepare.rq"), "KwS.stats");
+
+        try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/Mondial/queries_.txt", benchmark)));
                 Scanner sc = new Scanner(in)) {
 
             int i = 0;
             while (sc.hasNext()) {
                 i++;
-                if (i < 23)
-                    continue;
                 String keywordQuery = sc.nextLine().trim();
                 if (keywordQuery != null && !keywordQuery.equals("")) {
-                    String benchmark = String.format("urn:graph:kws:%1$03d:", i);
-                    String filename = String.format("./src/main/resources/benchmarks/CIKM2019_1/Mondial/%1$03d.nq.gz", i);
-                    String filename2 = "./src/main/resources/benchmarks/CIKM2019_1/Mondial/ranking.ttl";
+                    String benchmarkNS = String.format("urn:graph:kws:%1$03d:", i);
+                    String filename = String.format("./src/main/resources/benchmarks/%1$s/Mondial/%2$03d.nq.gz", benchmark, i);
+                    String filename2 = String.format("./src/main/resources/benchmarks/%1$s/Mondial/ranking.ttl", benchmark);
                     String service1 = "http://localhost:3030/Mondial/sparql";
                     String service2 = "http://localhost:3030/Mondial.benchmark/sparql";
                     String service3 = "http://localhost:3030/KwS.temp/sparql";
 
-                    run(service1, service2, service3, keywordQuery, benchmark, filename, filename2);
+                    run(service1, service2, service3, keywordQuery, benchmarkNS, filename, filename2);
                 }
             }
 
