@@ -26,13 +26,15 @@ public class BuildBenchmark {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
 
-        new FusekiServer("localhost", 3030).execUpdate(readQuery("./src/main/sparql/KwS/v2/kws_00_prepare.rq"), "KwS.stats");
-
+        //new FusekiServer("localhost", 3030).execUpdate(readQuery("./src/main/sparql/KwS/v2/kws_00_prepare.rq"), "KwS.stats");
         try (InputStream in = new FileInputStream(new File("./src/main/resources/benchmarks/CIKM2019_1/Mondial/queries_.txt"));
                 Scanner sc = new Scanner(in)) {
 
-            int i = 1;
+            int i = 0;
             while (sc.hasNext()) {
+                i++;
+                if (i < 14)
+                    continue;
                 String keywordQuery = sc.nextLine().trim();
                 if (keywordQuery != null && !keywordQuery.equals("")) {
                     String benchmark = String.format("urn:graph:kws:%1$03d:", i);
@@ -44,7 +46,6 @@ public class BuildBenchmark {
 
                     run(service1, service2, service3, keywordQuery, benchmark, filename, filename2);
                 }
-                i++;
             }
 
         } finally {
