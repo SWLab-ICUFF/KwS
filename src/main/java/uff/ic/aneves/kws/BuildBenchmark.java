@@ -216,7 +216,7 @@ public class BuildBenchmark {
                 + "  }\n"
                 + "}\n"
                 + "order by desc(?_score)";
-        System.out.println(query);
+        
         
         QueryExecution q = QueryExecutionFactory.sparqlService(serviceURI, query);
         ResultSet resultSet = q.execSelect();
