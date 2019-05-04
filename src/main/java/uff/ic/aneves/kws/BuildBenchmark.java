@@ -70,7 +70,6 @@ public class BuildBenchmark {
 
                     run(version, service1, service2, service3, keywordQuery, benchmarkNS, filename, filename2, wb, i);
                 }
-               break;
             }
 
         } finally {
