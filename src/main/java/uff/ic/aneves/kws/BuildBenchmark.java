@@ -48,7 +48,7 @@ public class BuildBenchmark {
     
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
         
-        String version = "v2";
+        String version = "v3";
         String benchmark = "CoffmanRDF_1";
         Workbook wb = new HSSFWorkbook();
         new FusekiServer("localhost", 3030).execUpdate(readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", version)), "KwS.stats");
@@ -70,7 +70,7 @@ public class BuildBenchmark {
 
                     run(version, service1, service2, service3, keywordQuery, benchmarkNS, filename, filename2, wb, i);
                 }
-               
+               break;
             }
 
         } finally {
@@ -84,7 +84,7 @@ public class BuildBenchmark {
 
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", version));
-            fuseki.execUpdate(queryString, "KwS.temp");
+            fuseki.execUpdate(queryString, "Work.temp");
         }
 
         Calendar t1 = Calendar.getInstance();
@@ -92,13 +92,13 @@ public class BuildBenchmark {
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_10_search.rq", version));
             queryString = queryString.format(queryString, service1, keywordQuery, benchmarkNS);
-            fuseki.execUpdate(queryString, "KwS.temp");
+            fuseki.execUpdate(queryString, "Work.temp");
         }
 
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_30_rank.rq", version));
             queryString = queryString.format(queryString, keywordQuery);
-            fuseki.execUpdate(queryString, "KwS.temp");
+            fuseki.execUpdate(queryString, "Work.temp");
         }
 
         Calendar t2 = Calendar.getInstance();
@@ -109,7 +109,7 @@ public class BuildBenchmark {
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_40_finish.rq", version));
             queryString = queryString.format(queryString, service1, service2, benchmarkNS);
-            fuseki.execUpdate(queryString, "KwS.temp");
+            fuseki.execUpdate(queryString, "Work.temp");
         }
 
         if (true) {
@@ -217,6 +217,7 @@ public class BuildBenchmark {
                 + "  }\n"
                 + "}\n"
                 + "order by desc(?_score)";
+        System.out.println(query);
         
         QueryExecution q = QueryExecutionFactory.sparqlService(serviceURI, query);
         ResultSet resultSet = q.execSelect();
