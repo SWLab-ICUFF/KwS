@@ -1,4 +1,3 @@
-prefix : <urn:vocab:kws:>
 prefix kws: <urn:vocab:kws:>
 prefix kwsg: <urn:graph:kws:>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>s
