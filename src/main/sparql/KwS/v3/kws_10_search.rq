@@ -188,26 +188,26 @@ where {
     {
       {
           service <%1$s>  {
-              ?e1 ?p1 ?e2. filter(?e2 not in (?e1) && ?p1 not in (rdf:type))
-              ?e2 ?p2 ?e3. filter(?p2 not in (rdf:type))
+              ?e1 ?p1 ?e2. filter(?e2 not in (?e1))
+              ?e2 ?p2 ?e3.
           }
       }
       union {
           service <%1$s>  {
-              ?e2 ?_p1 ?e1. filter(?e2 not in (?e1) && ?_p1 not in (rdf:type))
-              ?e2 ?p2 ?e3. filter(?p2 not in (rdf:type))
+              ?e2 ?_p1 ?e1. filter(?e2 not in (?e1))
+              ?e2 ?p2 ?e3.
           }
       }
       union {
           service <%1$s>  {
-              ?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1) && ?p1 not in (rdf:type))
-              ?e3 ?_p2 ?e2. filter(?_p2 not in (rdf:type))
+              ?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1))
+              ?e3 ?_p2 ?e2.
           }
       }
       union {
           service <%1$s>  {
-              ?e2 ?_p1 ?e1. filter(?e2 not in (?e1) && ?_p1 not in (rdf:type))
-              ?e3 ?_p2 ?e2. filter(?_p2 not in (rdf:type))
+              ?e2 ?_p1 ?e1. filter(?e2 not in (?e1))
+              ?e3 ?_p2 ?e2.
           }
       }
     }

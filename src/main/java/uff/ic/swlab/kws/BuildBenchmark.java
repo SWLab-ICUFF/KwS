@@ -27,7 +27,7 @@ public class BuildBenchmark {
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
 
         String version = "v3";
-        String benchmark = "CoffmanRDF_1";
+        String benchmark = "CIKM2019_1";
 
         new FusekiServer("localhost", 3030).execUpdate(readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", version)), "KwS.stats");
 
