@@ -31,7 +31,7 @@ public class BuildBenchmark {
         String service3 = "http://localhost:3030/KwS.temp/sparql";
         //String kwsVersion = "v2";
         String kwsVersion = "v2_2";
-        String benchmark = "CIKM2019_1";
+        String benchmark = "CIKM2019_2";
         String rankingFilename = String.format("./src/main/resources/benchmarks/%1$s/Mondial/ranking.ttl", benchmark);
 
         new FusekiServer("localhost", 3030).execUpdate(readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion)), "KwS.stats");
