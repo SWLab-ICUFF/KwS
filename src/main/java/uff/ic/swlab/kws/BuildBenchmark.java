@@ -29,7 +29,8 @@ public class BuildBenchmark {
         String service1 = "http://localhost:3030/Mondial/sparql";
         String service2 = "http://localhost:3030/Mondial.benchmark/sparql";
         String service3 = "http://localhost:3030/KwS.temp/sparql";
-        String kwsVersion = "v2";
+        //String kwsVersion = "v2";
+        String kwsVersion = "v2_2";
         String benchmark = "CIKM2019_1";
         String rankingFilename = String.format("./src/main/resources/benchmarks/%1$s/Mondial/ranking.ttl", benchmark);
 
