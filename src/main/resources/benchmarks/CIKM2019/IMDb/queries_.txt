@@ -1,0 +1,72 @@
+﻿B) Especify Person using Class Label Matches
+1- denzel washington Person
+2- johnny depp Actor
+
+C) Especify Works using Class Label Matches
+3- forrest gump Work
+4- star wars Movie
+
+D) Especify Persons and Properties using Property Label Matches
+5-  Angelina Jolie gender 
+
+E) Especify Works and Properties using Property Label Matches
+6- the sound of music length
+7- lord of the rings novel
+
+F) Identify Persons filtering by Property Values Matches 
+8- will smith Male
+9- tom hanks 9 July 1956
+
+G) Identify Works filtering by Property Values Matches
+10- gone with the wind August 1991
+11- casablanca "They had a date with fate in Casablanca!"
+
+
+H) Identify the Works in which a specific Person works (Join Work->actor)
+12- johnny depp Work
+13- morgan freeman Work
+
+I) Identify the Works in which a specific Character appears(Work->Character)
+14-atticus finch movie 
+15-indiana jones movie 
+16-james bond movie 
+17- rick blaine movie 
+18- will kane movie 
+19- dr. hannibal lecter movie 
+20- norman bates movie 
+21- darth vader movie 
+22- the wicked witch of the west movie 
+23- nurse ratched movie
+
+J)  Identify the actor that plays a a specific Character(Character->Actor)
+24- jacques clouseau actor
+25- jack ryan actor
+26- terminator actor
+
+K) Identify Directly Join between a specific Actor and a specific Movie(Character->Actor)
+27- clint eastwood Frank Horrigan
+
+L) Identify all films in which a specific Person appeared in the a specific year (Work->Person)
+28- tom hanks 2004
+29- audrey hepburn 1951
+
+M)Identify Works in common between two specific Persons
+30- julia roberts richard gere work
+31- harrison ford george lucas work
+32- sean connery ian fleming work
+33- keanu reeves lana wachowski work
+
+N) Identify Works in common between two specific Characters
+34- dean jones herbie
+
+O)Identify cast members in common between two specific works
+35- indiana jones raiders of the lost ark
+
+P) Identify the works in which a specific Person plays a specific character (Work->Person, Work->Character)
+36- nathan algren tom cruise Work
+37- rocky balboa sylvester stallone Work
+
+Q) The character that a specific Person plays in a specific Work (Work->Person, Work->Character)
+38- Henry Jaynes Fonda Yours, Mine and Ours character
+39- russell crowe gladiator character
+40- brent spiner star trek character
