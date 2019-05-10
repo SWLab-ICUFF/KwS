@@ -9,6 +9,10 @@ prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
 
+##################################################
+# trazer kws:comment do Mondial para as soluções #
+##################################################
+
 insert {graph ?g {?s meta:__search_id ?id; kws:comment ?comment}}
 where {
     graph ?g {
@@ -21,6 +25,9 @@ where {
 };
 
 
+####################################################
+# calcular calcular tamanho dos grupos de soluções #
+####################################################
 
 with kwsg:groups
 insert {?bag kws:size ?size.}
@@ -31,14 +38,21 @@ where {
 };
 
 
+##########################################
+# levar kws:initialSize para as soluções #
+##########################################
 
-insert {graph ?sol {?sol kws:score ?score; kws:initialSize ?size1; kws:size ?size.}}
+insert {graph ?sol {?sol kws:score ?score; kws:initialSize ?size1; kws:size ?size2.}}
 where {
-    graph kwsg:groups {?sol a rdf:Bag; kws:score ?score; kws:initialSize ?size1; kws:size ?size.}
+    graph kwsg:groups {?sol a rdf:Bag; kws:score ?score; kws:initialSize ?size1; kws:size ?size2.}
     graph ?sol {[] ?_ []}
 };
 
 
+
+#################################################################
+# identificar quais soluções respondem quais queries do Coffman #
+#################################################################
 
 insert {graph ?g2 {?g2 kws:answers ?g1.}}
 where {
@@ -71,7 +85,7 @@ where {
 };
 
 
-drop graph kwsg:seeds;
-drop graph kwsg:groups;
-drop graph kwsg:pairs;
+#drop graph kwsg:seeds;
+#drop graph kwsg:groups;
+
 

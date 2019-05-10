@@ -29,7 +29,7 @@ where {
 with kwsg:groups
 insert {
   ?bag a rdf:Bag;
-    kws:size ?size;
+    kws:initialSize ?size;
     rdfs:member ?m1;
     rdfs:member ?m2;
     rdfs:member ?m3;
@@ -44,6 +44,7 @@ where {
             select ?m1
             where {
                 [] rdfs:member ?m1.
+                bind(1 as ?size)
             }
         }
         union {
@@ -52,6 +53,7 @@ where {
                 [] rdfs:member ?m1.
                 [] rdfs:member ?m2.
                 filter (str(?m2)>str(?m1))
+                bind(2 as ?size)
             }
         }
         union {
@@ -65,6 +67,7 @@ where {
                     }
                     [] rdfs:member ?m3.
                     filter (str(?m3)>str(?m2))
+                    bind(3 as ?size)
                 }
             }
         }
@@ -83,6 +86,7 @@ where {
                     }
                     [] rdfs:member ?m4.
                     filter (str(?m4)>str(?m3))
+                    bind(4 as ?size)
                 }
             }
         }
@@ -105,15 +109,13 @@ where {
                     }
                     [] rdfs:member ?m5.
                     filter (str(?m5)>str(?m4))
+                    bind(5 as ?size)
                 }
             }
         }
     }
     bind(iri(concat("%3$s","sol",str(fn:sequential()))) as ?bag)
 };
-
-
-
 
 
 
@@ -153,29 +155,28 @@ where {
     {
         {
             service <%1$s> {
-                ?e1 ?p1 ?e2. filter(?p1 not in (rdf:type))
+                ?e1 ?p1 ?e2.
             }
         }
         union {
             service <%1$s> {
-                ?e2 ?_p1 ?e1. filter(?_p1 not in (rdf:type))
+                ?e2 ?_p1 ?e1.
             }
         }
     }
 };
 
 
-#delete {graph kwsg:temp4 {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3; kws:solution ?sol.}}
+#delete {graph kwsg:pairs {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?sol.}}
 #where {
-#    graph kwsg:temp4 {
-#        ?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3; kws:solution ?sol.
-#        filter (exists {graph ?sol {?e1 (!kws:dummy|^(!kws:dummy))+ ?e3.} filter(regex(str(?sol),"%3$s"))})
-#    }
+#    graph kwsg:pairs {
+#    	?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?sol.
+#    	filter (exists {graph ?sol {?e1 (!kws:dummy|^(!kws:dummy))+ ?e2}})
+#  }
 #};
 
 
 # distancia 2
-# delete {graph kwsg:pairs {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3; kws:solution ?sol.}}
 insert {
     graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3.}
     graph ?sol {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3.}
@@ -213,10 +214,13 @@ where {
     }
 };
 
+#drop graph kwsg:pairs;
 
-##############################################
-#  calcular scores                           #
-##############################################
+
+
+################################################
+# levar kws:comment do Mondial para o Kws.temp #
+################################################
 
 insert {graph ?g {?s meta:__search_id ?id; kws:comment ?comment}}
 where {
@@ -230,8 +234,13 @@ where {
 };
 
 
+
+###################################################
+# concatenar kws:comment das entidades dos grupos #
+###################################################
+
 with kwsg:groups
-insert {?bag kws:comment ?comment; kws:initialSize ?size.}
+insert {?bag kws:comment ?comment; kws:size ?size.}
 where {
     select ?bag (group_concat(coalesce(?_comment,"")) as ?comment) (count(?m) as ?size)
     where {
