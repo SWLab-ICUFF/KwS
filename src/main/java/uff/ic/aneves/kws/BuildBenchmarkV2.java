@@ -55,7 +55,7 @@ public class BuildBenchmarkV2 {
                 String keywordQuery = sc.nextLine().trim();
                 if (keywordQuery != null && !keywordQuery.equals("")) {
                     String benchmarkNS = String.format("urn:graph:kws:%1$03d:", i);
-                    String benchmarkFilename = String.format("./src/main/resources/benchmarks/%1$s/IMDb2/%2$03d.nq.gz", benchmark, i);
+                    String benchmarkFilename = String.format("./src/main/resources/benchmarks/%1$s/IMDb/%2$03d.nq.gz", benchmark, i);
                     run(kwsVersion, service1, service2, service3, keywordQuery, benchmarkNS, benchmarkFilename, rankingFilename);
                 }
                 System.out.println(i);
