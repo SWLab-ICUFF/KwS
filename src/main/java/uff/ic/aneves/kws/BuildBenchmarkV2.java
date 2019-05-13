@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uff.ic.aneves.kws;
 
 import java.io.File;
@@ -25,24 +20,20 @@ import org.apache.jena.riot.RDFFormat;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.XSD;
-import static uff.ic.swlab.kws.BuildBenchmark.run;
 import uff.ic.swlab.util.FusekiServer;
 
-/**
- *
- * @author angelo
- */
 public class BuildBenchmarkV2 {
-    
-       public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
+
+    public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
+
         String service1 = "http://localhost:3030/IMDb2/sparql";
         String service2 = "http://localhost:3030/IMDb2.benchmark/sparql";
-        String service3 = "http://localhost:3030/Work.temp/sparql";
+        String service3 = "http://localhost:3030/KwS.temp/sparql";
         String kwsVersion = "v2";
         //String kwsVersion = "v2_2";
         String benchmark = "CIKM2019_1";
         //String benchmark = "CIKM2019_2";
-        String rankingFilename = String.format("./src/main/resources/benchmarks/%1$s/Mondial/ranking.ttl", benchmark);
+        String rankingFilename = String.format("./src/main/resources/benchmarks/%1$s/IMDb/ranking.ttl", benchmark);
 
         new FusekiServer("localhost", 3030).execUpdate(readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion)), "KwS.stats");
 
@@ -63,15 +54,15 @@ public class BuildBenchmarkV2 {
 
         } finally {
         }
-       }
-       
-       public static void run(String kwsVersion, String service1, String service2, String service3, String keywordQuery, String benchmarkNS, String filename, String filename2) throws FileNotFoundException, IOException, InvalidNameException {
+    }
+
+    public static void run(String kwsVersion, String service1, String service2, String service3, String keywordQuery, String benchmarkNS, String filename, String filename2) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer("localhost", 3030);
         String queryString = "";
 
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion));
-            fuseki.execUpdate(queryString, "Work.temp");
+            fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         Calendar t1 = Calendar.getInstance();
@@ -79,13 +70,13 @@ public class BuildBenchmarkV2 {
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_10_search.rq", kwsVersion));
             queryString = queryString.format(queryString, service1, keywordQuery, benchmarkNS);
-            fuseki.execUpdate(queryString, "Work.temp");
+            fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_20_rank.rq", kwsVersion));
             queryString = queryString.format(queryString, keywordQuery);
-            fuseki.execUpdate(queryString, "Work.temp");
+            fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         Calendar t2 = Calendar.getInstance();
@@ -96,7 +87,7 @@ public class BuildBenchmarkV2 {
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_40_finish.rq", kwsVersion));
             queryString = queryString.format(queryString, service1, service2, benchmarkNS);
-            fuseki.execUpdate(queryString, "Work.temp");
+            fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         if (true) {
@@ -106,7 +97,7 @@ public class BuildBenchmarkV2 {
         }
 
         {
-            Dataset dataset = fuseki.getDataset("Work.temp");
+            Dataset dataset = fuseki.getDataset("KwS.temp");
             bkpDataset(dataset, filename);
         }
 
@@ -148,6 +139,4 @@ public class BuildBenchmarkV2 {
         }
     }
 
-
-    
 }
