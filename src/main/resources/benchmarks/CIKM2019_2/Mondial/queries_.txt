@@ -1,7 +1,7 @@
 niger country
 atacama desert
-mongolia parliamentary
-everest elevation
+mongolia parlamentary
+nigeria gpd
 spain galician
 poland language
 haiti religion
@@ -17,7 +17,7 @@ vanuatu afghanistan organization
 hutu country africa
 country asia uzbek
 country america catholic
-country america european jewish
+country europe jewish
 paranaiba province brazil
 atacama province argentina
 everest province china
