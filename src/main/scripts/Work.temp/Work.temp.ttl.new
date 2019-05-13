@@ -25,12 +25,12 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
 
 :tdb_dataset_readwrite
   a              tdb2:DatasetTDB2 ;
-  tdb2:location  "/Users/angelo/local/apache-jena-fuseki-3.11.0/run/databases/Work.temp";
+  tdb2:location  "/Users/angelo/local/apache-jena-fuseki-3.11.0/run/databases/KwS.temp";
   .
 
 :indexLucene
   a               text:TextIndexLucene ;
-  text:directory  "/Users/angelo/local/apache-jena-fuseki-3.11.0/run/lucene/Work.temp" ;
+  text:directory  "/Users/angelo/local/apache-jena-fuseki-3.11.0/run/lucene/KwS.temp" ;
   text:analyzer [a text:SimpleAnalyzer];
   text:entityMap  :entMap ;
   .
@@ -43,9 +43,9 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
 
 
 :service_tdb_all  a                      fuseki:Service ;
-        rdfs:label                       "TDB2 Work.temp" ;
+        rdfs:label                       "TDB2 KwS.temp" ;
         fuseki:dataset                   :text_dataset ;
-        fuseki:name                       "Work.temp" ;
+        fuseki:name                       "KwS.temp" ;
         fuseki:serviceQuery               "query" , "sparql" ;
         fuseki:serviceReadGraphStore      "get" ;
         fuseki:serviceReadWriteGraphStore "data" ;
