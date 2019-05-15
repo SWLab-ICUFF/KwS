@@ -31,7 +31,7 @@ public class BuildBenchmark {
         String service3 = "http://localhost:3030/KwS.temp/sparql";
         String kwsVersion;
         String benchmark;
-        if (true) {
+        if (false) {
             kwsVersion = "v2";
             benchmark = "CIKM2019_1";
         } else {
