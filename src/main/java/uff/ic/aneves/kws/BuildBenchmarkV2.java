@@ -50,10 +50,17 @@ public class BuildBenchmarkV2 {
                 i++;
                 String keywordQuery = sc.nextLine().trim();
                 if (keywordQuery != null && !keywordQuery.equals("")) {
-                    System.out.println(i + "Para keyword: "+ keywordQuery);
+                    //System.out.println(i + "Para keyword: "+ keywordQuery);
                     String benchmarkNS = String.format("urn:graph:kws:%1$03d:", i);
                     String benchmarkFilename = String.format("./src/main/resources/benchmarks/%1$s/IMDb/%2$03d.nq.gz", benchmark, i);
-                    run(kwsVersion, service1, service2, service3, keywordQuery, benchmarkNS, benchmarkFilename, rankingFilename);
+                    File fileVerifica = new File(benchmarkFilename);
+                    if(!fileVerifica.exists()) {
+                        System.out.println(i + "------ Para keyword: "+ keywordQuery);
+                        run(kwsVersion, service1, service2, service3, keywordQuery, benchmarkNS, benchmarkFilename, rankingFilename);
+                    }else{
+                         System.out.println(i + "Já contem o benchmark: "+ keywordQuery);
+                    }
+                    
                 }
             }
 
