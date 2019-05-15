@@ -13,13 +13,13 @@ prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 # trazer kws:comment do Mondial para as soluções #
 ##################################################
 
-insert {graph ?g {?s meta:__search_id ?id; kws:comment ?comment; ?dtProp ?lit}}
+insert {graph ?g {?s meta:__search_id ?id; kws:comment ?comment; ?dtProp ?literal.}}
 where {
     graph ?g {
         {{?s ?p []} union {[] ?p ?s}}
         service <%1$s> {
             optional {?s meta:__search_id ?id}
-            optional {?s ?dtProp ?lit. filter(isLiteral(?lit) && !isNumeric(?lit))}
+            optional {?s ?dtProp ?literal. filter(isLiteral(?literal) && !isNumeric(?literal))}
             optional {graph kwsg:indexed {?s kws:comment ?comment}}
         }
     }
