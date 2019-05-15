@@ -19,7 +19,7 @@ where {
         {{?s ?p []} union {[] ?p ?s}}
         service <%1$s> {
             optional {?s meta:__search_id ?id}
-            optional {?s ?dtPop ?lit. filter(isLiteral(?o) && !isNumeric(?o))}
+            optional {?s ?dtProp ?lit. filter(isLiteral(?lit) && !isNumeric(?lit))}
             optional {graph kwsg:indexed {?s kws:comment ?comment}}
         }
     }

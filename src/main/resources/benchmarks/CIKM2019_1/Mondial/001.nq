@@ -1,0 +1,695 @@
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:vocab:kws:comment> "Nigeria the Federal Republic of Nigeria federal republic WAN" <urn:graph:kws:001:sol6> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:001:sol6> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3405"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol6> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol6> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:vocab:kws:comment> "Nigeria the Federal Republic of Nigeria federal republic WAN" <urn:graph:kws:001:sol7> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:001:sol7> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3405"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol7> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <urn:vocab:kws:comment> "Lake Kainji dam" <urn:graph:kws:001:sol7> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:001:sol7> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <http://www.semwebtech.org/mondial/10/meta#flowsInto> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:001:sol7> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "14067"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol7> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:vocab:kws:comment> "Niger" <urn:graph:kws:001:sol7> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:001:sol7> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:001:sol7> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#flowsThrough> <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <urn:graph:kws:001:sol7> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "16957"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol7> .
+<urn:graph:kws:001:sol7> <urn:vocab:kws:size> "4"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol7> .
+<urn:graph:kws:001:sol7> <urn:vocab:kws:size> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol7> .
+<urn:graph:kws:001:sol7> <urn:vocab:kws:score> "0.17790742"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:001:sol7> .
+<urn:graph:kws:001:sol7> <urn:vocab:kws:initialSize> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol7> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <urn:vocab:kws:comment> "Niger la République du Niger republic RN" <urn:graph:kws:001:sol4> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3395"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol4> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol4> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <urn:vocab:kws:comment> "Niger la République du Niger republic RN" <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3395"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/countries/RG/> <urn:vocab:kws:comment> "Guinea la République de Guinée republic RG" <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/countries/RG/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3423"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/countries/RG/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:vocab:kws:comment> "Mali la République du Mali  republic RMM" <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3392"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:vocab:kws:comment> "Niger" <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RG/> <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "16957"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:vocab:kws:comment> "Nigeria the Federal Republic of Nigeria federal republic WAN" <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3405"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol5> .
+<urn:graph:kws:001:sol5> <urn:vocab:kws:size> "6"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol5> .
+<urn:graph:kws:001:sol5> <urn:vocab:kws:size> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol5> .
+<urn:graph:kws:001:sol5> <urn:vocab:kws:score> "0.17790742"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:001:sol5> .
+<urn:graph:kws:001:sol5> <urn:vocab:kws:initialSize> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol5> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:vocab:kws:comment> "Niger" <urn:graph:kws:001:sol2> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "16957"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol2> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#River> <urn:graph:kws:001:sol2> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Province> <urn:graph:kws:001:sol3> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <urn:vocab:kws:comment> "Lake Kainji dam" <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <http://www.semwebtech.org/mondial/10/meta#flowsInto> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "14067"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <urn:vocab:kws:comment> "Benin la République du Bénin  republic BEN" <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3403"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <urn:vocab:kws:comment> "Burkina Faso le Burkina Faso parliamentary republic BF" <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3404"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RG/> <urn:vocab:kws:comment> "Guinea la République de Guinée republic RG" <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RG/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3423"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RG/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/TCH/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3395"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#capital> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/LAR/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <urn:vocab:kws:comment> "Niger la République du Niger republic RN" <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasCity> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/BEN/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasCity> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#wasDependentOf> <http://www.semwebtech.org/mondial/10/countries/F/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/BF/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/DZ/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/F/> <urn:vocab:kws:comment> "France la République française  republic F" <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/F/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3551"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/F/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:vocab:kws:comment> "Mali la République du Mali  republic RMM" <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3392"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#flowsThrough> <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RG/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "16957"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:vocab:kws:comment> "Niger" <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:vocab:kws:comment> "Nigeria the Federal Republic of Nigeria federal republic WAN" <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3405"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <urn:vocab:kws:comment> "Libya لِيبِيَا operates under a transitional government LAR" <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3391"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> <http://www.semwebtech.org/mondial/10/meta#locatedAt> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <urn:vocab:kws:comment> "Algeria republic DZ" <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3390"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <urn:vocab:kws:comment> "Chad جمهورية تشاد republic TCH" <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3417"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> <http://www.semwebtech.org/mondial/10/meta#locatedAt> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:001:sol15> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <urn:vocab:kws:comment> "Lake Kainji dam" <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <http://www.semwebtech.org/mondial/10/meta#flowsInto> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "14067"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3395"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#capital> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasCity> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <urn:vocab:kws:comment> "Niger la République du Niger republic RN" <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasCity> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:vocab:kws:comment> "Mali la République du Mali  republic RMM" <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3392"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#flowsThrough> <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "16957"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:vocab:kws:comment> "Niger" <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:vocab:kws:comment> "Nigeria the Federal Republic of Nigeria federal republic WAN" <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3405"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> <http://www.semwebtech.org/mondial/10/meta#locatedAt> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> <http://www.semwebtech.org/mondial/10/meta#locatedAt> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:001:sol14> .
+<http://www.semwebtech.org/mondial/10/meta#Country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> <urn:graph:kws:001:sol1> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <urn:vocab:kws:comment> "Burkina Faso le Burkina Faso parliamentary republic BF" <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3404"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <urn:vocab:kws:comment> "Benin la République du Bénin  republic BEN" <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3403"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/TCH/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3395"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/LAR/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <urn:vocab:kws:comment> "Niger la République du Niger republic RN" <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/BEN/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#wasDependentOf> <http://www.semwebtech.org/mondial/10/countries/F/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/BF/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/DZ/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/F/> <urn:vocab:kws:comment> "France la République française  republic F" <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/F/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3551"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/F/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:vocab:kws:comment> "Mali la République du Mali  republic RMM" <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3392"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:vocab:kws:comment> "Niger" <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "16957"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:vocab:kws:comment> "Nigeria the Federal Republic of Nigeria federal republic WAN" <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3405"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <urn:vocab:kws:comment> "Libya لِيبِيَا operates under a transitional government LAR" <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3391"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <urn:vocab:kws:comment> "Algeria republic DZ" <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3390"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <urn:vocab:kws:comment> "Chad جمهورية تشاد republic TCH" <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3417"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol13> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol13> .
+_:B5280e045da87e8b21849825a7f61ca30 <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:seeds> .
+_:B5280e045da87e8b21849825a7f61ca30 <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:seeds> .
+_:B5280e045da87e8b21849825a7f61ca30 <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:seeds> .
+_:B5280e045da87e8b21849825a7f61ca30 <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:seeds> .
+_:B5280e045da87e8b21849825a7f61ca30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:seeds> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <urn:vocab:kws:score> "2.1163385"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:seeds> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <urn:vocab:kws:comment> "Niger la République du Niger republic RN" <urn:graph:kws:seeds> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3395"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:seeds> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:vocab:kws:score> "2.1238177"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:seeds> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:vocab:kws:comment> "Niger" <urn:graph:kws:seeds> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "16957"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:seeds> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:vocab:kws:score> "0.17790742"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:vocab:kws:comment> "Niger" <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "16957"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <urn:vocab:kws:comment> "Benin la République du Bénin  republic BEN" <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3403"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <urn:vocab:kws:comment> "Lake Kainji dam" <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "14067"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <urn:vocab:kws:comment> "Libya لِيبِيَا operates under a transitional government LAR" <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3391"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol10> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol10> <urn:vocab:kws:size> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol10> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol10> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol10> <urn:vocab:kws:score> "0.17042832"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol10> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol10> <urn:vocab:kws:size> "4"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol10> <urn:vocab:kws:comment> " Niger la République du Niger republic RN" <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol10> <urn:vocab:kws:initialSize> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol3> <urn:vocab:kws:size> "1"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol3> <urn:vocab:kws:comment> "" <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol3> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol9> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol9> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol9> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol9> <urn:vocab:kws:score> "0.1750988"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol9> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol9> <urn:vocab:kws:size> "9"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol9> <urn:vocab:kws:initialSize> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol9> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol9> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol9> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol9> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol9> <urn:vocab:kws:comment> "Niger Niger la République du Niger republic RN" <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol9> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol9> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol9> <urn:vocab:kws:size> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/BEN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/DZ/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/LAR/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RG/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/TCH/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/F/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <urn:vocab:kws:size> "19"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/BF/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <urn:vocab:kws:size> "4"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <urn:vocab:kws:score> "0.1750988"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <urn:vocab:kws:comment> " Niger  Niger la République du Niger republic RN" <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol15> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol2> <urn:vocab:kws:size> "1"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol2> <urn:vocab:kws:score> "0.17790742"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol2> <urn:vocab:kws:comment> "Niger" <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol2> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol8> <urn:vocab:kws:initialSize> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol8> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/DZ/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol8> <urn:vocab:kws:score> "0.17042832"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol8> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol8> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol8> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/BF/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol8> <urn:vocab:kws:comment> " Niger la République du Niger republic RN" <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol8> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/BEN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol8> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol8> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol8> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/TCH/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol8> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/LAR/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol8> <urn:vocab:kws:size> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol8> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol8> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/F/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol8> <urn:vocab:kws:size> "10"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol14> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol14> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol14> <urn:vocab:kws:comment> "Niger  Niger la République du Niger republic RN" <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol14> <urn:vocab:kws:score> "0.1750988"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol14> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol14> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol14> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol14> <urn:vocab:kws:size> "3"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol14> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol14> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol14> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol14> <urn:vocab:kws:size> "11"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol14> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol14> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol14> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol14> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/F/> <urn:vocab:kws:comment> "France la République française  republic F" <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/F/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3551"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol1> <urn:vocab:kws:size> "1"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol1> <urn:vocab:kws:comment> "" <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol1> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol7> <urn:vocab:kws:comment> "Niger " <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol7> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol7> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol7> <urn:vocab:kws:size> "4"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol7> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol7> <urn:vocab:kws:score> "0.17790742"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol7> <urn:vocab:kws:size> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol7> <urn:vocab:kws:initialSize> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol7> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/RG/> <urn:vocab:kws:comment> "Guinea la République de Guinée republic RG" <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/RG/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3423"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <urn:vocab:kws:comment> "Algeria republic DZ" <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3390"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol13> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol13> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/LAR/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol13> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol13> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/TCH/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol13> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol13> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/DZ/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol13> <urn:vocab:kws:size> "3"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol13> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol13> <urn:vocab:kws:size> "12"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol13> <urn:vocab:kws:comment> "  Niger la République du Niger republic RN" <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol13> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol13> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/BF/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol13> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/BEN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol13> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/F/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol13> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol13> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol13> <urn:vocab:kws:score> "0.17042832"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol6> <urn:vocab:kws:size> "3"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol6> <urn:vocab:kws:size> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol6> <urn:vocab:kws:initialSize> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol6> <urn:vocab:kws:comment> " " <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol6> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol6> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol6> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol6> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:vocab:kws:comment> "Nigeria the Federal Republic of Nigeria federal republic WAN" <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3405"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/TCH/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RG/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <urn:vocab:kws:comment> " Niger Niger la République du Niger republic RN" <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <urn:vocab:kws:size> "3"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/BEN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <urn:vocab:kws:score> "0.1750988"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/F/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/DZ/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <urn:vocab:kws:size> "17"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/LAR/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol12> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/BF/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol5> <urn:vocab:kws:size> "6"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol5> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol5> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol5> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol5> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol5> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol5> <urn:vocab:kws:score> "0.17790742"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol5> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RG/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol5> <urn:vocab:kws:size> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol5> <urn:vocab:kws:comment> " Niger" <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol5> <urn:vocab:kws:initialSize> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <urn:vocab:kws:score> "0.17042832"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <urn:vocab:kws:comment> "Niger la République du Niger republic RN" <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3395"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <urn:vocab:kws:comment> "Burkina Faso le Burkina Faso parliamentary republic BF" <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3404"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol11> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol11> <urn:vocab:kws:score> "0.17790742"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol11> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol11> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RG/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol11> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol11> <urn:vocab:kws:size> "8"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol11> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol11> <urn:vocab:kws:comment> " Niger " <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol11> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol11> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol11> <urn:vocab:kws:size> "3"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol11> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol11> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <urn:vocab:kws:comment> "Chad جمهورية تشاد republic TCH" <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3417"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol4> <urn:vocab:kws:size> "1"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol4> <urn:vocab:kws:score> "0.17042832"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol4> <urn:vocab:kws:comment> "Niger la République du Niger republic RN" <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol4> <http://www.w3.org/2000/01/rdf-schema#member> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:groups> .
+<urn:graph:kws:001:sol4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:vocab:kws:comment> "Mali la République du Mali  republic RMM" <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3392"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:groups> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <urn:vocab:kws:comment> "Burkina Faso le Burkina Faso parliamentary republic BF" <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3404"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <urn:vocab:kws:comment> "Benin la République du Bénin  republic BEN" <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3403"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/TCH/> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3395"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/LAR/> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <urn:vocab:kws:comment> "Niger la République du Niger republic RN" <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/BEN/> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#wasDependentOf> <http://www.semwebtech.org/mondial/10/countries/F/> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/BF/> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/DZ/> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/F/> <urn:vocab:kws:comment> "France la République française  republic F" <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/F/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3551"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/F/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:vocab:kws:comment> "Mali la République du Mali  republic RMM" <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3392"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:vocab:kws:comment> "Nigeria the Federal Republic of Nigeria federal republic WAN" <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3405"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <urn:vocab:kws:comment> "Libya لِيبِيَا operates under a transitional government LAR" <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3391"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <urn:vocab:kws:comment> "Algeria republic DZ" <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3390"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol8> .
+<urn:graph:kws:001:sol8> <urn:vocab:kws:size> "10"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol8> .
+<urn:graph:kws:001:sol8> <urn:vocab:kws:size> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol8> .
+<urn:graph:kws:001:sol8> <urn:vocab:kws:score> "0.17042832"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:001:sol8> .
+<urn:graph:kws:001:sol8> <urn:vocab:kws:initialSize> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <urn:vocab:kws:comment> "Chad جمهورية تشاد republic TCH" <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3417"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol8> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol8> .
+<urn:graph:kws:001:sol9> <urn:vocab:kws:size> "9"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol9> .
+<urn:graph:kws:001:sol9> <urn:vocab:kws:size> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol9> .
+<urn:graph:kws:001:sol9> <urn:vocab:kws:score> "0.1750988"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:001:sol9> .
+<urn:graph:kws:001:sol9> <urn:vocab:kws:initialSize> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3395"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#capital> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasCity> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <urn:vocab:kws:comment> "Niger la République du Niger republic RN" <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasCity> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:vocab:kws:comment> "Mali la République du Mali  republic RMM" <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3392"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:vocab:kws:comment> "Niger" <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "16957"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:vocab:kws:comment> "Nigeria the Federal Republic of Nigeria federal republic WAN" <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3405"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> <http://www.semwebtech.org/mondial/10/meta#locatedAt> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:001:sol9> .
+<http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> <http://www.semwebtech.org/mondial/10/meta#locatedAt> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:001:sol9> .
+_:Bf68efd78024240001e356d1ddaceff61 <urn:vocab:kws:solution> <urn:graph:kws:001:sol12> <urn:graph:kws:pairs> .
+_:Bf68efd78024240001e356d1ddaceff61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:pairs> .
+_:Bf68efd78024240001e356d1ddaceff61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:pairs> .
+_:Bf68efd78024240001e356d1ddaceff61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:vocab:kws:comment> "Niger" <urn:graph:kws:pairs> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "16957"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:pairs> .
+_:B0fb5c42b59a1cb3c4b67c89957c3f19f <urn:vocab:kws:solution> <urn:graph:kws:001:sol12> <urn:graph:kws:pairs> .
+_:B0fb5c42b59a1cb3c4b67c89957c3f19f <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:pairs> .
+_:B0fb5c42b59a1cb3c4b67c89957c3f19f <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:pairs> .
+_:B0fb5c42b59a1cb3c4b67c89957c3f19f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:B46d2eaafc1917d85745c81e9f4971d06 <urn:vocab:kws:solution> <urn:graph:kws:001:sol13> <urn:graph:kws:pairs> .
+_:B46d2eaafc1917d85745c81e9f4971d06 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:pairs> .
+_:B46d2eaafc1917d85745c81e9f4971d06 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:pairs> .
+_:B46d2eaafc1917d85745c81e9f4971d06 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:Bb1df9ab422aba24bdf956e91f2729207 <urn:vocab:kws:solution> <urn:graph:kws:001:sol15> <urn:graph:kws:pairs> .
+_:Bb1df9ab422aba24bdf956e91f2729207 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:pairs> .
+_:Bb1df9ab422aba24bdf956e91f2729207 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:pairs> .
+_:Bb1df9ab422aba24bdf956e91f2729207 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:Bdadb2655c46693468e9dd8746c9c40d9 <urn:vocab:kws:solution> <urn:graph:kws:001:sol13> <urn:graph:kws:pairs> .
+_:Bdadb2655c46693468e9dd8746c9c40d9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:pairs> .
+_:Bdadb2655c46693468e9dd8746c9c40d9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:pairs> .
+_:Bdadb2655c46693468e9dd8746c9c40d9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:B897f6df5c70011e09438c54a44900c5a <urn:vocab:kws:solution> <urn:graph:kws:001:sol12> <urn:graph:kws:pairs> .
+_:B897f6df5c70011e09438c54a44900c5a <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:pairs> .
+_:B897f6df5c70011e09438c54a44900c5a <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:pairs> .
+_:B897f6df5c70011e09438c54a44900c5a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:Bdba76884f5d96b066fb57932c193f041 <urn:vocab:kws:solution> <urn:graph:kws:001:sol14> <urn:graph:kws:pairs> .
+_:Bdba76884f5d96b066fb57932c193f041 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:pairs> .
+_:Bdba76884f5d96b066fb57932c193f041 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:pairs> .
+_:Bdba76884f5d96b066fb57932c193f041 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:Bae0be43dcd1ead8ecbd094e678cb2593 <urn:vocab:kws:solution> <urn:graph:kws:001:sol15> <urn:graph:kws:pairs> .
+_:Bae0be43dcd1ead8ecbd094e678cb2593 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:pairs> .
+_:Bae0be43dcd1ead8ecbd094e678cb2593 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:pairs> .
+_:Bae0be43dcd1ead8ecbd094e678cb2593 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:B887906e4d822c01cd14006acdb60d2e7 <urn:vocab:kws:solution> <urn:graph:kws:001:sol14> <urn:graph:kws:pairs> .
+_:B887906e4d822c01cd14006acdb60d2e7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:pairs> .
+_:B887906e4d822c01cd14006acdb60d2e7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:pairs> .
+_:B887906e4d822c01cd14006acdb60d2e7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:B961ce69d72914ced5920a3bb742c546d <urn:vocab:kws:solution> <urn:graph:kws:001:sol11> <urn:graph:kws:pairs> .
+_:B961ce69d72914ced5920a3bb742c546d <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:pairs> .
+_:B961ce69d72914ced5920a3bb742c546d <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:pairs> .
+_:B961ce69d72914ced5920a3bb742c546d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:B3d2dc11b3c07adbca5fd3c385f9b0bab <urn:vocab:kws:solution> <urn:graph:kws:001:sol5> <urn:graph:kws:pairs> .
+_:B3d2dc11b3c07adbca5fd3c385f9b0bab <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:pairs> .
+_:B3d2dc11b3c07adbca5fd3c385f9b0bab <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:pairs> .
+_:B3d2dc11b3c07adbca5fd3c385f9b0bab <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:Ba6bf76efd2726f3e844d17d5501d95dd <urn:vocab:kws:solution> <urn:graph:kws:001:sol11> <urn:graph:kws:pairs> .
+_:Ba6bf76efd2726f3e844d17d5501d95dd <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:pairs> .
+_:Ba6bf76efd2726f3e844d17d5501d95dd <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:pairs> .
+_:Ba6bf76efd2726f3e844d17d5501d95dd <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:Ba8cc83844dc30329e1c2fe4cf35a611b <urn:vocab:kws:solution> <urn:graph:kws:001:sol15> <urn:graph:kws:pairs> .
+_:Ba8cc83844dc30329e1c2fe4cf35a611b <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:pairs> .
+_:Ba8cc83844dc30329e1c2fe4cf35a611b <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:pairs> .
+_:Ba8cc83844dc30329e1c2fe4cf35a611b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:B247e290a62c7075ed5655be9eee122bc <urn:vocab:kws:solution> <urn:graph:kws:001:sol8> <urn:graph:kws:pairs> .
+_:B247e290a62c7075ed5655be9eee122bc <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:pairs> .
+_:B247e290a62c7075ed5655be9eee122bc <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:pairs> .
+_:B247e290a62c7075ed5655be9eee122bc <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:B03da19d4d7414bb777b0beb51d228652 <urn:vocab:kws:solution> <urn:graph:kws:001:sol6> <urn:graph:kws:pairs> .
+_:B03da19d4d7414bb777b0beb51d228652 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:pairs> .
+_:B03da19d4d7414bb777b0beb51d228652 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:pairs> .
+_:B03da19d4d7414bb777b0beb51d228652 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:B501895628207bdc3db63a7dfb44edca2 <urn:vocab:kws:solution> <urn:graph:kws:001:sol15> <urn:graph:kws:pairs> .
+_:B501895628207bdc3db63a7dfb44edca2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:pairs> .
+_:B501895628207bdc3db63a7dfb44edca2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:pairs> .
+_:B501895628207bdc3db63a7dfb44edca2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:B9b1fe76815e0eb2c1738f1acec191c6e <urn:vocab:kws:solution> <urn:graph:kws:001:sol9> <urn:graph:kws:pairs> .
+_:B9b1fe76815e0eb2c1738f1acec191c6e <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:pairs> .
+_:B9b1fe76815e0eb2c1738f1acec191c6e <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:pairs> .
+_:B9b1fe76815e0eb2c1738f1acec191c6e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:Ba5bc3f967c36fa980d0bcd594c9ebe82 <urn:vocab:kws:solution> <urn:graph:kws:001:sol15> <urn:graph:kws:pairs> .
+_:Ba5bc3f967c36fa980d0bcd594c9ebe82 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:pairs> .
+_:Ba5bc3f967c36fa980d0bcd594c9ebe82 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:pairs> .
+_:Ba5bc3f967c36fa980d0bcd594c9ebe82 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:B52ac7bb7481df31956ed9181f9221928 <urn:vocab:kws:solution> <urn:graph:kws:001:sol15> <urn:graph:kws:pairs> .
+_:B52ac7bb7481df31956ed9181f9221928 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:pairs> .
+_:B52ac7bb7481df31956ed9181f9221928 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:pairs> .
+_:B52ac7bb7481df31956ed9181f9221928 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:B1cd3da9b41caa2329400adb41623808d <urn:vocab:kws:solution> <urn:graph:kws:001:sol13> <urn:graph:kws:pairs> .
+_:B1cd3da9b41caa2329400adb41623808d <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:pairs> .
+_:B1cd3da9b41caa2329400adb41623808d <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:pairs> .
+_:B1cd3da9b41caa2329400adb41623808d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <urn:vocab:kws:comment> "Niger la République du Niger republic RN" <urn:graph:kws:pairs> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3395"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:pairs> .
+_:B7ce5af7ac823fae8d7c4dd0673d4adc5 <urn:vocab:kws:solution> <urn:graph:kws:001:sol10> <urn:graph:kws:pairs> .
+_:B7ce5af7ac823fae8d7c4dd0673d4adc5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:pairs> .
+_:B7ce5af7ac823fae8d7c4dd0673d4adc5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:pairs> .
+_:B7ce5af7ac823fae8d7c4dd0673d4adc5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:B141fbfd0523a44178a26b4f8b86c4708 <urn:vocab:kws:solution> <urn:graph:kws:001:sol7> <urn:graph:kws:pairs> .
+_:B141fbfd0523a44178a26b4f8b86c4708 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:pairs> .
+_:B141fbfd0523a44178a26b4f8b86c4708 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:pairs> .
+_:B141fbfd0523a44178a26b4f8b86c4708 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:B3c06faab730aedfe33bf0321054206fd <urn:vocab:kws:solution> <urn:graph:kws:001:sol14> <urn:graph:kws:pairs> .
+_:B3c06faab730aedfe33bf0321054206fd <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:pairs> .
+_:B3c06faab730aedfe33bf0321054206fd <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:pairs> .
+_:B3c06faab730aedfe33bf0321054206fd <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:B8f2bfbc81ffcd90b06c2ec8ebce14bd3 <urn:vocab:kws:solution> <urn:graph:kws:001:sol11> <urn:graph:kws:pairs> .
+_:B8f2bfbc81ffcd90b06c2ec8ebce14bd3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:pairs> .
+_:B8f2bfbc81ffcd90b06c2ec8ebce14bd3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:pairs> .
+_:B8f2bfbc81ffcd90b06c2ec8ebce14bd3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <urn:vocab:kws:comment> "Benin la République du Bénin  republic BEN" <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3403"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/BEN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <urn:vocab:kws:comment> "Burkina Faso le Burkina Faso parliamentary republic BF" <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3404"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/BF/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RG/> <urn:vocab:kws:comment> "Guinea la République de Guinée republic RG" <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RG/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3423"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RG/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/TCH/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3395"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#capital> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/LAR/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <urn:vocab:kws:comment> "Niger la République du Niger republic RN" <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasCity> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/BEN/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasCity> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#wasDependentOf> <http://www.semwebtech.org/mondial/10/countries/F/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/BF/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/DZ/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/F/> <urn:vocab:kws:comment> "France la République française  republic F" <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/F/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3551"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/F/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:vocab:kws:comment> "Mali la République du Mali  republic RMM" <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3392"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:vocab:kws:comment> "Niger" <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RG/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Dosso/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "16957"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:vocab:kws:comment> "Nigeria the Federal Republic of Nigeria federal republic WAN" <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3405"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <urn:vocab:kws:comment> "Libya لِيبِيَا operates under a transitional government LAR" <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3391"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/LAR/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/provinces/Niamey/cities/Niamey/> <http://www.semwebtech.org/mondial/10/meta#locatedAt> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <urn:vocab:kws:comment> "Algeria republic DZ" <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3390"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/DZ/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <urn:vocab:kws:comment> "Chad جمهورية تشاد republic TCH" <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3417"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/TCH/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/countries/RN/provinces/Tillabéri/cities/Tillaberi/> <http://www.semwebtech.org/mondial/10/meta#locatedAt> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:001:sol12> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <urn:vocab:kws:comment> "Lake Kainji dam" <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <http://www.semwebtech.org/mondial/10/meta#flowsInto> <http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "14067"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <urn:vocab:kws:comment> "Niger la République du Niger republic RN" <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3395"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/countries/RG/> <urn:vocab:kws:comment> "Guinea la République de Guinée republic RG" <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/countries/RG/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3423"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/countries/RG/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:vocab:kws:comment> "Mali la République du Mali  republic RMM" <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3392"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/countries/RMM/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:vocab:kws:comment> "Niger" <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RG/> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RMM/> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#flowsThrough> <http://www.semwebtech.org/mondial/10/lakes/Lake+Kainji/> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "16957"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:vocab:kws:comment> "Nigeria the Federal Republic of Nigeria federal republic WAN" <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3405"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semwebtech.org/mondial/10/meta#Country> <urn:graph:kws:001:sol11> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:vocab:kws:comment> "Nigeria the Federal Republic of Nigeria federal republic WAN" <urn:graph:kws:001:sol10> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol10> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:001:sol10> .
+<http://www.semwebtech.org/mondial/10/countries/WAN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3405"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol10> .
+<urn:graph:kws:001:sol10> <urn:vocab:kws:size> "4"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol10> .
+<urn:graph:kws:001:sol10> <urn:vocab:kws:size> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol10> .
+<urn:graph:kws:001:sol10> <urn:vocab:kws:score> "0.17042832"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:001:sol10> .
+<urn:graph:kws:001:sol10> <urn:vocab:kws:initialSize> "2"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol10> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <urn:vocab:kws:comment> "Niger la République du Niger republic RN" <urn:graph:kws:001:sol10> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.semwebtech.org/mondial/10/countries/WAN/> <urn:graph:kws:001:sol10> .
+<http://www.semwebtech.org/mondial/10/countries/RN/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "3395"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol10> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <urn:vocab:kws:comment> "Niger" <urn:graph:kws:001:sol10> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/RN/> <urn:graph:kws:001:sol10> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.semwebtech.org/mondial/10/countries/WAN/provinces/Niger/> <urn:graph:kws:001:sol10> .
+<http://www.semwebtech.org/mondial/10/rivers/Niger/> <http://www.semwebtech.org/mondial/10/meta#__search_id> "16957"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:001:sol10> .
