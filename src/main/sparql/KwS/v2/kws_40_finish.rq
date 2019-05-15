@@ -18,22 +18,22 @@ where {
   graph ?g {
     {{?s ?p []} union {[] ?p ?s}}
     optional {
-      service <http://localhost:3030/Mondial/sparql> {
+      service <%1$s> {
         optional {?s meta:__search_id ?id}
       }
     }
     optional {
-      service <http://localhost:3030/Mondial/sparql> {
+      service <%1$s> {
         optional {?s ?dtProp ?literal. filter(datatype(?literal) = xsd:string)}
       }
     }
     optional {
-      service <http://localhost:3030/Mondial/sparql> {
+      service <%1$s> {
         optional {graph kwsg:labels {?s rdfs:label ?lbl}}
       }
     }
     optional {
-      service <http://localhost:3030/Mondial/sparql> {
+      service <%1$s> {
         optional {graph kwsg:indexed {?s kws:comment ?comment}}
       }
     }
