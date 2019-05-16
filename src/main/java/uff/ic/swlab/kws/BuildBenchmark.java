@@ -31,12 +31,19 @@ public class BuildBenchmark {
         String service3 = "http://localhost:3030/KwS.temp/sparql";
         String kwsVersion;
         String benchmark;
-        if (false) {
-            kwsVersion = "v2";
-            benchmark = "CIKM2019_1";
-        } else {
-            kwsVersion = "v2_2";
-            benchmark = "CIKM2019_2";
+        switch (2) {
+            case 1:
+                kwsVersion = "v2";
+                benchmark = "CIKM2019_1";
+                break;
+            case 2:
+                kwsVersion = "v2_2";
+                benchmark = "CIKM2019_2";
+                break;
+            default:
+                kwsVersion = "v2";
+                benchmark = "CIKM2019_1";
+                break;
         }
         String rankingFilename = String.format("./src/main/resources/benchmarks/%1$s/Mondial/ranking.ttl", benchmark);
 
