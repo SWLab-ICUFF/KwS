@@ -24,7 +24,7 @@ where {
     }
     optional {
       service <%1$s> {
-        optional {?s ?dtProp ?literal. filter(datatype(?literal) = xsd:string)}
+        optional {?s ?dtProp ?literal. filter(isLiteral(?literal) && datatype(?literal) = xsd:string)}
       }
     }
     optional {
