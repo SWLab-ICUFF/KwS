@@ -26,16 +26,21 @@ public class BuildBenchmarkV2 {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
 
-        String service1 = "http://localhost:3030/IMDb2/sparql";
-        String service2 = "http://localhost:3030/IMDb2.benchmark/sparql";
-        String service3 = "http://localhost:3030/KwS.temp/sparql";
-        String kwsVersion = "v2";
-        //String kwsVersion = "v2_2";
-        String benchmark = "CIKM2019_1";
-        //String benchmark = "CIKM2019_2";
+        String service1 = "http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql";
+        String service2 = "http://semanticweb.inf.puc-rio.br:3030/IMDb2.benchmark/sparql";
+        String service3 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
+        String kwsVersion;
+        String benchmark;
+        if (false) {
+            kwsVersion = "v2";
+            benchmark = "CIKM2019_1";
+        } else {
+            kwsVersion = "v2_2";
+            benchmark = "CIKM2019_2";
+        }
         String rankingFilename = String.format("./src/main/resources/benchmarks/%1$s/IMDb/ranking.ttl", benchmark);
 
-        new FusekiServer("localhost", 3030).execUpdate(readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion)), "KwS.stats");
+        new FusekiServer("semanticweb.inf.puc-rio.br", 3030).execUpdate(readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion)), "KwS.stats");
 
         try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/IMDb/queries_.txt", benchmark)));
                 Scanner sc = new Scanner(in)) {
@@ -45,11 +50,18 @@ public class BuildBenchmarkV2 {
                 i++;
                 String keywordQuery = sc.nextLine().trim();
                 if (keywordQuery != null && !keywordQuery.equals("")) {
+                    //System.out.println(i + "Para keyword: "+ keywordQuery);
                     String benchmarkNS = String.format("urn:graph:kws:%1$03d:", i);
                     String benchmarkFilename = String.format("./src/main/resources/benchmarks/%1$s/IMDb/%2$03d.nq.gz", benchmark, i);
-                    run(kwsVersion, service1, service2, service3, keywordQuery, benchmarkNS, benchmarkFilename, rankingFilename);
+                    File fileVerifica = new File(benchmarkFilename);
+                    if(!fileVerifica.exists()) {
+                        System.out.println(i + "------ Para keyword: "+ keywordQuery);
+                        run(kwsVersion, service1, service2, service3, keywordQuery, benchmarkNS, benchmarkFilename, rankingFilename);
+                    }else{
+                         System.out.println(i + "Já contem o benchmark: "+ keywordQuery);
+                    }
+                    
                 }
-                System.out.println(i);
             }
 
         } finally {
@@ -57,7 +69,7 @@ public class BuildBenchmarkV2 {
     }
 
     public static void run(String kwsVersion, String service1, String service2, String service3, String keywordQuery, String benchmarkNS, String filename, String filename2) throws FileNotFoundException, IOException, InvalidNameException {
-        FusekiServer fuseki = new FusekiServer("localhost", 3030);
+        FusekiServer fuseki = new FusekiServer("semanticweb.inf.puc-rio.br", 3030);
         String queryString = "";
 
         if (true) {

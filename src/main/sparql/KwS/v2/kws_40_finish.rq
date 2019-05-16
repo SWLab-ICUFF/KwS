@@ -13,16 +13,31 @@ prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 # trazer kws:comment do Mondial para as soluções #
 ##################################################.
 
-insert {graph ?g {?s meta:__search_id ?id; kws:comment ?comment; ?dtProp ?lit}}
+insert {graph ?g {?s meta:__search_id ?id; kws:comment ?comment; ?dtProp ?literal; rdfs:label ?lbl.}}
 where {
-    graph ?g {
-        {{?s ?p []} union {[] ?p ?s}}
-        service <%1$s> {
-            optional {?s meta:__search_id ?id}
-            optional {?s ?dtPop ?lit. filter(isLiteral(?o) && !isNumeric(?o))}
-            optional {graph kwsg:indexed {?s kws:comment ?comment}}
-        }
+  graph ?g {
+    {{?s ?p []} union {[] ?p ?s}}
+    optional {
+      service <%1$s> {
+        optional {?s meta:__search_id ?id}
+      }
     }
+    optional {
+      service <%1$s> {
+        optional {?s ?dtProp ?literal. filter(datatype(?literal) = xsd:string)}
+      }
+    }
+    optional {
+      service <%1$s> {
+        optional {graph kwsg:labels {?s rdfs:label ?lbl}}
+      }
+    }
+    optional {
+      service <%1$s> {
+        optional {graph kwsg:indexed {?s kws:comment ?comment}}
+      }
+    }
+  }
 };
 
 
