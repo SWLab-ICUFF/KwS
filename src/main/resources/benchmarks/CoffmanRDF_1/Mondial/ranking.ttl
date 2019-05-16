@@ -1,0 +1,201 @@
+@prefix urn:   <urn:uuid:> .
+@prefix kwsg:  <urn:graph:kws:> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix kws:   <urn:vocab:kws:> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+kwsg:007:query  a         kws:Ranking ;
+        kws:duration      [ a                     time:Duration ;
+                            time:numericDuration  0.209 ;
+                            time:unityType        time:unitSecond
+                          ] ;
+        kws:keywordQuery  "sonsonate" .
+
+kwsg:002:query  a         kws:Ranking ;
+        kws:duration      [ a                     time:Duration ;
+                            time:numericDuration  0.6 ;
+                            time:unityType        time:unitSecond
+                          ] ;
+        kws:entry         [ kws:position  1 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.7985077"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:002:sol1
+                          ] ;
+        kws:keywordQuery  "netherlands" .
+
+kwsg:005:query  a         kws:Ranking ;
+        kws:duration      [ a                     time:Duration ;
+                            time:numericDuration  0.544 ;
+                            time:unityType        time:unitSecond
+                          ] ;
+        kws:entry         [ kws:position  1 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.7985077"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:005:sol1
+                          ] ;
+        kws:keywordQuery  "bangladesh" .
+
+kwsg:008:query  a         kws:Ranking ;
+        kws:duration      [ a                     time:Duration ;
+                            time:numericDuration  0.479 ;
+                            time:unityType        time:unitSecond
+                          ] ;
+        kws:keywordQuery  "xiaogan" .
+
+kwsg:003:query  a         kws:Ranking ;
+        kws:duration      [ a                     time:Duration ;
+                            time:numericDuration  0.692 ;
+                            time:unityType        time:unitSecond
+                          ] ;
+        kws:entry         [ kws:position  2 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.8158957"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:003:sol2
+                          ] ;
+        kws:entry         [ kws:position  1 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.837601"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:003:sol1
+                          ] ;
+        kws:keywordQuery  "georgia" .
+
+kwsg:006:query  a         kws:Ranking ;
+        kws:duration      [ a                     time:Duration ;
+                            time:numericDuration  0.81 ;
+                            time:unityType        time:unitSecond
+                          ] ;
+        kws:entry         [ kws:position  6 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.864779"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:006:sol6
+                          ] ;
+        kws:entry         [ kws:position  5 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.864779"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:006:sol5
+                          ] ;
+        kws:entry         [ kws:position  4 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.864779"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:006:sol2
+                          ] ;
+        kws:entry         [ kws:position  3 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.864779"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:006:sol1
+                          ] ;
+        kws:entry         [ kws:position  2 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.86668646"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:006:sol7
+                          ] ;
+        kws:entry         [ kws:position  1 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.86668646"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:006:sol4
+                          ] ;
+        kws:keywordQuery  "alexandria" .
+
+kwsg:001:query  a         kws:Ranking ;
+        kws:duration      [ a                     time:Duration ;
+                            time:numericDuration  1.304 ;
+                            time:unityType        time:unitSecond
+                          ] ;
+        kws:entry         [ kws:position  1 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.7985077"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:001:sol1
+                          ] ;
+        kws:keywordQuery  "thailand" .
+
+kwsg:004:query  a         kws:Ranking ;
+        kws:duration      [ a                     time:Duration ;
+                            time:numericDuration  2.037 ;
+                            time:unityType        time:unitSecond
+                          ] ;
+        kws:entry         [ kws:position  7 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.5904813"^^xsd:float ;
+                            kws:size      6 ;
+                            kws:solution  kwsg:004:sol5
+                          ] ;
+        kws:entry         [ kws:position  2 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.7210195"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:004:sol2
+                          ] ;
+        kws:entry         [ kws:position  10 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9023528"^^xsd:float ;
+                            kws:size      36 ;
+                            kws:solution  kwsg:004:sol12
+                          ] ;
+        kws:entry         [ kws:position  6 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.238687"^^xsd:float ;
+                            kws:size      43 ;
+                            kws:solution  kwsg:004:sol14
+                          ] ;
+        kws:entry         [ kws:position  1 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.8412614"^^xsd:float ;
+                            kws:size      16 ;
+                            kws:solution  kwsg:004:sol9
+                          ] ;
+        kws:entry         [ kws:position  4 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.6691253"^^xsd:float ;
+                            kws:size      27 ;
+                            kws:solution  kwsg:004:sol10
+                          ] ;
+        kws:entry         [ kws:position  3 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.7210195"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:004:sol3
+                          ] ;
+        kws:entry         [ kws:position  12 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7872558"^^xsd:float ;
+                            kws:size      66 ;
+                            kws:solution  kwsg:004:sol15
+                          ] ;
+        kws:entry         [ kws:position  8 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2202682"^^xsd:float ;
+                            kws:size      21 ;
+                            kws:solution  kwsg:004:sol11
+                          ] ;
+        kws:entry         [ kws:position  9 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9796388"^^xsd:float ;
+                            kws:size      14 ;
+                            kws:solution  kwsg:004:sol6
+                          ] ;
+        kws:entry         [ kws:position  11 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8368334"^^xsd:float ;
+                            kws:size      49 ;
+                            kws:solution  kwsg:004:sol13
+                          ] ;
+        kws:entry         [ kws:position  5 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.5199227"^^xsd:float ;
+                            kws:size      8 ;
+                            kws:solution  kwsg:004:sol7
+                          ] ;
+        kws:keywordQuery  "country china" .
