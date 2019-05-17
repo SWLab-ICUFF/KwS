@@ -59,7 +59,13 @@ public class BuildBenchmarkV2 {
                 if (keywordQuery != null && !keywordQuery.equals("")) {
                     String benchmarkNS = String.format("urn:graph:kws:%1$03d:", i);
                     String benchmarkFilename = String.format("./src/main/resources/benchmarks/%1$s/IMDb/%2$03d.nq.gz", benchmark, i);
-                    run(kwsVersion, service1, service2, service3, keywordQuery, benchmarkNS, benchmarkFilename, rankingFilename);
+                    File filebenchmarkFile = new File(benchmarkFilename);
+                    if(!filebenchmarkFile.exists()){
+                        System.out.println(i + "------ Para keyword:" + keywordQuery);
+                        run(kwsVersion, service1, service2, service3, keywordQuery, benchmarkNS, benchmarkFilename, rankingFilename);
+                    }else{
+                        System.out.println(i+ "Já contem o benchmark:" + keywordQuery);
+                    }
                 }
             }
 
@@ -107,7 +113,7 @@ public class BuildBenchmarkV2 {
             fuseki.execUpdate(queryString, "KwS.stats");
         }
 
-        if (true) {
+        if (false) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_60_finish.rq", kwsVersion));
             queryString = queryString.format(queryString, service1, service2, benchmarkNS);
             fuseki.execUpdate(queryString, "KwS.temp");
