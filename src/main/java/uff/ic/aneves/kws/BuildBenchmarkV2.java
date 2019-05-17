@@ -12,6 +12,12 @@ import java.util.Calendar;
 import java.util.Scanner;
 import java.util.zip.GZIPOutputStream;
 import javax.naming.InvalidNameException;
+import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.Lang;
@@ -24,7 +30,7 @@ import uff.ic.swlab.util.FusekiServer;
 
 public class BuildBenchmarkV2 {
 
-    public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
+    public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException, Exception {
 
         String service1 = "http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql";
         String service2 = "http://semanticweb.inf.puc-rio.br:3030/IMDb2.benchmark/sparql";
@@ -73,7 +79,7 @@ public class BuildBenchmarkV2 {
         }
     }
 
-    public static void run(String kwsVersion, String service1, String service2, String service3, String keywordQuery, String benchmarkNS, String filename, String filename2) throws FileNotFoundException, IOException, InvalidNameException {
+    public static void run(String kwsVersion, String service1, String service2, String service3, String keywordQuery, String benchmarkNS, String filename, String filename2) throws FileNotFoundException, IOException, InvalidNameException, Exception {
         FusekiServer fuseki = new FusekiServer("semanticweb.inf.puc-rio.br", 3030);
         String queryString = "";
 
@@ -88,12 +94,15 @@ public class BuildBenchmarkV2 {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_10_search.rq", kwsVersion));
             queryString = queryString.format(queryString, service1, keywordQuery, benchmarkNS);
             fuseki.execUpdate(queryString, "KwS.temp");
+            System.out.println("Run completed kws_10_rank.rq.rq");
+
         }
 
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_20_rank.rq", kwsVersion));
             queryString = queryString.format(queryString, keywordQuery);
             fuseki.execUpdate(queryString, "KwS.temp");
+            System.out.println("Run completed kws_20_rank.rq.rq");
         }
 
         Calendar t2 = Calendar.getInstance();
@@ -105,6 +114,7 @@ public class BuildBenchmarkV2 {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_40_finish.rq", kwsVersion));
             queryString = queryString.format(queryString, service1, service2, benchmarkNS);
             fuseki.execUpdate(queryString, "KwS.temp");
+            System.out.println("Run completed kws_40_finish.rq");
         }
 
         if (true) {
@@ -120,8 +130,9 @@ public class BuildBenchmarkV2 {
         }
 
         {
-            Dataset dataset = fuseki.getDataset("KwS.temp");
-            bkpDataset(dataset, filename);
+            //Dataset dataset = fuseki.getDataset("KwS.temp");
+            //bkpDataset(dataset, filename);
+            backupDataset();
         }
 
         {
@@ -151,15 +162,35 @@ public class BuildBenchmarkV2 {
         OutputStream out = new FileOutputStream(file);
         RDFDataMgr.write(out, model, RDFFormat.TURTLE_PRETTY);
     }
-
-    private static void bkpDataset(Dataset dataset, String filename) throws FileNotFoundException, IOException {
-        try (OutputStream out = new FileOutputStream(new File(filename));
-                GZIPOutputStream out2 = new GZIPOutputStream(out)) {
-            RDFDataMgr.write(out2, dataset, Lang.NQUADS);
-            out2.finish();
-            out.flush();
-        } finally {
+    
+     public static void backupDataset() throws Exception, IOException {
+        System.out.println(String.format("Requesting backup of the Fuseki dataset KwS.temp..."));
+        try {
+            HttpClient httpclient = HttpClients.createDefault();
+            HttpResponse response = httpclient.execute(new HttpPost("http://semanticweb.inf.puc-rio.br:3030/$/backup/KwS.temp"));
+            int statuscode = response.getStatusLine().getStatusCode();
+            HttpEntity entity = response.getEntity();
+            if (entity != null && statuscode == 200)
+                try (final InputStream instream = entity.getContent()) {
+                    System.out.println(IOUtils.toString(instream, "utf-8"));
+                    System.out.println("Done.");
+                }
+            else
+                System.out.println("Backup request failed.");
+        } catch (Throwable e) {
+            System.out.println("Backup request failed.");
         }
     }
+
+
+//    private static void bkpDataset(Dataset dataset, String filename) throws FileNotFoundException, IOException {
+//        try (OutputStream out = new FileOutputStream(new File(filename));
+//                GZIPOutputStream out2 = new GZIPOutputStream(out)) {
+//            RDFDataMgr.write(out2, dataset, Lang.NQUADS);
+//            out2.finish();
+//            out.flush();
+//        } finally {
+//        }
+//    }
 
 }
