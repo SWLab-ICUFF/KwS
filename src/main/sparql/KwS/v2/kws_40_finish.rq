@@ -11,7 +11,7 @@ prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
 ##################################################
 # trazer kws:comment do Mondial para as soluções #
-##################################################.
+##################################################
 
 insert {graph ?g {?s meta:__search_id ?id; kws:comment ?comment.}}
 where {
