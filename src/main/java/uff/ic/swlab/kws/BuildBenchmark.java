@@ -40,6 +40,10 @@ public class BuildBenchmark {
                 kwsVersion = "v2_2";
                 benchmark = "CIKM2019_2";
                 break;
+            case 3:
+                kwsVersion = "v2_3";
+                benchmark = "CIKM2019_1";
+                break;
             default:
                 kwsVersion = "v2";
                 benchmark = "CIKM2019_1";
