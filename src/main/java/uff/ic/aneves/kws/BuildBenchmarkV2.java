@@ -27,8 +27,8 @@ public class BuildBenchmarkV2 {
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
 
         String service1 = "http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql";
-        String service2 = "http://semanticweb.inf.puc-rio.br/IMDb2.benchmark/sparql";
-        String service3 = "http://semanticweb.inf.puc-rio.br/KwS.temp/sparql";
+        String service2 = "http://semanticweb.inf.puc-rio.br:3030/IMDb2.benchmark/sparql";
+        String service3 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
         String kwsVersion;
         String benchmark;
         switch (2) {
