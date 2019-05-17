@@ -107,6 +107,12 @@ public class BuildBenchmark {
             fuseki.execUpdate(queryString, "KwS.stats");
         }
 
+        if (true) {
+            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_60_finish.rq", kwsVersion));
+            queryString = queryString.format(queryString, service1, service2, benchmarkNS);
+            fuseki.execUpdate(queryString, "KwS.temp");
+        }
+
         {
             Dataset dataset = fuseki.getDataset("KwS.temp");
             bkpDataset(dataset, filename);
