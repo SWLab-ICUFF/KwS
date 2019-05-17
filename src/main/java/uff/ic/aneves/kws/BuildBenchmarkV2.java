@@ -27,16 +27,23 @@ public class BuildBenchmarkV2 {
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
 
         String service1 = "http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql";
-        String service2 = "http://semanticweb.inf.puc-rio.br:3030/IMDb2.benchmark/sparql";
-        String service3 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
+        String service2 = "http://semanticweb.inf.puc-rio.br/IMDb2.benchmark/sparql";
+        String service3 = "http://semanticweb.inf.puc-rio.br/KwS.temp/sparql";
         String kwsVersion;
         String benchmark;
-        if (false) {
-            kwsVersion = "v2";
-            benchmark = "CIKM2019_1";
-        } else {
-            kwsVersion = "v2_2";
-            benchmark = "CIKM2019_2";
+        switch (2) {
+            case 1:
+                kwsVersion = "v2";
+                benchmark = "CIKM2019_1";
+                break;
+            case 2:
+                kwsVersion = "v2_2";
+                benchmark = "CIKM2019_2";
+                break;
+            default:
+                kwsVersion = "v2";
+                benchmark = "CIKM2019_1";
+                break;
         }
         String rankingFilename = String.format("./src/main/resources/benchmarks/%1$s/IMDb/ranking.ttl", benchmark);
 
@@ -50,17 +57,9 @@ public class BuildBenchmarkV2 {
                 i++;
                 String keywordQuery = sc.nextLine().trim();
                 if (keywordQuery != null && !keywordQuery.equals("")) {
-                    //System.out.println(i + "Para keyword: "+ keywordQuery);
                     String benchmarkNS = String.format("urn:graph:kws:%1$03d:", i);
                     String benchmarkFilename = String.format("./src/main/resources/benchmarks/%1$s/IMDb/%2$03d.nq.gz", benchmark, i);
-                    File fileVerifica = new File(benchmarkFilename);
-                    if(!fileVerifica.exists()) {
-                        System.out.println(i + "------ Para keyword: "+ keywordQuery);
-                        run(kwsVersion, service1, service2, service3, keywordQuery, benchmarkNS, benchmarkFilename, rankingFilename);
-                    }else{
-                         System.out.println(i + "Já contem o benchmark: "+ keywordQuery);
-                    }
-                    
+                    run(kwsVersion, service1, service2, service3, keywordQuery, benchmarkNS, benchmarkFilename, rankingFilename);
                 }
             }
 
@@ -106,6 +105,12 @@ public class BuildBenchmarkV2 {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_50_eval.rq", kwsVersion));
             queryString = queryString.format(queryString, service2, service3, benchmarkNS, keywordQuery, seconds);
             fuseki.execUpdate(queryString, "KwS.stats");
+        }
+
+        if (true) {
+            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_60_finish.rq", kwsVersion));
+            queryString = queryString.format(queryString, service1, service2, benchmarkNS);
+            fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         {
