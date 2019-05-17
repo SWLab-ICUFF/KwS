@@ -37,7 +37,7 @@ public class BuildBenchmarkV2 {
         String service3 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
         String kwsVersion;
         String benchmark;
-        switch (2) {
+        switch (3) {
             case 1:
                 kwsVersion = "v2";
                 benchmark = "CIKM2019_1";
@@ -45,6 +45,10 @@ public class BuildBenchmarkV2 {
             case 2:
                 kwsVersion = "v2_2";
                 benchmark = "CIKM2019_2";
+                break;
+             case 3:
+                kwsVersion = "v2_3";
+                benchmark = "CIKM2019_1";
                 break;
             default:
                 kwsVersion = "v2";
@@ -130,9 +134,9 @@ public class BuildBenchmarkV2 {
         }
 
         {
-            //Dataset dataset = fuseki.getDataset("KwS.temp");
-            //bkpDataset(dataset, filename);
-            backupDataset();
+            Dataset dataset = fuseki.getDataset("KwS.temp");
+            bkpDataset(dataset, filename);
+            //backupDataset();
         }
 
         {
@@ -163,34 +167,34 @@ public class BuildBenchmarkV2 {
         RDFDataMgr.write(out, model, RDFFormat.TURTLE_PRETTY);
     }
     
-     public static void backupDataset() throws Exception, IOException {
-        System.out.println(String.format("Requesting backup of the Fuseki dataset KwS.temp..."));
-        try {
-            HttpClient httpclient = HttpClients.createDefault();
-            HttpResponse response = httpclient.execute(new HttpPost("http://semanticweb.inf.puc-rio.br:3030/$/backup/KwS.temp"));
-            int statuscode = response.getStatusLine().getStatusCode();
-            HttpEntity entity = response.getEntity();
-            if (entity != null && statuscode == 200)
-                try (final InputStream instream = entity.getContent()) {
-                    System.out.println(IOUtils.toString(instream, "utf-8"));
-                    System.out.println("Done.");
-                }
-            else
-                System.out.println("Backup request failed.");
-        } catch (Throwable e) {
-            System.out.println("Backup request failed.");
-        }
-    }
-
-
-//    private static void bkpDataset(Dataset dataset, String filename) throws FileNotFoundException, IOException {
-//        try (OutputStream out = new FileOutputStream(new File(filename));
-//                GZIPOutputStream out2 = new GZIPOutputStream(out)) {
-//            RDFDataMgr.write(out2, dataset, Lang.NQUADS);
-//            out2.finish();
-//            out.flush();
-//        } finally {
+//     public static void backupDataset() throws Exception, IOException {
+//        System.out.println(String.format("Requesting backup of the Fuseki dataset KwS.temp..."));
+//        try {
+//            HttpClient httpclient = HttpClients.createDefault();
+//            HttpResponse response = httpclient.execute(new HttpPost("http://semanticweb.inf.puc-rio.br:3030/$/backup/KwS.temp"));
+//            int statuscode = response.getStatusLine().getStatusCode();
+//            HttpEntity entity = response.getEntity();
+//            if (entity != null && statuscode == 200)
+//                try (final InputStream instream = entity.getContent()) {
+//                    System.out.println(IOUtils.toString(instream, "utf-8"));
+//                    System.out.println("Done.");
+//                }
+//            else
+//                System.out.println("Backup request failed.");
+//        } catch (Throwable e) {
+//            System.out.println("Backup request failed.");
 //        }
 //    }
+
+
+    private static void bkpDataset(Dataset dataset, String filename) throws FileNotFoundException, IOException {
+        try (OutputStream out = new FileOutputStream(new File(filename));
+                GZIPOutputStream out2 = new GZIPOutputStream(out)) {
+            RDFDataMgr.write(out2, dataset, Lang.NQUADS);
+            out2.finish();
+            out.flush();
+        } finally {
+        }
+    }
 
 }
