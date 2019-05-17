@@ -108,7 +108,7 @@ public class BuildBenchmark {
         }
 
         if (true) {
-            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_40_finish.rq", kwsVersion));
+            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_60_finish.rq", kwsVersion));
             queryString = queryString.format(queryString, service1, service2, benchmarkNS);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
