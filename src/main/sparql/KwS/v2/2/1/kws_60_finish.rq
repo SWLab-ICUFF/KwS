@@ -15,19 +15,12 @@ prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
 insert {graph ?g {?s ?dtProp ?literal; rdfs:label ?lbl.}}
 where {
-  graph ?g {
-    {{?s ?p []} union {[] ?p ?s}}
-    optional {
-      service <%1$s> {
-        {?s ?dtProp ?literal. filter(isLiteral(?literal))}
-      }
+    {
+        {select distinct ?s {graph ?g {{?s ?p []} union {[] ?p ?s}}}}
+        optional {service <%1$s> {?s ?dtProp ?literal. filter(isLiteral(?literal))}}
+        optional {service <%1$s> {graph kwsg:labels {?s rdfs:label ?lbl}}}}
     }
-    optional {
-      service <%1$s> {
-        {graph kwsg:labels {?s rdfs:label ?lbl}}
-      }
-    }
-  }
+    graph ?g {{?s ?p []} union {[] ?p ?s}}
 };
 
 
