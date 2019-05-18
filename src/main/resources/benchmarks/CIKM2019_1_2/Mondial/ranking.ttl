@@ -6,57 +6,99 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix time:  <http://www.w3.org/2006/time#> .
 
-kwsg:007:query  a         kws:Ranking ;
+kwsg:001:query  a         kws:Ranking ;
         kws:duration      [ a                     time:Duration ;
-                            time:numericDuration  6.714 ;
+                            time:numericDuration  7.698 ;
                             time:unityType        time:unitSecond
                           ] ;
-        kws:entry         [ kws:position  8 ;
-                            kws:recall    0.0 ;
-                            kws:score     "0.13353139"^^xsd:float ;
-                            kws:size      4 ;
-                            kws:solution  kwsg:007:sol15
-                          ] ;
-        kws:entry         [ kws:position  1 ;
-                            kws:recall    0.0 ;
-                            kws:score     "0.13353139"^^xsd:float ;
-                            kws:size      1 ;
-                            kws:solution  kwsg:007:sol1
-                          ] ;
-        kws:entry         [ kws:position  4 ;
-                            kws:recall    0.0 ;
-                            kws:score     "0.13353139"^^xsd:float ;
+        kws:entry         [ kws:position  14 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.41755682"^^xsd:float ;
                             kws:size      2 ;
-                            kws:solution  kwsg:007:sol7
+                            kws:solution  kwsg:001:sol9
                           ] ;
-        kws:entry         [ kws:position  7 ;
-                            kws:recall    0.0 ;
-                            kws:score     "0.13353139"^^xsd:float ;
+        kws:entry         [ kws:position  6 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.9841305"^^xsd:float ;
                             kws:size      3 ;
-                            kws:solution  kwsg:007:sol13
-                          ] ;
-        kws:entry         [ kws:position  5 ;
-                            kws:recall    0.0 ;
-                            kws:score     "0.13353139"^^xsd:float ;
-                            kws:size      3 ;
-                            kws:solution  kwsg:007:sol11
+                            kws:solution  kwsg:001:sol12
                           ] ;
         kws:entry         [ kws:position  2 ;
                             kws:recall    0.0 ;
-                            kws:score     "0.13353139"^^xsd:float ;
+                            kws:score     "1.4710445"^^xsd:float ;
                             kws:size      2 ;
-                            kws:solution  kwsg:007:sol5
+                            kws:solution  kwsg:001:sol6
                           ] ;
-        kws:entry         [ kws:position  6 ;
+        kws:entry         [ kws:position  11 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.43775463"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:001:sol3
+                          ] ;
+        kws:entry         [ kws:position  13 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.41755682"^^xsd:float ;
+                            kws:size      2 ;
+                            kws:solution  kwsg:001:sol10
+                          ] ;
+        kws:entry         [ kws:position  1 ;
                             kws:recall    0.0 ;
-                            kws:score     "0.13353139"^^xsd:float ;
+                            kws:score     "1.4710445"^^xsd:float ;
+                            kws:size      2 ;
+                            kws:solution  kwsg:001:sol5
+                          ] ;
+        kws:entry         [ kws:position  12 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.43271393"^^xsd:float ;
                             kws:size      3 ;
-                            kws:solution  kwsg:007:sol12
+                            kws:solution  kwsg:001:sol14
+                          ] ;
+        kws:entry         [ kws:position  10 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.43775463"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:001:sol2
+                          ] ;
+        kws:entry         [ kws:position  9 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.46319106"^^xsd:float ;
+                            kws:size      2 ;
+                            kws:solution  kwsg:001:sol7
+                          ] ;
+        kws:entry         [ kws:position  15 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.39264"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:001:sol4
                           ] ;
         kws:entry         [ kws:position  3 ;
                             kws:recall    0.0 ;
-                            kws:score     "0.13353139"^^xsd:float ;
-                            kws:size      2 ;
-                            kws:solution  kwsg:007:sol6
+                            kws:score     "1.4144695"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:001:sol1
                           ] ;
-        kws:keywordQuery  "haiti religion" .
+        kws:entry         [ kws:position  8 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.96507144"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:001:sol15
+                          ] ;
+        kws:entry         [ kws:position  4 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3918239"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:001:sol11
+                          ] ;
+        kws:entry         [ kws:position  5 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.99821436"^^xsd:float ;
+                            kws:size      2 ;
+                            kws:solution  kwsg:001:sol8
+                          ] ;
+        kws:entry         [ kws:position  7 ;
+                            kws:recall    1.0 ;
+                            kws:score     "0.9841305"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:001:sol13
+                          ] ;
+        kws:keywordQuery  "niger country" .
