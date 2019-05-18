@@ -6,9 +6,81 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix time:  <http://www.w3.org/2006/time#> .
 
-kwsg:004:query  a         kws:Ranking ;
+kwsg:001:query  a         kws:Ranking ;
         kws:duration      [ a                     time:Duration ;
-                            time:numericDuration  0.785 ;
+                            time:numericDuration  2.404 ;
                             time:unityType        time:unitSecond
                           ] ;
-        kws:keywordQuery  "everest elevation" .
+        kws:entry         [ kws:position  11 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.17042832"^^xsd:float ;
+                            kws:size      2 ;
+                            kws:solution  kwsg:001:sol8
+                          ] ;
+        kws:entry         [ kws:position  4 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.17790742"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:001:sol11
+                          ] ;
+        kws:entry         [ kws:position  6 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.1750988"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:001:sol12
+                          ] ;
+        kws:entry         [ kws:position  7 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.1750988"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:001:sol14
+                          ] ;
+        kws:entry         [ kws:position  8 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.1750988"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:001:sol15
+                          ] ;
+        kws:entry         [ kws:position  3 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.17790742"^^xsd:float ;
+                            kws:size      2 ;
+                            kws:solution  kwsg:001:sol7
+                          ] ;
+        kws:entry         [ kws:position  1 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.17790742"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:001:sol2
+                          ] ;
+        kws:entry         [ kws:position  10 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.17042832"^^xsd:float ;
+                            kws:size      2 ;
+                            kws:solution  kwsg:001:sol10
+                          ] ;
+        kws:entry         [ kws:position  9 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.17042832"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:001:sol4
+                          ] ;
+        kws:entry         [ kws:position  12 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.17042832"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:001:sol13
+                          ] ;
+        kws:entry         [ kws:position  5 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.1750988"^^xsd:float ;
+                            kws:size      2 ;
+                            kws:solution  kwsg:001:sol9
+                          ] ;
+        kws:entry         [ kws:position  2 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.17790742"^^xsd:float ;
+                            kws:size      2 ;
+                            kws:solution  kwsg:001:sol5
+                          ] ;
+        kws:keywordQuery  "niger country" .
