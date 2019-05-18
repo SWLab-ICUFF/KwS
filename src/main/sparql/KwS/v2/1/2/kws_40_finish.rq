@@ -16,11 +16,11 @@ prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 insert {graph ?g {?s meta:__search_id ?id; kws:comment ?comment.}}
 where {
     {
-        {select distinct ?s {graph ?g {{?s ?p []} union {[] ?p ?s}}}}
+        {select distinct ?s {graph ?g {{?s ?p []} union {[] ?p ?s} filter(!isBlank(?s))}}}
         optional {service <%1$s> {?s meta:__search_id ?id}}
         optional {service <%1$s> {graph kwsg:indexed {?s kws:comment ?comment}}}
     }
-    {select distinct ?g ?s {graph ?g {{?s ?p []} union {[] ?p ?s}}}}
+    {select distinct ?g ?s {graph ?g {{?s ?p []} union {[] ?p ?s} filter(!isBlank(?s))}}}
 };
 
 

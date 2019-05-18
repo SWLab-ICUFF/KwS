@@ -16,11 +16,11 @@ prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 insert {graph ?g {?s ?dtProp ?literal; rdfs:label ?lbl.}}
 where {
     {
-        {select distinct ?s {graph ?g {{?s ?p []} union {[] ?p ?s}}}}
+        {select distinct ?s {graph ?g {{?s ?p []} union {[] ?p ?s}  filter(!isBlank(?s))}}}
         optional {service <%1$s> {?s ?dtProp ?literal. filter(isLiteral(?literal))}}
         optional {service <%1$s> {graph kwsg:labels {?s rdfs:label ?lbl}}}}
     }
-    {select distinct ?g ?s {graph ?g {{?s ?p []} union {[] ?p ?s}}}}
+    {select distinct ?g ?s {graph ?g {{?s ?p []} union {[] ?p ?s} filter(!isBlank(?s))}}}
 };
 
 
