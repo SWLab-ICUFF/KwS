@@ -57,7 +57,7 @@ public class BuildBenchmarkSemanticWeb {
             }
             String rankingFilename = String.format("./src/main/resources/benchmarksSemanticWeb/%1$s/Mondial/ranking.ttl", benchmark);
 
-            new FusekiServer("localhost", 3030).execUpdate(readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion)), "KwS.stats");
+            new FusekiServer("semanticweb.inf.puc-rio.br", 3030).execUpdate(readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion)), "KwS.stats");
 
             try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarksSemanticWeb/%1$s/Mondial/queries_.txt", benchmark)));
                     Scanner sc = new Scanner(in)) {
@@ -79,7 +79,7 @@ public class BuildBenchmarkSemanticWeb {
     }
 
     public static void run(String kwsVersion, String service1, String service2, String service3, String keywordQuery, String benchmarkNS, String filename, String filename2) throws FileNotFoundException, IOException, InvalidNameException {
-        FusekiServer fuseki = new FusekiServer("localhost", 3030);
+        FusekiServer fuseki = new FusekiServer("semanticweb.inf.puc-rio.br", 3030);
         String queryString = "";
 
         if (true) {
