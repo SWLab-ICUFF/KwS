@@ -20,7 +20,7 @@ where {
         optional {service <%1$s> {?s ?dtProp ?literal. filter(isLiteral(?literal))}}
         optional {service <%1$s> {graph kwsg:labels {?s rdfs:label ?lbl}}}}
     }
-    graph ?g {{?s ?p []} union {[] ?p ?s}}
+    {select distinct ?g ?s {graph ?g {{?s ?p []} union {[] ?p ?s}}}}
 };
 
 
