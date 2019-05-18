@@ -1,0 +1,30 @@
+Topics
+
+1-5: countries
+Relevant results should contain a single tuple that is the specified country's tuple from the country relation.
+
+6-10: cities
+Relevant results should contain a single tuple that is the specified city's tuple from the city relation.
+
+11-15: geographical
+Relevant results should contain a single tuple that is the specified geographical entity's tuple from the appropriate relation. Refer to the qrels files for additional details (e.g., which relation the tuple is from).
+
+16-20: organization
+Relevant results should contain a single tuple that is the specified organization's tuple from the organization relation.
+
+21-25: border between countries
+Relevant results should contain 3 tuples (2 from the country relation and 1 from the borders relation) that identify the shared border between two countries. The relevant result answers the question "What is the length of the border between X and Y?" where X and Y are the respective countries.
+
+26-35: geopolitical or demographic information
+Relevant results should contain 2 tuples (1 from the country relation and 1 from another specified relation -- see the qrels files for additional details). These relevant results address questions related to political or demographic information for the specified country.
+
+36-45: member organizations between two countries
+Relevant results contain 5 tuples (2 from the country relation, 2 from the is_member relation, and 1 from the organization relation) and identify all organizations which the 2 specified countries are members of.
+
+46-50: [misc]
+In general, these topics relate arbitrary information within the database. The questions used to create the topics are provided below.
+46: Which African countries contain the Hutu ethnic group?
+47: Which European countries contain the Serb ethnic group?
+48: Which Asian countries contain the Uzbek ethnic group?
+49: Which German provinces does the Rhein River flow through?
+50: Which Egyptian provinces does the Nile River flow through?

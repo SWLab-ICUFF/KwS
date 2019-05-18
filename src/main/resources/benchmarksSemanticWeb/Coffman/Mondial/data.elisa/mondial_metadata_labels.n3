@@ -1,0 +1,86 @@
+<http://www.semwebtech.org/mondial/10/meta#EthnicProportion> <http://www.w3.org/2000/01/rdf-schema#label> "Ethnic Proportion" .
+<http://www.semwebtech.org/mondial/10/meta#Province> <http://www.w3.org/2000/01/rdf-schema#label> "Province" .
+<http://www.semwebtech.org/mondial/10/meta#Source> <http://www.w3.org/2000/01/rdf-schema#label> "Source" .
+<http://www.semwebtech.org/mondial/10/meta#Volcano> <http://www.w3.org/2000/01/rdf-schema#label> "Volcano" .
+<http://www.semwebtech.org/mondial/10/meta#PoliticalBody> <http://www.w3.org/2000/01/rdf-schema#label> "Political Body" .
+<http://www.semwebtech.org/mondial/10/meta#Island> <http://www.w3.org/2000/01/rdf-schema#label> "Island" .
+<http://www.semwebtech.org/mondial/10/meta#SpokenBy> <http://www.w3.org/2000/01/rdf-schema#label> "Spoken By" .
+<http://www.semwebtech.org/mondial/10/meta#Encompassed> <http://www.w3.org/2000/01/rdf-schema#label> "Encompassed" .
+<http://www.semwebtech.org/mondial/10/meta#Mountain> <http://www.w3.org/2000/01/rdf-schema#label> "Mountain" .
+<http://www.semwebtech.org/mondial/10/meta#BelievedBy> <http://www.w3.org/2000/01/rdf-schema#label> "Believed By" .
+<http://www.semwebtech.org/mondial/10/meta#Religion> <http://www.w3.org/2000/01/rdf-schema#label> "Religion" .
+<http://www.semwebtech.org/mondial/10/meta#Lake> <http://www.w3.org/2000/01/rdf-schema#label> "Lake" .
+<http://www.semwebtech.org/mondial/10/meta#Organization> <http://www.w3.org/2000/01/rdf-schema#label> "Organization" .
+<http://www.semwebtech.org/mondial/10/meta#Continent> <http://www.w3.org/2000/01/rdf-schema#label> "Continent" .
+<http://www.semwebtech.org/mondial/10/meta#Sea> <http://www.w3.org/2000/01/rdf-schema#label> "Sea" .
+<http://www.semwebtech.org/mondial/10/meta#Mountains> <http://www.w3.org/2000/01/rdf-schema#label> "Mountains" .
+<http://www.semwebtech.org/mondial/10/meta#Language> <http://www.w3.org/2000/01/rdf-schema#label> "Language" .
+<http://www.semwebtech.org/mondial/10/meta#EthnicGroup> <http://www.w3.org/2000/01/rdf-schema#label> "Ethnic Group" .
+<http://www.semwebtech.org/mondial/10/meta#Estuary> <http://www.w3.org/2000/01/rdf-schema#label> "Estuary" .
+<http://www.semwebtech.org/mondial/10/meta#Desert> <http://www.w3.org/2000/01/rdf-schema#label> "Desert" .
+<http://www.semwebtech.org/mondial/10/meta#PopulationCount> <http://www.w3.org/2000/01/rdf-schema#label> "Population Count" .
+<http://www.semwebtech.org/mondial/10/meta#River> <http://www.w3.org/2000/01/rdf-schema#label> "River" .
+<http://www.semwebtech.org/mondial/10/meta#Border> <http://www.w3.org/2000/01/rdf-schema#label> "Border" .
+<http://www.semwebtech.org/mondial/10/meta#Country> <http://www.w3.org/2000/01/rdf-schema#label> "Country" .
+<http://www.semwebtech.org/mondial/10/meta#City> <http://www.w3.org/2000/01/rdf-schema#label> "City" .
+<http://www.semwebtech.org/mondial/10/meta#Membership> <http://www.w3.org/2000/01/rdf-schema#label> "Membership" .
+<http://www.semwebtech.org/mondial/10/meta#Islands> <http://www.w3.org/2000/01/rdf-schema#label> "Islands" .
+<http://www.semwebtech.org/mondial/10/meta#languageInfo-> <http://www.w3.org/2000/01/rdf-schema#label> "language info-" .
+<http://www.semwebtech.org/mondial/10/meta#hasHeadq> <http://www.w3.org/2000/01/rdf-schema#label> "has headq" .
+<http://www.semwebtech.org/mondial/10/meta#independenceDate> <http://www.w3.org/2000/01/rdf-schema#label> "independence date" .
+<http://www.semwebtech.org/mondial/10/meta#percent> <http://www.w3.org/2000/01/rdf-schema#label> "percent" .
+<http://www.semwebtech.org/mondial/10/meta#type> <http://www.w3.org/2000/01/rdf-schema#label> "type" .
+<http://www.semwebtech.org/mondial/10/meta#encompassedArea> <http://www.w3.org/2000/01/rdf-schema#label> "encompassed area" .
+<http://www.semwebtech.org/mondial/10/meta#hasCity> <http://www.w3.org/2000/01/rdf-schema#label> "has city" .
+<http://www.semwebtech.org/mondial/10/meta#locatedOnIsland> <http://www.w3.org/2000/01/rdf-schema#label> "located on island" .
+<http://www.semwebtech.org/mondial/10/meta#gdpTotal> <http://www.w3.org/2000/01/rdf-schema#label> "gdp total" .
+<http://www.semwebtech.org/mondial/10/meta#gdpAgri> <http://www.w3.org/2000/01/rdf-schema#label> "gdp agri" .
+<http://www.semwebtech.org/mondial/10/meta#hasEstuary> <http://www.w3.org/2000/01/rdf-schema#label> "has estuary" .
+<http://www.semwebtech.org/mondial/10/meta#infantMortality> <http://www.w3.org/2000/01/rdf-schema#label> "infant mortality" .
+<http://www.semwebtech.org/mondial/10/meta#capital> <http://www.w3.org/2000/01/rdf-schema#label> "capital" .
+<http://www.semwebtech.org/mondial/10/meta#gdpInd> <http://www.w3.org/2000/01/rdf-schema#label> "gdp ind" .
+<http://www.semwebtech.org/mondial/10/meta#gdpServ> <http://www.w3.org/2000/01/rdf-schema#label> "gdp serv" .
+<http://www.semwebtech.org/mondial/10/meta#localname> <http://www.w3.org/2000/01/rdf-schema#label> "localname" .
+<http://www.semwebtech.org/mondial/10/meta#locatedInWater> <http://www.w3.org/2000/01/rdf-schema#label> "located in water" .
+<http://www.semwebtech.org/mondial/10/meta#encompassed> <http://www.w3.org/2000/01/rdf-schema#label> "encompassed" .
+<http://www.semwebtech.org/mondial/10/meta#belongsToIslands> <http://www.w3.org/2000/01/rdf-schema#label> "belongs to islands" .
+<http://www.semwebtech.org/mondial/10/meta#dependentOf> <http://www.w3.org/2000/01/rdf-schema#label> "dependent of" .
+<http://www.semwebtech.org/mondial/10/meta#ofMember> <http://www.w3.org/2000/01/rdf-schema#label> "of member" .
+<http://www.semwebtech.org/mondial/10/meta#length> <http://www.w3.org/2000/01/rdf-schema#label> "length" .
+<http://www.semwebtech.org/mondial/10/meta#locatedAt> <http://www.w3.org/2000/01/rdf-schema#label> "located at" .
+<http://www.semwebtech.org/mondial/10/meta#hasSource> <http://www.w3.org/2000/01/rdf-schema#label> "has source" .
+<http://www.semwebtech.org/mondial/10/meta#wasDependentOf> <http://www.w3.org/2000/01/rdf-schema#label> "was dependent of" .
+<http://www.semwebtech.org/mondial/10/meta#flowsThrough> <http://www.w3.org/2000/01/rdf-schema#label> "flows through" .
+<http://www.semwebtech.org/mondial/10/meta#religionInfo-> <http://www.w3.org/2000/01/rdf-schema#label> "religion info-" .
+<http://www.semwebtech.org/mondial/10/meta#value> <http://www.w3.org/2000/01/rdf-schema#label> "value" .
+<http://www.semwebtech.org/mondial/10/meta#populationGrowth> <http://www.w3.org/2000/01/rdf-schema#label> "population growth" .
+<http://www.semwebtech.org/mondial/10/meta#isMember> <http://www.w3.org/2000/01/rdf-schema#label> "is member" .
+<http://www.semwebtech.org/mondial/10/meta#othername> <http://www.w3.org/2000/01/rdf-schema#label> "othername" .
+<http://www.semwebtech.org/mondial/10/meta#longitude> <http://www.w3.org/2000/01/rdf-schema#label> "longitude" .
+<http://www.semwebtech.org/mondial/10/meta#onReligion> <http://www.w3.org/2000/01/rdf-schema#label> "on religion" .
+<http://www.semwebtech.org/mondial/10/meta#encompassedBy> <http://www.w3.org/2000/01/rdf-schema#label> "encompassed by" .
+<http://www.semwebtech.org/mondial/10/meta#onEthnicGroup> <http://www.w3.org/2000/01/rdf-schema#label> "on ethnic group" .
+<http://www.semwebtech.org/mondial/10/meta#isBorderOf> <http://www.w3.org/2000/01/rdf-schema#label> "is border of" .
+<http://www.semwebtech.org/mondial/10/meta#abbrev> <http://www.w3.org/2000/01/rdf-schema#label> "abbrev" .
+<http://www.semwebtech.org/mondial/10/meta#lastEruption> <http://www.w3.org/2000/01/rdf-schema#label> "last eruption" .
+<http://www.semwebtech.org/mondial/10/meta#population> <http://www.w3.org/2000/01/rdf-schema#label> "population" .
+<http://www.semwebtech.org/mondial/10/meta#depth> <http://www.w3.org/2000/01/rdf-schema#label> "depth" .
+<http://www.semwebtech.org/mondial/10/meta#inOrganization> <http://www.w3.org/2000/01/rdf-schema#label> "in organization" .
+<http://www.semwebtech.org/mondial/10/meta#neighbor> <http://www.w3.org/2000/01/rdf-schema#label> "neighbor" .
+<http://www.semwebtech.org/mondial/10/meta#inflation> <http://www.w3.org/2000/01/rdf-schema#label> "inflation" .
+<http://www.semwebtech.org/mondial/10/meta#unemployment> <http://www.w3.org/2000/01/rdf-schema#label> "unemployment" .
+<http://www.semwebtech.org/mondial/10/meta#hadPopulation> <http://www.w3.org/2000/01/rdf-schema#label> "had population" .
+<http://www.semwebtech.org/mondial/10/meta#locatedIn> <http://www.w3.org/2000/01/rdf-schema#label> "located in" .
+<http://www.semwebtech.org/mondial/10/meta#onLanguage> <http://www.w3.org/2000/01/rdf-schema#label> "on language" .
+<http://www.semwebtech.org/mondial/10/meta#mergesWith> <http://www.w3.org/2000/01/rdf-schema#label> "merges with" .
+<http://www.semwebtech.org/mondial/10/meta#year> <http://www.w3.org/2000/01/rdf-schema#label> "year" .
+<http://www.semwebtech.org/mondial/10/meta#inMountains> <http://www.w3.org/2000/01/rdf-schema#label> "in mountains" .
+<http://www.semwebtech.org/mondial/10/meta#hasProvince> <http://www.w3.org/2000/01/rdf-schema#label> "has province" .
+<http://www.semwebtech.org/mondial/10/meta#carCode> <http://www.w3.org/2000/01/rdf-schema#label> "car code" .
+<http://www.semwebtech.org/mondial/10/meta#area> <http://www.w3.org/2000/01/rdf-schema#label> "area" .
+<http://www.semwebtech.org/mondial/10/meta#ethnicInfo-> <http://www.w3.org/2000/01/rdf-schema#label> "ethnic info-" .
+<http://www.semwebtech.org/mondial/10/meta#government> <http://www.w3.org/2000/01/rdf-schema#label> "government" .
+<http://www.semwebtech.org/mondial/10/meta#latitude> <http://www.w3.org/2000/01/rdf-schema#label> "latitude" .
+<http://www.semwebtech.org/mondial/10/meta#elevation> <http://www.w3.org/2000/01/rdf-schema#label> "elevation" .
+<http://www.semwebtech.org/mondial/10/meta#flowsInto> <http://www.w3.org/2000/01/rdf-schema#label> "flows into" .
+<http://www.semwebtech.org/mondial/10/meta#established> <http://www.w3.org/2000/01/rdf-schema#label> "established" .

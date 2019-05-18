@@ -1,0 +1,62 @@
+@prefix urn:   <urn:uuid:> .
+@prefix kwsg:  <urn:graph:kws:> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix kws:   <urn:vocab:kws:> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+kwsg:007:query  a         kws:Ranking ;
+        kws:duration      [ a                     time:Duration ;
+                            time:numericDuration  6.714 ;
+                            time:unityType        time:unitSecond
+                          ] ;
+        kws:entry         [ kws:position  8 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.13353139"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:007:sol15
+                          ] ;
+        kws:entry         [ kws:position  1 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.13353139"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:007:sol1
+                          ] ;
+        kws:entry         [ kws:position  4 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.13353139"^^xsd:float ;
+                            kws:size      2 ;
+                            kws:solution  kwsg:007:sol7
+                          ] ;
+        kws:entry         [ kws:position  7 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.13353139"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:007:sol13
+                          ] ;
+        kws:entry         [ kws:position  5 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.13353139"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:007:sol11
+                          ] ;
+        kws:entry         [ kws:position  2 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.13353139"^^xsd:float ;
+                            kws:size      2 ;
+                            kws:solution  kwsg:007:sol5
+                          ] ;
+        kws:entry         [ kws:position  6 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.13353139"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:007:sol12
+                          ] ;
+        kws:entry         [ kws:position  3 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.13353139"^^xsd:float ;
+                            kws:size      2 ;
+                            kws:solution  kwsg:007:sol6
+                          ] ;
+        kws:keywordQuery  "haiti religion" .

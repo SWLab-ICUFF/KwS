@@ -1,0 +1,2 @@
+# cameroon economy
+([3415, 3723], [(3723, 3415)]) # Cameroon

@@ -1,0 +1,10 @@
+# marshall islands grenadines organization
+([3367, 3362, 14728, 8985, 9156], [(8985, 3367), (8985, 14728), (9156, 14728), (9156, 3362)]) # International Bank for Reconstruction and Development
+([3367, 3362, 14730, 8986, 9157], [(8986, 3367), (8986, 14730), (9157, 14730), (9157, 3362)]) # International Civil Aviation Organization
+([3367, 3362, 14734, 8987, 9159], [(8987, 3367), (8987, 14734), (9159, 14734), (9159, 3362)]) # International Criminal Police Organization
+([3367, 3362, 14735, 8988, 9160], [(8988, 3367), (8988, 14735), (9160, 14735), (9160, 3362)]) # International Development Association
+([3367, 3362, 14743, 8990, 9165], [(8990, 3367), (8990, 14743), (9165, 14743), (9165, 3362)]) # International Monetary Fund
+([3367, 3362, 14749, 8991, 9169], [(8991, 3367), (8991, 14749), (9169, 14749), (9169, 3362)]) # International Telecommunications Satellite Organization
+([3367, 3362, 14625, 8995, 9172], [(8995, 3367), (8995, 14625), (9172, 14625), (9172, 3362)]) # United Nations
+([3367, 3362, 14633, 8996, 9173], [(8996, 3367), (8996, 14633), (9173, 14633), (9173, 3362)]) # United Nations Educational, Scientific, and Cultural Organization
+([3367, 3362, 14662, 8997, 9178], [(8997, 3367), (8997, 14662), (9178, 14662), (9178, 3362)]) # World Health Organization
