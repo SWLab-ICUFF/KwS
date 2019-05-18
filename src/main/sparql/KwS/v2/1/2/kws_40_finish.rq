@@ -15,19 +15,12 @@ prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
 insert {graph ?g {?s meta:__search_id ?id; kws:comment ?comment.}}
 where {
-  graph ?g {
-    {{?s ?p []} union {[] ?p ?s}}
-    optional {
-      service <%1$s> {
-        {?s meta:__search_id ?id}
-      }
+    {
+        {select distinct ?s {graph ?g {{?s ?p []} union {[] ?p ?s}}}}
+        optional {service <%1$s> {?s meta:__search_id ?id}}
+        optional {service <%1$s> {graph kwsg:indexed {?s kws:comment ?comment}}}
     }
-    optional {
-      service <%1$s> {
-        {graph kwsg:indexed {?s kws:comment ?comment}}
-      }
-    }
-  }
+    graph ?g {{?s ?p []} union {[] ?p ?s}}
 };
 
 

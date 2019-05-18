@@ -334,9 +334,9 @@ where {
             }
         }
     }
-}
+};
 
-#drop graph kwsg:pairs;
+drop graph kwsg:pairs;
 
 
 

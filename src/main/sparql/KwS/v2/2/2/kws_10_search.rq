@@ -334,7 +334,7 @@ where {
             }
         }
     }
-}
+};
 
 drop graph kwsg:pairs;
 
