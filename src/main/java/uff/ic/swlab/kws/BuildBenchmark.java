@@ -32,7 +32,7 @@ public class BuildBenchmark {
         String kwsVersion;
         String benchmark;
 
-        for (int c : new int[]{12}) {
+        for (int c : new int[]{11, 12, 21, 22}) {
             switch (c) {
                 case 11:
                     kwsVersion = "v2/1/1";
@@ -43,11 +43,11 @@ public class BuildBenchmark {
                     benchmark = "CIKM2019_1_2";
                     break;
                 case 21:
-                    kwsVersion = "v2/2";
+                    kwsVersion = "v2/2/1";
                     benchmark = "CIKM2019_2_1";
                     break;
                 case 22:
-                    kwsVersion = "v2/2";
+                    kwsVersion = "v2/2/2";
                     benchmark = "CIKM2019_2_2";
                     break;
                 default:
