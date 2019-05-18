@@ -1,0 +1,67 @@
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
+prefix time: <http://www.w3.org/2006/time#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix text: <http://jena.apache.org/text#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+insert data {
+    <%3$squery> a kws:Ranking;
+        kws:keywordQuery "%4$s";
+        kws:duration [
+            a time:Duration;
+            time:numericDuration "%5$s"^^xsd:decimal;
+            time:unityType time:unitSecond
+        ].
+};
+
+
+
+insert {
+    <%3$squery> a kws:Ranking;
+        kws:entry [
+            kws:position ?position;
+            kws:solution ?sol;
+            kws:score ?score;
+            kws:size ?size;
+            kws:recall ?recall
+        ].
+}
+where {
+  {
+    select ?sol (?_score as ?score) (?_size as ?size) (?_recall/?reference as ?recall)
+    {
+      {
+        select ?sol (min(?score) as ?_score) (min(?size) as ?_size) (count(distinct ?answer) as ?_recall)
+        where {
+          service <%2$s> {
+            graph ?sol {
+              ?sol kws:score ?score; kws:initialSize ?size.
+              optional {graph ?betterSol {?betterSol kws:score ?score2; kws:initialSize ?size2.}}
+              filter(?score2 >= ?score || (?score2 = ?score && ?size2 <= ?size))
+              optional {graph ?betterSol {?betterSol kws:answers ?answer.}}
+            }
+          }
+        }
+        group by ?sol
+      }
+      {
+        select (count(distinct ?g) as ?reference)
+        where {
+          service <%1$s> {
+            graph ?g {?s ?p [].}
+            filter (regex(str(?g),"%3$s"))
+          }
+        }
+      }
+    }
+    order by desc(?_score) ?size
+  }
+  bind(fn:sequential() as ?position)
+}
+

@@ -31,43 +31,50 @@ public class BuildBenchmark {
         String service3 = "http://localhost:3030/KwS.temp/sparql";
         String kwsVersion;
         String benchmark;
-        switch (3) {
-            case 1:
-                kwsVersion = "v2";
-                benchmark = "CIKM2019_1";
-                break;
-            case 2:
-                kwsVersion = "v2_2";
-                benchmark = "CIKM2019_2";
-                break;
-            case 3:
-                kwsVersion = "v2_3";
-                benchmark = "CIKM2019_1";
-                break;
-            default:
-                kwsVersion = "v2";
-                benchmark = "CIKM2019_1";
-                break;
-        }
-        String rankingFilename = String.format("./src/main/resources/benchmarks/%1$s/Mondial/ranking.ttl", benchmark);
 
-        new FusekiServer("localhost", 3030).execUpdate(readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion)), "KwS.stats");
-
-        try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/Mondial/queries_.txt", benchmark)));
-                Scanner sc = new Scanner(in)) {
-
-            int i = 0;
-            while (sc.hasNext()) {
-                i++;
-                String keywordQuery = sc.nextLine().trim();
-                if (keywordQuery != null && !keywordQuery.equals("")) {
-                    String benchmarkNS = String.format("urn:graph:kws:%1$03d:", i);
-                    String benchmarkFilename = String.format("./src/main/resources/benchmarks/%1$s/Mondial/%2$03d.nq.gz", benchmark, i);
-                    run(kwsVersion, service1, service2, service3, keywordQuery, benchmarkNS, benchmarkFilename, rankingFilename);
-                }
+        for (int c : new int[]{11}) {
+            switch (c) {
+                case 11:
+                    kwsVersion = "v2/1/1";
+                    benchmark = "CIKM2019_1_1";
+                    break;
+                case 12:
+                    kwsVersion = "v2/1/2";
+                    benchmark = "CIKM2019_1_2";
+                    break;
+                case 21:
+                    kwsVersion = "v2/2";
+                    benchmark = "CIKM2019_2_1";
+                    break;
+                case 22:
+                    kwsVersion = "v2/2";
+                    benchmark = "CIKM2019_2_1";
+                    break;
+                default:
+                    kwsVersion = "v2/1/1";
+                    benchmark = "CIKM2019_1_1";
+                    break;
             }
+            String rankingFilename = String.format("./src/main/resources/benchmarks/%1$s/Mondial/ranking.ttl", benchmark);
 
-        } finally {
+            new FusekiServer("localhost", 3030).execUpdate(readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion)), "KwS.stats");
+
+            try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/Mondial/queries_.txt", benchmark)));
+                    Scanner sc = new Scanner(in)) {
+
+                int i = 0;
+                while (sc.hasNext()) {
+                    i++;
+                    String keywordQuery = sc.nextLine().trim();
+                    if (keywordQuery != null && !keywordQuery.equals("")) {
+                        String benchmarkNS = String.format("urn:graph:kws:%1$03d:", i);
+                        String benchmarkFilename = String.format("./src/main/resources/benchmarks/%1$s/Mondial/%2$03d.nq.gz", benchmark, i);
+                        run(kwsVersion, service1, service2, service3, keywordQuery, benchmarkNS, benchmarkFilename, rankingFilename);
+                    }
+                }
+
+            } finally {
+            }
         }
     }
 
