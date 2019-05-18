@@ -33,7 +33,7 @@ public class BuildBenchmarkSemanticWeb {
         String benchmark;
         String rankingFilename;
 
-        for (int c : new int[]{11, 12, 21, 22}) {
+        for (int c : new int[]{21, 22}) {
             switch (c) {
                 case 11:
                     kwsVersion = "v2/1/1";
