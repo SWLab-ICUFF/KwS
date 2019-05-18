@@ -31,6 +31,7 @@ public class BuildBenchmarkSemanticWeb {
         String service3 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
         String kwsVersion;
         String benchmark;
+        String rankingFilename;
 
         for (int c : new int[]{11, 12, 21, 22}) {
             switch (c) {
@@ -55,12 +56,10 @@ public class BuildBenchmarkSemanticWeb {
                     benchmark = "CIKM2019_1_1";
                     break;
             }
-            String rankingFilename = String.format("./src/main/resources/benchmarksSemanticWeb/%1$s/Mondial/ranking.ttl", benchmark);
-
+            rankingFilename = String.format("./src/main/resources/benchmarksSemanticWeb/%1$s/Mondial/ranking.ttl", benchmark);
             System.out.println(benchmark);
 
             new FusekiServer("semanticweb.inf.puc-rio.br", 3030).execUpdate(readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion)), "KwS.stats");
-
             try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarksSemanticWeb/%1$s/Mondial/queries_.txt", benchmark)));
                     Scanner sc = new Scanner(in)) {
 
