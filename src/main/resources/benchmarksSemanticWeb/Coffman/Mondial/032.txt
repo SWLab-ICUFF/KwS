@@ -1,2 +1,0 @@
-# uzbekistan eastern orthodox
-([3482, 16765], [(16765, 3482)]) # Uzbekistan

@@ -1,2 +1,0 @@
-# slovakia german
-([3445, 4387], [(4387, 3445)]) # Slovakia

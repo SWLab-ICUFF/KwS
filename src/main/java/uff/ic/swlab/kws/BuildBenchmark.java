@@ -33,23 +33,27 @@ public class BuildBenchmark {
         String benchmark;
         String rankingFilename;
 
-        for (int c : new int[]{12, 22}) {
+        for (int c : new int[]{8222}) {
             switch (c) {
-                case 11:
+                case 211:
                     kwsVersion = "v2/1/1";
                     benchmark = "CIKM2019_1_1";
                     break;
-                case 12:
+                case 212:
                     kwsVersion = "v2/1/2";
                     benchmark = "CIKM2019_1_2";
                     break;
-                case 21:
+                case 221:
                     kwsVersion = "v2/2/1";
                     benchmark = "CIKM2019_2_1";
                     break;
-                case 22:
+                case 222:
                     kwsVersion = "v2/2/2";
                     benchmark = "CIKM2019_2_2";
+                    break;
+                case 8222:
+                    kwsVersion = "v2/2/2";
+                    benchmark = "CoffmanRDF_2_2_2";
                     break;
                 default:
                     kwsVersion = "v2/1/1";
@@ -80,7 +84,7 @@ public class BuildBenchmark {
         }
     }
 
-    public static void run(String kwsVersion, String service1, String service2, String service3, String keywordQuery, String benchmarkNS, String filename, String filename2) throws FileNotFoundException, IOException, InvalidNameException {
+    public static void run(String kwsVersion, String service1, String service2, String service3, String keywordQuery, String benchmarkNS, String benchmarkFilename, String rankingFilename) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer("localhost", 3030);
         String queryString = "";
 
@@ -120,7 +124,7 @@ public class BuildBenchmark {
             fuseki.execUpdate(queryString, "KwS.stats");
         }
 
-        if (true) {
+        if (false) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_60_finish.rq", kwsVersion));
             queryString = queryString.format(queryString, service1, service2, benchmarkNS);
             fuseki.execUpdate(queryString, "KwS.temp");
@@ -128,7 +132,7 @@ public class BuildBenchmark {
 
         {
             Dataset dataset = fuseki.getDataset("KwS.temp");
-            bkpDataset(dataset, filename);
+            bkpDataset(dataset, benchmarkFilename);
         }
 
         {
@@ -140,7 +144,7 @@ public class BuildBenchmark {
             model.setNsPrefix("rdf", RDF.uri);
             model.setNsPrefix("rdfs", RDFS.uri);
             model.setNsPrefix("xsd", XSD.NS);
-            writeModel(model, filename2);
+            writeModel(model, rankingFilename);
         }
     }
 
