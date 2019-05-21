@@ -51,6 +51,10 @@ public class BuildBenchmark {
                     kwsVersion = "v2/2/2";
                     benchmark = "CIKM2019_2_2";
                     break;
+                case 8211:
+                    kwsVersion = "v2/1/1";
+                    benchmark = "CoffmanRDF_2_1_1";
+                    break;
                 case 8222:
                     kwsVersion = "v2/2/2";
                     benchmark = "CoffmanRDF_2_2_2";
