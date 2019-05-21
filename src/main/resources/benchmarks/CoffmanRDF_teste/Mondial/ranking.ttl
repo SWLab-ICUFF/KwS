@@ -1,0 +1,2816 @@
+@prefix urn:   <urn:uuid:> .
+@prefix kwsg:  <urn:graph:kws:> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix kws:   <urn:vocab:kws:> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+kwsg:036:query  a         kws:Ranking ;
+        kws:duration      [ a                     time:Duration ;
+                            time:numericDuration  767.751 ;
+                            time:unityType        time:unitSecond
+                          ] ;
+        kws:entry         [ kws:position  419 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1649803"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2110
+                          ] ;
+        kws:entry         [ kws:position  347 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4560616"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2247
+                          ] ;
+        kws:entry         [ kws:position  342 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4734949"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol797
+                          ] ;
+        kws:entry         [ kws:position  326 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2360
+                          ] ;
+        kws:entry         [ kws:position  89 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2931623"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1702
+                          ] ;
+        kws:entry         [ kws:position  102 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1672
+                          ] ;
+        kws:entry         [ kws:position  459 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.62763256"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol373
+                          ] ;
+        kws:entry         [ kws:position  100 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1658
+                          ] ;
+        kws:entry         [ kws:position  126 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.186489"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1457
+                          ] ;
+        kws:entry         [ kws:position  241 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8618495"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1371
+                          ] ;
+        kws:entry         [ kws:position  2 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.1944396"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1376
+                          ] ;
+        kws:entry         [ kws:position  66 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.5336485"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1142
+                          ] ;
+        kws:entry         [ kws:position  281 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1062
+                          ] ;
+        kws:entry         [ kws:position  460 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.6118562"^^xsd:float ;
+                            kws:size      2 ;
+                            kws:solution  kwsg:036:sol88
+                          ] ;
+        kws:entry         [ kws:position  111 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2153
+                          ] ;
+        kws:entry         [ kws:position  282 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1068
+                          ] ;
+        kws:entry         [ kws:position  123 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2244937"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1092
+                          ] ;
+        kws:entry         [ kws:position  266 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7806151"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1144
+                          ] ;
+        kws:entry         [ kws:position  217 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9948077"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2163
+                          ] ;
+        kws:entry         [ kws:position  85 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2931623"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1633
+                          ] ;
+        kws:entry         [ kws:position  124 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2244937"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol802
+                          ] ;
+        kws:entry         [ kws:position  21 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9093392"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1163
+                          ] ;
+        kws:entry         [ kws:position  408 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1671053"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1019
+                          ] ;
+        kws:entry         [ kws:position  203 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.091566"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol377
+                          ] ;
+        kws:entry         [ kws:position  374 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3116264"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1665
+                          ] ;
+        kws:entry         [ kws:position  356 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4145817"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1824
+                          ] ;
+        kws:entry         [ kws:position  76 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.3200307"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1425
+                          ] ;
+        kws:entry         [ kws:position  154 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.175647"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol120
+                          ] ;
+        kws:entry         [ kws:position  6 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.1944396"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1549
+                          ] ;
+        kws:entry         [ kws:position  340 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4734949"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1073
+                          ] ;
+        kws:entry         [ kws:position  108 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2114
+                          ] ;
+        kws:entry         [ kws:position  429 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1363347"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2320
+                          ] ;
+        kws:entry         [ kws:position  114 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2322004"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1408
+                          ] ;
+        kws:entry         [ kws:position  42 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1112
+                          ] ;
+        kws:entry         [ kws:position  199 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1973
+                          ] ;
+        kws:entry         [ kws:position  361 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4145817"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2339
+                          ] ;
+        kws:entry         [ kws:position  318 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2314
+                          ] ;
+        kws:entry         [ kws:position  453 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.6359912"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol963
+                          ] ;
+        kws:entry         [ kws:position  447 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.6359912"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1038
+                          ] ;
+        kws:entry         [ kws:position  455 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.62763256"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol252
+                          ] ;
+        kws:entry         [ kws:position  174 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.143328"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1362
+                          ] ;
+        kws:entry         [ kws:position  303 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1819
+                          ] ;
+        kws:entry         [ kws:position  36 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.8701482"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol719
+                          ] ;
+        kws:entry         [ kws:position  213 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9948077"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1626
+                          ] ;
+        kws:entry         [ kws:position  404 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2014698"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol698
+                          ] ;
+        kws:entry         [ kws:position  109 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2117
+                          ] ;
+        kws:entry         [ kws:position  271 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7806151"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1864
+                          ] ;
+        kws:entry         [ kws:position  336 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.5234617"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1087
+                          ] ;
+        kws:entry         [ kws:position  180 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1220546"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1215
+                          ] ;
+        kws:entry         [ kws:position  431 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1363347"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2355
+                          ] ;
+        kws:entry         [ kws:position  98 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1637
+                          ] ;
+        kws:entry         [ kws:position  245 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8581246"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1367
+                          ] ;
+        kws:entry         [ kws:position  330 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.5980572"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol371
+                          ] ;
+        kws:entry         [ kws:position  96 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1622
+                          ] ;
+        kws:entry         [ kws:position  370 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3200735"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1528
+                          ] ;
+        kws:entry         [ kws:position  250 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8567924"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol743
+                          ] ;
+        kws:entry         [ kws:position  148 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2359
+                          ] ;
+        kws:entry         [ kws:position  48 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1153
+                          ] ;
+        kws:entry         [ kws:position  37 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.8701482"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol803
+                          ] ;
+        kws:entry         [ kws:position  75 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.3298306"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol578
+                          ] ;
+        kws:entry         [ kws:position  275 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1012
+                          ] ;
+        kws:entry         [ kws:position  55 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1829
+                          ] ;
+        kws:entry         [ kws:position  398 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2257698"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1945
+                          ] ;
+        kws:entry         [ kws:position  338 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4734949"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1017
+                          ] ;
+        kws:entry         [ kws:position  125 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.186713"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol582
+                          ] ;
+        kws:entry         [ kws:position  182 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1250
+                          ] ;
+        kws:entry         [ kws:position  220 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.935956"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol116
+                          ] ;
+        kws:entry         [ kws:position  61 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.6716092"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1212
+                          ] ;
+        kws:entry         [ kws:position  120 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2244937"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1058
+                          ] ;
+        kws:entry         [ kws:position  49 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1156
+                          ] ;
+        kws:entry         [ kws:position  162 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1630704"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol462
+                          ] ;
+        kws:entry         [ kws:position  34 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.8701482"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol417
+                          ] ;
+        kws:entry         [ kws:position  113 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2322004"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1393
+                          ] ;
+        kws:entry         [ kws:position  84 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2931623"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1632
+                          ] ;
+        kws:entry         [ kws:position  258 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7879895"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol256
+                          ] ;
+        kws:entry         [ kws:position  438 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.64116794"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2218
+                          ] ;
+        kws:entry         [ kws:position  415 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1649803"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1628
+                          ] ;
+        kws:entry         [ kws:position  365 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3445903"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1545
+                          ] ;
+        kws:entry         [ kws:position  194 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1363
+                          ] ;
+        kws:entry         [ kws:position  215 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9948077"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1682
+                          ] ;
+        kws:entry         [ kws:position  313 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2279
+                          ] ;
+        kws:entry         [ kws:position  185 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1292
+                          ] ;
+        kws:entry         [ kws:position  306 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2201
+                          ] ;
+        kws:entry         [ kws:position  10 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.0957534"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1128
+                          ] ;
+        kws:entry         [ kws:position  183 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1271
+                          ] ;
+        kws:entry         [ kws:position  464 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.57091326"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:036:sol6
+                          ] ;
+        kws:entry         [ kws:position  406 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2014698"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol927
+                          ] ;
+        kws:entry         [ kws:position  43 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1118
+                          ] ;
+        kws:entry         [ kws:position  348 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4560616"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2283
+                          ] ;
+        kws:entry         [ kws:position  19 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.962488"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol434
+                          ] ;
+        kws:entry         [ kws:position  46 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1138
+                          ] ;
+        kws:entry         [ kws:position  87 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2931623"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1688
+                          ] ;
+        kws:entry         [ kws:position  392 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2257698"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1267
+                          ] ;
+        kws:entry         [ kws:position  264 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7806151"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1108
+                          ] ;
+        kws:entry         [ kws:position  14 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.0957534"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1758
+                          ] ;
+        kws:entry         [ kws:position  152 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2375
+                          ] ;
+        kws:entry         [ kws:position  186 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1304
+                          ] ;
+        kws:entry         [ kws:position  292 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol967
+                          ] ;
+        kws:entry         [ kws:position  418 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1649803"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1684
+                          ] ;
+        kws:entry         [ kws:position  276 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1024
+                          ] ;
+        kws:entry         [ kws:position  399 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2257698"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1969
+                          ] ;
+        kws:entry         [ kws:position  324 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2349
+                          ] ;
+        kws:entry         [ kws:position  280 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1059
+                          ] ;
+        kws:entry         [ kws:position  314 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2290
+                          ] ;
+        kws:entry         [ kws:position  208 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.082086"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1243
+                          ] ;
+        kws:entry         [ kws:position  57 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1853
+                          ] ;
+        kws:entry         [ kws:position  20 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9402251"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1429
+                          ] ;
+        kws:entry         [ kws:position  331 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.5711998"^^xsd:float ;
+                            kws:size      2 ;
+                            kws:solution  kwsg:036:sol14
+                          ] ;
+        kws:entry         [ kws:position  31 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.8701482"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol378
+                          ] ;
+        kws:entry         [ kws:position  312 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2273
+                          ] ;
+        kws:entry         [ kws:position  72 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.454335"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1158
+                          ] ;
+        kws:entry         [ kws:position  38 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.8113177"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol92
+                          ] ;
+        kws:entry         [ kws:position  209 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.082086"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1909
+                          ] ;
+        kws:entry         [ kws:position  315 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2293
+                          ] ;
+        kws:entry         [ kws:position  105 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1693
+                          ] ;
+        kws:entry         [ kws:position  311 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2258
+                          ] ;
+        kws:entry         [ kws:position  145 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2344
+                          ] ;
+        kws:entry         [ kws:position  444 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.64116794"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2340
+                          ] ;
+        kws:entry         [ kws:position  169 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1602774"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol718
+                          ] ;
+        kws:entry         [ kws:position  329 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2376
+                          ] ;
+        kws:entry         [ kws:position  309 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2243
+                          ] ;
+        kws:entry         [ kws:position  371 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3200735"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1544
+                          ] ;
+        kws:entry         [ kws:position  332 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.5361991"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol372
+                          ] ;
+        kws:entry         [ kws:position  191 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1342
+                          ] ;
+        kws:entry         [ kws:position  458 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.62763256"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol357
+                          ] ;
+        kws:entry         [ kws:position  310 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2255
+                          ] ;
+        kws:entry         [ kws:position  381 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3006881"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1355
+                          ] ;
+        kws:entry         [ kws:position  27 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9093392"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1885
+                          ] ;
+        kws:entry         [ kws:position  218 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9478353"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1091
+                          ] ;
+        kws:entry         [ kws:position  200 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1988
+                          ] ;
+        kws:entry         [ kws:position  177 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1424646"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol458
+                          ] ;
+        kws:entry         [ kws:position  92 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1577
+                          ] ;
+        kws:entry         [ kws:position  253 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8167799"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1333
+                          ] ;
+        kws:entry         [ kws:position  211 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.0208972"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1090
+                          ] ;
+        kws:entry         [ kws:position  230 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9288136"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2377
+                          ] ;
+        kws:entry         [ kws:position  214 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9948077"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1662
+                          ] ;
+        kws:entry         [ kws:position  295 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1760
+                          ] ;
+        kws:entry         [ kws:position  383 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3006881"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2001
+                          ] ;
+        kws:entry         [ kws:position  288 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol771
+                          ] ;
+        kws:entry         [ kws:position  26 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9093392"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1219
+                          ] ;
+        kws:entry         [ kws:position  153 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2379
+                          ] ;
+        kws:entry         [ kws:position  456 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.62763256"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol318
+                          ] ;
+        kws:entry         [ kws:position  247 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8567924"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol398
+                          ] ;
+        kws:entry         [ kws:position  284 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1083
+                          ] ;
+        kws:entry         [ kws:position  397 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2257698"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1354
+                          ] ;
+        kws:entry         [ kws:position  235 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.867824"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol548
+                          ] ;
+        kws:entry         [ kws:position  52 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1727
+                          ] ;
+        kws:entry         [ kws:position  451 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.6359912"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol782
+                          ] ;
+        kws:entry         [ kws:position  195 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1366
+                          ] ;
+        kws:entry         [ kws:position  270 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7806151"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1849
+                          ] ;
+        kws:entry         [ kws:position  81 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.3008192"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol702
+                          ] ;
+        kws:entry         [ kws:position  219 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9418168"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1542
+                          ] ;
+        kws:entry         [ kws:position  181 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1247
+                          ] ;
+        kws:entry         [ kws:position  224 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9288136"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1698
+                          ] ;
+        kws:entry         [ kws:position  278 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1042
+                          ] ;
+        kws:entry         [ kws:position  40 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1094
+                          ] ;
+        kws:entry         [ kws:position  178 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1397634"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol553
+                          ] ;
+        kws:entry         [ kws:position  422 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1649803"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2165
+                          ] ;
+        kws:entry         [ kws:position  263 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7879895"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol367
+                          ] ;
+        kws:entry         [ kws:position  244 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8581246"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1352
+                          ] ;
+        kws:entry         [ kws:position  433 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.0188512"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:036:sol4
+                          ] ;
+        kws:entry         [ kws:position  400 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2257698"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1984
+                          ] ;
+        kws:entry         [ kws:position  362 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4145817"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2354
+                          ] ;
+        kws:entry         [ kws:position  355 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4145817"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1809
+                          ] ;
+        kws:entry         [ kws:position  118 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2244937"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1022
+                          ] ;
+        kws:entry         [ kws:position  417 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1649803"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1664
+                          ] ;
+        kws:entry         [ kws:position  190 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1339
+                          ] ;
+        kws:entry         [ kws:position  142 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2313
+                          ] ;
+        kws:entry         [ kws:position  188 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1322
+                          ] ;
+        kws:entry         [ kws:position  216 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9948077"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1697
+                          ] ;
+        kws:entry         [ kws:position  156 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1661632"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol165
+                          ] ;
+        kws:entry         [ kws:position  189 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1328
+                          ] ;
+        kws:entry         [ kws:position  231 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.91473"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol547
+                          ] ;
+        kws:entry         [ kws:position  252 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8167799"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1297
+                          ] ;
+        kws:entry         [ kws:position  454 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.6359912"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol987
+                          ] ;
+        kws:entry         [ kws:position  28 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.8872464"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1160
+                          ] ;
+        kws:entry         [ kws:position  428 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1363347"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2306
+                          ] ;
+        kws:entry         [ kws:position  260 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7879895"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol325
+                          ] ;
+        kws:entry         [ kws:position  411 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1671053"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1089
+                          ] ;
+        kws:entry         [ kws:position  74 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.454335"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1879
+                          ] ;
+        kws:entry         [ kws:position  242 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8581246"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1296
+                          ] ;
+        kws:entry         [ kws:position  63 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.6075692"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1213
+                          ] ;
+        kws:entry         [ kws:position  184 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1286
+                          ] ;
+        kws:entry         [ kws:position  434 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.97183555"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:036:sol13
+                          ] ;
+        kws:entry         [ kws:position  391 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2325666"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:036:sol3
+                          ] ;
+        kws:entry         [ kws:position  29 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.8872464"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1423
+                          ] ;
+        kws:entry         [ kws:position  420 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1649803"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2134
+                          ] ;
+        kws:entry         [ kws:position  132 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.186489"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2033
+                          ] ;
+        kws:entry         [ kws:position  396 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2257698"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1334
+                          ] ;
+        kws:entry         [ kws:position  104 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1689
+                          ] ;
+        kws:entry         [ kws:position  343 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.468817"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:036:sol1
+                          ] ;
+        kws:entry         [ kws:position  360 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4145817"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2319
+                          ] ;
+        kws:entry         [ kws:position  393 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2257698"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1282
+                          ] ;
+        kws:entry         [ kws:position  173 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.143328"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1358
+                          ] ;
+        kws:entry         [ kws:position  376 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3116264"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1699
+                          ] ;
+        kws:entry         [ kws:position  110 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2138
+                          ] ;
+        kws:entry         [ kws:position  7 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.1944396"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2005
+                          ] ;
+        kws:entry         [ kws:position  283 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1079
+                          ] ;
+        kws:entry         [ kws:position  222 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9288136"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1663
+                          ] ;
+        kws:entry         [ kws:position  301 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1804
+                          ] ;
+        kws:entry         [ kws:position  197 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1949
+                          ] ;
+        kws:entry         [ kws:position  308 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2237
+                          ] ;
+        kws:entry         [ kws:position  94 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1601
+                          ] ;
+        kws:entry         [ kws:position  425 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1363347"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1825
+                          ] ;
+        kws:entry         [ kws:position  335 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.5234617"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1072
+                          ] ;
+        kws:entry         [ kws:position  382 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3006881"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1369
+                          ] ;
+        kws:entry         [ kws:position  339 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4734949"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1053
+                          ] ;
+        kws:entry         [ kws:position  90 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2931623"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2169
+                          ] ;
+        kws:entry         [ kws:position  251 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8567924"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol827
+                          ] ;
+        kws:entry         [ kws:position  91 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2526708"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol430
+                          ] ;
+        kws:entry         [ kws:position  205 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.082086"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1183
+                          ] ;
+        kws:entry         [ kws:position  353 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4560616"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2368
+                          ] ;
+        kws:entry         [ kws:position  131 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.186489"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1538
+                          ] ;
+        kws:entry         [ kws:position  32 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.8701482"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol381
+                          ] ;
+        kws:entry         [ kws:position  457 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.62763256"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol342
+                          ] ;
+        kws:entry         [ kws:position  377 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3116264"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2166
+                          ] ;
+        kws:entry         [ kws:position  121 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2244937"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1078
+                          ] ;
+        kws:entry         [ kws:position  167 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1630704"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol543
+                          ] ;
+        kws:entry         [ kws:position  17 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.066192"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol433
+                          ] ;
+        kws:entry         [ kws:position  53 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1742
+                          ] ;
+        kws:entry         [ kws:position  136 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1818
+                          ] ;
+        kws:entry         [ kws:position  307 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2222
+                          ] ;
+        kws:entry         [ kws:position  223 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9288136"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1683
+                          ] ;
+        kws:entry         [ kws:position  254 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8167799"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1353
+                          ] ;
+        kws:entry         [ kws:position  187 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1307
+                          ] ;
+        kws:entry         [ kws:position  59 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1874
+                          ] ;
+        kws:entry         [ kws:position  41 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1097
+                          ] ;
+        kws:entry         [ kws:position  79 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.3008192"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol666
+                          ] ;
+        kws:entry         [ kws:position  323 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2345
+                          ] ;
+        kws:entry         [ kws:position  82 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.3008192"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol708
+                          ] ;
+        kws:entry         [ kws:position  62 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.6627274"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol427
+                          ] ;
+        kws:entry         [ kws:position  51 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1706
+                          ] ;
+        kws:entry         [ kws:position  439 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.64116794"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2233
+                          ] ;
+        kws:entry         [ kws:position  30 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.874794"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1218
+                          ] ;
+        kws:entry         [ kws:position  302 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1815
+                          ] ;
+        kws:entry         [ kws:position  236 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8677313"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1827
+                          ] ;
+        kws:entry         [ kws:position  401 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2257698"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2000
+                          ] ;
+        kws:entry         [ kws:position  384 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.25824"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol161
+                          ] ;
+        kws:entry         [ kws:position  150 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2373
+                          ] ;
+        kws:entry         [ kws:position  240 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8677313"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2378
+                          ] ;
+        kws:entry         [ kws:position  159 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.166128"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1159
+                          ] ;
+        kws:entry         [ kws:position  141 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2309
+                          ] ;
+        kws:entry         [ kws:position  294 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol991
+                          ] ;
+        kws:entry         [ kws:position  421 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1649803"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2149
+                          ] ;
+        kws:entry         [ kws:position  358 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4145817"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2284
+                          ] ;
+        kws:entry         [ kws:position  436 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.64116794"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1790
+                          ] ;
+        kws:entry         [ kws:position  372 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3200735"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2074
+                          ] ;
+        kws:entry         [ kws:position  402 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2014698"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol659
+                          ] ;
+        kws:entry         [ kws:position  198 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1952
+                          ] ;
+        kws:entry         [ kws:position  24 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9093392"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1202
+                          ] ;
+        kws:entry         [ kws:position  452 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.6359912"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol798
+                          ] ;
+        kws:entry         [ kws:position  257 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7879895"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol220
+                          ] ;
+        kws:entry         [ kws:position  298 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1784
+                          ] ;
+        kws:entry         [ kws:position  172 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.143328"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1338
+                          ] ;
+        kws:entry         [ kws:position  147 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2358
+                          ] ;
+        kws:entry         [ kws:position  175 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.143328"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1372
+                          ] ;
+        kws:entry         [ kws:position  435 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.64116794"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1774
+                          ] ;
+        kws:entry         [ kws:position  349 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4560616"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2303
+                          ] ;
+        kws:entry         [ kws:position  206 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.082086"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1198
+                          ] ;
+        kws:entry         [ kws:position  285 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1086
+                          ] ;
+        kws:entry         [ kws:position  144 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2324
+                          ] ;
+        kws:entry         [ kws:position  44 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1129
+                          ] ;
+        kws:entry         [ kws:position  443 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.64116794"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2305
+                          ] ;
+        kws:entry         [ kws:position  427 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1363347"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2286
+                          ] ;
+        kws:entry         [ kws:position  414 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1649803"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1612
+                          ] ;
+        kws:entry         [ kws:position  387 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2438134"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol533
+                          ] ;
+        kws:entry         [ kws:position  368 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3200735"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1489
+                          ] ;
+        kws:entry         [ kws:position  229 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9288136"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2371
+                          ] ;
+        kws:entry         [ kws:position  378 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3055716"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol550
+                          ] ;
+        kws:entry         [ kws:position  388 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2438134"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol549
+                          ] ;
+        kws:entry         [ kws:position  352 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4560616"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2353
+                          ] ;
+        kws:entry         [ kws:position  316 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2299
+                          ] ;
+        kws:entry         [ kws:position  3 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.1944396"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1397
+                          ] ;
+        kws:entry         [ kws:position  33 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.8701482"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol402
+                          ] ;
+        kws:entry         [ kws:position  461 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.57091326"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:036:sol10
+                          ] ;
+        kws:entry         [ kws:position  267 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7806151"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1723
+                          ] ;
+        kws:entry         [ kws:position  405 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2014698"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol714
+                          ] ;
+        kws:entry         [ kws:position  232 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9008216"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1370
+                          ] ;
+        kws:entry         [ kws:position  449 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.6359912"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1074
+                          ] ;
+        kws:entry         [ kws:position  409 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1671053"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1055
+                          ] ;
+        kws:entry         [ kws:position  158 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.166128"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1145
+                          ] ;
+        kws:entry         [ kws:position  163 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1630704"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol498
+                          ] ;
+        kws:entry         [ kws:position  151 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2374
+                          ] ;
+        kws:entry         [ kws:position  246 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8581246"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1998
+                          ] ;
+        kws:entry         [ kws:position  327 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2364
+                          ] ;
+        kws:entry         [ kws:position  127 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.186489"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1493
+                          ] ;
+        kws:entry         [ kws:position  291 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol931
+                          ] ;
+        kws:entry         [ kws:position  176 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.143328"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2004
+                          ] ;
+        kws:entry         [ kws:position  269 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7806151"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1754
+                          ] ;
+        kws:entry         [ kws:position  68 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.5336485"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1752
+                          ] ;
+        kws:entry         [ kws:position  221 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9288136"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1627
+                          ] ;
+        kws:entry         [ kws:position  64 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.5695515"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol428
+                          ] ;
+        kws:entry         [ kws:position  166 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1630704"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol537
+                          ] ;
+        kws:entry         [ kws:position  467 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.57091326"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:036:sol9
+                          ] ;
+        kws:entry         [ kws:position  437 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.64116794"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1810
+                          ] ;
+        kws:entry         [ kws:position  243 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8581246"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1332
+                          ] ;
+        kws:entry         [ kws:position  58 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1868
+                          ] ;
+        kws:entry         [ kws:position  248 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8567924"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol413
+                          ] ;
+        kws:entry         [ kws:position  168 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1630704"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol831
+                          ] ;
+        kws:entry         [ kws:position  412 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1671053"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol799
+                          ] ;
+        kws:entry         [ kws:position  366 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3270212"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol623
+                          ] ;
+        kws:entry         [ kws:position  416 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1649803"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1648
+                          ] ;
+        kws:entry         [ kws:position  333 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.5234617"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1016
+                          ] ;
+        kws:entry         [ kws:position  9 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.0957534"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1093
+                          ] ;
+        kws:entry         [ kws:position  445 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.6359912"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1002
+                          ] ;
+        kws:entry         [ kws:position  448 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.6359912"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1054
+                          ] ;
+        kws:entry         [ kws:position  67 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.5336485"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1157
+                          ] ;
+        kws:entry         [ kws:position  430 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1363347"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2341
+                          ] ;
+        kws:entry         [ kws:position  321 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2328
+                          ] ;
+        kws:entry         [ kws:position  289 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol786
+                          ] ;
+        kws:entry         [ kws:position  77 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.3008192"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol627
+                          ] ;
+        kws:entry         [ kws:position  385 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2438134"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol494
+                          ] ;
+        kws:entry         [ kws:position  99 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1652
+                          ] ;
+        kws:entry         [ kws:position  373 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3116264"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1629
+                          ] ;
+        kws:entry         [ kws:position  134 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1794
+                          ] ;
+        kws:entry         [ kws:position  410 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1671053"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1075
+                          ] ;
+        kws:entry         [ kws:position  93 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1580
+                          ] ;
+        kws:entry         [ kws:position  192 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1348
+                          ] ;
+        kws:entry         [ kws:position  287 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol750
+                          ] ;
+        kws:entry         [ kws:position  304 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1822
+                          ] ;
+        kws:entry         [ kws:position  234 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8776866"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:036:sol2
+                          ] ;
+        kws:entry         [ kws:position  357 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4145817"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2248
+                          ] ;
+        kws:entry         [ kws:position  345 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4560616"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1808
+                          ] ;
+        kws:entry         [ kws:position  413 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1649803"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1597
+                          ] ;
+        kws:entry         [ kws:position  71 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.454335"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1143
+                          ] ;
+        kws:entry         [ kws:position  255 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8167799"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1368
+                          ] ;
+        kws:entry         [ kws:position  305 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2198
+                          ] ;
+        kws:entry         [ kws:position  403 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2014698"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol683
+                          ] ;
+        kws:entry         [ kws:position  70 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.454335"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1123
+                          ] ;
+        kws:entry         [ kws:position  5 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.1944396"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1418
+                          ] ;
+        kws:entry         [ kws:position  265 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7806151"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1124
+                          ] ;
+        kws:entry         [ kws:position  262 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7879895"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol361
+                          ] ;
+        kws:entry         [ kws:position  1 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.1944396"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1373
+                          ] ;
+        kws:entry         [ kws:position  47 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1149
+                          ] ;
+        kws:entry         [ kws:position  50 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1703
+                          ] ;
+        kws:entry         [ kws:position  432 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1363347"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2370
+                          ] ;
+        kws:entry         [ kws:position  299 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1795
+                          ] ;
+        kws:entry         [ kws:position  375 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3116264"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1685
+                          ] ;
+        kws:entry         [ kws:position  328 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2367
+                          ] ;
+        kws:entry         [ kws:position  115 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2322004"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1424
+                          ] ;
+        kws:entry         [ kws:position  207 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.082086"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1214
+                          ] ;
+        kws:entry         [ kws:position  286 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol747
+                          ] ;
+        kws:entry         [ kws:position  140 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2289
+                          ] ;
+        kws:entry         [ kws:position  13 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.0957534"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1162
+                          ] ;
+        kws:entry         [ kws:position  160 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.166128"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1755
+                          ] ;
+        kws:entry         [ kws:position  201 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1994
+                          ] ;
+        kws:entry         [ kws:position  204 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.0857415"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1700
+                          ] ;
+        kws:entry         [ kws:position  65 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.5336485"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1122
+                          ] ;
+        kws:entry         [ kws:position  78 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.3008192"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol663
+                          ] ;
+        kws:entry         [ kws:position  165 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1630704"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol522
+                          ] ;
+        kws:entry         [ kws:position  227 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9288136"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2321
+                          ] ;
+        kws:entry         [ kws:position  297 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1778
+                          ] ;
+        kws:entry         [ kws:position  450 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.6359912"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol767
+                          ] ;
+        kws:entry         [ kws:position  390 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2373234"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol216
+                          ] ;
+        kws:entry         [ kws:position  119 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2244937"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1023
+                          ] ;
+        kws:entry         [ kws:position  389 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2438134"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol872
+                          ] ;
+        kws:entry         [ kws:position  8 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.170387"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol554
+                          ] ;
+        kws:entry         [ kws:position  367 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3238454"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol715
+                          ] ;
+        kws:entry         [ kws:position  380 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3006881"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1335
+                          ] ;
+        kws:entry         [ kws:position  122 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2244937"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1082
+                          ] ;
+        kws:entry         [ kws:position  344 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4560616"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1788
+                          ] ;
+        kws:entry         [ kws:position  35 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.8701482"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol423
+                          ] ;
+        kws:entry         [ kws:position  4 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.1944396"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1412
+                          ] ;
+        kws:entry         [ kws:position  424 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1363347"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1811
+                          ] ;
+        kws:entry         [ kws:position  407 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1949396"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol374
+                          ] ;
+        kws:entry         [ kws:position  164 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1630704"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol501
+                          ] ;
+        kws:entry         [ kws:position  446 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.6359912"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1018
+                          ] ;
+        kws:entry         [ kws:position  23 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9093392"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1187
+                          ] ;
+        kws:entry         [ kws:position  202 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1004987"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol712
+                          ] ;
+        kws:entry         [ kws:position  350 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4560616"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2318
+                          ] ;
+        kws:entry         [ kws:position  137 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1828
+                          ] ;
+        kws:entry         [ kws:position  116 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2322004"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1573
+                          ] ;
+        kws:entry         [ kws:position  139 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2254
+                          ] ;
+        kws:entry         [ kws:position  442 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.64116794"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2285
+                          ] ;
+        kws:entry         [ kws:position  386 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2438134"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol518
+                          ] ;
+        kws:entry         [ kws:position  334 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.5234617"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1052
+                          ] ;
+        kws:entry         [ kws:position  25 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9093392"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1208
+                          ] ;
+        kws:entry         [ kws:position  239 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8677313"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2372
+                          ] ;
+        kws:entry         [ kws:position  18 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9858227"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1422
+                          ] ;
+        kws:entry         [ kws:position  54 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1748
+                          ] ;
+        kws:entry         [ kws:position  226 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9288136"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2164
+                          ] ;
+        kws:entry         [ kws:position  465 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.57091326"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:036:sol7
+                          ] ;
+        kws:entry         [ kws:position  69 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.5336485"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1878
+                          ] ;
+        kws:entry         [ kws:position  363 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4145817"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2369
+                          ] ;
+        kws:entry         [ kws:position  73 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.454335"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1753
+                          ] ;
+        kws:entry         [ kws:position  233 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9008216"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1543
+                          ] ;
+        kws:entry         [ kws:position  107 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2078
+                          ] ;
+        kws:entry         [ kws:position  354 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4145817"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1789
+                          ] ;
+        kws:entry         [ kws:position  279 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1048
+                          ] ;
+        kws:entry         [ kws:position  466 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.57091326"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:036:sol8
+                          ] ;
+        kws:entry         [ kws:position  97 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1634
+                          ] ;
+        kws:entry         [ kws:position  45 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1132
+                          ] ;
+        kws:entry         [ kws:position  103 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1678
+                          ] ;
+        kws:entry         [ kws:position  56 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1832
+                          ] ;
+        kws:entry         [ kws:position  259 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7879895"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol322
+                          ] ;
+        kws:entry         [ kws:position  129 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.186489"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1517
+                          ] ;
+        kws:entry         [ kws:position  359 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4145817"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2304
+                          ] ;
+        kws:entry         [ kws:position  101 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1669
+                          ] ;
+        kws:entry         [ kws:position  106 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1696
+                          ] ;
+        kws:entry         [ kws:position  249 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8567924"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol429
+                          ] ;
+        kws:entry         [ kws:position  210 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.0243855"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1701
+                          ] ;
+        kws:entry         [ kws:position  86 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2931623"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1668
+                          ] ;
+        kws:entry         [ kws:position  238 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8677313"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2357
+                          ] ;
+        kws:entry         [ kws:position  143 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2323
+                          ] ;
+        kws:entry         [ kws:position  161 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.166128"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1881
+                          ] ;
+        kws:entry         [ kws:position  88 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2931623"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1692
+                          ] ;
+        kws:entry         [ kws:position  320 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2325
+                          ] ;
+        kws:entry         [ kws:position  212 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.0208972"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol713
+                          ] ;
+        kws:entry         [ kws:position  268 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7806151"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1738
+                          ] ;
+        kws:entry         [ kws:position  462 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.57091326"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:036:sol11
+                          ] ;
+        kws:entry         [ kws:position  12 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.0957534"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1152
+                          ] ;
+        kws:entry         [ kws:position  274 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1006
+                          ] ;
+        kws:entry         [ kws:position  300 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1798
+                          ] ;
+        kws:entry         [ kws:position  39 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7954812"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1161
+                          ] ;
+        kws:entry         [ kws:position  83 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.3008192"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol876
+                          ] ;
+        kws:entry         [ kws:position  80 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.3008192"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol687
+                          ] ;
+        kws:entry         [ kws:position  228 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9288136"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2356
+                          ] ;
+        kws:entry         [ kws:position  256 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8167799"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1999
+                          ] ;
+        kws:entry         [ kws:position  112 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2159
+                          ] ;
+        kws:entry         [ kws:position  364 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3912408"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:036:sol5
+                          ] ;
+        kws:entry         [ kws:position  423 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1363347"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1791
+                          ] ;
+        kws:entry         [ kws:position  133 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1759
+                          ] ;
+        kws:entry         [ kws:position  337 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.5234617"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol796
+                          ] ;
+        kws:entry         [ kws:position  193 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1359
+                          ] ;
+        kws:entry         [ kws:position  146 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2348
+                          ] ;
+        kws:entry         [ kws:position  196 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1212049"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1913
+                          ] ;
+        kws:entry         [ kws:position  179 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.130876"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1548
+                          ] ;
+        kws:entry         [ kws:position  225 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.9288136"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1826
+                          ] ;
+        kws:entry         [ kws:position  128 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.186489"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1496
+                          ] ;
+        kws:entry         [ kws:position  130 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.186489"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1532
+                          ] ;
+        kws:entry         [ kws:position  369 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3200735"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1513
+                          ] ;
+        kws:entry         [ kws:position  319 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2317
+                          ] ;
+        kws:entry         [ kws:position  138 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2253
+                          ] ;
+        kws:entry         [ kws:position  296 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1763
+                          ] ;
+        kws:entry         [ kws:position  11 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.0957534"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1148
+                          ] ;
+        kws:entry         [ kws:position  293 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol970
+                          ] ;
+        kws:entry         [ kws:position  60 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.7843618"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2170
+                          ] ;
+        kws:entry         [ kws:position  272 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7806151"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1880
+                          ] ;
+        kws:entry         [ kws:position  290 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol792
+                          ] ;
+        kws:entry         [ kws:position  117 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2322004"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2029
+                          ] ;
+        kws:entry         [ kws:position  171 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.143328"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1303
+                          ] ;
+        kws:entry         [ kws:position  237 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.8677313"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2322
+                          ] ;
+        kws:entry         [ kws:position  16 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.0851161"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1428
+                          ] ;
+        kws:entry         [ kws:position  317 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2310
+                          ] ;
+        kws:entry         [ kws:position  149 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2363
+                          ] ;
+        kws:entry         [ kws:position  395 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2257698"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1318
+                          ] ;
+        kws:entry         [ kws:position  341 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4734949"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1088
+                          ] ;
+        kws:entry         [ kws:position  346 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4560616"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1823
+                          ] ;
+        kws:entry         [ kws:position  379 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.3006881"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1299
+                          ] ;
+        kws:entry         [ kws:position  95 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.2450187"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1616
+                          ] ;
+        kws:entry         [ kws:position  277 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7688823"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol1027
+                          ] ;
+        kws:entry         [ kws:position  325 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2352
+                          ] ;
+        kws:entry         [ kws:position  170 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.143328"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1302
+                          ] ;
+        kws:entry         [ kws:position  15 ;
+                            kws:recall    0.0 ;
+                            kws:score     "3.0957534"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1884
+                          ] ;
+        kws:entry         [ kws:position  394 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.2257698"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1298
+                          ] ;
+        kws:entry         [ kws:position  351 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.4560616"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2338
+                          ] ;
+        kws:entry         [ kws:position  261 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7879895"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol346
+                          ] ;
+        kws:entry         [ kws:position  322 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.72462"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2334
+                          ] ;
+        kws:entry         [ kws:position  135 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1799006"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1814
+                          ] ;
+        kws:entry         [ kws:position  157 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.166128"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1125
+                          ] ;
+        kws:entry         [ kws:position  463 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.57091326"^^xsd:float ;
+                            kws:size      1 ;
+                            kws:solution  kwsg:036:sol12
+                          ] ;
+        kws:entry         [ kws:position  441 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.64116794"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2269
+                          ] ;
+        kws:entry         [ kws:position  155 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.1665204"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1453
+                          ] ;
+        kws:entry         [ kws:position  22 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9093392"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol1166
+                          ] ;
+        kws:entry         [ kws:position  426 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.1363347"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2250
+                          ] ;
+        kws:entry         [ kws:position  440 ;
+                            kws:recall    0.0 ;
+                            kws:score     "0.64116794"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2249
+                          ] ;
+        kws:entry         [ kws:position  273 ;
+                            kws:recall    0.0 ;
+                            kws:score     "1.7806151"^^xsd:float ;
+                            kws:size      5 ;
+                            kws:solution  kwsg:036:sol2194
+                          ] ;
+        kws:keywordQuery  "poland cape verde organization" .

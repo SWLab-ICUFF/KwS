@@ -33,7 +33,7 @@ public class BuildBenchmark {
         String benchmark;
         String rankingFilename;
 
-        for (int c : new int[]{8211}) {
+        for (int c : new int[]{9211}) {
             switch (c) {
                 case 211:
                     kwsVersion = "v2/1/1";
@@ -58,6 +58,10 @@ public class BuildBenchmark {
                 case 8222:
                     kwsVersion = "v2/2/2";
                     benchmark = "CoffmanRDF_2_2_2";
+                    break;
+                case 9211:
+                    kwsVersion = "v2/1/1";
+                    benchmark = "CoffmanRDF_teste";
                     break;
                 default:
                     kwsVersion = "v2/1/1";
