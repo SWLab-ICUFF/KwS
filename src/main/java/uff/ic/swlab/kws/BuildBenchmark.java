@@ -33,7 +33,7 @@ public class BuildBenchmark {
         String benchmark;
         String rankingFilename;
 
-        for (int c : new int[]{8222}) {
+        for (int c : new int[]{8211}) {
             switch (c) {
                 case 211:
                     kwsVersion = "v2/1/1";
