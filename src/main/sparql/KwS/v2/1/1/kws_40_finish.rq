@@ -84,7 +84,8 @@ where {
 };
 
 
-drop graph kwsg:seeds;
-drop graph kwsg:groups;
+#drop graph kwsg:seeds;
+#drop graph kwsg:groups;
+#drop graph kwsg:groups2;
 
 

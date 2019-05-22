@@ -51,6 +51,10 @@ public class BuildBenchmark {
                     kwsVersion = "v2/2/2";
                     benchmark = "CIKM2019_2_2";
                     break;
+                case 7212:
+                    kwsVersion = "v2/1/2";
+                    benchmark = "CIKM2019_teste";
+                    break;
                 case 8211:
                     kwsVersion = "v2/1/1";
                     benchmark = "CoffmanRDF_2_1_1";
@@ -111,7 +115,7 @@ public class BuildBenchmark {
 
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_20_rank.rq", kwsVersion));
-            queryString = queryString.format(queryString, keywordQuery);
+            queryString = queryString.format(queryString, service1, keywordQuery);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
 

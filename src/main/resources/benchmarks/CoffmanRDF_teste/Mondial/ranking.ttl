@@ -6,226 +6,105 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix time:  <http://www.w3.org/2006/time#> .
 
-kwsg:007:query  a         kws:Ranking ;
+kwsg:036:query  a         kws:Ranking ;
         kws:duration      [ a                     time:Duration ;
-                            time:numericDuration  0.136 ;
+                            time:numericDuration  12.265 ;
                             time:unityType        time:unitSecond
-                          ] ;
-        kws:keywordQuery  "sonsonate" .
-
-kwsg:002:query  a         kws:Ranking ;
-        kws:duration      [ a                     time:Duration ;
-                            time:numericDuration  0.583 ;
-                            time:unityType        time:unitSecond
-                          ] ;
-        kws:entry         [ kws:position  1 ;
-                            kws:recall    1.0 ;
-                            kws:score     "4.2315254"^^xsd:float ;
-                            kws:size      1 ;
-                            kws:solution  kwsg:002:sol1
-                          ] ;
-        kws:keywordQuery  "netherlands" .
-
-kwsg:005:query  a         kws:Ranking ;
-        kws:duration      [ a                     time:Duration ;
-                            time:numericDuration  0.317 ;
-                            time:unityType        time:unitSecond
-                          ] ;
-        kws:entry         [ kws:position  1 ;
-                            kws:recall    1.0 ;
-                            kws:score     "3.802448"^^xsd:float ;
-                            kws:size      1 ;
-                            kws:solution  kwsg:005:sol1
-                          ] ;
-        kws:keywordQuery  "bangladesh" .
-
-kwsg:008:query  a         kws:Ranking ;
-        kws:duration      [ a                     time:Duration ;
-                            time:numericDuration  0.289 ;
-                            time:unityType        time:unitSecond
-                          ] ;
-        kws:entry         [ kws:position  1 ;
-                            kws:recall    0.0 ;
-                            kws:score     "8.653288"^^xsd:float ;
-                            kws:size      1 ;
-                            kws:solution  kwsg:008:sol1
-                          ] ;
-        kws:keywordQuery  "xiaogan" .
-
-kwsg:003:query  a         kws:Ranking ;
-        kws:duration      [ a                     time:Duration ;
-                            time:numericDuration  1.0 ;
-                            time:unityType        time:unitSecond
-                          ] ;
-        kws:entry         [ kws:position  2 ;
-                            kws:recall    1.0 ;
-                            kws:score     "5.2530556"^^xsd:float ;
-                            kws:size      1 ;
-                            kws:solution  kwsg:003:sol2
-                          ] ;
-        kws:entry         [ kws:position  1 ;
-                            kws:recall    0.0 ;
-                            kws:score     "7.6911297"^^xsd:float ;
-                            kws:size      1 ;
-                            kws:solution  kwsg:003:sol1
-                          ] ;
-        kws:keywordQuery  "georgia" .
-
-kwsg:006:query  a         kws:Ranking ;
-        kws:duration      [ a                     time:Duration ;
-                            time:numericDuration  0.836 ;
-                            time:unityType        time:unitSecond
-                          ] ;
-        kws:entry         [ kws:position  5 ;
-                            kws:recall    1.0 ;
-                            kws:score     "5.7763224"^^xsd:float ;
-                            kws:size      2 ;
-                            kws:solution  kwsg:006:sol5
-                          ] ;
-        kws:entry         [ kws:position  1 ;
-                            kws:recall    1.0 ;
-                            kws:score     "7.359137"^^xsd:float ;
-                            kws:size      2 ;
-                            kws:solution  kwsg:006:sol4
-                          ] ;
-        kws:entry         [ kws:position  7 ;
-                            kws:recall    1.0 ;
-                            kws:score     "4.799799"^^xsd:float ;
-                            kws:size      1 ;
-                            kws:solution  kwsg:006:sol3
-                          ] ;
-        kws:entry         [ kws:position  3 ;
-                            kws:recall    1.0 ;
-                            kws:score     "6.917765"^^xsd:float ;
-                            kws:size      1 ;
-                            kws:solution  kwsg:006:sol2
-                          ] ;
-        kws:entry         [ kws:position  2 ;
-                            kws:recall    1.0 ;
-                            kws:score     "6.917765"^^xsd:float ;
-                            kws:size      1 ;
-                            kws:solution  kwsg:006:sol1
-                          ] ;
-        kws:entry         [ kws:position  4 ;
-                            kws:recall    1.0 ;
-                            kws:score     "6.283928"^^xsd:float ;
-                            kws:size      3 ;
-                            kws:solution  kwsg:006:sol7
-                          ] ;
-        kws:entry         [ kws:position  6 ;
-                            kws:recall    1.0 ;
-                            kws:score     "5.7763224"^^xsd:float ;
-                            kws:size      2 ;
-                            kws:solution  kwsg:006:sol6
-                          ] ;
-        kws:keywordQuery  "alexandria" .
-
-kwsg:001:query  a         kws:Ranking ;
-        kws:duration      [ a                     time:Duration ;
-                            time:numericDuration  1.455 ;
-                            time:unityType        time:unitSecond
-                          ] ;
-        kws:entry         [ kws:position  1 ;
-                            kws:recall    1.0 ;
-                            kws:score     "5.005742"^^xsd:float ;
-                            kws:size      1 ;
-                            kws:solution  kwsg:001:sol1
-                          ] ;
-        kws:keywordQuery  "thailand" .
-
-kwsg:004:query  a         kws:Ranking ;
-        kws:duration      [ a                     time:Duration ;
-                            time:numericDuration  2.497 ;
-                            time:unityType        time:unitSecond
-                          ] ;
-        kws:entry         [ kws:position  3 ;
-                            kws:recall    0.0 ;
-                            kws:score     "6.3216496"^^xsd:float ;
-                            kws:size      3 ;
-                            kws:solution  kwsg:004:sol11
-                          ] ;
-        kws:entry         [ kws:position  4 ;
-                            kws:recall    0.0 ;
-                            kws:score     "6.057917"^^xsd:float ;
-                            kws:size      2 ;
-                            kws:solution  kwsg:004:sol8
                           ] ;
         kws:entry         [ kws:position  12 ;
                             kws:recall    0.0 ;
-                            kws:score     "4.8990993"^^xsd:float ;
-                            kws:size      1 ;
-                            kws:solution  kwsg:004:sol3
-                          ] ;
-        kws:entry         [ kws:position  11 ;
-                            kws:recall    0.0 ;
-                            kws:score     "4.8990993"^^xsd:float ;
-                            kws:size      1 ;
-                            kws:solution  kwsg:004:sol2
-                          ] ;
-        kws:entry         [ kws:position  15 ;
-                            kws:recall    0.0 ;
-                            kws:score     "4.4846916"^^xsd:float ;
-                            kws:size      1 ;
-                            kws:solution  kwsg:004:sol4
-                          ] ;
-        kws:entry         [ kws:position  14 ;
-                            kws:recall    0.0 ;
-                            kws:score     "4.8201566"^^xsd:float ;
-                            kws:size      2 ;
-                            kws:solution  kwsg:004:sol9
-                          ] ;
-        kws:entry         [ kws:position  9 ;
-                            kws:recall    0.0 ;
-                            kws:score     "5.0700016"^^xsd:float ;
-                            kws:size      2 ;
-                            kws:solution  kwsg:004:sol7
-                          ] ;
-        kws:entry         [ kws:position  10 ;
-                            kws:recall    0.0 ;
-                            kws:score     "4.9534836"^^xsd:float ;
-                            kws:size      3 ;
-                            kws:solution  kwsg:004:sol14
-                          ] ;
-        kws:entry         [ kws:position  13 ;
-                            kws:recall    0.0 ;
-                            kws:score     "4.8201566"^^xsd:float ;
-                            kws:size      2 ;
-                            kws:solution  kwsg:004:sol10
-                          ] ;
-        kws:entry         [ kws:position  2 ;
-                            kws:recall    0.0 ;
-                            kws:score     "6.6407065"^^xsd:float ;
-                            kws:size      2 ;
-                            kws:solution  kwsg:004:sol6
-                          ] ;
-        kws:entry         [ kws:position  1 ;
-                            kws:recall    0.0 ;
-                            kws:score     "6.6407065"^^xsd:float ;
-                            kws:size      2 ;
-                            kws:solution  kwsg:004:sol5
-                          ] ;
-        kws:entry         [ kws:position  8 ;
-                            kws:recall    0.0 ;
-                            kws:score     "5.863656"^^xsd:float ;
+                            kws:score     "2.9429784"^^xsd:float ;
                             kws:size      4 ;
-                            kws:solution  kwsg:004:sol15
+                            kws:solution  kwsg:036:sol320
+                          ] ;
+        kws:entry         [ kws:position  3 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9857144"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol124
+                          ] ;
+        kws:entry         [ kws:position  16 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9429784"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol353
                           ] ;
         kws:entry         [ kws:position  7 ;
                             kws:recall    0.0 ;
-                            kws:score     "5.869242"^^xsd:float ;
-                            kws:size      1 ;
-                            kws:solution  kwsg:004:sol1
+                            kws:score     "2.9429784"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol312
+                          ] ;
+        kws:entry         [ kws:position  11 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9429784"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol318
+                          ] ;
+        kws:entry         [ kws:position  1 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9857144"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol110
+                          ] ;
+        kws:entry         [ kws:position  10 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9429784"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol316
+                          ] ;
+        kws:entry         [ kws:position  13 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9429784"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol321
+                          ] ;
+        kws:entry         [ kws:position  2 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9857144"^^xsd:float ;
+                            kws:size      3 ;
+                            kws:solution  kwsg:036:sol113
                           ] ;
         kws:entry         [ kws:position  6 ;
                             kws:recall    0.0 ;
-                            kws:score     "5.9719734"^^xsd:float ;
-                            kws:size      3 ;
-                            kws:solution  kwsg:004:sol13
+                            kws:score     "2.9429784"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol311
                           ] ;
         kws:entry         [ kws:position  5 ;
                             kws:recall    0.0 ;
-                            kws:score     "5.9719734"^^xsd:float ;
-                            kws:size      3 ;
-                            kws:solution  kwsg:004:sol12
+                            kws:score     "2.9429784"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol310
                           ] ;
-        kws:keywordQuery  "country china" .
+        kws:entry         [ kws:position  14 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9429784"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol351
+                          ] ;
+        kws:entry         [ kws:position  15 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9429784"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol352
+                          ] ;
+        kws:entry         [ kws:position  9 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9429784"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol315
+                          ] ;
+        kws:entry         [ kws:position  4 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9429784"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol309
+                          ] ;
+        kws:entry         [ kws:position  8 ;
+                            kws:recall    0.0 ;
+                            kws:score     "2.9429784"^^xsd:float ;
+                            kws:size      4 ;
+                            kws:solution  kwsg:036:sol314
+                          ] ;
+        kws:keywordQuery  "poland cape verde organizations" .
