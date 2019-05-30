@@ -106,7 +106,6 @@ public class BuildBenchmark {
         }
 
         Calendar t1 = Calendar.getInstance();
-
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_10_search.rq", kwsVersion));
             queryString = queryString.format(queryString, service1, keywordQuery, benchmarkNS);
@@ -118,8 +117,8 @@ public class BuildBenchmark {
             queryString = queryString.format(queryString, service1, keywordQuery);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
-
         Calendar t2 = Calendar.getInstance();
+
         double seconds = Duration.between(t1.toInstant(), t2.toInstant()).toMillis() / 1000.0;
         System.out.println("");
         System.out.println(String.format("Elapsed time: %1$f seconds", seconds));

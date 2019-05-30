@@ -11,13 +11,15 @@ prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
 ###################
 # calcular scores #
 ###################
-
-insert {graph ?g {?s kws:score ?score}}
+with kwsg:groups
+# insert {graph ?g {?s kws:score ?score}}
+insert {?s kws:score ?score}
+using kwsg:groups
 where {
-    graph ?g {
+#   graph ?g {
         ?s kws:comment [].
         (?s ?score) text:query '%2$s'.
-    }
+#   }
 };
 
 
