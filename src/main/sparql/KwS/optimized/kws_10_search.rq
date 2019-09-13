@@ -213,11 +213,11 @@ WHERE{
 	group by ?bag
 };
 
-
-
 #################################################################################
-# Normalizar a quantidade de entidades de cada grupo de solução
-#################################################################################
+#Normalização das entidades de cada grupo (Recall), dada pela fómurla:
+#		(N - n) / N , onde, "N" é o maior número de entidades encontradas no grupo e "n" 
+#é o número de entidades de um grupo
+##################################################################################
 with kwsg:groups
 insert {?bag kws:entityNormalized ?normalized.}
 using kwsg:groups
