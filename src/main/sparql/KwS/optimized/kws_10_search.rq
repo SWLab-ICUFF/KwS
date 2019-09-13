@@ -215,3 +215,21 @@ WHERE{
 
 
 
+#################################################################################
+# Normalizar a quantidade de entidades de cada grupo de solução
+#################################################################################
+with kwsg:groups
+insert {?bag kws:entityNormalized ?normalized.}
+using kwsg:groups
+WHERE{
+  
+  SELECT ?bag ((xsd:float(?maxEntity) - xsd:float(?number_entity))/xsd:float(?maxEntity) AS ?normalized)
+	WHERE{
+		
+    		?bag a rdf:Bag.
+    		?bag kws:initialSize ?number_entity.
+    		?bag kws:maxEntity ?maxEntity.
+  		
+	}
+
+}
