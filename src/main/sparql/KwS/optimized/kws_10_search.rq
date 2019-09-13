@@ -181,10 +181,8 @@ where {
 with kwsg:groups
 insert {?bag kws:countkws ?countkws.}
 using kwsg:groups
-where {
-  		?bag a rdf:Bag; rdfs:member ?m.
-    	optional {?m kws:comment ?comment}.
-      	bind(fn:countKwS("mauritius india", ?comment) as ?countkws)
-};
-  	  
-
+WHERE{
+  ?bag a rdf:Bag.
+  ?bag kws:comment ?comment.
+  bind(fn:countKwS("mauritius india", ?comment) as ?countkws) 	
+}
