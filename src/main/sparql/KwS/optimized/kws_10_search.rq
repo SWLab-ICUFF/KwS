@@ -5,6 +5,8 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix text: <http://jena.apache.org/text#>
 prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
 
 ######eliminar todos os registros do kws.temp ####
 drop all;
@@ -174,7 +176,7 @@ where {
 
 
 #################################################################################
-# contar a quantidade de palavras chaves repetidos no kws:comment #
+# Calcular a cobertura de kws de cada grupo de solução
 #a palavra chave passada como parâmetro separada por espaçamento simples
 #################################################################################
 
@@ -184,5 +186,32 @@ using kwsg:groups
 WHERE{
   ?bag a rdf:Bag.
   ?bag kws:comment ?comment.
-  bind(fn:countKwS("mauritius india", ?comment) as ?countkws) 	
-}
+  bind(xsd:float(fn:countKwS("mauritius india", ?comment)) as ?countkws) 	
+};
+
+#################################################################################
+# Calcular maior quantidade de entidades de todos os grupos de soluções. 
+#
+#################################################################################
+
+with kwsg:groups
+insert {?bag kws:maxEntity ?total.}
+WHERE{
+  	SELECT  ?bag (max(?max_entity) as ?total)
+	WHERE {
+  		{
+  			SELECT (max(?number_entity) as ?max_entity)
+				WHERE{
+    				graph kwsg:groups{
+      					?bag a rdf:Bag.
+      					?bag kws:initialSize ?number_entity.
+    				}
+    			}
+  		}
+  		{SELECT ?bag WHERE{graph kwsg:groups{?bag a rdf:Bag.}}}
+ 	}
+	group by ?bag
+};
+
+
+
