@@ -1,0 +1,9 @@
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
+prefix text: <http://jena.apache.org/text#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
