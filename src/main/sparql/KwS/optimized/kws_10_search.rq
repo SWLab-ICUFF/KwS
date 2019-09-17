@@ -191,11 +191,10 @@ WHERE{
 
 #################################################################################
 # Calcular maior quantidade de entidades de todos os grupos de soluções. 
-#
 #################################################################################
 
 with kwsg:groups
-insert {?bag kws:maxEntity ?total.}
+insert {?bag kws:maxGroupSize ?total.}
 WHERE{
   	SELECT  ?bag (max(?max_entity) as ?total)
 	WHERE {
@@ -215,21 +214,17 @@ WHERE{
 
 #################################################################################
 #Normalização das entidades de cada grupo (Recall), dada pela fómurla:
-#		(N - n) / N , onde, "N" é o maior número de entidades encontradas no grupo e "n" 
+#		((N+1) - n) / N + 1 , onde, "N" é o maior número de entidades encontradas no grupo e "n" 
 #é o número de entidades de um grupo
 ##################################################################################
 with kwsg:groups
-insert {?bag kws:entityNormalized ?normalized.}
+insert {?bag kws:sizeScore ?normalized.}
 using kwsg:groups
 WHERE{
-  
-  SELECT ?bag ((xsd:float(?maxEntity) - xsd:float(?number_entity))/xsd:float(?maxEntity) AS ?normalized)
+  SELECT ?bag (((xsd:float(?maxGroupSize) + 1) - xsd:float(?number_entity))/(xsd:float(?maxGroupSize) + 1) AS ?normalized)
 	WHERE{
-		
     		?bag a rdf:Bag.
     		?bag kws:initialSize ?number_entity.
-    		?bag kws:maxEntity ?maxEntity.
-  		
+    		?bag kws:maxGroupSize ?maxGroupSize.	
 	}
-
 }

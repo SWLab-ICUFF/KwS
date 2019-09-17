@@ -17,15 +17,15 @@ prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
 ###########################################################################################################################
 
 with kwsg:groups
-insert {?bag kws:score ?score.}
+insert {?bag kws:covarageScore ?score.}
 WHERE{
   	SELECT  
-	?bag (xsd:float(2) * (xsd:float(?coberturakws) * xsd:float(?entityNormalized)) / (xsd:float(?coberturakws) + xsd:float(?entityNormalized))  as ?score)
+	?bag (xsd:float(2) * ((xsd:float(?coberturakws) * xsd:float(?sizeScore)) / (xsd:float(?coberturakws) + xsd:float(?sizeScore)))  as ?score)
 	WHERE{
 		graph kwsg:groups{
     		?bag a rdf:Bag.
     		?bag kws:countkws ?coberturakws.
-    		?bag kws:entityNormalized ?entityNormalized.
+    		?bag kws:sizeScore ?sizeScore.
     	}
 	}
 };
@@ -37,7 +37,7 @@ WHERE{
 with kwsg:groups2
 insert {?bag a rdf:Bag; ?p1 ?o1. ?o1 ?p2 ?o2.}
 where {
-  {select ?bag {graph kwsg:groups {?bag a rdf:Bag; kws:score ?score.}} order by desc(?score) limit 20}
+  {select ?bag {graph kwsg:groups {?bag a rdf:Bag; kws:covarageScore ?score.}} order by desc(?score) limit 20}
     graph kwsg:groups {?bag ?p1 ?o1. optional {?o1 ?p2 ?o2.}}
 };
 

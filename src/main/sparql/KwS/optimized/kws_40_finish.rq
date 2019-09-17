@@ -1,9 +1,175 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 prefix : <urn:vocab:kws:>
 prefix kws: <urn:vocab:kws:>
 prefix kwsg: <urn:graph:kws:>
-prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix text: <http://jena.apache.org/text#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
 
+############################################################################################
+# criando uri nomeada da solução e calcular a quantidade de entidades novas em cada solução
+#############################################################################################
+
+insert {graph ?sol {?sol kws:size ?size}}
+where{
+	SELECT ?sol (count(distinct ?entity) as ?size)
+WHERE{
+  graph ?sol {
+    {?entity ?p []} UNION {[] ?p ?entity}
+    FILTER(!isBlank(?entity) && !isLiteral(?entity))
+  }
+}
+group by ?sol
+};
+
+##################################################
+# trazer kws:comment do Mondial para as soluções #
+##################################################
+
+insert {graph ?g {?s meta:__search_id ?id; kws:comment ?comment.}}
+where {
+    {
+        {select distinct ?s {
+        					graph ?g {
+          								{?s ?p []} 
+          								union {
+            									[] ?p ?s
+          								} 
+          								filter(!isBlank(?s))
+          								
+        						}
+      					}
+      					
+    	}
+        optional {service <http://localhost:3030/Mondial/sparql> {?s meta:__search_id ?id}}
+        optional {service <http://localhost:3030/Mondial/sparql> {graph kwsg:indexed {?s kws:comment ?comment}}}
+    }
+    {select distinct ?g ?s {graph ?g {{?s ?p []} union {[] ?p ?s} filter(!isBlank(?s))}}}
+};
+
+######################################################################
+# concatenar kws comment das entidades das soluções e armazenar na bag
+######################################################################
+insert {graph ?sol {?sol kws:comment ?comment.}}
+WHERE{
+  		SELECT ?sol (group_concat(coalesce(?_comment,"")) as ?comment)
+		WHERE{
+  			graph ?sol {
+  				?s kws:comment ?_comment.
+  			}
+		}
+group by ?sol
+};
+
+
+#################################################################################
+# Calcular a cobertura de kws da solução
+#a palavra chave passada como parâmetro separada por espaçamento simples
+#################################################################################
+
+insert {graph ?sol {?sol kws:countkws ?countkws.}}
+WHERE{
+  graph ?sol{
+  		?sol kws:comment ?comment.
+  		bind(xsd:float(fn:countKwS("mauritius india", ?comment)) as ?countkws)
+  }
+};
+
+#################################################################################
+# Calcular maior quantidade de grupos de entidades de todos os grupos de soluções. 
+#################################################################################
+
+
+insert {graph ?sol {?sol kws:maxGroupSize ?total.}}
+WHERE{
+  	SELECT ?sol (max(?max_entity) as ?total)
+	WHERE {
+  		{
+  			SELECT (max(?number_entity) as ?max_entity)
+				WHERE{
+    				graph ?sol{
+      					?sol kws:size ?number_entity.
+        				
+    				}
+      				FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+    			}
+  		}
+    {SELECT ?sol WHERE{graph ?sol{?sol ?p []}}}
+    FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+ 	}
+	group by ?sol
+};
+
+
+#################################################################################
+#Normalização das entidades de cada grupo (Recall), dada pela fómurla:
+#		((N+1) - n) / N + 1 , onde, "N" é o maior número de entidades encontradas no grupo e "n" 
+#é o número de entidades de um grupo
+##################################################################################
+
+insert {graph ?sol {?sol kws:sizeScore ?normalized.}}
+WHERE{
+  SELECT ?sol (((xsd:float(?maxGroupSize) + 1) - xsd:float(?number_entity))/(xsd:float(?maxGroupSize) + 1) AS ?normalized)
+	WHERE{
+    	graph ?sol{
+    		?sol ?p [].
+    		?sol kws:size ?number_entity.
+    		?sol kws:maxGroupSize ?maxGroupSize.	
+    	}
+	}
+};
+
+
+insert {graph ?sol {?sol kws:covarageScore ?score.}}
+WHERE{
+  	SELECT  
+	?sol (xsd:float(2) * ((xsd:float(?coberturakws) * xsd:float(?sizeScore)) / (xsd:float(?coberturakws) + xsd:float(?sizeScore)))  as ?score)
+	WHERE{
+		graph ?sol{
+    		#?bag a rdf:Bag.
+    		?sol kws:countkws ?coberturakws.
+    		?sol kws:sizeScore ?sizeScore.
+    	}
+	}
+};
+
+
+#############################
+# levar uri da bag, score
+############################
+#insert {graph ?sol {?sol a rdf:Bag;}}
+#where {	
+#    	graph kwsg:groups2 {?sol a rdf:Bag;}
+#};
+
+
+#insert {graph ?g {?s meta:__search_id ?id; kws:comment ?comment.}}
+#where {
+#    {
+#        {select distinct ?s {graph ?g {{?s ?p []} union {[] ?p ?s} filter(!isBlank(?s) && !isLiteral(?s))} filter(regex(str(?g),"urn:graph:kws:[0-0]{3}:sol"))}}
+#        {service <http://localhost:3030/Mondial/sparql> {optional {?s meta:__search_id ?id} optional {graph kwsg:indexed {?s #kws:comment ?comment}} }
+#        optional {service <http://localhost:3030/Mondial/sparql> {graph kwsg:indexed {?s kws:comment ?comment}}}
+#    }
+#    {select distinct ?g ?s {graph ?g {{?s ?p []} union {[] ?p ?s} filter(!isBlank(?s))}}}
+#  }
+#};
+
+
+
+
+###############################################
+# calculando Size para dentro das soluções
+###############################################
+
+#insert {graph ?sol {?bag kws:size ?size}}
+#WHERE{
+#  		SELECT ?bag (count(?m) as ?size)
+# 		WHERE{
+#  			graph ?sol{
+#    			?bag a rdf:Bag; rdfs:member ?m.
+#    		}
+#  		}
+#  		group by ?bag
+#};
