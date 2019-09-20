@@ -138,7 +138,7 @@ where {
     optional {service <http://localhost:3030/Mondial/sparql> {?s meta:__search_id ?id}}
     optional {service <http://localhost:3030/Mondial/sparql> {graph kwsg:indexed {?s kws:comment ?comment}}}
   }
-  	
+
 };
 
 ###################################################
@@ -152,7 +152,7 @@ where {
   	select ?bag (group_concat(coalesce(?_comment,"")) as ?comment)
   	where {
     	?bag a rdf:Bag; rdfs:member ?m.
-    	optional {?m kws:comment ?_comment}	
+    	optional {?m kws:comment ?_comment}
   	}
   	group by ?bag
 };
@@ -173,7 +173,7 @@ where {
 #    	optional {?m kws:comment ?comment}
 #  	}
 #  	group by ?bag
-  	  
+
 #};
 
 
@@ -188,7 +188,7 @@ using kwsg:groups
 WHERE{
   ?bag a rdf:Bag.
   ?bag kws:comment ?comment.
-  bind(fn:countKwS("mauritius india", ?comment) as ?countkws) 	
+  bind(fn:countKwS("mauritius india", ?comment) as ?countkws)
 };
 
 #################################################################################
@@ -216,7 +216,7 @@ WHERE{
 
 #################################################################################
 #Entity Score:
-#		(N - n) / (N - 1) , onde, "N" é o maior número de entidades encontradas no grupo e "n" 
+#		(N - n) / (N - 1) , onde, "N" é o maior número de entidades encontradas no grupo e "n"
 #é o número de entidades de um grupo
 ##################################################################################
 with kwsg:groups
@@ -227,7 +227,7 @@ WHERE{
 	WHERE{
     		?bag a rdf:Bag.
     		?bag kws:initialSize ?number_entity.
-    		?bag kws:maxGroupSize ?maxGroupSize.	
+    		?bag kws:maxGroupSize ?maxGroupSize.
 	}
 };
 
@@ -235,7 +235,7 @@ WHERE{
 #Calcular frequência de kws entre as entidades de uma solução (f) e armazenar em cada solução:
 ################################################################################################
 
-insert {graph ?g {?sol kws:frequency ?freq.} }
+insert {graph ?g {?g kws:frequency ?freq.} }
 WHERE{
   {
 	SELECT  ?g (agg:meanCoocurrFreq("mauritius india", ?kwscomment) as ?freq)
@@ -244,18 +244,10 @@ WHERE{
   			?s kws:comment ?kwscomment.
     		FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
   		}
+                FILTER(regex(str(?g),"urn:graph:kws:[0-9]{3}:sol"))
  	}
 	group by ?g
-  }  
-  {
-  		SELECT ?sol
-    	WHERE{
-      		graph kwsg:groups{
-      			?sol a rdf:Bag
-      		}
-    	}
-  
-  	}
+  }
 };
 
 #############################################################################################
@@ -272,7 +264,7 @@ WHERE{
 	WHERE{
     		?bag a rdf:Bag.
     		?bag kws:initialSize ?number_entity.
-    		?bag kws:frequency ?frequency.	
+    		?bag kws:frequency ?frequency.
 	}
 
 };
