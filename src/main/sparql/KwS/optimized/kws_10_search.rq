@@ -237,17 +237,17 @@ WHERE{
 
 insert {graph ?g {?g kws:frequency ?freq.} }
 WHERE{
-  {
+    {
 	SELECT  ?g (agg:kwFreqScore("mauritius india", ?kwscomment) as ?freq)
 	WHERE {
-  		graph ?g{
-  			?s kws:comment ?kwscomment.
-    		FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
+  		graph ?g {
+                    ?s kws:comment ?kwscomment.
+                    FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
   		}
                 FILTER(regex(str(?g),"urn:graph:kws:[0-9]{3}:sol"))
  	}
 	group by ?g
-  }
+    }
 };
 
 #############################################################################################
