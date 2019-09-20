@@ -7,6 +7,8 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix text: <http://jena.apache.org/text#>
 prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+PREFIX agg: <http://uff.ic.swlab.jena.sparql.aggregate/>
+
 
 ############################################################################################
 # criando uri nomeada da solução e calcular a quantidade de entidades novas em cada solução
@@ -20,6 +22,7 @@ WHERE{
     {?entity ?p []} UNION {[] ?p ?entity}
     FILTER(!isBlank(?entity) && !isLiteral(?entity))
   }
+   FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
 }
 group by ?sol
 };
@@ -31,23 +34,25 @@ group by ?sol
 insert {graph ?g {?s meta:__search_id ?id; kws:comment ?comment.}}
 where {
     {
-        {select distinct ?s {
-        					graph ?g {
-          								{?s ?p []} 
-          								union {
-            									[] ?p ?s
-          								} 
-          								filter(!isBlank(?s))
+      {select distinct ?s {
+         graph ?g {
+          		{?s ?p []} 
+          	union {
+          			[] ?p ?s
+          	} 
+          	filter(!isBlank(?s))
           								
-        						}
-      					}
+        }
+        FILTER(regex(str(?g),"urn:graph:kws:[0-9]{3}:sol"))
+      }
       					
-    	}
-        optional {service <http://localhost:3030/Mondial/sparql> {?s meta:__search_id ?id}}
-        optional {service <http://localhost:3030/Mondial/sparql> {graph kwsg:indexed {?s kws:comment ?comment}}}
-    }
+   	}
+    optional {service <http://localhost:3030/Mondial/sparql> {?s meta:__search_id ?id}}
+    optional {service <http://localhost:3030/Mondial/sparql> {graph kwsg:indexed {?s kws:comment ?comment}}}
+}
     {select distinct ?g ?s {graph ?g {{?s ?p []} union {[] ?p ?s} filter(!isBlank(?s))}}}
 };
+
 
 ######################################################################
 # concatenar kws comment das entidades das soluções e armazenar na bag
@@ -69,12 +74,13 @@ group by ?sol
 #a palavra chave passada como parâmetro separada por espaçamento simples
 #################################################################################
 
-insert {graph ?sol {?sol kws:countkws ?countkws.}}
+insert {graph ?sol {?sol kws:coverageScore ?coverageScore.}}
 WHERE{
   graph ?sol{
   		?sol kws:comment ?comment.
-  		bind(xsd:float(fn:countKwS("mauritius india", ?comment)) as ?countkws)
+  		bind(xsd:float(fn:countKwS("mauritius india", ?comment)) as ?coverageScore)
   }
+  FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
 };
 
 #################################################################################
@@ -102,16 +108,15 @@ WHERE{
 	group by ?sol
 };
 
-
 #################################################################################
-#Normalização das entidades de cada grupo (Recall), dada pela fómurla:
-#		((N+1) - n) / N + 1 , onde, "N" é o maior número de entidades encontradas no grupo e "n" 
+#Entity Score:
+#		(N - n) / (N - 1) , onde, "N" é o maior número de entidades encontradas no grupo e "n"
 #é o número de entidades de um grupo
 ##################################################################################
 
-insert {graph ?sol {?sol kws:sizeScore ?normalized.}}
+insert {graph ?sol {?sol kws:entityScore ?entityScore.}}
 WHERE{
-  SELECT ?sol (((xsd:float(?maxGroupSize) + 1) - xsd:float(?number_entity))/(xsd:float(?maxGroupSize) + 1) AS ?normalized)
+  SELECT ?sol ((?maxGroupSize - ?number_entity)/(?maxGroupSize - 1) AS ?entityScore)
 	WHERE{
     	graph ?sol{
     		?sol ?p [].
@@ -121,40 +126,47 @@ WHERE{
 	}
 };
 
-
-insert {graph ?sol {?sol kws:covarageScore ?score.}}
+##########################################################
+#Calcular frequenceScore e armazenar em cada solução
+##########################################################
+insert {graph ?g {?g kws:frequencyScore ?freqScore.}}
 WHERE{
-  	SELECT  
-	?sol (xsd:float(2) * ((xsd:float(?coberturakws) * xsd:float(?sizeScore)) / (xsd:float(?coberturakws) + xsd:float(?sizeScore)))  as ?score)
+  	SELECT ?g (agg:kwFreqScore("mauritius india", ?kwscomment) as ?freqScore)
+    WHERE{
+  		graph ?g {
+  			 ?s kws:comment ?kwscomment.
+  		}
+    	FILTER(regex(str(?g),"urn:graph:kws:[0-9]{3}:sol"))
+    	
+	}
+  	group by ?g
+
+};
+
+###########################################################################################################################
+# calculando harmonic mean (kws:score) de três modelos: 
+# 	-Cobertura relativa de kws (coverageScore)
+#	-Normalizacão das entidades encontradas pela palavra chave (entityScore)
+#	-Frequência  das palavras chaves em relação ao kws:comment (frequencyScore)
+#   -Fómrula: (3 * (x1*x2*x3)) / ((x1*x2) + (x1*x3) + (x2*x3))
+###########################################################################################################################
+
+
+insert {graph ?g {?g kws:harmonicScore ?harmonicScore.}}
+WHERE{
+  	SELECT
+  ?g ( (3* (?frequencyScore*?coverageScore*?entityScore)) / ((?frequencyScore*?coverageScore) + (?frequencyScore*?entityScore) + (?coverageScore*?entityScore)) as ?harmonicScore)
 	WHERE{
-		graph ?sol{
-    		#?bag a rdf:Bag.
-    		?sol kws:countkws ?coberturakws.
-    		?sol kws:sizeScore ?sizeScore.
+		graph ?g{
+    		?g kws:coverageScore ?coverageScore.
+    		?g kws:entityScore ?entityScore.
+      		?g kws:frequencyScore ?frequencyScore.
     	}
+    FILTER(regex(str(?g),"urn:graph:kws:[0-9]{3}:sol"))
+
 	}
 };
 
-
-#############################
-# levar uri da bag, score
-############################
-#insert {graph ?sol {?sol a rdf:Bag;}}
-#where {	
-#    	graph kwsg:groups2 {?sol a rdf:Bag;}
-#};
-
-
-#insert {graph ?g {?s meta:__search_id ?id; kws:comment ?comment.}}
-#where {
-#    {
-#        {select distinct ?s {graph ?g {{?s ?p []} union {[] ?p ?s} filter(!isBlank(?s) && !isLiteral(?s))} filter(regex(str(?g),"urn:graph:kws:[0-0]{3}:sol"))}}
-#        {service <http://localhost:3030/Mondial/sparql> {optional {?s meta:__search_id ?id} optional {graph kwsg:indexed {?s #kws:comment ?comment}} }
-#        optional {service <http://localhost:3030/Mondial/sparql> {graph kwsg:indexed {?s kws:comment ?comment}}}
-#    }
-#    {select distinct ?g ?s {graph ?g {{?s ?p []} union {[] ?p ?s} filter(!isBlank(?s))}}}
-#  }
-#};
 
 
 
