@@ -238,7 +238,7 @@ WHERE{
 insert {graph ?g {?g kws:frequency ?freq.} }
 WHERE{
   {
-	SELECT  ?g (agg:meanCoocurrFreq("mauritius india", ?kwscomment) as ?freq)
+	SELECT  ?g (agg:kwFreqScore("mauritius india", ?kwscomment) as ?freq)
 	WHERE {
   		graph ?g{
   			?s kws:comment ?kwscomment.
