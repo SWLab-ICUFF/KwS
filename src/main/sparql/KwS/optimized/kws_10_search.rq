@@ -231,11 +231,11 @@ WHERE{
 	}
 };
 
-###############################################################################################
-#Calcular frequência de kws entre as entidades de uma solução (f) e armazenar em cada solução:
-################################################################################################
+##########################################################
+#Calcular frequênciaScore e armazenar em cada solução
+##########################################################
 
-insert {graph ?g {?sol kws:frequency ?freqScore.}}
+insert {graph ?g {?sol kws:frequencyScore ?freqScore.}}
 WHERE {
     {
 	SELECT  ?g ?sol (agg:kwFreqScore("mauritius india", ?kwscomment) as ?freqScore)
@@ -243,29 +243,10 @@ WHERE {
             graph ?g {
                 ?sol a rdf:Bag; rdfs:member ?s.
                 ?s kws:comment ?kwscomment.
-                FILTER(!regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+                FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
             }
             FILTER(regex(str(?g),"urn:graph:kws:groups"))
         }
         group by ?g ?sol
     }
-};
-
-#############################################################################################
-#Frequency Score:
-#		(F - f) / (F - 1) , onde, "F" é número de entidades (size) e f é a frequência de kws
-#entre as entidades de uma solução
-##############################################################################################
-
-with kwsg:groups
-insert {?bag kws:frequencyScore ?frequenceScore.}
-using kwsg:groups
-WHERE{
-  SELECT ?bag ((?number_entity - ?frequency)/(?number_entity - 1) AS ?frequenceScore)
-	WHERE{
-    		?bag a rdf:Bag.
-    		?bag kws:initialSize ?number_entity.
-    		?bag kws:frequency ?frequency.
-	}
-
 };
