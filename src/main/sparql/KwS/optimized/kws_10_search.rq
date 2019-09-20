@@ -5,7 +5,9 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix text: <http://jena.apache.org/text#>
 prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+PREFIX agg: <http://uff.ic.swlab.jena.sparql.aggregate/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
 
 
 ######eliminar todos os registros do kws.temp ####
@@ -14,9 +16,9 @@ drop all;
 ######################################################
 
 
-###################################
+#########################################################
 # selecionar entidades relevantes a partir das sementes #
-###################################
+#########################################################
 
 
 with kwsg:seeds
@@ -181,16 +183,16 @@ where {
 #################################################################################
 
 with kwsg:groups
-insert {?bag kws:countkws ?countkws.}
+insert {?bag kws:coverageScore ?countkws.}
 using kwsg:groups
 WHERE{
   ?bag a rdf:Bag.
   ?bag kws:comment ?comment.
-  bind(xsd:float(fn:countKwS("mauritius india", ?comment)) as ?countkws) 	
+  bind(fn:countKwS("mauritius india", ?comment) as ?countkws) 	
 };
 
 #################################################################################
-# Calcular maior quantidade de entidades de todos os grupos de soluções. 
+# Calcular maior quantidade de entidades de todos os grupos de soluções. (N)
 #################################################################################
 
 with kwsg:groups
@@ -213,18 +215,64 @@ WHERE{
 };
 
 #################################################################################
-#Normalização das entidades de cada grupo (Recall), dada pela fómurla:
-#		((N+1) - n) / N + 1 , onde, "N" é o maior número de entidades encontradas no grupo e "n" 
+#Entity Score:
+#		(N - n) / (N - 1) , onde, "N" é o maior número de entidades encontradas no grupo e "n" 
 #é o número de entidades de um grupo
 ##################################################################################
 with kwsg:groups
-insert {?bag kws:sizeScore ?normalized.}
+insert {?bag kws:entityScore ?entityScore.}
 using kwsg:groups
 WHERE{
-  SELECT ?bag (((xsd:float(?maxGroupSize) + 1) - xsd:float(?number_entity))/(xsd:float(?maxGroupSize) + 1) AS ?normalized)
+  SELECT ?bag ((?maxGroupSize - ?number_entity)/(?maxGroupSize - 1) AS ?entityScore)
 	WHERE{
     		?bag a rdf:Bag.
     		?bag kws:initialSize ?number_entity.
     		?bag kws:maxGroupSize ?maxGroupSize.	
 	}
-}
+};
+
+###############################################################################################
+#Calcular frequência de kws entre as entidades de uma solução (f) e armazenar em cada solução:
+################################################################################################
+
+insert {graph ?g {?sol kws:frequency ?freq.} }
+WHERE{
+  {
+	SELECT  ?g (agg:meanCoocurrFreq("mauritius india", ?kwscomment) as ?freq)
+	WHERE {
+  		graph ?g{
+  			?s kws:comment ?kwscomment.
+    		FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
+  		}
+ 	}
+	group by ?g
+  }  
+  {
+  		SELECT ?sol
+    	WHERE{
+      		graph kwsg:groups{
+      			?sol a rdf:Bag
+      		}
+    	}
+  
+  	}
+};
+
+#############################################################################################
+#Frequency Score:
+#		(F - f) / (F - 1) , onde, "F" é número de entidades (size) e f é a frequência de kws
+#entre as entidades de uma solução
+##############################################################################################
+
+with kwsg:groups
+insert {?bag kws:frequencyScore ?frequenceScore.}
+using kwsg:groups
+WHERE{
+  SELECT ?bag ((?number_entity - ?frequency)/(?number_entity - 1) AS ?frequenceScore)
+	WHERE{
+    		?bag a rdf:Bag.
+    		?bag kws:initialSize ?number_entity.
+    		?bag kws:frequency ?frequency.	
+	}
+
+};
