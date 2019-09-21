@@ -47,8 +47,8 @@ where {
       }
       					
    	}
-    optional {service <http://localhost:3030/Mondial/sparql> {?s meta:__search_id ?id}}
-    optional {service <http://localhost:3030/Mondial/sparql> {graph kwsg:indexed {?s kws:comment ?comment}}}
+    optional {service <%1$s> {?s meta:__search_id ?id}}
+    optional {service <%1$s> {graph kwsg:indexed {?s kws:comment ?comment}}}
 }
     {select distinct ?g ?s {graph ?g {{?s ?p []} union {[] ?p ?s} filter(!isBlank(?s))}}}
 };
@@ -78,7 +78,7 @@ insert {graph ?sol {?sol kws:coverageScore ?coverageScore.}}
 WHERE{
   graph ?sol{
   		?sol kws:comment ?comment.
-  		bind(xsd:float(fn:countKwS("mauritius india", ?comment)) as ?coverageScore)
+  		bind(xsd:float(fn:countKwS("%2$s", ?comment)) as ?coverageScore)
   }
   FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
 };
@@ -131,7 +131,7 @@ WHERE{
 ##########################################################
 insert {graph ?g {?g kws:frequencyScore ?freqScore.}}
 WHERE{
-  	SELECT ?g (agg:kwFreqScore("mauritius india", ?kwscomment) as ?freqScore)
+  	SELECT ?g (agg:kwFreqScore("%2$s", ?kwscomment) as ?freqScore)
     WHERE{
   		graph ?g {
   			 ?s kws:comment ?kwscomment.

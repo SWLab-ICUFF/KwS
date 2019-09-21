@@ -82,23 +82,16 @@ public class BuildBenchmarkSemanticWeb {
          
          if (true) {
              queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_20_search.rq", kwsVersion));
-             queryString = queryString.format(queryString, keywordQuery);
+             queryString = queryString.format(queryString, service1);
              fuseki.execUpdate(queryString, "KwS.temp");
          }
          
          if (true) {
              queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_25_search.rq", kwsVersion));
-             queryString = queryString.format(queryString, keywordQuery);
+             queryString = queryString.format(queryString, service1, keywordQuery);
              fuseki.execUpdate(queryString, "KwS.temp");
          }
-         
-         if (true){
-             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_40_rank.rq", kwsVersion));
-             queryString = queryString.format(queryString, keywordQuery);
-             fuseki.execUpdate(queryString, "KwS.temp");
-             
-         }
-         
+                  
         Calendar t2 = Calendar.getInstance();
         double seconds = Duration.between(t1.toInstant(), t2.toInstant()).toMillis() / 1000.0;
         System.out.println("");
@@ -106,13 +99,13 @@ public class BuildBenchmarkSemanticWeb {
         
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_40_finish.rq", kwsVersion));
-            queryString = queryString.format(queryString, service2, service3, benchmarkNS, keywordQuery, seconds);
+            queryString = queryString.format(queryString, benchmarkNS, keywordQuery, seconds);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
         
-         {
-            Dataset dataset = fuseki.getDataset("KwS.temp");
-            bkpDataset(dataset, filename);
+        {
+           Dataset dataset = fuseki.getDataset("KwS.temp");
+           bkpDataset(dataset, filename);
         }
         
           //exportando o ranking.ttl (nesta versão não tem isso)

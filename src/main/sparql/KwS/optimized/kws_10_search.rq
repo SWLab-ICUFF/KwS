@@ -26,7 +26,7 @@ insert {?bag a rdf:Bag; rdfs:member ?s.}
 where {
   {bind(bnode() as ?bag)}
 ##### coonsulta federada kws
-  service <http://localhost:3030/Mondial/sparql> {graph kwsg:indexed {?s text:query ('mauritius india' 15)}}
+  service <%1$s> {graph kwsg:indexed {?s text:query ('%2$s' 15)}}
 
 };
 
@@ -123,7 +123,7 @@ where {
             }
         }
     }
-    bind(iri(concat("urn:graph:kws:043:","sol",str(fn:sequential()))) as ?bag)
+    bind(iri(concat("%3$s","sol",str(fn:sequential()))) as ?bag)
 };
 
 ################################################
@@ -135,8 +135,8 @@ insert {?s meta:__search_id ?id; kws:comment ?comment.}
 where {
   {
     {graph kwsg:seeds {[] rdfs:member ?s}}
-    optional {service <http://localhost:3030/Mondial/sparql> {?s meta:__search_id ?id}}
-    optional {service <http://localhost:3030/Mondial/sparql> {graph kwsg:indexed {?s kws:comment ?comment}}}
+    optional {service <%1$s> {?s meta:__search_id ?id}}
+    optional {service <%1$s> {graph kwsg:indexed {?s kws:comment ?comment}}}
   }
 
 };
@@ -167,7 +167,7 @@ where {
 #insert {?bag kws:new_comment ?new_comment.}
 #using kwsg:groups
 #where {
-#  select ?bag (group_concat((fn:replaceKwS(?comment, "mauritius india"))) as ?new_comment)
+#  select ?bag (group_concat((fn:replaceKwS(?comment, "%2$s"))) as ?new_comment)
 #  	where {
 #    	?bag a rdf:Bag; rdfs:member ?m.
 #    	optional {?m kws:comment ?comment}
@@ -188,7 +188,7 @@ using kwsg:groups
 WHERE{
   ?bag a rdf:Bag.
   ?bag kws:comment ?comment.
-  bind(fn:countKwS("mauritius india", ?comment) as ?countkws)
+  bind(fn:countKwS("%2$s", ?comment) as ?countkws)
 };
 
 #################################################################################
@@ -238,7 +238,7 @@ WHERE{
 insert {graph ?g {?sol kws:frequencyScore ?freqScore.}}
 WHERE {
     {
-	SELECT  ?g ?sol (agg:kwFreqScore("mauritius india", ?kwscomment) as ?freqScore)
+	SELECT  ?g ?sol (agg:kwFreqScore("%2$s", ?kwscomment) as ?freqScore)
 	WHERE {
             graph ?g {
                 ?sol a rdf:Bag; rdfs:member ?s.

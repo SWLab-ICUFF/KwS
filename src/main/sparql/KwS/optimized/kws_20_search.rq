@@ -69,7 +69,7 @@ where {
         ?sol a rdf:Bag; rdfs:member ?e1.
         filter(not exists {?sol rdfs:member ?e2. filter(?e2 != ?e1)})
     }
-    service <http://localhost:3030/Mondial/sparql> {?e1 a ?T.}
+    service <%1$s> {?e1 a ?T.}
 };
 
 #####################################################################
@@ -86,14 +86,14 @@ where{
       		#relação de duas colunas contendo os membros das soluções com exatamente dois membros. 
       		{select distinct ?e1 ?e2 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2.}}}
       		#relação com todos os predicados entre ?e1 e ?e2
-      		service <http://localhost:3030/Mondial/sparql> {
+      		service <%1$s> {
         		?e1 ?p1 ?e2.
       		}
       		#union.....
     	}union {
       		#relação com todos os predicados entre ?e2 e ?e1
       		{select distinct ?e1 ?e2 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2.}}}
-      		service <http://localhost:3030/Mondial/sparql> {
+      		service <%1$s> {
         		 ?e2 ?_p1 ?e1. 
       		}
     	}
@@ -125,28 +125,28 @@ where {
   {
     {
     	{select distinct ?e1 ?e3 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3.}}}
-      	service <http://localhost:3030/Mondial/sparql>  {
+      	service <%1$s>  {
               ?e1 ?p1 ?e2. filter(?e2 not in (?e1))
               ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2))
           }
     }
     union{
     	{select distinct ?e1 ?e3 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3.}}}
-      	service <http://localhost:3030/Mondial/sparql>  {
+      	service <%1$s>  {
               ?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1))
               ?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2))
          }
     }
     union {
           {select distinct ?e1 ?e3 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3.}}}
-          service <http://localhost:3030/Mondial/sparql>  {
+          service <%1$s>  {
               ?e2 ?_p1 ?e1. filter(?e2 not in (?e1))
               ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2))
           }
         }
         union {
           {select distinct ?e1 ?e3 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3.}}}
-          service <http://localhost:3030/Mondial/sparql>  {
+          service <%1$s>  {
               ?e2 ?_p1 ?e1. filter(?e2 not in (?e1))
               ?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2))
           }
@@ -183,7 +183,7 @@ where {
     {
         {
       		{select distinct ?e1 ?e4 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e1 ?p1 ?e2. filter(?e2 not in (?e1))
                 ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2))
                 ?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3))
@@ -191,7 +191,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e4 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e1 ?p1 ?e2. filter(?e2 not in (?e1))
                 ?e2 ?p2 ?e3. filter(isIRI(?e3) && ?e3 not in (?e1,?e2))
                 ?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))
@@ -199,7 +199,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e4 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1))
                 ?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2))
                 ?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3))
@@ -207,7 +207,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e4 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e1 ?p1 ?e2. filter (isIRI(?e2) && ?e2 not in (?e1))
                 ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2))
                 ?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))
@@ -215,7 +215,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e4 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e2 ?_p1 ?e1. filter (?e2 not in (?e1))
                 ?e2 ?p2 ?e3. filter (?e3 not in (?e1,?e2))
                 ?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3))
@@ -223,7 +223,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e4 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e2 ?_p1 ?e1. filter (?e2 not in (?e1))
                 ?e2 ?p2 ?e3. filter (isIRI(?e3) && ?e3 not in (?e1,?e2))
                 ?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))
@@ -231,7 +231,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e4 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e2 ?_p1 ?e1. filter (?e2 not in (?e1))
                 ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2))
                 ?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3))
@@ -239,7 +239,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e4 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e2 ?_p1 ?e1. filter (?e2 not in (?e1))
                 ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2))
                 ?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))
@@ -288,7 +288,7 @@ where {
     {
         {
       		{select distinct ?e1 ?e5 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e1 ?p1 ?e2. filter(?e2 not in (?e1)) #1
                 ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2)) #2
                 ?e3 ?p3 ?e4. filter(?e4 not in (?e1,?e2,?e3)) #3
@@ -297,7 +297,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e5 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e1 ?p1 ?e2. filter(?e2 not in (?e1)) #1
                 ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2)) #2
                 ?e3 ?p3 ?e4. filter(isIRI(?e4) && ?e4 not in (?e1,?e2,?e3)) #3
@@ -306,7 +306,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e5 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e1 ?p1 ?e2. filter(?e2 not in (?e1)) #1
                 ?e2 ?p2 ?e3. filter(isIRI(?e3) && ?e3 not in (?e1,?e2)) #2
                 ?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3)) #3
@@ -315,7 +315,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e5 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e1 ?p1 ?e2. filter(?e2 not in (?e1)) #1
                 ?e2 ?p2 ?e3. filter(isIRI(?e3) && ?e3 not in (?e1,?e2)) #2
                 ?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3)) #3
@@ -324,7 +324,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e5 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1)) #1
                 ?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2)) #2
                 ?e3 ?p3 ?e4. filter(?e4 not in (?e1,?e2,?e3)) #3
@@ -333,7 +333,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e5 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1)) #1
                 ?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2)) #2
                 ?e3 ?p3 ?e4. filter(isIRI(?e4) && ?e4 not in (?e1,?e2,?e3)) #3
@@ -342,7 +342,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e5 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e1 ?p1 ?e2. filter (isIRI(?e2) && ?e2 not in (?e1)) #1
                 ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2)) #2
                 ?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3)) #3
@@ -351,7 +351,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e5 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e1 ?p1 ?e2. filter (isIRI(?e2) && ?e2 not in (?e1)) #1
                 ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2)) #2
                 ?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3)) #3
@@ -360,7 +360,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e5 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e2 ?_p1 ?e1. filter (?e2 not in (?e1)) #1
                 ?e2 ?p2 ?e3. filter (?e3 not in (?e1,?e2)) #2
                 ?e3 ?p3 ?e4. filter(?e4 not in (?e1,?e2,?e3)) #3
@@ -369,7 +369,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e5 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e2 ?_p1 ?e1. filter (?e2 not in (?e1)) #1
                 ?e2 ?p2 ?e3. filter (?e3 not in (?e1,?e2)) #2
                 ?e3 ?p3 ?e4. filter(isIRI(?e4) && ?e4 not in (?e1,?e2,?e3)) #3
@@ -378,7 +378,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e5 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e2 ?_p1 ?e1. filter (?e2 not in (?e1)) #1
                 ?e2 ?p2 ?e3. filter (isIRI(?e3) && ?e3 not in (?e1,?e2)) #2
                 ?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3)) #3
@@ -387,7 +387,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e5 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e2 ?_p1 ?e1. filter (?e2 not in (?e1)) #1
                 ?e2 ?p2 ?e3. filter (isIRI(?e3) && ?e3 not in (?e1,?e2)) #2
                 ?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3)) #3
@@ -396,7 +396,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e5 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}
-            service <http://localhost:3030/Mondial/sparql> {
+            service <%1$s> {
                 ?e2 ?_p1 ?e1. filter (?e2 not in (?e1)) #1
                 ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2)) #2
                 ?e3 ?p3 ?e4. filter(?e4 not in (?e1,?e2,?e3)) #3
@@ -405,7 +405,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e5 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e2 ?_p1 ?e1. filter (?e2 not in (?e1)) #1
                 ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2)) #2
                 ?e3 ?p3 ?e4. filter(isIRI(?e4) && ?e4 not in (?e1,?e2,?e3)) #3
@@ -414,7 +414,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e5 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e2 ?_p1 ?e1. filter (?e2 not in (?e1)) #1
                 ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2)) #2
                 ?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3)) #3
@@ -423,7 +423,7 @@ where {
         }
         union {
       		{select distinct ?e1 ?e5 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}
-            service <http://localhost:3030/Mondial/sparql>  {
+            service <%1$s>  {
                 ?e2 ?_p1 ?e1. filter (?e2 not in (?e1)) #1
                 ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2)) #2
                 ?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3)) #3
