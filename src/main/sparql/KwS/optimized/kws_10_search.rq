@@ -238,7 +238,7 @@ WHERE{
 insert {graph ?g {?sol kws:frequencyScore ?freqScore.}}
 WHERE {
     {
-	SELECT  ?g ?sol (agg:kwFreqScore("%2$s", ?kwscomment) as ?freqScore)
+	SELECT  ?g ?sol ?kwscomment (agg:kwFreqScore("%2$s", ?kwscomment) as ?freqScore)
 	WHERE {
             graph ?g {
                 ?sol a rdf:Bag; rdfs:member ?s.
@@ -247,6 +247,6 @@ WHERE {
             }
             FILTER(regex(str(?g),"urn:graph:kws:groups"))
         }
-        group by ?g ?sol
+        group by ?g ?sol ?kwscomment
     }
 };

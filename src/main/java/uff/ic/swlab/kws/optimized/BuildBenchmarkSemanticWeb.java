@@ -36,9 +36,9 @@ public class BuildBenchmarkSemanticWeb {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
 
-        String service1 = "localhost:3030/Mondial/sparql";
-        String service2 = "localhost:3030/Mondial.benchmark/sparql";
-        String service3 = "localhost:3030/KwS.temp/sparql";
+        String service1 = "http://localhost:3030/Mondial/sparql";
+        String service2 = "http://localhost:3030/Mondial.benchmark/sparql";
+        String service3 = "http://localhost:3030/KwS.temp/sparql";
 
         String kwsVersion = "optimized";
         String benchmark = "optimized";
@@ -46,7 +46,7 @@ public class BuildBenchmarkSemanticWeb {
 
         System.out.println(benchmark);
 
-        new FusekiServer("semanticweb.inf.puc-rio.br", 3030).execUpdate(readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion)), "KwS.stats");
+        new FusekiServer("localhost", 3030).execUpdate(readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion)), "KwS.stats");
         try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarksSemanticWeb/%1$s/Mondial/queries_.txt", benchmark)));
                 Scanner sc = new Scanner(in)) {
             
@@ -72,7 +72,6 @@ public class BuildBenchmarkSemanticWeb {
              queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion));
              fuseki.execUpdate(queryString, "KwS.temp");
          }
-         
          Calendar t1 = Calendar.getInstance();
          if (true) {
              queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_10_search.rq", kwsVersion));
