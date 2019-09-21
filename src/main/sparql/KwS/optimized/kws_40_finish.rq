@@ -12,7 +12,6 @@ PREFIX agg: <http://uff.ic.swlab.jena.sparql.aggregate/>
 prefix time: <http://www.w3.org/2006/time#>
 
 
-drop graph kwsg:seeds;
 drop graph kwsg:groups;
 drop graph kwsg:groups2;
 
