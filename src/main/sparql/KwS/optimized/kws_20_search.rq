@@ -9,7 +9,7 @@ prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
 
 
 ###########################################################################################################################
-# calculando harmonic mean (kws:score) de três modelos: 
+# calculando harmonic mean (kws:score) de três modelos:
 # 	-Cobertura relativa de kws (coverageScore)
 #	-Normalizacão das entidades encontradas pela palavra chave (entityScore)
 #	-Frequência  das palavras chaves em relação ao kws:comment (frequencyScore)
@@ -58,14 +58,14 @@ using kwsg:groups2
 where {?bag a rdf:Bag; rdfs:member ?e1; rdfs:member ?e2. filter (str(?e2)>str(?e1))};
 
 ##########################################
-# calculando os caminhos com distância 0 
+# calculando os caminhos com distância 0
 ##########################################
 
 insert {
     graph ?sol {?e1 a ?T.}
 }
 where {
-    graph kwsg:groups2 { 
+    graph kwsg:groups2 {
         ?sol a rdf:Bag; rdfs:member ?e1.
         filter(not exists {?sol rdfs:member ?e2. filter(?e2 != ?e1)})
     }
@@ -73,7 +73,7 @@ where {
 };
 
 #####################################################################
-# calculando os caminhos com distância 1 
+# calculando os caminhos com distância 1
 #####################################################################
 
 insert {
@@ -82,8 +82,8 @@ insert {
 }
 where{
 	{
-    	{	
-      		#relação de duas colunas contendo os membros das soluções com exatamente dois membros. 
+    	{
+      		#relação de duas colunas contendo os membros das soluções com exatamente dois membros.
       		{select distinct ?e1 ?e2 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2.}}}
       		#relação com todos os predicados entre ?e1 e ?e2
       		service <%1$s> {
@@ -94,7 +94,7 @@ where{
       		#relação com todos os predicados entre ?e2 e ?e1
       		{select distinct ?e1 ?e2 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2.}}}
       		service <%1$s> {
-        		 ?e2 ?_p1 ?e1. 
+        		 ?e2 ?_p1 ?e1.
       		}
     	}
     }#resultado da relação com UNION...
@@ -111,9 +111,9 @@ where {
 };
 
 ####################################################################
-# calculando os caminhos com distância 2 
+# calculando os caminhos com distância 2
 #####################################################################
-  
+
 insert {
   graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3.}
   graph ?sol {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2.}
@@ -164,7 +164,7 @@ where {
 };
 
 #####################################################################
-# calculando os caminhos com distância 3 
+# calculando os caminhos com distância 3
 #####################################################################
 insert {
     graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3. ?e3 ?p3 ?e4.}
@@ -182,11 +182,17 @@ where {
     #graph kwsg:pairs {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4; kws:solution ?sol.}
     {
         {
-      		{select distinct ?e1 ?e4 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}
             service <%1$s>  {
-                ?e1 ?p1 ?e2. filter(?e2 not in (?e1))
-                ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2))
-                ?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3))
+                {
+                    {
+                        {
+                            {select distinct ?e1 ?e4 where {service <> {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}}
+                            ?e1 ?p1 ?e2. filter(?e2 not in (?e1))
+                        }
+                        ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2))
+                    }
+                    ?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3))
+                }
             }
         }
         union {
@@ -194,7 +200,7 @@ where {
             service <%1$s>  {
                 ?e1 ?p1 ?e2. filter(?e2 not in (?e1))
                 ?e2 ?p2 ?e3. filter(isIRI(?e3) && ?e3 not in (?e1,?e2))
-                ?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))
+                ?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))}
             }
         }
         union {
