@@ -362,3 +362,70 @@ where {
     	filter (exists {graph ?sol {?e1 (!kws:dummy|^(!kws:dummy))+ ?e2}})
   }
 };
+
+
+
+
+####################################################################
+# NOVA DISTÂNCIA 2
+#####################################################################
+
+insert {
+  graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3.}
+  graph ?sol {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2.}
+  graph ?sol {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3.}
+  graph ?sol {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2.}
+  graph kwsg:groups {?sol rdfs:member ?e2}
+}
+where {
+  {
+    {
+    	
+      	service <http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql>  {
+        	  {
+          			{
+        	  			 {select distinct ?e1 ?e3 WHERE {service <http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3.}}}}
+              		  ?e1 ?p1 ?e2. filter(?e2 not in (?e1))
+          			}
+              	 ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2))
+        	  }
+          }
+    }
+    union{
+      
+      	service <http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql>  {
+        		{
+          			{
+        				{select distinct ?e1 ?e3 WHERE {service <http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3.}}}}
+              			?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1))
+          			}
+              	  ?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2))
+        		}
+         }
+    }
+    union {
+          
+          service <http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql>  {
+        		{
+          			{
+        	  			{select distinct ?e1 ?e3 WHERE {service <http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3.}}}}
+              			?e2 ?_p1 ?e1. filter(?e2 not in (?e1))
+          			}
+             	    ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2))
+        		}
+          }
+        }
+        union {
+          service <http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql>  {
+        	  {
+          			{
+        	  			{select distinct ?e1 ?e3 WHERE {service <http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3.}}}}
+             		 ?e2 ?_p1 ?e1. filter(?e2 not in (?e1))
+          			}
+              	?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2))
+        	 }
+          }
+        }
+  }
+  {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3; kws:solution ?sol.}}
+};
