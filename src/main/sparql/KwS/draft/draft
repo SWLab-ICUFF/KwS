@@ -246,3 +246,147 @@ where {
     	filter (exists {graph ?sol {?e1 (!kws:dummy|^(!kws:dummy))+ ?e2}})
   }
 };
+
+
+#####################################################################
+# calculando os caminhos com distância 3 
+#####################################################################
+insert {
+    graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3. ?e3 ?p3 ?e4.}
+    graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3. ?e4 ?_p3 ?e3.}
+    graph ?sol {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2. ?e3 ?p3 ?e4.}
+    graph ?sol {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2. ?e4 ?_p3 ?e3.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3. ?e3 ?p3 ?e4.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3. ?e4 ?_p3 ?e3.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2. ?e3 ?p3 ?e4.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2. ?e4 ?_p3 ?e3.}
+    graph kwsg:groups {?sol rdfs:member ?e2.}
+    graph kwsg:groups {?sol rdfs:member ?e3.}
+}
+where {
+    #graph kwsg:pairs {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4; kws:solution ?sol.}
+    {
+    	service <http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql>  {
+        {
+            #service <http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql>  {
+        		{
+          			{
+            			{
+        		 			{select distinct ?e1 ?e4 WHERE {service <http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}}
+               			 ?e1 ?p1 ?e2. filter(?e2 not in (?e1))
+            			}
+                	  ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2))
+          			}
+                  ?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3))
+        		}
+            #}
+        }
+        union {
+      		
+            #service <http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql>  {		
+        		{
+          			{
+            			{
+        					{select distinct ?e1 ?e4 WHERE {service <http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}}
+                		  ?e1 ?p1 ?e2. filter(?e2 not in (?e1))
+            			}
+                	  ?e2 ?p2 ?e3. filter(isIRI(?e3) && ?e3 not in (?e1,?e2))
+          			}
+                  ?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))
+        		}
+            #}
+        }
+        union {
+      		
+            #service <http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql>  {
+        		{
+          			{
+            			{
+        					{select distinct ?e1 ?e4 WHERE {service <http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}}
+                		  ?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1))
+            			}
+               		 ?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2))
+          			}
+                  ?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3))
+        		}
+            #}
+        }
+        union {
+      
+            #service <http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql>  {
+        		{
+          			{
+            			{
+        					{select distinct ?e1 ?e4 WHERE {service <http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}}
+                		  ?e1 ?p1 ?e2. filter (isIRI(?e2) && ?e2 not in (?e1))
+            			}
+               		 ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2))
+          			}
+                	?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))
+        		}
+            #}
+        }
+        union {
+      
+            #service <http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql>  {
+        		{
+        			{
+            			{
+        					{select distinct ?e1 ?e4 WHERE {service <http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}}
+                			?e2 ?_p1 ?e1. filter (?e2 not in (?e1))
+            			}
+                	   ?e2 ?p2 ?e3. filter (?e3 not in (?e1,?e2))
+          			}
+                	?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3))
+        		}
+            #}
+        }
+        union {
+      		
+            #service <http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql>  {
+        		{
+          			{
+            			{
+        					{select distinct ?e1 ?e4 WHERE {service <http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}}
+                		  ?e2 ?_p1 ?e1. filter (?e2 not in (?e1))
+            			}
+                	  ?e2 ?p2 ?e3. filter (isIRI(?e3) && ?e3 not in (?e1,?e2))
+          			}
+                	?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))
+        		}
+            #}
+        }
+        union {
+      		
+            #service <http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql>  {
+        		{
+          			{
+            			{
+        					{select distinct ?e1 ?e4 WHERE {service <http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}}
+             	   			?e2 ?_p1 ?e1. filter (?e2 not in (?e1))
+            			}
+                		?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2))
+          			}
+                	?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3))
+        		  }
+            #}
+        }
+        union {
+      		
+            #service <http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql>  {
+        		{
+          			{
+            			{
+        					{select distinct ?e1 ?e4 WHERE {service <http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}}
+                		  ?e2 ?_p1 ?e1. filter (?e2 not in (?e1))
+            			}
+                	   ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2))
+          			}
+               	 	?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))
+        		}
+            #}
+        }
+    }
+  }
+  {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4; kws:solution ?sol.}}
+};
