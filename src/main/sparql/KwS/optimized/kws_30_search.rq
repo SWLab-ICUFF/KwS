@@ -78,7 +78,7 @@ insert {graph ?sol {?sol kws:coverageScore ?coverageScore.}}
 WHERE{
   graph ?sol{
   		?sol kws:comment ?comment.
-  		bind(xsd:float(fn:countKwS("%2$s", ?comment)) as ?coverageScore)
+  		bind(xsd:float(fn:countKwS('%2$s', ?comment)) as ?coverageScore)
   }
   FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
 };
@@ -131,7 +131,7 @@ WHERE{
 ##########################################################
 insert {graph ?g {?g kws:frequencyScore ?freqScore.}}
 WHERE{
-  	SELECT ?g ?kwscomment (agg:kwFreqScore("%2$s", ?kwscomment) as ?freqScore)
+  	SELECT ?g ?kwscomment (agg:kwFreqScore('%2$s', ?kwscomment) as ?freqScore)
     WHERE{
   		graph ?g {
   			 ?s kws:comment ?kwscomment.
