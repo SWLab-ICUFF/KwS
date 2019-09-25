@@ -36,16 +36,16 @@ where {
     {
       {select distinct ?s {
          graph ?g {
-          		{?s ?p []} 
+          		{?s ?p []}
           	union {
           			[] ?p ?s
-          	} 
+          	}
           	filter(!isBlank(?s))
-          								
+
         }
         FILTER(regex(str(?g),"urn:graph:kws:[0-9]{3}:sol"))
       }
-      					
+
    	}
     optional {service <%1$s> {?s meta:__search_id ?id}}
     optional {service <%1$s> {graph kwsg:indexed {?s kws:comment ?comment}}}
@@ -84,7 +84,7 @@ WHERE{
 };
 
 #################################################################################
-# Calcular maior quantidade de grupos de entidades de todos os grupos de soluções. 
+# Calcular maior quantidade de grupos de entidades de todos os grupos de soluções.
 #################################################################################
 
 
@@ -97,7 +97,7 @@ WHERE{
 				WHERE{
     				graph ?sol{
       					?sol kws:size ?number_entity.
-        				
+
     				}
       				FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
     			}
@@ -121,7 +121,7 @@ WHERE{
     	graph ?sol{
     		?sol ?p [].
     		?sol kws:size ?number_entity.
-    		?sol kws:maxGroupSize ?maxGroupSize.	
+    		?sol kws:maxGroupSize ?maxGroupSize.
     	}
 	}
 };
@@ -135,16 +135,17 @@ WHERE{
     WHERE{
   		graph ?g {
   			 ?s kws:comment ?kwscomment.
+                         FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
   		}
     	FILTER(regex(str(?g),"urn:graph:kws:[0-9]{3}:sol"))
-    	
+
 	}
   	group by ?g ?kwscomment
 
 };
 
 ###########################################################################################################################
-# calculando harmonic mean (kws:score) de três modelos: 
+# calculando harmonic mean (kws:score) de três modelos:
 # 	-Cobertura relativa de kws (coverageScore)
 #	-Normalizacão das entidades encontradas pela palavra chave (entityScore)
 #	-Frequência  das palavras chaves em relação ao kws:comment (frequencyScore)
