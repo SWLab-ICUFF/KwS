@@ -243,9 +243,9 @@ WHERE {
             graph ?g {
                 ?sol a rdf:Bag; rdfs:member ?s.
                 ?s kws:comment ?kwscomment.
-                FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
+                FILTER(!regex(str(?s),'urn:graph:kws:[0-9]{3}:sol'))
             }
-            FILTER(regex(str(?g),"urn:graph:kws:groups"))
+            FILTER(regex(str(?g),'urn:graph:kws:groups'))
         }
         group by ?g ?sol
     }
