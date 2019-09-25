@@ -36,7 +36,7 @@ public class BuildBenchmarkSemanticWeb {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
         
-        String service1 = "http://semanticweb.inf.puc-rio.br:3030/IMDb2/sparql";
+        String service1 = "http://semanticweb.inf.puc-rio.br:3030/Mondial/sparql";
         String service2 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
 
         String kwsVersion = "optimized";
@@ -45,16 +45,17 @@ public class BuildBenchmarkSemanticWeb {
 
         System.out.println(benchmark);
 
-        try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarksSemanticWeb/%1$s/IMDb2/queries_.txt", benchmark)));
+        try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarksSemanticWeb/%1$s/Mondial/queries_.txt", benchmark)));
                 Scanner sc = new Scanner(in)) {
             
             int i = 0;
             while (sc.hasNext()) {
                 i++;
                 String keywordQuery = sc.nextLine().trim();
+                System.out.println(keywordQuery);
                 if (keywordQuery != null && !keywordQuery.equals("")) {
                     String benchmarkNS = String.format("urn:graph:kws:%1$03d:", i);
-                    String benchmarkFilename = String.format("./src/main/resources/benchmarksSemanticWeb/%1$s/IMDb2/%2$03d.nq.gz", benchmark, i);
+                    String benchmarkFilename = String.format("./src/main/resources/benchmarksSemanticWeb/%1$s/Mondial/%2$03d.nq.gz", benchmark, i);
                     run(kwsVersion, service1, service2,  keywordQuery, benchmarkNS, benchmarkFilename);
                 }
             }
@@ -70,6 +71,7 @@ public class BuildBenchmarkSemanticWeb {
              queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion));
              fuseki.execUpdate(queryString, "KwS.temp");
          }
+         
          Calendar t1 = Calendar.getInstance();
          if (true) {
              queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_10_search.rq", kwsVersion));
