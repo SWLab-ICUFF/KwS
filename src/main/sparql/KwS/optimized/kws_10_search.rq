@@ -167,7 +167,7 @@ where {
 #insert {?bag kws:new_comment ?new_comment.}
 #using kwsg:groups
 #where {
-#  select ?bag (group_concat((fn:replaceKwS(?comment, "%2$s"))) as ?new_comment)
+#  select ?bag (group_concat((fn:replaceKwS(?comment, '%2$s'))) as ?new_comment)
 #  	where {
 #    	?bag a rdf:Bag; rdfs:member ?m.
 #    	optional {?m kws:comment ?comment}
@@ -188,7 +188,7 @@ using kwsg:groups
 WHERE{
   ?bag a rdf:Bag.
   ?bag kws:comment ?comment.
-  bind(fn:countKwS("%2$s", ?comment) as ?countkws)
+  bind(fn:countKwS('%2$s', ?comment) as ?countkws)
 };
 
 #################################################################################
@@ -238,7 +238,7 @@ WHERE{
 insert {graph ?g {?sol kws:frequencyScore ?freqScore.}}
 WHERE {
     {
-	SELECT  ?g ?sol ?kwscomment (agg:kwFreqScore("%2$s", ?kwscomment) as ?freqScore)
+	SELECT  ?g ?sol ?kwscomment (agg:kwFreqScore('%2$s', ?kwscomment) as ?freqScore)
 	WHERE {
             graph ?g {
                 ?sol a rdf:Bag; rdfs:member ?s.
