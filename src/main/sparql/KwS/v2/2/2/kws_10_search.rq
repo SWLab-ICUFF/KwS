@@ -1,0 +1,514 @@
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix text: <http://jena.apache.org/text#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+
+drop all;
+
+###################################
+# selecionar entidades relevantes #
+###################################
+
+with kwsg:seeds
+insert {?bag a rdf:Bag; rdfs:member ?s.}
+where {
+    {bind(bnode() as ?bag)}
+    service <%1$s> {graph kwsg:indexed {?s text:query ('%2$s' 10)}}
+};
+
+
+
+#################################################################################################################
+# Fazer combinações das entidades encontradas com score > 0 e concatenar os comentários das entidades do grupo. #
+#################################################################################################################
+
+with kwsg:groups
+insert {
+  ?bag a rdf:Bag;
+    kws:initialSize ?size;
+    rdfs:member ?m1;
+    rdfs:member ?m2;
+    rdfs:member ?m3;
+    rdfs:member ?m4;
+    rdfs:member ?m5;
+    .
+}
+using kwsg:seeds
+where {
+    {
+        {
+            select ?size ?m1
+            where {
+                [] rdfs:member ?m1.
+                bind(1 as ?size)
+            }
+        }
+        union {
+            select ?size ?m1 ?m2
+            where {
+                [] rdfs:member ?m1.
+                [] rdfs:member ?m2.
+                filter (str(?m2)>str(?m1))
+                bind(2 as ?size)
+            }
+        }
+        union {
+            select ?size ?m1 ?m2 ?m3
+            where {
+                {
+                    {
+                        [] rdfs:member ?m1.
+                        [] rdfs:member ?m2.
+                        filter (str(?m2)>str(?m1))
+                    }
+                    [] rdfs:member ?m3.
+                    filter (str(?m3)>str(?m2))
+                    bind(3 as ?size)
+                }
+            }
+        }
+        union {
+            select ?size ?m1 ?m2 ?m3 ?m4
+            where {
+                {
+                    {
+                        {
+                          [] rdfs:member ?m1.
+                          [] rdfs:member ?m2.
+                          filter (str(?m2)>str(?m1))
+                        }
+                        [] rdfs:member ?m3.
+                        filter (str(?m3)>str(?m2))
+                    }
+                    [] rdfs:member ?m4.
+                    filter (str(?m4)>str(?m3))
+                    bind(4 as ?size)
+                }
+            }
+        }
+        union {
+            select ?size ?m1 ?m2 ?m3 ?m4 ?m5
+            where {
+                {
+                    {
+                        {
+                            {
+                                [] rdfs:member ?m1.
+                                [] rdfs:member ?m2.
+                                filter (str(?m2)>str(?m1))
+                            }
+                            [] rdfs:member ?m3.
+                            filter (str(?m3)>str(?m2))
+                        }
+                        [] rdfs:member ?m4.
+                        filter (str(?m4)>str(?m3))
+                    }
+                    [] rdfs:member ?m5.
+                    filter (str(?m5)>str(?m4))
+                    bind(5 as ?size)
+                }
+            }
+        }
+    }
+    bind(iri(concat("%3$s","sol",str(fn:sequential()))) as ?bag)
+};
+
+
+
+################################################
+# levar kws:comment do Mondial para o Kws.temp #
+################################################
+
+insert {graph ?g {?s meta:__search_id ?id; kws:comment ?comment.}}
+where {
+    {
+        {select distinct ?s {graph ?g {{?s ?p []} union {[] ?p ?s} filter(!isBlank(?s))}}}
+        optional {service <%1$s> {?s meta:__search_id ?id}}
+        optional {service <%1$s> {graph kwsg:indexed {?s kws:comment ?comment}}}
+    }
+    {select distinct ?g ?s {graph ?g {{?s ?p []} union {[] ?p ?s} filter(!isBlank(?s))}}}
+};
+
+
+
+###################################################
+# concatenar kws:comment das entidades dos grupos #
+###################################################
+
+with kwsg:groups
+insert {?bag kws:comment ?comment; kws:size ?size.}
+where {
+    select ?bag (group_concat(coalesce(?_comment,"")) as ?comment) (count(?m) as ?size)
+    where {
+        graph kwsg:groups {
+            ?bag a rdf:Bag; rdfs:member ?m.
+            optional {?m kws:comment ?_comment}
+        }
+    }
+    group by ?bag
+};
+
+
+
+##############################################
+# Buscar caminhos entre entidades dos grupos #
+##############################################
+
+with kwsg:pairs
+insert {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?bag.}
+using kwsg:groups
+where {?bag a rdf:Bag; rdfs:member ?e1; rdfs:member ?e2. filter (str(?e2)>str(?e1))};
+
+
+#distancia 0
+insert {
+    graph ?sol {?e1 a ?T.}
+}
+where {
+    graph kwsg:groups {
+        ?sol a rdf:Bag; rdfs:member ?e1.
+        filter(not exists {?sol rdfs:member ?e2. filter(?e2 != ?e1)})
+    }
+    service <%1$s> {?e1 a ?T.}
+};
+
+
+
+# distancia 1
+# delete {graph kwsg:pairs {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?sol.}}
+insert {
+    graph ?sol {?e1 ?p1 ?e2.}
+    graph ?sol {?e2 ?_p1 ?e1.}
+}
+where {
+    graph kwsg:pairs {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?sol.}
+    {
+        {
+            service <%1$s> {
+                ?e1 ?p1 ?e2.
+            }
+        }
+        union {
+            service <%1$s> {
+                ?e2 ?_p1 ?e1.
+            }
+        }
+    }
+};
+
+
+delete {graph kwsg:pairs {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?sol.}}
+where {
+    graph kwsg:pairs {
+    	?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?sol.
+    	filter (exists {graph ?sol {?e1 (!kws:dummy|^(!kws:dummy))+ ?e2}})
+  }
+};
+
+
+# distancia 2
+insert {
+    graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3.}
+    graph ?sol {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2.}
+    graph kwsg:groups {?sol rdfs:member ?e2}
+}
+where {
+    graph kwsg:pairs {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3; kws:solution ?sol.}
+    {
+      {
+          service <%1$s>  {
+              ?e1 ?p1 ?e2. filter(?e2 not in (?e1))
+              ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2))
+          }
+      }
+      union {
+          service <%1$s>  {
+              ?e2 ?_p1 ?e1. filter(?e2 not in (?e1))
+              ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2))
+          }
+      }
+      union {
+          service <%1$s>  {
+              ?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1))
+              ?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2))
+          }
+      }
+      union {
+          service <%1$s>  {
+              ?e2 ?_p1 ?e1. filter(?e2 not in (?e1))
+              ?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2))
+          }
+      }
+    }
+};
+
+
+
+delete {graph kwsg:pairs {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?sol.}}
+where {
+    graph kwsg:pairs {
+    	?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?sol.
+    	filter (exists {graph ?sol {?e1 (!kws:dummy|^(!kws:dummy))+ ?e2}})
+  }
+};
+
+
+
+# distancia 3
+insert {
+    graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3. ?e3 ?p3 ?e4.}
+    graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3. ?e4 ?_p3 ?e3.}
+    graph ?g {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2. ?e3 ?p3 ?e4.}
+    graph ?g {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2. ?e4 ?_p3 ?e3.}
+    graph ?g {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3. ?e3 ?p3 ?e4.}
+    graph ?g {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3. ?e4 ?_p3 ?e3.}
+    graph ?g {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2. ?e3 ?p3 ?e4.}
+    graph ?g {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2. ?e4 ?_p3 ?e3.}
+    graph kwsg:groups {?sol rdfs:member ?e2.}
+    graph kwsg:groups {?sol rdfs:member ?e3.}
+}
+where {
+    graph kwsg:pairs {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4; kws:solution ?sol.}
+    {
+        {
+            service <%1$s>  {
+                ?e1 ?p1 ?e2. filter(?e2 not in (?e1))
+                ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2))
+                ?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3))
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e1 ?p1 ?e2. filter(?e2 not in (?e1))
+                ?e2 ?p2 ?e3. filter(isIRI(?e3) && ?e3 not in (?e1,?e2))
+                ?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1))
+                ?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2))
+                ?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3))
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e1 ?p1 ?e2. filter (isIRI(?e2) && ?e2 not in (?e1))
+                ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2))
+                ?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e2 ?_p1 ?e1. filter (?e2 not in (?e1))
+                ?e2 ?p2 ?e3. filter (?e3 not in (?e1,?e2))
+                ?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3))
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e2 ?_p1 ?e1. filter (?e2 not in (?e1))
+                ?e2 ?p2 ?e3. filter (isIRI(?e3) && ?e3 not in (?e1,?e2))
+                ?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e2 ?_p1 ?e1. filter (?e2 not in (?e1))
+                ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2))
+                ?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3))
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e2 ?_p1 ?e1. filter (?e2 not in (?e1))
+                ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2))
+                ?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))
+            }
+        }
+    }
+};
+
+
+
+delete {graph kwsg:pairs {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?sol.}}
+where {
+    graph kwsg:pairs {
+    	?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?sol.
+    	filter (exists {graph ?sol {?e1 (!kws:dummy|^(!kws:dummy))+ ?e2}})
+  }
+};
+
+
+
+# distancia 4
+insert {
+    graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3. ?e3 ?p3 ?e4. ?e4 ?p4 ?e5.}
+    graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3. ?e3 ?p3 ?e4. ?e5 ?_p4 ?e4.}
+    graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3. ?e4 ?_p3 ?e3. ?e4 ?p4 ?e5.}
+    graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3. ?e4 ?_p3 ?e3. ?e5 ?_p4 ?e4.}
+    graph ?sol {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2. ?e3 ?p3 ?e4. ?e4 ?p4 ?e5.}
+    graph ?sol {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2. ?e3 ?p3 ?e4. ?e5 ?_p4 ?e4.}
+    graph ?sol {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2. ?e4 ?_p3 ?e3. ?e4 ?p4 ?e5.}
+    graph ?sol {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2. ?e4 ?_p3 ?e3. ?e5 ?_p4 ?e4.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3. ?e3 ?p3 ?e4. ?e4 ?p4 ?e5.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3. ?e3 ?p3 ?e4. ?e5 ?_p4 ?e4.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3. ?e4 ?_p3 ?e3. ?e4 ?p4 ?e5.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3. ?e4 ?_p3 ?e3. ?e5 ?_p4 ?e4.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2. ?e3 ?p3 ?e4. ?e4 ?p4 ?e5.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2. ?e3 ?p3 ?e4. ?e5 ?_p4 ?e4.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2. ?e4 ?_p3 ?e3. ?e4 ?p4 ?e5.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2. ?e4 ?_p3 ?e3. ?e5 ?_p4 ?e4.}
+    graph kwsg:groups {?sol rdfs:member ?e2.}
+    graph kwsg:groups {?sol rdfs:member ?e3.}
+    graph kwsg:groups {?sol rdfs:member ?e4.}
+}
+where {
+    graph kwsg:pairs {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5; kws:solution ?sol.}
+    {
+        {
+            service <%1$s>  {
+                ?e1 ?p1 ?e2. filter(?e2 not in (?e1)) #1
+                ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2)) #2
+                ?e3 ?p3 ?e4. filter(?e4 not in (?e1,?e2,?e3)) #3
+                ?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4)) #4
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e1 ?p1 ?e2. filter(?e2 not in (?e1)) #1
+                ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2)) #2
+                ?e3 ?p3 ?e4. filter(isIRI(?e4) && ?e4 not in (?e1,?e2,?e3)) #3
+                ?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4)) #4
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e1 ?p1 ?e2. filter(?e2 not in (?e1)) #1
+                ?e2 ?p2 ?e3. filter(isIRI(?e3) && ?e3 not in (?e1,?e2)) #2
+                ?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3)) #3
+                ?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4)) #4
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e1 ?p1 ?e2. filter(?e2 not in (?e1)) #1
+                ?e2 ?p2 ?e3. filter(isIRI(?e3) && ?e3 not in (?e1,?e2)) #2
+                ?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3)) #3
+                ?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4)) #4
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1)) #1
+                ?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2)) #2
+                ?e3 ?p3 ?e4. filter(?e4 not in (?e1,?e2,?e3)) #3
+                ?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4)) #4
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1)) #1
+                ?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2)) #2
+                ?e3 ?p3 ?e4. filter(isIRI(?e4) && ?e4 not in (?e1,?e2,?e3)) #3
+                ?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4)) #4
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e1 ?p1 ?e2. filter (isIRI(?e2) && ?e2 not in (?e1)) #1
+                ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2)) #2
+                ?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3)) #3
+                ?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4)) #4
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e1 ?p1 ?e2. filter (isIRI(?e2) && ?e2 not in (?e1)) #1
+                ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2)) #2
+                ?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3)) #3
+                ?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4)) #4
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e2 ?_p1 ?e1. filter (?e2 not in (?e1)) #1
+                ?e2 ?p2 ?e3. filter (?e3 not in (?e1,?e2)) #2
+                ?e3 ?p3 ?e4. filter(?e4 not in (?e1,?e2,?e3)) #3
+                ?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4)) #4
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e2 ?_p1 ?e1. filter (?e2 not in (?e1)) #1
+                ?e2 ?p2 ?e3. filter (?e3 not in (?e1,?e2)) #2
+                ?e3 ?p3 ?e4. filter(isIRI(?e4) && ?e4 not in (?e1,?e2,?e3)) #3
+                ?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4)) #4
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e2 ?_p1 ?e1. filter (?e2 not in (?e1)) #1
+                ?e2 ?p2 ?e3. filter (isIRI(?e3) && ?e3 not in (?e1,?e2)) #2
+                ?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3)) #3
+                ?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4)) #4
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e2 ?_p1 ?e1. filter (?e2 not in (?e1)) #1
+                ?e2 ?p2 ?e3. filter (isIRI(?e3) && ?e3 not in (?e1,?e2)) #2
+                ?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3)) #3
+                ?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4)) #4
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e2 ?_p1 ?e1. filter (?e2 not in (?e1)) #1
+                ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2)) #2
+                ?e3 ?p3 ?e4. filter(?e4 not in (?e1,?e2,?e3)) #3
+                ?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4)) #4
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e2 ?_p1 ?e1. filter (?e2 not in (?e1)) #1
+                ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2)) #2
+                ?e3 ?p3 ?e4. filter(isIRI(?e4) && ?e4 not in (?e1,?e2,?e3)) #3
+                ?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4)) #4
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e2 ?_p1 ?e1. filter (?e2 not in (?e1)) #1
+                ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2)) #2
+                ?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3)) #3
+                ?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4)) #4
+            }
+        }
+        union {
+            service <%1$s>  {
+                ?e2 ?_p1 ?e1. filter (?e2 not in (?e1)) #1
+                ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2)) #2
+                ?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3)) #3
+                ?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4)) #4
+            }
+        }
+    }
+};
+
+drop graph kwsg:pairs;
+
+
+
+
+
+
+
+

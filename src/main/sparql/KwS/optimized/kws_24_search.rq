@@ -1,0 +1,76 @@
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix text: <http://jena.apache.org/text#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+
+
+#NOVA DISTÂNCIA 2
+insert {
+  graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3.}
+  graph ?sol {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2.}
+  graph ?sol {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3.}
+  graph ?sol {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2.}
+  graph kwsg:groups2 {?sol rdfs:member ?e2}
+}
+where {
+    {
+    	service <%1$s>  {
+        {
+                {
+                    {
+                        {select distinct ?e1 ?e3 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3.}}}}
+                        ?e1 ?p1 ?e2. filter(?e2 not in (?e1) && !fn:schema(?p1))
+                    }
+                    ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2) && !fn:schema(?p2))
+                }
+           
+        }
+        union {
+           
+        		{
+                    {
+        			{select distinct ?e1 ?e3 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3.}}}}
+              		?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1) && !fn:schema(?p1))
+                    }
+                    ?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2) && !fn:schema(?_p2))
+        		}
+            
+        }
+        union {
+           
+        		{
+                    {
+                        {select distinct ?e1 ?e3 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3.}}}}
+              		?e2 ?_p1 ?e1. filter(?e2 not in (?e1) && !fn:schema(?_p1))
+                    }
+             	    ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2) && !fn:schema(?p2))
+        		}
+            
+        }
+        union {
+           
+                {
+                    {
+        	  		{select distinct ?e1 ?e3 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3.}}}}
+             		?e2 ?_p1 ?e1. filter(?e2 not in (?e1) && !fn:schema(?_p1))
+                    }
+                    ?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2) && !fn:schema(?_p2))
+                }
+           
+        }
+    }
+  }
+    {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3; kws:solution ?sol.}}
+};
+
+
+delete {graph kwsg:pairs {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?sol.}}
+where {
+    graph kwsg:pairs {
+    	?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?sol.
+    	filter (exists {graph ?sol {?e1 (!kws:dummy|^(!kws:dummy))+ ?e2}})
+  }
+};

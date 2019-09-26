@@ -5,16 +5,19 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
 prefix text: <http://jena.apache.org/text#>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX fn: <java:uff.ic.swlab.jena.sparql.function.>
-prefix time: <http://www.w3.org/2006/time#>
 
 select ?pos (avg(?recall) as ?avg)
 where{
   {
+    #select ?q
+    #where {?q a kws:Ranking; kws:entry [kws:position ?pos].}
+    #group by ?q
+    #having (max(?pos)>10)
     select ?q
-    where {?q a kws:Ranking; kws:entry [kws:position ?pos].}
-    group by ?q
-    having (max(?pos)>10)
+    where {
+      values ?seq {"036"}
+      ?q a kws:Ranking. filter(contains(str(?q),?seq))
+    }
   }
   ?q a kws:Ranking; kws:entry [kws:position ?pos; kws:recall ?recall]
 }

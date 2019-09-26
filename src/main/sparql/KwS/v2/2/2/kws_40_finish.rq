@@ -1,0 +1,90 @@
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
+prefix text: <http://jena.apache.org/text#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+##################################################
+# trazer kws:comment do Mondial para as soluções #
+##################################################.
+
+insert {graph ?g {?s meta:__search_id ?id; kws:comment ?comment.}}
+where {
+    {
+        {select distinct ?s {graph ?g {{?s ?p []} union {[] ?p ?s} filter(!isBlank(?s))}}}
+        optional {service <%1$s> {?s meta:__search_id ?id}}
+        optional {service <%1$s> {graph kwsg:indexed {?s kws:comment ?comment}}}
+    }
+    {select distinct ?g ?s {graph ?g {{?s ?p []} union {[] ?p ?s} filter(!isBlank(?s))}}}
+};
+
+
+####################################################
+# calcular calcular tamanho dos grupos de soluções #
+####################################################
+
+with kwsg:groups
+insert {?bag kws:size ?size.}
+where {
+    select ?bag (count(?m) as ?size)
+    where {graph kwsg:groups {?bag a rdf:Bag; rdfs:member ?m.}}
+    group by ?bag
+};
+
+
+##########################################
+# levar kws:initialSize para as soluções #
+##########################################
+
+insert {graph ?sol {?sol kws:score ?score; kws:initialSize ?size1; kws:size ?size2.}}
+where {
+    graph kwsg:groups {?sol a rdf:Bag; kws:score ?score; kws:initialSize ?size1; kws:size ?size2.}
+    graph ?sol {[] ?_ []}
+};
+
+
+
+#################################################################
+# identificar quais soluções respondem quais queries do Coffman #
+#################################################################
+
+insert {graph ?g2 {?g2 kws:answers ?g1.}}
+where {
+    select ?g1 ?g2 (min(?_reference) as ?reference) (count(*) as ?found)
+    where {
+        service <%2$s> {
+            graph ?g1 {?s ?p ?o}
+            filter (regex(str(?g1),"%3$s"))
+        }
+        {
+            select distinct ?g2
+            where {
+                graph ?g2 {[] ?_p [].}
+                filter (regex(str(?g2),"%3$s"))
+            }
+        }
+        {
+            select ?g1 (count(*) as ?_reference)
+            where {
+                service <%2$s> {
+                    graph ?g1 {[] ?_p [].} filter (regex(str(?g1),"%3$s"))
+                }
+            }
+            group by ?g1
+        }
+        filter (exists {graph ?g2 {?s ?p ?o.}})
+    }
+    group by ?g1 ?g2
+    having (?reference = ?found)
+};
+
+
+drop graph kwsg:seeds;
+drop graph kwsg:groups;
+
+
