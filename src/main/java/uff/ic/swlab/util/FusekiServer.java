@@ -22,12 +22,19 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
+import org.apache.jena.sparql.expr.aggregate.Accumulator;
+import org.apache.jena.sparql.expr.aggregate.AccumulatorFactory;
+import org.apache.jena.sparql.expr.aggregate.AggCustom;
+import org.apache.jena.sparql.expr.aggregate.AggregateRegistry;
+import org.apache.jena.sparql.graph.NodeConst;
 import org.apache.jena.update.UpdateExecutionFactory;
 import org.apache.jena.update.UpdateFactory;
 import org.apache.jena.update.UpdateProcessor;
 import org.apache.jena.update.UpdateRequest;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import uff.ic.swlab.jena.sparql.aggregate.AccTMinMax;
+import uff.ic.swlab.jena.sparql.aggregate.KwFreqScore;
 
 public class FusekiServer {
 
@@ -37,6 +44,11 @@ public class FusekiServer {
     public FusekiServer() {
         hostname = "localhost";
         httpPort = 3030;
+
+        String aggUri1 = "http://uff.ic.swlab.jena.sparql.aggregate/tMinMax";
+        String aggUri2 = "http://uff.ic.swlab.jena.sparql.aggregate/kwFreqScore";
+        AggregateRegistry.register(aggUri1, tMinMaxFactory, NodeConst.nodeMinusOne);
+        AggregateRegistry.register(aggUri2, meanCoocurrFreqFactory, NodeConst.nodeMinusOne);
     }
 
     public FusekiServer(String hostname, int httpPort) {
@@ -76,7 +88,7 @@ public class FusekiServer {
         List<String> graphNames = new ArrayList<>();
 
         String queryString = "select distinct ?g where {graph ?g {[] ?p [].}}";
-        try ( QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
+        try (QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
             ResultSet rs = exec.execSelect();
             while (rs.hasNext())
                 graphNames.add(rs.next().getResource("g").getURI());
@@ -90,7 +102,7 @@ public class FusekiServer {
         List<String> graphNames = new ArrayList<>();
 
         String queryString = "select distinct ?g where {graph ?g {[] ?p [].}}";
-        try ( QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
+        try (QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
             ((QueryEngineHTTP) exec).setTimeout(timeout);
             ResultSet rs = exec.execSelect();
             while (rs.hasNext())
@@ -178,5 +190,19 @@ public class FusekiServer {
         RDFDataMgr.read(dataset, getQuadsURL(datasetname));
         return dataset;
     }
+
+    private static final AccumulatorFactory tMinMaxFactory = new AccumulatorFactory() {
+        @Override
+        public Accumulator createAccumulator(AggCustom agg, boolean distinct) {
+            return new AccTMinMax(agg);
+        }
+    };
+
+    private static final AccumulatorFactory meanCoocurrFreqFactory = new AccumulatorFactory() {
+        @Override
+        public Accumulator createAccumulator(AggCustom agg, boolean distinct) {
+            return new KwFreqScore(agg);
+        }
+    };
 
 }
