@@ -47,7 +47,7 @@ public class FusekiServer {
         String aggUri1 = "http://uff.ic.swlab.jena.sparql.aggregate/tMinMax";
         String aggUri2 = "http://uff.ic.swlab.jena.sparql.aggregate/kwFreqScore";
         AggregateRegistry.register(aggUri1, tMinMaxFactory);
-        AggregateRegistry.register(aggUri2, meanCoocurrFreqFactory);
+        AggregateRegistry.register(aggUri2, kwFreqScoreFactory);
     }
 
     public FusekiServer(String hostname, int httpPort) {
@@ -197,7 +197,7 @@ public class FusekiServer {
         }
     };
 
-    private static final AccumulatorFactory meanCoocurrFreqFactory = new AccumulatorFactory() {
+    private static final AccumulatorFactory kwFreqScoreFactory = new AccumulatorFactory() {
         @Override
         public Accumulator createAccumulator(AggCustom agg, boolean distinct) {
             return new KwFreqScore(agg);
