@@ -44,11 +44,6 @@ public class FusekiServer {
     public FusekiServer() {
         hostname = "localhost";
         httpPort = 3030;
-
-        String aggUri1 = "http://uff.ic.swlab.jena.sparql.aggregate/tMinMax";
-        String aggUri2 = "http://uff.ic.swlab.jena.sparql.aggregate/kwFreqScore";
-        AggregateRegistry.register(aggUri1, tMinMaxFactory, NodeConst.nodeMinusOne);
-        AggregateRegistry.register(aggUri2, kwFreqScoreFactory, NodeConst.nodeMinusOne);
     }
 
     public FusekiServer(String hostname, int httpPort) {
@@ -123,6 +118,11 @@ public class FusekiServer {
     }
 
     public synchronized void execUpdate(String queryString, String datasetname) {
+        String aggUri1 = "http://uff.ic.swlab.jena.sparql.aggregate/tMinMax";
+        String aggUri2 = "http://uff.ic.swlab.jena.sparql.aggregate/kwFreqScore";
+        AggregateRegistry.register(aggUri1, tMinMaxFactory, NodeConst.nodeMinusOne);
+        AggregateRegistry.register(aggUri2, kwFreqScoreFactory, NodeConst.nodeMinusOne);
+
         UpdateRequest request = UpdateFactory.create(queryString);
         UpdateProcessor execution = UpdateExecutionFactory.createRemote(request, getUpdateURL(datasetname));
         execution.execute();
