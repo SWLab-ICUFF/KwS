@@ -117,6 +117,15 @@ public class BuildBenchmarkSemanticWeb {
             queryString = String.format(queryString, service1, keywordQuery);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
+<<<<<<< Updated upstream
+=======
+        
+        if (false) {
+            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_32_search.rq", kwsVersion));
+            queryString = String.format(queryString, keywordQuery);
+            fuseki.execUpdate(queryString, "KwS.temp");
+        }
+>>>>>>> Stashed changes
 
         Calendar t2 = Calendar.getInstance();
         double seconds = Duration.between(t1.toInstant(), t2.toInstant()).toMillis() / 1000.0;
