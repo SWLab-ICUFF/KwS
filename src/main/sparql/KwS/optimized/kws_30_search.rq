@@ -125,3 +125,64 @@ WHERE{
     	}
 	}
 };
+
+##########################################################
+#Calcular frequenceScore e armazenar em cada solução
+##########################################################
+insert {graph ?g {?g kws:frequencyScore ?freqScore.}}
+WHERE{
+  	SELECT ?g (agg:kwFreqScore('%2$s', ?kwscomment) as ?freqScore)
+    WHERE{
+  		graph ?g {
+  			 ?s kws:comment ?kwscomment.
+                         FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
+  		}
+    	FILTER(regex(str(?g),"urn:graph:kws:[0-9]{3}:sol"))
+
+	}
+  	group by ?g
+
+};
+
+###########################################################################################################################
+# calculando harmonic mean (kws:score) de três modelos:
+# 	-Cobertura relativa de kws (coverageScore)
+#	-Normalizacão das entidades encontradas pela palavra chave (entityScore)
+#	-Frequência  das palavras chaves em relação ao kws:comment (frequencyScore)
+#   -Fómrula: (3 * (x1*x2*x3)) / ((x1*x2) + (x1*x3) + (x2*x3))
+###########################################################################################################################
+
+
+insert {graph ?g {?g kws:harmonicScore ?harmonicScore.}}
+WHERE{
+  	SELECT
+  ?g ( (3* (?frequencyScore*?coverageScore*?entityScore)) / ((?frequencyScore*?coverageScore) + (?frequencyScore*?entityScore) + (?coverageScore*?entityScore)) as ?harmonicScore)
+	WHERE{
+		graph ?g{
+    		?g kws:coverageScore ?coverageScore.
+    		?g kws:entityScore ?entityScore.
+      		?g kws:frequencyScore ?frequencyScore.
+    	}
+    FILTER(regex(str(?g),"urn:graph:kws:[0-9]{3}:sol"))
+
+	}
+};
+
+
+
+
+
+###############################################
+# calculando Size para dentro das soluções
+###############################################
+
+#insert {graph ?sol {?bag kws:size ?size}}
+#WHERE{
+#  		SELECT ?bag (count(?m) as ?size)
+# 		WHERE{
+#  			graph ?sol{
+#    			?bag a rdf:Bag; rdfs:member ?m.
+#    		}
+#  		}
+#  		group by ?bag
+#};
