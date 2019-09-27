@@ -26,6 +26,7 @@ import org.apache.jena.sparql.expr.aggregate.Accumulator;
 import org.apache.jena.sparql.expr.aggregate.AccumulatorFactory;
 import org.apache.jena.sparql.expr.aggregate.AggCustom;
 import org.apache.jena.sparql.expr.aggregate.AggregateRegistry;
+import org.apache.jena.sparql.graph.NodeConst;
 import org.apache.jena.update.UpdateExecutionFactory;
 import org.apache.jena.update.UpdateFactory;
 import org.apache.jena.update.UpdateProcessor;
@@ -46,8 +47,8 @@ public class FusekiServer {
 
         String aggUri1 = "http://uff.ic.swlab.jena.sparql.aggregate/tMinMax";
         String aggUri2 = "http://uff.ic.swlab.jena.sparql.aggregate/kwFreqScore";
-        AggregateRegistry.register(aggUri1, tMinMaxFactory);
-        AggregateRegistry.register(aggUri2, kwFreqScoreFactory);
+        AggregateRegistry.register(aggUri1, tMinMaxFactory, NodeConst.nodeMinusOne);
+        AggregateRegistry.register(aggUri2, kwFreqScoreFactory, NodeConst.nodeMinusOne);
     }
 
     public FusekiServer(String hostname, int httpPort) {
