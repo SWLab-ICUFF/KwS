@@ -82,46 +82,39 @@ public class BuildBenchmarkSemanticWeb {
         }
 
 
-        if (false) {
+        if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_20_search.rq", kwsVersion));
             queryString = String.format(queryString, service1);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
 
-        if (false) {
+        if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_22_search.rq", kwsVersion));
             queryString = String.format(queryString, service1, service2);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
 
-        if (false) {
+        if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_24_search.rq", kwsVersion));
             queryString = String.format(queryString, service1, service2);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
 
-        if (false) {
+        if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_26_search.rq", kwsVersion));
             queryString = String.format(queryString, service1, service2);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
 
-        if (false) {
+        if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_28_search.rq", kwsVersion));
             queryString = String.format(queryString, service1, service2);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
 
-        if (false) {
+        if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_30_search.rq", kwsVersion));
             queryString = String.format(queryString, service1, keywordQuery);
-            fuseki.execUpdate(queryString, "KwS.temp");
-        }
-
-        
-        if (false) {
-            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_32_search.rq", kwsVersion));
-            queryString = String.format(queryString, keywordQuery);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
 
@@ -131,7 +124,7 @@ public class BuildBenchmarkSemanticWeb {
         System.out.println("");
         System.out.println(String.format("Elapsed time: %1$f seconds", seconds));
 
-        if (false) {
+        if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_40_finish.rq", kwsVersion));
             queryString = String.format(queryString, benchmarkNS, keywordQuery, seconds);
             fuseki.execUpdate(queryString, "KwS.temp");
