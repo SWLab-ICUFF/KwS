@@ -53,3 +53,31 @@ where {
 
 
 
+
+
+keyword query = "Mauritius India Organization"
+
+ Relação R1
+====================================================================================================================================
+?semente ?kwscomment                          ?novaQuery
+====================================================================================================================================
+<a>      "dnfbl sdA Mauritius DHBFLK ASJDHF"  queryString("Mauritius India Organization", "dnfbl sdA BFLJAS Mauritius ASJDHF")
+<B>      "DFHJGA SKJDFHGAK SJDHFG"            queryString("Mauritius India Organization", "DFHJGA SKJDFHGAK SJDHFG")
+
+
+
+
+genQueryString("Mauritius India Organization", "dnfbl sdA BFLJAS Mauritius ASJDHF") = "India Organization"
+genQueryString("Mauritius India Organization", "DFHJGA SKJDFHGAK SJDHFG") = "Mauritius India Organization"
+
+
+
+Sementes = {s1, s2, s3}
+para cada linha de R1 faça
+  se len(?novaQuery)>0 então
+    Sementes = Sementes + buscarNovasSementes(?novaQuery)
+  fim se
+fim para
+
+
+
