@@ -1,1 +1,49 @@
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+
+drop graph kwsg:subgraphs;
+
+with kwsg:subgraphs
+insert {[] rdf:_1 ?sol; rdf:_2 ?sol_; kws:member ?s.}
+where {
+  {
+    select ?sol ?s ((iri(min(str(?o)))) as ?sol_)
+    {
+      {select ?sol {graph ?sol {} FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))}}
+      graph ?sol {?s ?p []. ?s (!:_|^(!:_))* ?o. filter (isIRI(?o))}
+    }
+    group by ?sol ?s
+  }
+};
+
+with kwsg:subgraphs
+delete {?l rdf:_1 ?sol; rdf:_2 ?sol_; kws:member ?s}
+insert {?sol2 kws:head ?sol_; kws:graph ?sol;  kws:member ?s.}
+where {
+  ?l rdf:_1 ?sol; rdf:_2 ?sol_; kws:member ?s.
+  bind (iri(concat(str(?sol),'-',SHA384(str(?sol_)))) as ?sol2)
+};
+
+with kwsg:subgraphs
+delete {?sol2 kws:head ?sol_; kws:graph ?sol; kws:member ?s}
+where {
+  ?sol2 kws:head ?sol_; kws:graph ?sol; kws:member ?s.
+  {select ?sol {?sol2 kws:graph ?sol} group by ?sol having (count(*)=1)}
+};
+
+
+delete {graph ?sol {?s ?p ?o}}
+insert {graph ?sol2 {?s ?p ?o}}
+where {
+  graph kwsg:subgraphs {?sol2 kws:graph ?sol; kws:head ?head.}
+  {select distinct ?sol ?s {graph ?sol {?head (!:_|^(!:_))* ?s.}}}
+  graph ?sol {?s ?p ?o.}
+};
+
+
+
 
