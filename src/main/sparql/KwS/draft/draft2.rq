@@ -37,10 +37,16 @@ where {
 
 
 delete {graph ?sol {?s ?p ?o}}
+where {
+  graph ?sol {?s ?p ?o}
+  FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol[0-9]+-"))
+};
+
+#delete {graph ?sol {?s ?p ?o}}
 insert {graph ?sol2 {?s ?p ?o}}
 where {
   graph kwsg:subgraphs {?sol2 kws:graph ?sol; kws:head ?head.}
-  {select distinct ?sol ?s {graph ?sol {?head (!:_|^(!:_))* ?s.}}}
+  {select distinct ?sol ?head ?s {graph ?sol {?head (!:_|^(!:_))* ?s.}}}
   graph ?sol {?s ?p ?o.}
 };
 
