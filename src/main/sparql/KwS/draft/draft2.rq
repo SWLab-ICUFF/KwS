@@ -71,6 +71,17 @@ genQueryString("Mauritius India Organization", "dnfbl sdA BFLJAS Mauritius ASJDH
 genQueryString("Mauritius India Organization", "DFHJGA SKJDFHGAK SJDHFG") = "Mauritius India Organization"
 
 
+maior divisor comum entre "India Organization" e "Mauritius India Organization" = "India Organization"
+
+
+Sementes = Sementes + buscarNovasSementes("India Organization")
+
+
+
+
+
+
+
 
 Sementes = {s1, s2, s3}
 para cada linha de R1 faça
@@ -81,3 +92,17 @@ fim para
 
 
 
+
+
+kws={}
+
+function (String[] new_kws)
+    se kws vazio then
+        kws = new_kws
+    else
+        para cada k em kws faca
+            se k não está em new_kws then
+                remove k de kws
+            fim se
+        fim para
+    fim se
