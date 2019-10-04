@@ -34,6 +34,7 @@ WHERE{
           			?s text:query ('%2$s' 15).
           			?s kws:comment ?kwsComment.
         			bind(fn:genQueryString('%2$s', ?kwsComment) as ?new_kws)
+                        FILTER(strlen(?new_kws) > 0)
         		}
       		}
  		}
