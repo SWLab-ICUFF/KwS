@@ -38,7 +38,7 @@ WHERE{
 with kwsg:groups2
 insert {?bag a rdf:Bag; ?p1 ?o1. ?o1 ?p2 ?o2.}
 where {
-  {select ?bag {graph kwsg:groups {?bag a rdf:Bag; kws:harmonicScore ?score.}} order by desc(?score) limit 40}
+  {select ?bag {graph kwsg:groups {?bag a rdf:Bag; kws:coverageScore ?score.}} order by desc(?score) limit 20}
     graph kwsg:groups {?bag ?p1 ?o1. optional {?o1 ?p2 ?o2.}}
 };
 
