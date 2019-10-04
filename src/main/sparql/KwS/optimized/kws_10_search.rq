@@ -21,14 +21,51 @@ drop all;
 #########################################################
 
 
+
+with kwsg:new_seeds
+insert {?bag a rdf:Bag; rdfs:member ?new_kws .}
+WHERE{
+  		{bind(bnode() as ?bag)}
+  		{
+    	SELECT DISTINCT ?new_kws 
+		WHERE{
+  			service <%1$s> {
+      			graph kwsg:indexed {
+          			?s text:query ('%2$s' 15).
+          			?s kws:comment ?kwsComment.
+        			bind(fn:genQueryString('%2$s', ?kwsComment) as ?new_kws)
+        		}
+      		}
+ 		}
+  	}
+};
+
 with kwsg:seeds
 insert {?bag a rdf:Bag; rdfs:member ?s.}
 where {
-  {bind(bnode() as ?bag)}
-##### coonsulta federada kws
-  service <%1$s> {graph kwsg:indexed {?s text:query ('%2$s' 15)}}
+  	#{bind(bnode() as ?bag)}
+  	{
+	graph kwsg:new_seeds{
+  		?bag a rdf:Bag; rdfs:member ?new_kws.
+    	service <%1$s> {
+    		graph kwsg:indexed {
+        		?s text:query (?new_kws 15).
+      		}
+    	}
+    
+  	}
+  }
 
 };
+
+#with kwsg:seeds
+#insert {?bag a rdf:Bag; rdfs:member ?s.}
+#where {
+#  {bind(bnode() as ?bag)}
+###### coonsulta federada kws
+#  service <%1$s> {graph kwsg:indexed {?s text:query ('%2$s' 15)}}
+
+#};
 
 
 #################################################################################################################
