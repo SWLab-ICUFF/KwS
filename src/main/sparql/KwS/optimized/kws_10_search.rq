@@ -43,6 +43,22 @@ WHERE{
 };
 
 
+with kwsg:seeds
+insert {?bag a rdf:Bag; rdfs:member ?s.}
+where {
+  {
+    graph kwsg:seeds {?bag a rdf:Bag}
+    {
+      select (agg:minimumCommonString(?kws) as ?new_kws) {graph kwsg:new_seeds {[] rdfs:member ?kws.}}
+    }
+    filter (strlen(?new_kws) > 0 && ?new_kws != 'error')
+  }
+  service <%1$s> {graph kwsg:indexed {?s text:query (?new_kws 15)}}
+};
+
+
+
+
 #################################################################################################################
 # Fazer combinações das entidades encontradas com score > 0 e concatenar os comentários das entidades do grupo. #
 #################################################################################################################
