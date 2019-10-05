@@ -35,6 +35,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import uff.ic.swlab.jena.sparql.aggregate.AccTMinMax;
 import uff.ic.swlab.jena.sparql.aggregate.KwFreqScore;
+import uff.ic.swlab.jena.sparql.aggregate.MinimumCommonString;
 
 public class FusekiServer {
 
@@ -120,8 +121,10 @@ public class FusekiServer {
     public synchronized void execUpdate(String queryString, String datasetname) {
         String aggUri1 = "http://uff.ic.swlab.jena.sparql.aggregate/tMinMax";
         String aggUri2 = "http://uff.ic.swlab.jena.sparql.aggregate/kwFreqScore";
+        String aggUri3 = "http://uff.ic.swlab.jena.sparql.aggregate/minimumCommonString";
         AggregateRegistry.register(aggUri1, tMinMaxFactory, NodeConst.nodeMinusOne);
         AggregateRegistry.register(aggUri2, kwFreqScoreFactory, NodeConst.nodeMinusOne);
+        AggregateRegistry.register(aggUri3, minimumCommonString, NodeConst.nodeMinusOne);
 
         UpdateRequest request = UpdateFactory.create(queryString);
         UpdateProcessor execution = UpdateExecutionFactory.createRemote(request, getUpdateURL(datasetname));
@@ -204,5 +207,13 @@ public class FusekiServer {
             return new KwFreqScore(agg);
         }
     };
+    
+    private static final AccumulatorFactory minimumCommonString = new AccumulatorFactory() {
+        @Override
+        public Accumulator createAccumulator(AggCustom agg, boolean distinct) {
+            return new MinimumCommonString(agg);
+        }
+    };
+
 
 }

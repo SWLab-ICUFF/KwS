@@ -16,7 +16,7 @@ drop graph kwsg:subgraphs;
 drop graph kwsg:groups;
 drop graph kwsg:groups2;
 
-
+#ver isso com Luiz André
 DELETE {graph ?g {?s ?p ?o} }
 WHERE{
   	SELECT ?g ?s ?p ?o
@@ -24,7 +24,8 @@ WHERE{
   		graph ?g{
                     ?s ?p ?o.
                     ?g kws:harmonicScore ?harmonicScore.
-                    FILTER(?harmonicScore <= 0.60)
+                    ?g kws:coverageScore ?coverageScore
+                    FILTER(?coverageScore <= 0.80)
                 }
   	}
 	
