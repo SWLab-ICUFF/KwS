@@ -41,7 +41,7 @@ public class BuildBenchmarkSemanticWebV3 {
 
         System.out.println(benchmark);
 
-        try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarksSemanticWeb/%1$s/IMDb2/queries_.txt", benchmark)));
+        try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/IMDb2/queries_.txt", benchmark)));
                 Scanner sc = new Scanner(in)) {
 
             int i = 0;
@@ -51,7 +51,7 @@ public class BuildBenchmarkSemanticWebV3 {
                 System.out.println(keywordQuery);
                 if (keywordQuery != null && !keywordQuery.equals("")) {
                     String benchmarkNS = String.format("urn:graph:kws:%1$03d:", i);
-                    String benchmarkFilename = String.format("./src/main/resources/benchmarksSemanticWeb/%1$s/IMDb2/%2$03d.nq.gz", benchmark, i);
+                    String benchmarkFilename = String.format("./src/main/resources/benchmarks/%1$s/IMDb2/%2$03d.nq.gz", benchmark, i);
                     run(kwsVersion, service1, service2, keywordQuery, benchmarkNS, benchmarkFilename);
                 }
             }

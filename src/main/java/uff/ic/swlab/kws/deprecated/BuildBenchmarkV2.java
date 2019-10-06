@@ -1,4 +1,4 @@
-package uff.ic.swlab.kws;
+package uff.ic.swlab.kws.deprecated;
 
 import java.io.File;
 import java.io.FileInputStream;
