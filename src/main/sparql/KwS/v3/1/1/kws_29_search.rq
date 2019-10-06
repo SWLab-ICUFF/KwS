@@ -49,7 +49,3 @@ where {
   {select distinct ?sol ?head ?s {graph ?sol {?head (!:_|^(!:_))* ?s.}}}
   graph ?sol {?s ?p ?o.}
 };
-
-
-
-
