@@ -5,26 +5,27 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix text: <http://jena.apache.org/text#>
 prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
-PREFIX agg: <http://uff.ic.swlab.jena.sparql.aggregate/>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
+###########################################################################################################################
+# calculando harmonic mean (kws:score) de três modelos: 
+# 	-Cobertura relativa de kws (coverageScore)
+#	-Normalizacão das entidades encontradas pela palavra chave (entityScore)
+#	-Frequência  das palavras chaves em relação ao kws:comment (frequencyScore)
+#   -Fómrula: (3 * (x1*x2*x3)) / ((x1*x2) + (x1*x3) + (x2*x3))
+###########################################################################################################################
 
-##########################################################
-#Calcular frequênciaScore e armazenar em cada solução
-##########################################################
-
-insert {graph ?g {?sol kws:frequencyScore ?freqScore.}}
-WHERE {
-        
-	SELECT ?g ?sol (agg:kwFreqScore('%1$s', ?kwscomment) as ?freqScore)
-	WHERE {
-            graph ?g {
-                ?sol a rdf:Bag; rdfs:member ?s.
-                ?s kws:comment ?kwscomment.
-                FILTER(isLiteral(?kwscomment) && !regex(str(?s),'urn:graph:kws:[0-9]{3}:sol'))
-            }
-            FILTER(regex(str(?g),'urn:graph:kws:groups'))
-        }
-        group by ?g ?sol
+with kwsg:groups
+insert {?bag kws:harmonicScore ?harmonicScore.}
+WHERE{
+  	SELECT
+  ?bag ( (3* (?frequencyScore*?coverageScore*?entityScore)) / ((?frequencyScore*?coverageScore) + (?frequencyScore*?entityScore) + (?coverageScore*?entityScore)) as ?harmonicScore)
+	WHERE{
+		graph kwsg:groups{
+    		?bag a rdf:Bag.
+    		?bag kws:coverageScore ?coverageScore.
+    		?bag kws:entityScore ?entityScore.
+      		?bag kws:frequencyScore ?frequencyScore.
+    	}
+	}
 };

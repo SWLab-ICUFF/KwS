@@ -19,27 +19,60 @@ drop graph kwsg:groups2;
 #ver isso com Luiz André
 DELETE {graph ?g {?s ?p ?o}}
 WHERE{
-    graph ?g {?g kws:coverageScore ?coverageScore FILTER(?coverageScore < 0.80)}
+    graph ?g {?g kws:coverageScore ?coverageScore FILTER(?coverageScore < 0.5)}
     graph ?g {?s ?p ?o.}
 };
+
+#DELETE {graph ?g {?s ?p ?o} }
+#WHERE{
+#    {select ?g {graph ?g {?g kws:harmonicScore ?harmonicScore order by desc(?harmonicScore)}} limit 15}
+#    graph ?g {?s ?p ?o.}
+#};
+
 
 DELETE {graph ?g {?s ?p ?o} }
 WHERE{
-    {select ?g {graph ?g {?g kws:score ?score order by desc(?score)}} limit 15}
+    {
+    	select ?g{ 
+    				 graph ?g{
+        			 	    ?g kws:harmonicScore ?harmonicScore.
+                                     FILTER(?harmonicScore < 0.50)
+      				  }
+      				
+      			 }
+    	
+    	
+     }  
     graph ?g {?s ?p ?o.}
 };
 
+#DELETE {graph ?g {?s ?p ?o} }
+#WHERE{
+#    {
+#    	select ?g{ 
+#    				 graph ?g{
+#        			 	?g kws:harmonicScore ?harmonicScore.
+#        			  	
+#      				  }
+#      				
+#      			 }
+#    	order by desc(?harmonicScore)
+#    	limit 15
+#     }
+#    graph ?g {?s ?p ?o.}
+#};
+
 
 #inserir tempo no grafo default
-insert data {
-    <%1$squery> a kws:Information;
-        kws:keywordQuery '%2$s';
-        kws:duration [
-            a time:Duration;
-            time:numericDuration "%3$s"^^xsd:decimal;
-            time:unityType time:unitSecond
-        ].
-};
+#insert data {
+#    <%1$squery> a kws:Information;
+#        kws:keywordQuery '%2$s';
+#        kws:duration [
+#            a time:Duration;
+#            time:numericDuration "%3$s"^^xsd:decimal;
+#            time:unityType time:unitSecond
+#        ].
+#};
 
 
 

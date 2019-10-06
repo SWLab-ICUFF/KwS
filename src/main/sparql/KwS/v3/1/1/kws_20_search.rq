@@ -8,29 +8,6 @@ prefix text: <http://jena.apache.org/text#>
 prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
 
 
-###########################################################################################################################
-# calculando harmonic mean (kws:score) de três modelos:
-# 	-Cobertura relativa de kws (coverageScore)
-#	-Normalizacão das entidades encontradas pela palavra chave (entityScore)
-#	-Frequência  das palavras chaves em relação ao kws:comment (frequencyScore)
-#   -Fómrula: (3 * (x1*x2*x3)) / ((x1*x2) + (x1*x3) + (x2*x3))
-###########################################################################################################################
-
-with kwsg:groups
-insert {?bag kws:score ?score.}
-WHERE{
-  	SELECT
-  ?bag ( (3* (?frequencyScore*?coverageScore*?entityScore)) / ((?frequencyScore*?coverageScore) + (?frequencyScore*?entityScore) + (?coverageScore*?entityScore)) as ?score)
-	WHERE{
-		graph kwsg:groups{
-    		?bag a rdf:Bag.
-    		?bag kws:coverageScore ?coverageScore.
-    		?bag kws:entityScore ?entityScore.
-      		?bag kws:frequencyScore ?frequencyScore.
-    	}
-	}
-};
-
 ###########################################################################################
 # Criando um sub-conjunto de soluções (kwsg:groups2) selecionado as x primeiras respostas#
 ###########################################################################################
@@ -40,10 +17,10 @@ insert {?bag a rdf:Bag; ?p1 ?o1. ?o1 ?p2 ?o2.}
 where {
     {
         select ?bag {
-            graph kwsg:groups {?bag a rdf:Bag; kws:coverageScore ?coverageScore. ?bag kws:score ?score.}
-            filter (?coverageScore >= 0.8)
+            graph kwsg:groups {?bag a rdf:Bag; kws:coverageScore ?coverageScore; kws:harmonicScore ?harmonicScore.}
+            filter (?coverageScore >= 0.65)
         }
-        order by desc(?score) limit 15
+        order by desc(?harmonicScore) limit 15
     }
   graph kwsg:groups {?bag ?p1 ?o1. optional {?o1 ?p2 ?o2.}}
 };
