@@ -1,0 +1,79 @@
+
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix text: <http://jena.apache.org/text#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+PREFIX agg: <http://uff.ic.swlab.jena.sparql.aggregate/>
+prefix time: <http://www.w3.org/2006/time#>
+
+drop graph kwsg:new_seeds;
+drop graph kwsg:subgraphs;
+drop graph kwsg:groups;
+drop graph kwsg:groups2;
+
+#ver isso com Luiz André
+DELETE {graph ?g {?s ?p ?o}}
+WHERE{
+    graph ?g {?g kws:coverageScore ?coverageScore FILTER(?coverageScore < 0.5)}
+    graph ?g {?s ?p ?o.}
+};
+
+#DELETE {graph ?g {?s ?p ?o} }
+#WHERE{
+#    {select ?g {graph ?g {?g kws:harmonicScore ?harmonicScore order by desc(?harmonicScore)}} limit 15}
+#    graph ?g {?s ?p ?o.}
+#};
+
+
+DELETE {graph ?g {?s ?p ?o} }
+WHERE{
+    {
+    	select ?g{ 
+    				 graph ?g{
+        			 	    ?g kws:harmonicScore ?harmonicScore.
+                                     FILTER(?harmonicScore < 0.50)
+      				  }
+      				
+      			 }
+    	
+    	
+     }  
+    graph ?g {?s ?p ?o.}
+};
+
+#DELETE {graph ?g {?s ?p ?o} }
+#WHERE{
+#    {
+#    	select ?g{ 
+#    				 graph ?g{
+#        			 	?g kws:harmonicScore ?harmonicScore.
+#        			  	
+#      				  }
+#      				
+#      			 }
+#    	order by desc(?harmonicScore)
+#    	limit 15
+#     }
+#    graph ?g {?s ?p ?o.}
+#};
+
+
+#inserir tempo no grafo default
+insert data {
+    <%1$squery> a kws:Information;
+        kws:keywordQuery '%2$s';
+        kws:duration [
+            a time:Duration;
+            time:numericDuration "%3$s"^^xsd:decimal;
+            time:unityType time:unitSecond
+        ].
+};
+
+
+
+

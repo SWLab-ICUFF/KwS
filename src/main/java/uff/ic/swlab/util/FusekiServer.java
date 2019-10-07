@@ -22,12 +22,20 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
+import org.apache.jena.sparql.expr.aggregate.Accumulator;
+import org.apache.jena.sparql.expr.aggregate.AccumulatorFactory;
+import org.apache.jena.sparql.expr.aggregate.AggCustom;
+import org.apache.jena.sparql.expr.aggregate.AggregateRegistry;
+import org.apache.jena.sparql.graph.NodeConst;
 import org.apache.jena.update.UpdateExecutionFactory;
 import org.apache.jena.update.UpdateFactory;
 import org.apache.jena.update.UpdateProcessor;
 import org.apache.jena.update.UpdateRequest;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import uff.ic.swlab.jena.sparql.aggregate.AccTMinMax;
+import uff.ic.swlab.jena.sparql.aggregate.KwFreqScore;
+import uff.ic.swlab.jena.sparql.aggregate.MinimumCommonString;
 
 public class FusekiServer {
 
@@ -76,7 +84,7 @@ public class FusekiServer {
         List<String> graphNames = new ArrayList<>();
 
         String queryString = "select distinct ?g where {graph ?g {[] ?p [].}}";
-        try ( QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
+        try (QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
             ResultSet rs = exec.execSelect();
             while (rs.hasNext())
                 graphNames.add(rs.next().getResource("g").getURI());
@@ -90,7 +98,7 @@ public class FusekiServer {
         List<String> graphNames = new ArrayList<>();
 
         String queryString = "select distinct ?g where {graph ?g {[] ?p [].}}";
-        try ( QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
+        try (QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
             ((QueryEngineHTTP) exec).setTimeout(timeout);
             ResultSet rs = exec.execSelect();
             while (rs.hasNext())
@@ -111,6 +119,13 @@ public class FusekiServer {
     }
 
     public synchronized void execUpdate(String queryString, String datasetname) {
+        String aggUri1 = "http://uff.ic.swlab.jena.sparql.aggregate/tMinMax";
+        String aggUri2 = "http://uff.ic.swlab.jena.sparql.aggregate/kwFreqScore";
+        String aggUri3 = "http://uff.ic.swlab.jena.sparql.aggregate/minimumCommonString";
+        AggregateRegistry.register(aggUri1, tMinMaxFactory, NodeConst.nodeMinusOne);
+        AggregateRegistry.register(aggUri2, kwFreqScoreFactory, NodeConst.nodeMinusOne);
+        AggregateRegistry.register(aggUri3, minimumCommonString, NodeConst.nodeMinusOne);
+
         UpdateRequest request = UpdateFactory.create(queryString);
         UpdateProcessor execution = UpdateExecutionFactory.createRemote(request, getUpdateURL(datasetname));
         execution.execute();
@@ -178,5 +193,27 @@ public class FusekiServer {
         RDFDataMgr.read(dataset, getQuadsURL(datasetname));
         return dataset;
     }
+
+    private static final AccumulatorFactory tMinMaxFactory = new AccumulatorFactory() {
+        @Override
+        public Accumulator createAccumulator(AggCustom agg, boolean distinct) {
+            return new AccTMinMax(agg);
+        }
+    };
+
+    private static final AccumulatorFactory kwFreqScoreFactory = new AccumulatorFactory() {
+        @Override
+        public Accumulator createAccumulator(AggCustom agg, boolean distinct) {
+            return new KwFreqScore(agg);
+        }
+    };
+    
+    private static final AccumulatorFactory minimumCommonString = new AccumulatorFactory() {
+        @Override
+        public Accumulator createAccumulator(AggCustom agg, boolean distinct) {
+            return new MinimumCommonString(agg);
+        }
+    };
+
 
 }

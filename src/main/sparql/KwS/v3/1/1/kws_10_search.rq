@@ -1,0 +1,279 @@
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix text: <http://jena.apache.org/text#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+PREFIX agg: <http://uff.ic.swlab.jena.sparql.aggregate/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+drop all;
+
+with kwsg:seeds
+insert {?bag a rdf:Bag; rdfs:member ?s.}
+where {
+  {bind(bnode() as ?bag)}
+##### coonsulta federada kws
+  service <%1$s> {graph kwsg:indexed {?s text:query ('%2$s' 15)}}
+
+};
+
+
+with kwsg:new_seeds
+insert {?bag a rdf:Bag; rdfs:member ?new_kws .}
+WHERE{
+  		{bind(bnode() as ?bag)}
+  		{
+    	SELECT ?new_kws
+    	WHERE{
+  			graph kwsg:seeds {
+    			?bag a rdf:Bag; rdfs:member ?member
+    			service <%1$s> {
+         			graph kwsg:indexed {
+          				?member kws:comment ?kwsComment.
+          				bind(fn:genQueryString('%2$s', ?kwsComment) as ?new_kws)
+        			}
+          		}
+
+  	  		}
+	}
+  }
+};
+
+
+with kwsg:seeds
+insert {?bag a rdf:Bag; rdfs:member ?s.}
+where {
+  {
+    graph kwsg:seeds {?bag a rdf:Bag}
+    {
+      select (agg:minimumCommonString(?kws) as ?new_kws) {graph kwsg:new_seeds {[] rdfs:member ?kws.}}
+    }
+    filter (strlen(?new_kws) > 0 && ?new_kws != 'error')
+  }
+  service <%1$s> {graph kwsg:indexed {?s text:query (?new_kws 15)}}
+};
+
+
+
+
+#################################################################################################################
+# Fazer combinações das entidades encontradas com score > 0 e concatenar os comentários das entidades do grupo. #
+#################################################################################################################
+
+with kwsg:groups
+insert {
+  ?bag a rdf:Bag;
+    kws:initialSize ?size;
+    rdfs:member ?m1;
+    rdfs:member ?m2;
+    rdfs:member ?m3;
+    rdfs:member ?m4;
+    rdfs:member ?m5;
+    .
+}
+using kwsg:seeds
+where {
+       {
+        {
+            select ?size ?m1
+            where {
+                [] rdfs:member ?m1.
+                bind(1 as ?size)
+            }
+        }
+        union {
+            select ?size ?m1 ?m2
+            where {
+                [] rdfs:member ?m1.
+                [] rdfs:member ?m2.
+                filter (str(?m2)>str(?m1))
+                bind(2 as ?size)
+            }
+        }
+        union {
+            select ?size ?m1 ?m2 ?m3
+            where {
+                {
+                    {
+                        [] rdfs:member ?m1.
+                        [] rdfs:member ?m2.
+                        filter (str(?m2)>str(?m1))
+                    }
+                    [] rdfs:member ?m3.
+                    filter (str(?m3)>str(?m2))
+                    bind(3 as ?size)
+                }
+            }
+        }
+        union {
+            select ?size ?m1 ?m2 ?m3 ?m4
+            where {
+                {
+                    {
+                        {
+                          [] rdfs:member ?m1.
+                          [] rdfs:member ?m2.
+                          filter (str(?m2)>str(?m1))
+                        }
+                        [] rdfs:member ?m3.
+                        filter (str(?m3)>str(?m2))
+                    }
+                    [] rdfs:member ?m4.
+                    filter (str(?m4)>str(?m3))
+                    bind(4 as ?size)
+                }
+            }
+        }
+        union {
+            select ?size ?m1 ?m2 ?m3 ?m4 ?m5
+            where {
+                {
+                    {
+                        {
+                            {
+                                [] rdfs:member ?m1.
+                                [] rdfs:member ?m2.
+                                filter (str(?m2)>str(?m1))
+                            }
+                            [] rdfs:member ?m3.
+                            filter (str(?m3)>str(?m2))
+                        }
+                        [] rdfs:member ?m4.
+                        filter (str(?m4)>str(?m3))
+                    }
+                    [] rdfs:member ?m5.
+                    filter (str(?m5)>str(?m4))
+                    bind(5 as ?size)
+                }
+            }
+        }
+    }
+    bind(iri(concat("%3$s","sol",str(fn:sequential()))) as ?bag)
+};
+
+################################################
+# levar kws:comment do Mondial para o Kws.temp #
+################################################
+
+with kwsg:groups
+insert {?s meta:__search_id ?id; kws:comment ?comment.}
+where {
+  {
+    {graph kwsg:seeds {[] rdfs:member ?s}}
+    optional {service <%1$s> {?s meta:__search_id ?id}}
+    optional {service <%1$s> {graph kwsg:indexed {?s kws:comment ?comment}}}
+  }
+
+};
+
+###################################################
+# concatenar kws:comment das entidades dos grupos #
+###################################################
+
+with kwsg:groups
+insert {?bag kws:comment ?comment.}
+using kwsg:groups
+where {
+  	select ?bag (group_concat(coalesce(?_comment,"")) as ?comment)
+  	where {
+    	?bag a rdf:Bag; rdfs:member ?m.
+    	optional {?m kws:comment ?_comment}
+  	}
+  	group by ?bag
+};
+
+#################################################################################
+# eliminar as palavras chaves repetidas no kws:comment das entidades dos grupos #
+#a palavra chave passada como parâmetro será toda maiscula
+#o pattern também será passado como parametro
+#################################################################################
+
+#with kwsg:groups
+#insert {?bag kws:new_comment ?new_comment.}
+#using kwsg:groups
+#where {
+#  select ?bag (group_concat((fn:replaceKwS(?comment, '%2$s'))) as ?new_comment)
+#  	where {
+#    	?bag a rdf:Bag; rdfs:member ?m.
+#    	optional {?m kws:comment ?comment}
+#  	}
+#  	group by ?bag
+
+#};
+
+
+#################################################################################
+# Calcular a cobertura de kws de cada grupo de solução
+#a palavra chave passada como parâmetro separada por espaçamento simples
+#################################################################################
+
+with kwsg:groups
+insert {?bag kws:coverageScore ?countkws.}
+using kwsg:groups
+WHERE{
+  ?bag a rdf:Bag.
+  ?bag kws:comment ?comment.
+  bind(fn:countKwS('%2$s', ?comment) as ?countkws)
+};
+
+#################################################################################
+# Calcular maior quantidade de entidades de todos os grupos de soluções. (N)
+#################################################################################
+
+with kwsg:groups
+insert {?bag kws:maxGroupSize ?total.}
+WHERE{
+  	SELECT  ?bag (max(?max_entity) as ?total)
+	WHERE {
+  		{
+  			SELECT (max(?number_entity) as ?max_entity)
+				WHERE{
+    				graph kwsg:groups{
+      					?bag a rdf:Bag.
+      					?bag kws:initialSize ?number_entity.
+    				}
+    			}
+  		}
+  		{SELECT ?bag WHERE{graph kwsg:groups{?bag a rdf:Bag.}}}
+ 	}
+	group by ?bag
+};
+
+#################################################################################
+#Entity Score:
+#		(N - n) / (N - 1) , onde, "N" é o maior número de entidades encontradas no grupo e "n"
+#é o número de entidades de um grupo
+##################################################################################
+with kwsg:groups
+insert {?bag kws:entityScore ?entityScore.}
+using kwsg:groups
+WHERE{
+  SELECT ?bag ((?maxGroupSize - ?number_entity)/(?maxGroupSize - 1) AS ?entityScore)
+	WHERE{
+    		?bag a rdf:Bag.
+    		?bag kws:initialSize ?number_entity.
+    		?bag kws:maxGroupSize ?maxGroupSize.
+	}
+};
+
+##########################################################
+#Calcular frequênciaScore e armazenar em cada solução
+##########################################################
+
+insert {graph ?g {?sol kws:frequencyScore ?freqScore.}}
+WHERE {
+        
+	SELECT ?g ?sol (agg:kwFreqScore('%1$s', ?kwscomment) as ?freqScore)
+	WHERE {
+            graph ?g {
+                ?sol a rdf:Bag; rdfs:member ?s.
+                ?s kws:comment ?kwscomment.
+                FILTER(isLiteral(?kwscomment) && !regex(str(?s),'urn:graph:kws:[0-9]{3}:sol'))
+            }
+            FILTER(regex(str(?g),'urn:graph:kws:groups'))
+        }
+        group by ?g ?sol
+};

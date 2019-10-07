@@ -1,0 +1,31 @@
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix text: <http://jena.apache.org/text#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+
+
+###########################################################################################################################
+# calculando harmonic mean (kws:score) de três modelos: 
+# 	-Cobertura relativa de kws (coverageScore)
+#	-Normalizacão das entidades encontradas pela palavra chave (entityScore)
+#	-Frequência  das palavras chaves em relação ao kws:comment (frequencyScore)
+#   -Fómrula: (3 * (x1*x2*x3)) / ((x1*x2) + (x1*x3) + (x2*x3))
+###########################################################################################################################
+
+with kwsg:groups
+insert {?bag kws:harmonicScore ?harmonicScore.}
+WHERE{
+  	SELECT
+  ?bag ( (3* (?frequencyScore*?coverageScore*?entityScore)) / ((?frequencyScore*?coverageScore) + (?frequencyScore*?entityScore) + (?coverageScore*?entityScore)) as ?harmonicScore)
+	WHERE{
+		graph kwsg:groups{
+    		?bag a rdf:Bag.
+    		?bag kws:coverageScore ?coverageScore.
+    		?bag kws:entityScore ?entityScore.
+      		?bag kws:frequencyScore ?frequencyScore.
+    	}
+	}
+};
