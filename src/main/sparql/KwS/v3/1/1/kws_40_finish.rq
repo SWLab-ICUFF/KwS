@@ -64,15 +64,15 @@ WHERE{
 
 
 #inserir tempo no grafo default
-#insert data {
-#    <%1$squery> a kws:Information;
-#        kws:keywordQuery '%2$s';
-#        kws:duration [
-#            a time:Duration;
-#            time:numericDuration "%3$s"^^xsd:decimal;
-#            time:unityType time:unitSecond
-#        ].
-#};
+insert data {
+    <%1$squery> a kws:Information;
+        kws:keywordQuery '%2$s';
+        kws:duration [
+            a time:Duration;
+            time:numericDuration "%3$s"^^xsd:decimal;
+            time:unityType time:unitSecond
+        ].
+};
 
 
 
