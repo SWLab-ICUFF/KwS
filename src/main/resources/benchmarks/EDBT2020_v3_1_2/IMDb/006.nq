@@ -1,0 +1,19 @@
+<urn:graph:kws:pairs> <urn:vocab:kws:comment> "The Sound of Music" <urn:graph:kws:pairs> .
+<http://www.imdb.com/work/2303126> <urn:vocab:kws:comment> "The Sound of Music" <urn:graph:kws:pairs> .
+_:B095dc7cf67d9f506193fc989497f742f <urn:vocab:kws:solution> <urn:graph:kws:006:sol3> <urn:graph:kws:pairs> .
+_:B095dc7cf67d9f506193fc989497f742f <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <http://www.imdb.com/work/2303126> <urn:graph:kws:pairs> .
+_:B095dc7cf67d9f506193fc989497f742f <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <http://www.imdb.com/length> <urn:graph:kws:pairs> .
+_:B095dc7cf67d9f506193fc989497f742f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> <urn:graph:kws:pairs> .
+_:Bdee21c9bd747ef1d1c33e2df7253233b <http://www.w3.org/2000/01/rdf-schema#member> <http://www.imdb.com/work/2303126> <urn:graph:kws:seeds> .
+_:Bdee21c9bd747ef1d1c33e2df7253233b <http://www.w3.org/2000/01/rdf-schema#member> <http://www.imdb.com/length> <urn:graph:kws:seeds> .
+_:Bdee21c9bd747ef1d1c33e2df7253233b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> <urn:graph:kws:seeds> .
+<http://www.imdb.com/work/2303126> <urn:vocab:kws:comment> "The Sound of Music" <urn:graph:kws:seeds> .
+<urn:graph:kws:seeds> <urn:vocab:kws:comment> "The Sound of Music" <urn:graph:kws:seeds> .
+<http://www.imdb.com/work/2303126> <urn:vocab:kws:comment> "The Sound of Music" <urn:graph:kws:006:sol1> .
+<http://www.imdb.com/work/2303126> <http://www.imdb.com/length> "174" <urn:graph:kws:006:sol1> .
+<http://www.imdb.com/work/2303126> <http://www.imdb.com/length> "173" <urn:graph:kws:006:sol1> .
+<urn:graph:kws:006:sol1> <urn:vocab:kws:size> "1"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:006:sol1> .
+<urn:graph:kws:006:sol1> <urn:vocab:kws:maxGroupSize> "1"^^<http://www.w3.org/2001/XMLSchema#integer> <urn:graph:kws:006:sol1> .
+<urn:graph:kws:006:sol1> <urn:vocab:kws:frequencyScore> "1.0e0"^^<http://www.w3.org/2001/XMLSchema#double> <urn:graph:kws:006:sol1> .
+<urn:graph:kws:006:sol1> <urn:vocab:kws:coverageScore> "0.8"^^<http://www.w3.org/2001/XMLSchema#float> <urn:graph:kws:006:sol1> .
+<urn:graph:kws:006:sol1> <urn:vocab:kws:comment> "The Sound of Music" <urn:graph:kws:006:sol1> .
