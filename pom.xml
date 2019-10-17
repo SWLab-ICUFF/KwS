@@ -36,11 +36,6 @@
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>uff.ic.swlab</groupId>
-            <artifactId>swlab-jena-arq-extensions</artifactId>
-            <version>0.0.1</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
             <version>3.12</version>
@@ -50,6 +45,10 @@
             <artifactId>poi-ooxml</artifactId>
             <version>3.12</version>
         </dependency>
-
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>swlab-jena-arq-extensions</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 </project>
