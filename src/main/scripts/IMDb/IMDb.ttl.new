@@ -24,13 +24,13 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
   text:defaultField "kwsComment" ;
   text:map ([ text:field "kwsComment" ; text:predicate kws:comment ]
 
-        # [ text:field "label" ; text:predicate rdfs:label ]
-        # [ text:field "comment" ; text:predicate rdfs:comment ]
+        [ text:field "label" ; text:predicate rdfs:label ]
+        [ text:field "comment" ; text:predicate rdfs:comment ]
         # [ text:field "field4" ; text:predicate vocab:profession ]
         # [ text:field "field10" ; text:predicate vocab:originalTitle ]
         # [ text:field "field11" ; text:predicate vocab:primaryTitle ]
         # [ text:field "field12" ; text:predicate vocab:titleType ]
-        # [ text:field "field15" ; text:predicate vocab:genre ]
+        [ text:field "field15" ; text:predicate vocab:genre ]
         # [ text:field "field17" ; text:predicate vocab:characters ]
         # [ text:field "field18" ; text:predicate vocab:job ]
         # [ text:field "field22" ; text:predicate vocab:primaryName ]
@@ -60,11 +60,11 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
         ) .
 
 :tdb_dataset_readwrite a tdb2:DatasetTDB2 ;
-  tdb2:location  "/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/databases/IMDb";
+  tdb2:location  "/Users/lapaesleme/local/var/db/tdb/2/run/databases/IMDb2";
   .
 
 :indexLucene a text:TextIndexLucene ;
-  text:directory "/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/lucene/IMDb" ;
+  text:directory "/Users/lapaesleme/local/var/db/tdb/2/run/lucene/IMDb2" ;
   text:analyzer [a text:StandardAnalyzer];
   #text:analyzer [a text:SimpleAnalyzer];
   #text:queryAnalyzer [a text:SimpleAnalyzer];
@@ -81,7 +81,7 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
 :service_tdb_all a fuseki:Service ;
         rdfs:label "TDB2 IMDb" ;
         fuseki:dataset :text_dataset ;
-        fuseki:name "IMDb" ;
+        fuseki:name "IMDb2" ;
         fuseki:serviceQuery "query" , "sparql" ;
         fuseki:serviceReadGraphStore "get" ;
         fuseki:serviceReadWriteGraphStore "data" ;
