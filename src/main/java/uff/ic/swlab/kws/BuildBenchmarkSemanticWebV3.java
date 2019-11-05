@@ -35,8 +35,8 @@ public class BuildBenchmarkSemanticWebV3 {
         String service1 = "http://semanticweb.inf.puc-rio.br:3030/Mondial/sparql";
         String service2 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
 
-        String kwsVersion = "v3/1/1";
-        String benchmark = "EDBT2020_v3_1_1";
+        String kwsVersion = "v3/1/2";
+        String benchmark = "EDBT2020_v3_1_2";
         //String rankingFilename;
 
         System.out.println(benchmark);
@@ -65,9 +65,19 @@ public class BuildBenchmarkSemanticWebV3 {
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion));
             fuseki.execUpdate(queryString, "KwS.temp");
-        }
+        }  
+        
+       //verificar se vai ter a função para separar a kwS por palavras isoladas
 
         Calendar t1 = Calendar.getInstance();
+        
+        if (true){
+            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/seeds.rq", kwsVersion));
+            queryString = String.format(queryString, service1, keywordQuery, benchmarkNS);
+            fuseki.execUpdate(queryString, "KwS.temp");
+            
+        }
+        
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_10_search.rq", kwsVersion));
             queryString = String.format(queryString, service1, keywordQuery, benchmarkNS);

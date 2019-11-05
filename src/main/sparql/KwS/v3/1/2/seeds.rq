@@ -1,0 +1,34 @@
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix text: <http://jena.apache.org/text#>
+
+with kwsg:seeds
+insert {?bag a rdf:Bag; rdfs:member ?resource;  rdf:value  '%1$s' }
+where {
+  {bind(bnode() as ?bag)}
+ {
+    
+    select distinct ?resource
+{service<%1$s> {    
+    (?resource ?score ?literal) text:query ('(%1$s)') .
+    ?resource ?prop ?literal. 
+   {
+       select (max(?score) as ?maxScore)
+       {
+           (?resource ?score ?literal) text:query ('(%1$s)').
+       }
+    }
+    {
+      select distinct (max(?info) as ?maxInfo)
+      {
+          ?n <http://www.quira.org/inforank> ?info
+      } 
+    }
+  OPTIONAL{?resource <http://www.quira.org/inforank> ?inforank}
+  BIND(IF(BOUND(?inforank), (((?inforank/?maxInfo)*0.5)+((?score/?maxScore)*0.5)), 1) as ?newScore) 
+      }}
+order by desc(?newScore) limit 15
+    } 
+};
