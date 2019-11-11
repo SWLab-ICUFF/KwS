@@ -71,6 +71,7 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
 :indexLucene a text:TextIndexLucene ;
   text:directory "/Users/lapaesleme/local/var/db/tdb/2/run/lucene/IMDb2" ;
   text:analyzer [a text:StandardAnalyzer];
+  text:storeValues true ;
   #text:analyzer [a text:SimpleAnalyzer];
   #text:queryAnalyzer [a text:SimpleAnalyzer];
   #text:queryParser text:ComplexPhraseQueryParser;
