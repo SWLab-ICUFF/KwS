@@ -60,11 +60,11 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
         ) .
 
 :tdb_dataset_readwrite a tdb2:DatasetTDB2 ;
-  tdb2:location  "/Users/lapaesleme/local/var/db/tdb/2/run/databases/IMDb2";
+  tdb2:location  "opt/local/var/db/tdb/2/run/databases/IMDb2";
   .
 
 :indexLucene a text:TextIndexLucene ;
-  text:directory "/Users/lapaesleme/local/var/db/tdb/2/run/lucene/IMDb2" ;
+  text:directory "/opt/local/var/db/tdb/2/run/lucene/IMDb2" ;
   text:analyzer [a text:StandardAnalyzer];
   #text:analyzer [a text:SimpleAnalyzer];
   #text:queryAnalyzer [a text:SimpleAnalyzer];
