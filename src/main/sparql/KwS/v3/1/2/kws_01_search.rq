@@ -1,0 +1,56 @@
+PREFIX kw: <http://kwantu.net/kw/>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix text: <http://jena.apache.org/text#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+prefix quira: <http://www.quira.org/>
+
+
+with kwsg:seeds
+insert {?bag a rdf:Bag; rdfs:member ?s.
+        ?s kws:value ?literal;
+           kws:luceneScore ?score;
+           kws:maxLuceneScore ?max_score;
+           kws:infoRank ?inforank;
+           kws:score ?score_final.}
+WHERE{
+    {bind(bnode() as ?bag)}
+    {
+        #junção R1 com R2 (natural join) para cada linha da relação executar a normalização.
+        SELECT ?s
+                ?literal
+                ?score
+                ?max_score
+                ?inforank
+                (?score / ?max_score as ?score_normalizado)
+                ((?score / ?max_score) + ?inforank)/2 as ?score_final)
+        WHERE {
+        #relação R1 com uma coluna contentdo o maior score lucene
+        service <%1$s>{
+            {
+                SELECT  ?max_score_lucene
+                WHERE{
+                (?s ?max_score_lucene) text:query (rdfs:label '%2$s' 1). #lista de propriedades
+                }
+            }
+            {
+                SELECT ?s ?score ?inforank ?literal
+                WHERE{
+                    (?s ?score ?literal) text:query (rdfs:label '%2$s'). #lista de propriedades
+                     ?s quira:inforank ?inforank.
+                }
+            }
+        }
+        filter (((?score / ?max_score) + ?inforank)/2 > 0.4)
+        }
+    }
+}
+order by desc(?score_final)
+limit 10;
+
+
+
+

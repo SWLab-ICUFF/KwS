@@ -118,6 +118,15 @@ public class FusekiServer {
         return result;
     }
 
+    public synchronized ResultSet execSelect(String queryString, String datasetname) {
+        ResultSet result;
+        try (final QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
+            ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
+            result = exec.execSelect();
+        }
+        return result;
+    }
+
     public synchronized void execUpdate(String queryString, String datasetname) {
         String aggUri1 = "http://uff.ic.swlab.jena.sparql.aggregate/tMinMax";
         String aggUri2 = "http://uff.ic.swlab.jena.sparql.aggregate/kwFreqScore";
@@ -207,13 +216,12 @@ public class FusekiServer {
             return new KwFreqScore(agg);
         }
     };
-    
+
     private static final AccumulatorFactory minimumCommonString = new AccumulatorFactory() {
         @Override
         public Accumulator createAccumulator(AggCustom agg, boolean distinct) {
             return new MinimumCommonString(agg);
         }
     };
-
 
 }

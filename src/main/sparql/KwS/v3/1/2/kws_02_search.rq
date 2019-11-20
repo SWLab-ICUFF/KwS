@@ -1,0 +1,18 @@
+PREFIX kw: <http://kwantu.net/kw/>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix text: <http://jena.apache.org/text#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+prefix quira: <http://www.quira.org/>
+
+SELECT ?new_kws
+WHERE{
+    {select (group_contact(?value) as ?allValues) where {graph kwsg:seeds {[] kws:value ?value.}}} ### testar para ver se seeds existem
+    service <%1$s> {
+        #procurar novas palavras chaves - palavras chaves que aparecem nos literais das seeds que são diferentes da palavra chave original
+        bind(fn:genQueryString('%2$s', ?allValue) as ?new_kws)
+    }
+}

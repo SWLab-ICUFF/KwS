@@ -106,55 +106,11 @@ where {
     bind(iri(concat("%3$s","sol",str(fn:sequential()))) as ?bag)
 };
 
-################################################
-# levar kws:comment do Mondial para o Kws.temp #
-################################################
 
-with kwsg:groups
-insert {?s meta:__search_id ?id; kws:comment ?comment.}
-where {
-  {
-    {graph kwsg:seeds {[] rdfs:member ?s}}
-    optional {service <%1$s> {?s meta:__search_id ?id}}
-    optional {service <%1$s> {graph kwsg:indexed {?s kws:comment ?comment}}}
-  }
 
-};
 
-###################################################
-# concatenar kws:comment das entidades dos grupos #
-###################################################
 
-with kwsg:groups
-insert {?bag kws:comment ?comment.}
-using kwsg:groups
-where {
-  	select ?bag (group_concat(coalesce(?_comment,"")) as ?comment)
-  	where {
-    	?bag a rdf:Bag; rdfs:member ?m.
-    	optional {?m kws:comment ?_comment}
-  	}
-  	group by ?bag
-};
 
-#################################################################################
-# eliminar as palavras chaves repetidas no kws:comment das entidades dos grupos #
-#a palavra chave passada como parâmetro será toda maiscula
-#o pattern também será passado como parametro
-#################################################################################
-
-#with kwsg:groups
-#insert {?bag kws:new_comment ?new_comment.}
-#using kwsg:groups
-#where {
-#  select ?bag (group_concat((fn:replaceKwS(?comment, '%2$s'))) as ?new_comment)
-#  	where {
-#    	?bag a rdf:Bag; rdfs:member ?m.
-#    	optional {?m kws:comment ?comment}
-#  	}
-#  	group by ?bag
-
-#};
 
 
 #################################################################################
@@ -217,7 +173,7 @@ WHERE{
 
 insert {graph ?g {?sol kws:frequencyScore ?freqScore.}}
 WHERE {
-        
+
 	SELECT ?g ?sol (agg:kwFreqScore('%1$s', ?kwscomment) as ?freqScore)
 	WHERE {
             graph ?g {

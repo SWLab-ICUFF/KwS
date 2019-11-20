@@ -17,6 +17,7 @@ import java.util.Scanner;
 import java.util.zip.GZIPOutputStream;
 import javax.naming.InvalidNameException;
 import org.apache.jena.query.Dataset;
+import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
@@ -29,7 +30,7 @@ import uff.ic.swlab.util.FusekiServer;
  */
 public class BuildBenchmarkSemanticWebV3_1_2 {
 
-    public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException  {
+    public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
         String service1 = "http://semanticweb.inf.puc-rio.br:3030/Mondial_ShortPaper/sparql";
         String service2 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
 
@@ -54,7 +55,7 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
 
         }
     }
-    
+
     public static void run(String kwsVersion, String service1, String service2, String keywordQuery, String benchmarkNS, String filename) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer("semanticweb.inf.puc-rio.br", 3030);
         String queryString = "";
@@ -63,22 +64,34 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
             fuseki.execUpdate(queryString, "KwS.temp");
         }
         Calendar t1 = Calendar.getInstance();
-        
-        if (true){
-            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/seeds.rq", kwsVersion));
+
+        if (true) {
+            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_01_search.rq", kwsVersion));
             queryString = String.format(queryString, service1, keywordQuery, benchmarkNS);
             fuseki.execUpdate(queryString, "KwS.temp");
-            
         }
-        
-        if (true){
-            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/seeds.rq", kwsVersion));
+
+        if (true) {
+            String newKws;
+            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_02_search.rq", kwsVersion));
+            queryString = String.format(queryString, service1, keywordQuery, benchmarkNS);
+            ResultSet result = fuseki.execSelect(queryString, "KwS.temp");
+            // completar.....
+            newKws = null;
+
+            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_01_search.rq", kwsVersion));
+            queryString = String.format(queryString, service1, newKws, benchmarkNS);
+            fuseki.execUpdate(queryString, "KwS.temp");
+        }
+
+        if (true) {
+            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_05_search.rq", kwsVersion));
             queryString = String.format(queryString, service1, keywordQuery, benchmarkNS);
             fuseki.execUpdate(queryString, "KwS.temp");
-            
         }
+
     }
-    
+
     private static String readQuery(String filename) throws FileNotFoundException, IOException {
         File file = new File(filename);
         byte[] data = new byte[(int) file.length()];
@@ -105,5 +118,3 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
     }
 
 }
-
-
