@@ -15,4 +15,5 @@ WHERE{
         #procurar novas palavras chaves - palavras chaves que aparecem nos literais das seeds que são diferentes da palavra chave original
         bind(fn:genQueryString('%2$s', ?allValue) as ?new_kws)
     }
+    filter (strlen(?new_kws) > 0)
 }

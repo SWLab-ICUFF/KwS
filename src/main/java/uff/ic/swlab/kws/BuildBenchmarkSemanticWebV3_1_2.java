@@ -17,6 +17,7 @@ import java.util.Scanner;
 import java.util.zip.GZIPOutputStream;
 import javax.naming.InvalidNameException;
 import org.apache.jena.query.Dataset;
+import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.Lang;
@@ -78,10 +79,16 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
             ResultSet result = fuseki.execSelect(queryString, "KwS.temp");
             // completar.....
             newKws = null;
-
-            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_01_search.rq", kwsVersion));
-            queryString = String.format(queryString, service1, newKws, benchmarkNS);
-            fuseki.execUpdate(queryString, "KwS.temp");
+            QuerySolution soln = result.nextSolution();
+            newKws = String.valueOf(soln.get("new_kws"));
+            if (newKws != null){
+                queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_01_search.rq", kwsVersion));
+                queryString = String.format(queryString, service1, newKws, benchmarkNS);
+                fuseki.execUpdate(queryString, "KwS.temp");
+                
+            } 
+            
+            
         }
 
         if (true) {
