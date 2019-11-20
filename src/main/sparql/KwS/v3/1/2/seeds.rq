@@ -21,17 +21,17 @@ WHERE{
   			{
   				#junção R1 com R2 (natural join) para cada linha da relação executar a normalização.
 				SELECT ?s ?literal ?score ?inforank ?max_score_lucene (?score / ?max_score_lucene as ?score_normalizado)
-				WHERE{	
+				WHERE{
     				#relação R1 com uma coluna contentdo o maior score lucene
   					{
             			service <%1$s>{
   							SELECT  ?max_score_lucene
   							WHERE{
-      							(?s ?max_score_lucene) text:query (rdfs:label '%2$s'). #lista de propriedades
+      							(?s ?max_score_lucene) text:query (rdfs:label '%2$s' 1). #lista de propriedades
     						}
             			}
   					}
-    				#relação R2 
+    				#relação R2
   					{
             			service <%1$s> {
   							SELECT ?s ?score ?inforank ?literal
@@ -50,7 +50,7 @@ WHERE{
   }
 };
 
-# inserindo as novas palavras chaves no grafo new_seeds. 
+# inserindo as novas palavras chaves no grafo new_seeds.
 with kwsg:new_seeds
 insert {?bag a rdf:Bag; rdfs:member ?new_kws .}
 WHERE{
@@ -64,7 +64,7 @@ WHERE{
     				service <%1$s> {
                                         #procurar novas palavras chaves - palavras chaves que aparecem nos literais das seeds que são diferentes da palavra chave original
           				bind(fn:genQueryString('atacama desert', ?value) as ?new_kws)
-        			
+
           			}
 
   	  		}
@@ -94,7 +94,7 @@ where {
   			{
   				#junção R1 com R2 (natural join) para cada linha da relação executar a normalização.
 				SELECT ?s ?literal ?score ?inforank ?max_score_lucene (?score / ?max_score_lucene as ?score_normalizado)
-				WHERE{	
+				WHERE{
     				#relação R1 com uma coluna contentdo o maior score lucene
   					{
             			service <%1$s>{
@@ -104,7 +104,7 @@ where {
     						}
             			}
   					}
-    				#relação R2 
+    				#relação R2
   					{
             			service <%1$s> {
   							SELECT ?s ?score ?inforank ?literal
@@ -121,8 +121,8 @@ where {
   		order by DESC (?score_final)
     }
   }
-  
-  
+
+
 };
 
 #buscando as propriedades que match
