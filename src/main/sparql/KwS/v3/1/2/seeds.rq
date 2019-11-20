@@ -1,34 +1,140 @@
+PREFIX kw: <http://kwantu.net/kw/>
 prefix kws: <urn:vocab:kws:>
 prefix kwsg: <urn:graph:kws:>
+prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix text: <http://jena.apache.org/text#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+prefix quira: <http://www.quira.org/>
+
 
 with kwsg:seeds
-insert {?bag a rdf:Bag; rdfs:member ?resource;  rdf:value  '%1$s' }
+insert {?bag a rdf:Bag; rdfs:member ?s. ?s kws:value ?literal}
+WHERE{
+  	{bind(bnode() as ?bag)}
+	{
+		SELECT ?s ?literal ?score_final
+		WHERE {
+  			#computar a média para cada linha da relação R1 e R2
+  			SELECT ?s ?literal ?score ?inforank ?max_score_lucene ?score_normalizado ((?score_normalizado + ?inforank) / 2 as ?score_final)
+  			{
+  				#junção R1 com R2 (natural join) para cada linha da relação executar a normalização.
+				SELECT ?s ?literal ?score ?inforank ?max_score_lucene (?score / ?max_score_lucene as ?score_normalizado)
+				WHERE{	
+    				#relação R1 com uma coluna contentdo o maior score lucene
+  					{
+            			service <%1$s>{
+  							SELECT  ?max_score_lucene
+  							WHERE{
+      							(?s ?max_score_lucene) text:query (rdfs:label '%2$s'). #lista de propriedades
+    						}
+            			}
+  					}
+    				#relação R2 
+  					{
+            			service <%1$s> {
+  							SELECT ?s ?score ?inforank ?literal
+    						WHERE{
+    							(?s ?score ?literal) text:query (rdfs:label '%2$s'). #lista de propriedades
+      							?s quira:inforank ?inforank.
+    						}
+  						}
+          			}
+
+				}
+     	}
+  		HAVING (?score_final > 0.4)
+  		order by DESC (?score_final)
+    }
+  }
+};
+
+# inserindo as novas palavras chaves no grafo new_seeds. 
+with kwsg:new_seeds
+insert {?bag a rdf:Bag; rdfs:member ?new_kws .}
+WHERE{
+  		{bind(bnode() as ?bag)}
+  		{
+    		SELECT ?new_kws
+    		WHERE{
+  				graph kwsg:seeds {
+    				?bag a rdf:Bag; rdfs:member ?member.
+                                 ?member kws:value ?value.
+    				service <%1$s> {
+                                        #procurar novas palavras chaves - palavras chaves que aparecem nos literais das seeds que são diferentes da palavra chave original
+          				bind(fn:genQueryString('atacama desert', ?value) as ?new_kws)
+        			
+          			}
+
+  	  		}
+	}
+  }
+};
+
+#adicionando novas seeds no grafo de seeds (2n)
+
+with kwsg:seeds
+insert {?bag a rdf:Bag; rdfs:member ?s. ?s kws:value ?literal}
 where {
-  {bind(bnode() as ?bag)}
- {
-    
-    select distinct ?resource
-{service<%1$s> {    
-    (?resource ?score ?literal) text:query ('(%1$s)') .
-    ?resource ?prop ?literal. 
-   {
-       select (max(?score) as ?maxScore)
-       {
-           (?resource ?score ?literal) text:query ('(%1$s)').
-       }
-    }
+  {
+    graph kwsg:seeds {?bag a rdf:Bag}
     {
-      select distinct (max(?info) as ?maxInfo)
-      {
-          ?n <http://www.quira.org/inforank> ?info
-      } 
+        #função agredada. Entrada: palavra chave do grafo new seeds.
+       select (agg:minimumCommonString(?kws) as ?new_kws) {graph kwsg:new_seeds {[] rdfs:member ?kws.}}
     }
-  OPTIONAL{?resource <http://www.quira.org/inforank> ?inforank}
-  BIND(IF(BOUND(?inforank), (((?inforank/?maxInfo)*0.5)+((?score/?maxScore)*0.5)), 1) as ?newScore) 
-      }}
-order by desc(?newScore) limit 15
-    } 
+    filter (strlen(?new_kws) > 0 && ?new_kws != 'error')
+  }
+  #buscar as novas seeds
+  {
+		SELECT ?s ?literal ?score_final
+		WHERE {
+  			#computar a média para cada linha da relação R1 e R2
+  			SELECT ?s ?literal ?score ?inforank ?max_score_lucene ?score_normalizado ((?score_normalizado + ?inforank) / 2 as ?score_final)
+  			{
+  				#junção R1 com R2 (natural join) para cada linha da relação executar a normalização.
+				SELECT ?s ?literal ?score ?inforank ?max_score_lucene (?score / ?max_score_lucene as ?score_normalizado)
+				WHERE{	
+    				#relação R1 com uma coluna contentdo o maior score lucene
+  					{
+            			service <%1$s>{
+  							SELECT  ?max_score_lucene
+  							WHERE{
+      							(?s ?max_score_lucene) text:query (rdfs:label ?new_kws 1). #lista de propriedades
+    						}
+            			}
+  					}
+    				#relação R2 
+  					{
+            			service <%1$s> {
+  							SELECT ?s ?score ?inforank ?literal
+    						WHERE{
+    							(?s ?score ?literal) text:query (rdfs:label ?new_kws). #lista de propriedades
+      							?s quira:inforank ?inforank.
+    						}
+  						}
+          			}
+
+				}
+     	}
+  		HAVING (?score_final > 0.4)
+  		order by DESC (?score_final)
+    }
+  }
+  
+  
+};
+
+#buscando as propriedades que match
+with kwsg:seeds
+insert {?member kws:predicate ?property_match.}
+WHERE{
+  graph kwsg:seeds {
+    	?bag a rdf:Bag; rdfs:member ?member.
+        ?member kws:value ?value.
+    		service <%1$s> {
+          			?member ?property_match ?value.
+          	}
+
+  	 }
 };
