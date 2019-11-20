@@ -2,6 +2,8 @@
 cd "$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
 #echo $PWD
 
+ssh -i ~/swlab-srv1.pem ec2-user@swlab-srv1.ddns.net sudo chmod -R 0777 /opt
+
 sudo rsync -avz --exclude "run" --delete -e "ssh -i $HOME/swlab-srv1.pem" --rsync-path="sudo rsync" ./IMDb.ttl.new.aws  ec2-user@swlab-srv1.ddns.net:/opt/local/var/db/tdb/2/run/configuration/IMDb2.ttl
 
 ssh -i ~/swlab-srv1.pem ec2-user@swlab-srv1.ddns.net "export JVM_ARGS=${JVM_ARGS:--Xmx128G} | export JENA_HOME=/opt/local/etc/jena/apache-jena-3.13.1 | export PATH=$PATH:$JENA_HOME/bin | java -cp '/opt/local/etc/jena/apache-jena-fuseki-3.13.1/fuseki-server.jar' jena.textindexer --desc='/opt/local/var/db/tdb/2/run/configuration/IMDb2.ttl'"
