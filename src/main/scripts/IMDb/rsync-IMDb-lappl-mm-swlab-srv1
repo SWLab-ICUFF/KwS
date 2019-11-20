@@ -1,8 +1,0 @@
-#!/bin/sh
-
-ssh -i ~/swlab-srv1.pem ec2-user@swlab-srv1.ddns.net sudo mkdir -p /opt/local/etc/jena && cd ~
-sudo rsync -avz --exclude "run" --delete -e "ssh -i /Users/lapaesleme/swlab-srv1.pem" --rsync-path="sudo rsync" /Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.13.1/  ec2-user@swlab-srv1.ddns.net:/opt/local/etc/jena/apache-jena-fuseki-3.13.1
-
-
-ssh -i ~/swlab-srv1.pem ec2-user@swlab-srv1.ddns.net sudo mkdir -p /opt/local/var/db/tdb/2/run && cd ~
-sudo rsync -avz --delete -e "ssh -i /Users/lapaesleme/swlab-srv1.pem" --rsync-path="sudo rsync" /Users/lapaesleme/local/var/db/tdb/2/run/  ec2-user@swlab-srv1.ddns.net:/opt/local/var/db/tdb/2/run
