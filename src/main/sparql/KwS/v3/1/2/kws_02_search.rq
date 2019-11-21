@@ -11,9 +11,7 @@ prefix quira: <http://www.quira.org/>
 SELECT ?new_kws
 WHERE{
     {select (group_contact(?value) as ?allValues) where {graph kwsg:seeds {[] kws:value ?value.}}} ### testar para ver se seeds existem
-    service <%1$s> {
-        #procurar novas palavras chaves - palavras chaves que aparecem nos literais das seeds que são diferentes da palavra chave original
-        bind(fn:genQueryString('%2$s', ?allValue) as ?new_kws)
-    }
+    #procurar novas palavras chaves - palavras chaves que aparecem nos literais das seeds que são diferentes da palavra chave original
+    bind(fn:genQueryString('%2$s', ?allValue) as ?new_kws)
     filter (strlen(?new_kws) > 0)
 }
