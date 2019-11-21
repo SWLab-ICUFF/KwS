@@ -10,7 +10,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
 
-
 #################################################################################################################
 # Fazer combinações das entidades encontradas com score > 0 e concatenar os comentários das entidades do grupo. #
 #################################################################################################################
@@ -103,28 +102,61 @@ where {
             }
         }
     }
-    bind(iri(concat("%3$s","sol",str(fn:sequential()))) as ?bag)
+        bind(iri(concat("%3$s","sol",str(fn:sequential()))) as ?bag)
 };
 
+#################################################################################
+#Trazendo as triplas das sementes para o grupo de solução
+#################################################################################
+with kwsg:groups
+insert{
+  ?s kws:value ?value; kws:matchingPredicate ?predicate; kws:infoRank ?inforank.
+	
+}
+where {
+  {
+   	{
+      graph kwsg:seeds {
+        	[] rdfs:member ?s.
+      		?s kws:value ?value.
+        	?s kws:matchingPredicate ?predicate.
+        	?s kws:infoRank ?inforank.
+      }
+    
+    }
+    
+  }
 
+};
 
+###################################################
+# concatenar os values para computar o coverageScore #
+###################################################
 
-
-
-
+with kwsg:groups
+insert {?bag kws:values ?values.}
+using kwsg:groups
+where {
+  	select ?bag (group_concat(coalesce(?_value,"")) as ?values)
+  	where {
+    	?bag a rdf:Bag; rdfs:member ?m.
+    	optional {?m kws:value ?_value}
+  	}
+  	group by ?bag
+};
 
 #################################################################################
-# Calcular a cobertura de kws de cada grupo de solução
+# Calcular a cobertura de kws de cada grupo de solução CS SCORE	
 #a palavra chave passada como parâmetro separada por espaçamento simples
 #################################################################################
 
 with kwsg:groups
-insert {?bag kws:coverageScore ?countkws.}
+insert {?bag kws:csScore ?coverageScore.}
 using kwsg:groups
 WHERE{
   ?bag a rdf:Bag.
-  ?bag kws:comment ?comment.
-  bind(fn:countKwS('%2$s', ?comment) as ?countkws)
+  ?bag kws:values ?value.
+  bind(fn:countKwS('%1$s', ?value) as ?coverageScore)
 };
 
 #################################################################################
@@ -132,9 +164,9 @@ WHERE{
 #################################################################################
 
 with kwsg:groups
-insert {?bag kws:maxGroupSize ?total.}
+insert {?bag kws:maxGroupSize ?maxGroupSize.}
 WHERE{
-  	SELECT  ?bag (max(?max_entity) as ?total)
+  	SELECT ?bag (max(?max_entity) as ?maxGroupSize)
 	WHERE {
   		{
   			SELECT (max(?number_entity) as ?max_entity)
@@ -151,15 +183,14 @@ WHERE{
 };
 
 #################################################################################
-#Entity Score:
-#		(N - n) / (N - 1) , onde, "N" é o maior número de entidades encontradas no grupo e "n"
-#é o número de entidades de um grupo
-##################################################################################
+# Calcular o SS score do grupo de cada grupo solução
+#################################################################################
+
 with kwsg:groups
-insert {?bag kws:entityScore ?entityScore.}
+insert {?bag kws:ssScore ?ssScore.}
 using kwsg:groups
 WHERE{
-  SELECT ?bag ((?maxGroupSize - ?number_entity)/(?maxGroupSize - 1) AS ?entityScore)
+  SELECT ?bag ((?maxGroupSize - ?number_entity)/(?maxGroupSize - 1) AS ?ssScore)
 	WHERE{
     		?bag a rdf:Bag.
     		?bag kws:initialSize ?number_entity.
@@ -167,21 +198,84 @@ WHERE{
 	}
 };
 
-##########################################################
-#Calcular frequênciaScore e armazenar em cada solução
-##########################################################
 
-insert {graph ?g {?sol kws:frequencyScore ?freqScore.}}
+#######################################################################
+#Calcular OS (se cada palavra chave é correspondidado por um recurso OS)
+#####################################################################
+
+insert {graph ?g {?sol kws:osScore ?osScore.}}
 WHERE {
-
-	SELECT ?g ?sol (agg:kwFreqScore('%1$s', ?kwscomment) as ?freqScore)
+        
+	SELECT ?g ?sol (agg:kwFreqScore('%1$s', ?value) as ?osScore)
 	WHERE {
             graph ?g {
                 ?sol a rdf:Bag; rdfs:member ?s.
-                ?s kws:comment ?kwscomment.
-                FILTER(isLiteral(?kwscomment) && !regex(str(?s),'urn:graph:kws:[0-9]{3}:sol'))
+                ?s kws:value ?value.
+                FILTER(isLiteral(?value) && !regex(str(?s),'urn:graph:kws:[0-9]{3}:sol'))
             }
             FILTER(regex(str(?g),'urn:graph:kws:groups'))
         }
         group by ?g ?sol
 };
+
+###############################################################################
+#Armazenando infoRank de cada recurso no grupo de solução para calcular a média 
+###############################################################################
+with kwsg:groups
+insert  {?sol kws:infoRankValues ?inforank.}
+WHERE{
+  {
+    SELECT ?s ?inforank
+	WHERE{
+  		graph kwsg:groups{
+  			?s kws:infoRank ?inforank.
+  		}
+
+    }
+  }
+  {
+  	SELECT ?sol ?s
+    WHERE{
+    	graph kwsg:groups{
+      		?sol a rdf:Bag; rdfs:member ?s.
+      	}
+    }
+  }
+}
+
+#######################################################################
+#Calcular isScore (InforankMédio)
+#######################################################################
+
+#SELECT ?sol (SUM(?infoRankValues) as ?sum)
+#WHERE{
+#  {
+#  		SELECT ?size
+#    	WHERE{
+#      		graph kwsg:groups{
+#        		?sol a rdf:Bag; kws:initialSize ?size.
+#        		
+#      		}
+#    	}	
+#  	
+#  }
+#  
+#  {
+#  		SELECT ?sol ?infoRankValues
+#		WHERE{
+#  			graph kwsg:groups{
+#  	 			?sol a rdf:Bag; 
+#     			kws:infoRankValues ?infoRankValues.
+#     
+#    
+#  			}
+#		}
+#		#group by ?sol ?infoRankValues
+#  }
+
+
+
+#} group by ?sol
+
+
+
