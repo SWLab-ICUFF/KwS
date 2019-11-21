@@ -17,4 +17,4 @@
 
 :tdb_dataset_readwrite
         a tdb2:DatasetTDB2 ;
-        tdb2:location  "/opt/local/jena/apache-jena-fuseki-3.10.0/run/databases/IMDb" .
+        tdb2:location  "opt/local/var/db/tdb/2/run/databases/IMDb2" .
