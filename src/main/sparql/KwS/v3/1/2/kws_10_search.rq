@@ -16,13 +16,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 with kwsg:groups
 insert {
-  ?bag a rdf:Bag;
-    kws:initialSize ?size;
-    rdfs:member ?m1;
-    rdfs:member ?m2;
-    rdfs:member ?m3;
-    rdfs:member ?m4;
-    rdfs:member ?m5;
+    ?bag a rdf:Bag;
+        kws:initialSize ?size;
+        rdfs:member ?m1;
+        rdfs:member ?m2;
+        rdfs:member ?m3;
+        rdfs:member ?m4;
+        rdfs:member ?m5;
     .
 }
 using kwsg:seeds
@@ -102,31 +102,20 @@ where {
             }
         }
     }
-        bind(iri(concat("%3$s","sol",str(fn:sequential()))) as ?bag)
+    bind(iri(concat("%3$s","sol",str(fn:sequential()))) as ?bag)
 };
 
 #################################################################################
 #Trazendo as triplas das sementes para o grupo de solução
 #################################################################################
 with kwsg:groups
-insert{
-  ?s kws:value ?value; kws:matchingPredicate ?predicate; kws:infoRank ?inforank.
-	
-}
+insert{?s kws:value ?value; kws:matchingPredicate ?predicate; kws:infoRank ?inforank.}
+using kwsg:seeds
 where {
-  {
-   	{
-      graph kwsg:seeds {
-        	[] rdfs:member ?s.
-      		?s kws:value ?value.
-        	?s kws:matchingPredicate ?predicate.
-        	?s kws:infoRank ?inforank.
-      }
-    
-    }
-    
-  }
-
+    [] rdfs:member ?s.
+    ?s kws:value ?value.
+    ?s kws:matchingPredicate ?predicate.
+    ?s kws:infoRank ?inforank.
 };
 
 ###################################################
@@ -134,68 +123,39 @@ where {
 ###################################################
 
 with kwsg:groups
-insert {?bag kws:values ?values.}
-using kwsg:groups
-where {
-  	select ?bag (group_concat(coalesce(?_value,"")) as ?values)
-  	where {
-    	?bag a rdf:Bag; rdfs:member ?m.
-    	optional {?m kws:value ?_value}
-  	}
-  	group by ?bag
-};
-
-#################################################################################
-# Calcular a cobertura de kws de cada grupo de solução CS SCORE	
-#a palavra chave passada como parâmetro separada por espaçamento simples
-#################################################################################
-
-with kwsg:groups
 insert {?bag kws:csScore ?coverageScore.}
 using kwsg:groups
-WHERE{
-  ?bag a rdf:Bag.
-  ?bag kws:values ?value.
-  bind(fn:countKwS('%1$s', ?value) as ?coverageScore)
+where {
+    select ?bag (fn:countKwS('%1$s', group_concat(?_value,"")) as ?coverageScore)
+    where {
+        ?bag rdfs:member ?m.
+        ?m kws:value ?_value.
+    }
+    group by ?bag
 };
 
-#################################################################################
-# Calcular maior quantidade de entidades de todos os grupos de soluções. (N)
-#################################################################################
 
-with kwsg:groups
-insert {?bag kws:maxGroupSize ?maxGroupSize.}
-WHERE{
-  	SELECT ?bag (max(?max_entity) as ?maxGroupSize)
-	WHERE {
-  		{
-  			SELECT (max(?number_entity) as ?max_entity)
-				WHERE{
-    				graph kwsg:groups{
-      					?bag a rdf:Bag.
-      					?bag kws:initialSize ?number_entity.
-    				}
-    			}
-  		}
-  		{SELECT ?bag WHERE{graph kwsg:groups{?bag a rdf:Bag.}}}
- 	}
-	group by ?bag
-};
 
 #################################################################################
 # Calcular o SS score do grupo de cada grupo solução
 #################################################################################
 
 with kwsg:groups
-insert {?bag kws:ssScore ?ssScore.}
-using kwsg:groups
-WHERE{
-  SELECT ?bag ((?maxGroupSize - ?number_entity)/(?maxGroupSize - 1) AS ?ssScore)
-	WHERE{
-    		?bag a rdf:Bag.
-    		?bag kws:initialSize ?number_entity.
-    		?bag kws:maxGroupSize ?maxGroupSize.
-	}
+insert {?bag kws:ssScore ?ssScore; kws:maxInitialGroupSize ?maxInitialGroupSize.}
+#using kwsg:groups
+WHERE {
+    SELECT ?bag ((?maxInitialGroupSize - ?number_entity)/(?maxInitialGroupSize - 1) AS ?ssScore)
+    where {
+        {
+            SELECT ?bag (?max_entity as ?maxInitialGroupSize)
+            WHERE {
+                {SELECT (max(?number_entity) as ?max_entity) {graph kwsg:groups{[] kws:initialSize ?number_entity.}}}
+                graph kwsg:groups{?bag a rdf:Bag.}}
+            }
+            group by ?bag
+        }
+        graph kwsg:groups{?bag kws:initialSize ?number_entity.}
+    }
 };
 
 
@@ -205,77 +165,31 @@ WHERE{
 
 insert {graph ?g {?sol kws:osScore ?osScore.}}
 WHERE {
-        
-	SELECT ?g ?sol (agg:kwFreqScore('%1$s', ?value) as ?osScore)
-	WHERE {
-            graph ?g {
-                ?sol a rdf:Bag; rdfs:member ?s.
-                ?s kws:value ?value.
-                FILTER(isLiteral(?value) && !regex(str(?s),'urn:graph:kws:[0-9]{3}:sol'))
-            }
-            FILTER(regex(str(?g),'urn:graph:kws:groups'))
+    SELECT ?sol (agg:kwFreqScore('%1$s', ?value) as ?osScore)
+    WHERE {
+        graph kwsg:groups {
+            ?sol rdfs:member ?s.
+            ?s kws:value ?value.
         }
-        group by ?g ?sol
+    }
+    group by ?sol
 };
 
 ###############################################################################
-#Armazenando infoRank de cada recurso no grupo de solução para calcular a média 
+#Armazenando infoRank de cada recurso no grupo de solução para calcular a média
 ###############################################################################
+
 with kwsg:groups
-insert  {?sol kws:infoRankValues ?inforank.}
+insert  {?bag kws:isScore ?inforank.}
 WHERE{
   {
-    SELECT ?s ?inforank
-	WHERE{
-  		graph kwsg:groups{
-  			?s kws:infoRank ?inforank.
-  		}
-
-    }
-  }
-  {
-  	SELECT ?sol ?s
-    WHERE{
-    	graph kwsg:groups{
-      		?sol a rdf:Bag; rdfs:member ?s.
-      	}
-    }
+    select ?bag (avg(?infoRank) as ?isScore)
+    where {graph kwsg:groups{?bag kws:infoRank ?inforank.}}
+    group by ?bag
   }
 }
 
-#######################################################################
-#Calcular isScore (InforankMédio)
-#######################################################################
 
-#SELECT ?sol (SUM(?infoRankValues) as ?sum)
-#WHERE{
-#  {
-#  		SELECT ?size
-#    	WHERE{
-#      		graph kwsg:groups{
-#        		?sol a rdf:Bag; kws:initialSize ?size.
-#        		
-#      		}
-#    	}	
-#  	
-#  }
-#  
-#  {
-#  		SELECT ?sol ?infoRankValues
-#		WHERE{
-#  			graph kwsg:groups{
-#  	 			?sol a rdf:Bag; 
-#     			kws:infoRankValues ?infoRankValues.
-#     
-#    
-#  			}
-#		}
-#		#group by ?sol ?infoRankValues
-#  }
-
-
-
-#} group by ?sol
 
 
 

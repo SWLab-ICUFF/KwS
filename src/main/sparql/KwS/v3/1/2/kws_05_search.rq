@@ -13,11 +13,9 @@ with kwsg:seeds
 insert {?member kws:matchingPredicate ?property_match.}
 WHERE{
     graph kwsg:seeds {
-        ?bag a rdf:Bag; rdfs:member ?member.
         ?member kws:value ?value.
-            service <%1$s> {
-                ?member ?property_match ?value.
-            }
-
+        service <%1$s> {
+            ?member ?property_match ?value.
         }
+    }
 };
