@@ -6,7 +6,7 @@ prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
 
 
-delete graph ?sol {?s ?p ?o}
+delete {graph ?sol {?s ?p ?o}}
 where {
   {
     select ?sol
@@ -15,7 +15,7 @@ where {
       graph ?sol {?s ?p []. ?s (!:_|^(!:_))* ?o. filter (isIRI(?o))}
     }
     group by ?sol
-    having count(min(str(?o))) > 1
+    having (count(min(str(?o))) > 1)
   }
 };
 
