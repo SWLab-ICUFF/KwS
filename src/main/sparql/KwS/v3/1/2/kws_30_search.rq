@@ -28,6 +28,57 @@ group by ?sol
 };
 
 
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+prefix text: <http://jena.apache.org/text#>
+
+SELECT ?g ?s 
+WHERE{
+  {
+    SELECT DISTINCT ?g ?s
+	WHERE{
+  		graph ?g{
+    		?s ?predicate ?object.
+    		FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol")) 
+  		}
+  		FILTER(regex(str(?g),"urn:graph:kws:[0-9]{3}:sol")) 
+
+	}
+  }
+  {
+        #junção R1 com R2 (natural join) para cada linha da relação executar a normalização.
+        SELECT ?s
+                ?literal
+                ?score
+                ?max_score_lucene
+                (?score / ?max_score as ?score_normalizado)
+                (((?score / ?max_score_lucene) + ?inforank)/2 as ?score_final)
+        WHERE {
+        #relação R1 com uma coluna contentdo o maior score lucene
+        service <http://semanticweb.inf.puc-rio.br:3030/Mondial_ShortPaper/sparql>{
+            {
+                SELECT  ?max_score_lucene
+                WHERE{
+                (?s ?max_score_lucene) text:query (rdfs:label 'atacama desert' 1). #lista de propriedades
+                }
+            }
+            {
+                SELECT ?s ?score ?inforank ?literal
+                WHERE{
+                    (?s ?score ?literal) text:query (rdfs:label 'atacama desert'). #lista de propriedades
+                }
+            }
+        }
+        }
+    	
+    }
+
+}
+
 
 
 
