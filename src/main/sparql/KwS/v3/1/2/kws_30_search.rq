@@ -29,114 +29,65 @@ group by ?sol
 
 
 
-
+############################################################################################
+# Armazenando as propriedades das seeds nos grupos de soluções
 #############################################################################################
-insert graph ?sol {?s ?p ?o.}
-using kwsg:seeds
+insert {graph ?sol {?s ?p ?o.}}
+#using kwsg:seeds
 where{
     {
-        ?s kws:matchingPredicate ?p.
-        ?s kws:value ?o.
+    	graph kwsg:seeds{
+        	?s kws:matchingPredicate ?p.
+       	 	?s kws:value ?o.
+    	}
         graph ?sol {?s ?p2 [].}
         FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
     }
     union
     {
-        ?s kws:matchingPredicate ?p.
-        ?s kws:value ?o.
+    	graph kwsg:seeds{
+        	?s kws:matchingPredicate ?p.
+        	?s kws:value ?o.
+    	}
         graph ?sol {[] ?p2 ?s.}
         FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
     }
 }
 
-insert graph ?sol {?s ?p ?literal}
-where{
+############################################################################################
+# Armazenando as propriedades das novas entidades
+#############################################################################################
 
-    service <%1$s> {
-
-        service <kwsTemp> {
-            {
-                select distinct ?s
-                {
-                    graph ?sol {?s ?p2 []. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
-                    FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
-                }
-                union
-                {
-                    graph ?sol {[] ?p2 ?s. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
-                    FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
-                }
-            }
-        }
-        (?s ?score ?literal) text:query (rdfs:label '%2$s')
-        ?s ?p ?literal.
-        }
-
-                {
-                    graph ?sol {?s ?p2 []. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
-                    FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
-                }
-                union
-                {
-                    graph ?sol {[] ?p2 ?s. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
-                    FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
-                }
-}
-
-
-
-
-SELECT ?g ?s
+insert {graph ?sol {?s ?p ?literal}} 
 WHERE{
-  {
-    SELECT DISTINCT ?g ?s
-	WHERE{
-  		graph ?g{
-    		?s ?predicate ?object.
-    		FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
-  		}
-  		FILTER(regex(str(?g),"urn:graph:kws:[0-9]{3}:sol"))
-
-	}
-  }
-  {
-        #junção R1 com R2 (natural join) para cada linha da relação executar a normalização.
-        SELECT ?s
-                ?literal
-                ?score
-                ?max_score_lucene
-                (?score / ?max_score as ?score_normalizado)
-                (((?score / ?max_score_lucene) + ?inforank)/2 as ?score_final)
-        WHERE {
-        #relação R1 com uma coluna contentdo o maior score lucene
-        service <http://semanticweb.inf.puc-rio.br:3030/Mondial_ShortPaper/sparql>{
-            {
-                SELECT  ?max_score_lucene
-                WHERE{
-                (?s ?max_score_lucene) text:query (rdfs:label 'atacama desert' 1). #lista de propriedades
-                }
-            }
-            {
-                SELECT ?s ?score ?inforank ?literal
-                WHERE{
-                    (?s ?score ?literal) text:query (rdfs:label 'atacama desert'). #lista de propriedades
-                }
-            }
-        }
-        }
-
-    }
-
+  		service <%1$s> {
+    		service <%3$s> {
+      			{
+					select distinct ?s
+ 					WHERE{
+          				{
+               				graph ?sol {?s ?p2 []. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
+               				FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+  		 				}union{
+                    		graph ?sol {[] ?p2 ?s. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
+                    		FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+                		}
+  						FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
+        			}
+				}
+    			(?s ?score ?literal) text:query (rdfs:label 'atacama desert').
+       			?s ?p ?literal.
+			}
+		}
+  		{
+       		graph ?sol {?s ?p2 []. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
+       		FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
+    	}union{
+       		graph ?sol {[] ?p2 ?s. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
+       		FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
+   		}
+  		
 }
-
-
-
-
-
-
-
-
-
 
 
 
