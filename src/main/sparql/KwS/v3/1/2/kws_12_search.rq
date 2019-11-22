@@ -16,11 +16,11 @@ insert {?bag a rdf:Bag; ?p1 ?o1. ?o1 ?p2 ?o2.}
 where {
     {
         select ?bag {
-            graph kwsg:groups {?bag a rdf:Bag; kws:csScore ?csScore; kws:isScore ?isScore; kws:osScore ?osScore; kws:ssScore ?ssScore.}
-            filter (?csScore >= 0.8 && ?isScore >= 1.5 &&  ?osScore >= 0.5 && ?ssScore >= 0.5)
+            graph kwsg:groups {?bag kws:csScore ?csScore; kws:isScore ?isScore; kws:osScore ?osScore.}
+            filter (?csScore >= 0.8 && ?isScore >= 1.5 &&  ?osScore >= 0.5)
         }
     }
-  graph kwsg:groups {?bag ?p1 ?o1. optional {?o1 ?p2 ?o2.}}
+  graph kwsg:groups {?bag ?p1 ?o1. ?o1 ?p2 ?o2.}
 };
 
 
