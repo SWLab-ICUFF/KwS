@@ -140,60 +140,23 @@ where {
 # Calcular o SS score do grupo de cada grupo solução (COMMENT)
 #################################################################################
 
-#with kwsg:groups
-#insert {?bag kws:ssScore ?ssScore; kws:maxInitialGroupSize ?maxInitialGroupSize.}
-#using kwsg:groups
-#WHERE {
-#    SELECT ?bag ((?maxInitialGroupSize - ?initialSize)/(?maxInitialGroupSize - 1) AS ?ssScore)
-#    where {
-#        {
-#            SELECT (max(?initialSize) as ?maxInitialGroupSize)
-#            WHERE {
-#                graph kwsg:groups{[] kws:initialSize ?initialSize.}
-#            }
-#        }
-#        graph kwsg:groups{?bag kws:initialSize ?initialSize.}
-#    }
-#};
-
-#################################################################################
-# Calcular maior quantidade de entidades de todos os grupos de soluções. (N)
-#################################################################################
-
 with kwsg:groups
-insert {?bag kws:maxGroupSize ?maxGroupSize.}
-WHERE{
-  	SELECT ?bag (max(?max_entity) as ?maxGroupSize)
-	WHERE {
-  		{
-  			SELECT (max(?number_entity) as ?max_entity)
-				WHERE{
-    				graph kwsg:groups{
-      					?bag a rdf:Bag.
-      					?bag kws:initialSize ?number_entity.
-    				}
-    			}
-  		}
-  		{SELECT ?bag WHERE{graph kwsg:groups{?bag a rdf:Bag.}}}
- 	}
-	group by ?bag
-};
-
-#################################################################################
-# Calcular o SS score do grupo de cada grupo solução
-#################################################################################
-
-with kwsg:groups
-insert {?bag kws:ssScore ?ssScore.}
+insert {?bag kws:ssScore ?ssScore; kws:maxInitialGroupSize ?maxInitialGroupSize.}
 using kwsg:groups
-WHERE{
-  SELECT ?bag ((?maxGroupSize - ?number_entity)/(?maxGroupSize - 1) AS ?ssScore)
-	WHERE{
-    		?bag a rdf:Bag.
-    		?bag kws:initialSize ?number_entity.
-    		?bag kws:maxGroupSize ?maxGroupSize.
-	}
+WHERE {
+    SELECT ?bag ((?maxInitialGroupSize - ?initialSize)/(?maxInitialGroupSize - 1) AS ?ssScore)
+    where {
+        {
+            SELECT (max(?initialSize) as ?maxInitialGroupSize)
+            WHERE {
+                graph kwsg:groups{[] kws:initialSize ?initialSize.}
+            }
+        }
+        graph kwsg:groups{?bag kws:initialSize ?initialSize.}
+    }
 };
+
+
 
 
 
