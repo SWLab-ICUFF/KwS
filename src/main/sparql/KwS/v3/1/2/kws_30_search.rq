@@ -28,24 +28,74 @@ group by ?sol
 };
 
 
-prefix : <urn:vocab:kws:>
-prefix kws: <urn:vocab:kws:>
-prefix kwsg: <urn:graph:kws:>
-prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
-prefix text: <http://jena.apache.org/text#>
 
-SELECT ?g ?s 
+
+#############################################################################################
+insert graph ?sol {?s ?p ?o.}
+using kwsg:seeds
+where{
+    {
+        ?s kws:matchingPredicate ?p.
+        ?s kws:value ?o.
+        graph ?sol {?s ?p2 [].}
+        FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+    }
+    union
+    {
+        ?s kws:matchingPredicate ?p.
+        ?s kws:value ?o.
+        graph ?sol {[] ?p2 ?s.}
+        FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+    }
+}
+
+insert graph ?sol {?s ?p ?literal}
+where{
+
+    service <%1$s> {
+
+        service <kwsTemp> {
+            {
+                select distinct ?s
+                {
+                    graph ?sol {?s ?p2 []. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
+                    FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+                }
+                union
+                {
+                    graph ?sol {[] ?p2 ?s. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
+                    FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+                }
+            }
+        }
+        (?s ?score ?literal) text:query (rdfs:label '%2$s')
+        ?s ?p ?literal.
+        }
+
+                {
+                    graph ?sol {?s ?p2 []. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
+                    FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+                }
+                union
+                {
+                    graph ?sol {[] ?p2 ?s. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
+                    FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+                }
+}
+
+
+
+
+SELECT ?g ?s
 WHERE{
   {
     SELECT DISTINCT ?g ?s
 	WHERE{
   		graph ?g{
     		?s ?predicate ?object.
-    		FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol")) 
+    		FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
   		}
-  		FILTER(regex(str(?g),"urn:graph:kws:[0-9]{3}:sol")) 
+  		FILTER(regex(str(?g),"urn:graph:kws:[0-9]{3}:sol"))
 
 	}
   }
@@ -74,7 +124,7 @@ WHERE{
             }
         }
         }
-    	
+
     }
 
 }
