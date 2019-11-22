@@ -1,3 +1,4 @@
+prefix : <urn:vocab:kws:>
 prefix kws: <urn:vocab:kws:>
 prefix kwsg: <urn:graph:kws:>
 prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
@@ -6,8 +7,256 @@ prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix text: <http://jena.apache.org/text#>
 prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
 
+##########################################
+# calculando os caminhos com distância 0
+##########################################
+
+insert {
+    graph ?sol {?e1 a ?T.}
+}
+where {
+    graph kwsg:groups2 {
+        ?sol a rdf:Bag; rdfs:member ?e1.
+        filter(not exists {?sol rdfs:member ?e2. filter(?e2 != ?e1)})
+    }
+    service <%1$s> {?e1 a ?T.}
+};
+
+#####################################################################
+# calculando os caminhos com distância 1
+#####################################################################
+
+insert {
+  graph ?sol {?e1 ?p1 ?e2.}
+  graph ?sol {?e2 ?_p1 ?e1.}
+}
+where{
+	{
+    	{
+      		#relação de duas colunas contendo os membros das soluções com exatamente dois membros.
+      		{select distinct ?e1 ?e2 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2.}}}
+      		#relação com todos os predicados entre ?e1 e ?e2
+      		service <%1$s> {
+        		?e1 ?p1 ?e2.
+      		}
+      		#union.....
+    	}union {
+      		#relação com todos os predicados entre ?e2 e ?e1
+      		{select distinct ?e1 ?e2 {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2.}}}
+      		service <%1$s> {
+        		 ?e2 ?_p1 ?e1.
+      		}
+    	}
+    }#resultado da relação com UNION...
+  	#pegando os PARES de soluções correspondentes entre ?e1 e ?e2
+  	{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:solution ?sol.}}
+};
 
 
+
+#NOVA DISTÂNCIA 2
+insert {
+  graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3.}
+  graph ?sol {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2.}
+  graph ?sol {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3.}
+  graph ?sol {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2.}
+  graph kwsg:groups2 {?sol rdfs:member ?e2}
+}
+where {
+    {
+    	service <%1$s>  {
+        {
+                {
+                    {
+                        {select distinct ?e1 ?e3 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3.}}}}
+                        ?e1 ?p1 ?e2. filter(?e2 not in (?e1))
+                    }
+                    ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2))
+                }
+           
+        }
+        union {
+           
+        		{
+                    {
+        			{select distinct ?e1 ?e3 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3.}}}}
+              		?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1))
+                    }
+                    ?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2))
+        		}
+            
+        }
+        union {
+           
+        		{
+                    {
+                        {select distinct ?e1 ?e3 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3.}}}}
+              		?e2 ?_p1 ?e1. filter(?e2 not in (?e1))
+                    }
+             	    ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2))
+        		}
+            
+        }
+        union {
+           
+                {
+                    {
+        	  		{select distinct ?e1 ?e3 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3.}}}}
+             		?e2 ?_p1 ?e1. filter(?e2 not in (?e1))
+                    }
+                    ?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2))
+                }
+           
+        }
+    }
+  }
+    {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e3; kws:solution ?sol.}}
+};
+
+
+#####################################################################
+# NOVA DISTÂNCIA 3
+#####################################################################
+insert {
+    graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3. ?e3 ?p3 ?e4.}
+    graph ?sol {?e1 ?p1 ?e2. ?e2 ?p2 ?e3. ?e4 ?_p3 ?e3.}
+    graph ?sol {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2. ?e3 ?p3 ?e4.}
+    graph ?sol {?e1 ?p1 ?e2. ?e3 ?_p2 ?e2. ?e4 ?_p3 ?e3.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3. ?e3 ?p3 ?e4.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3. ?e4 ?_p3 ?e3.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2. ?e3 ?p3 ?e4.}
+    graph ?sol {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2. ?e4 ?_p3 ?e3.}
+    graph kwsg:groups {?sol rdfs:member ?e2.}
+    graph kwsg:groups {?sol rdfs:member ?e3.}
+}
+where {
+    #graph kwsg:pairs {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4; kws:solution ?sol.}
+    {
+    	service <%1$s>  {
+        {
+            
+        		{
+          			{
+            			{
+                
+        		 		{select distinct ?e1 ?e4 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}}
+              ?e1 ?p1 ?e2. filter(?e2 not in (?e1))
+            			}
+                	  ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2))
+          			}
+                  ?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3) )
+        		}
+            
+        }
+        union {
+      		
+            		
+        		{
+          			{
+            			{
+        					{select distinct ?e1 ?e4 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}}
+                		  ?e1 ?p1 ?e2. filter(?e2 not in (?e1))
+            			}
+                	  ?e2 ?p2 ?e3. filter(isIRI(?e3) && ?e3 not in (?e1,?e2))
+          			}
+                  ?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))
+        		}
+            
+        }
+        union {
+      		
+            
+        		{
+          			{
+            			{
+        					{select distinct ?e1 ?e4 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}}
+                		  ?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1))
+            			}
+               		 ?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2))
+          			}
+                  ?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3))
+        		}
+            
+        }
+        union {
+      
+            
+        		{
+          			{
+            			{
+        					{select distinct ?e1 ?e4 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}}
+                		  ?e1 ?p1 ?e2. filter (isIRI(?e2) && ?e2 not in (?e1))
+            			}
+               		 ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2))
+          			}
+                	?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))
+        		}
+            
+        }
+        union {
+      
+            
+        		{
+        			{
+            			{
+        					{select distinct ?e1 ?e4 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}}
+                			?e2 ?_p1 ?e1. filter (?e2 not in (?e1))
+            			}
+                	   ?e2 ?p2 ?e3. filter (?e3 not in (?e1,?e2))
+          			}
+                	?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3))
+        		}
+           
+        }
+        union {
+      		
+            
+        		{
+          			{
+            			{
+        					{select distinct ?e1 ?e4 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}}
+                		  ?e2 ?_p1 ?e1. filter (?e2 not in (?e1) )
+            			}
+                	  ?e2 ?p2 ?e3. filter (isIRI(?e3) && ?e3 not in (?e1,?e2))
+          			}
+                	?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))
+        		}
+            
+        }
+        union {
+      		
+            
+        		{
+          			{
+            			{
+        					{select distinct ?e1 ?e4 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}}
+             	   			?e2 ?_p1 ?e1. filter (?e2 not in (?e1))
+            			}
+                		?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2))
+          			}
+                	?e3 ?p3 ?e4. filter (?e4 not in (?e1,?e2,?e3))
+        		  }
+            
+        }
+        union {
+      		
+            
+        		{
+          			{
+            			{
+        					{select distinct ?e1 ?e4 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4.}}}}
+                		  ?e2 ?_p1 ?e1. filter (?e2 not in (?e1))
+            			}
+                	   ?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2))
+          			}
+               	 	?e4 ?_p3 ?e3. filter (?e4 not in (?e1,?e2,?e3))
+        		}
+            
+        }
+    }
+  }
+  {graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4; kws:solution ?sol.}}
+};
 
 #####################################################################
 # calculando os caminhos com distância 4
@@ -318,3 +567,7 @@ where {
 };
 
 drop graph kwsg:pairs;
+
+
+
+
