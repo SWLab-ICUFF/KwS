@@ -149,10 +149,10 @@ WHERE {
         {
             SELECT (max(?initialSize) as ?maxInitialGroupSize)
             WHERE {
-                graph kwsg:groups{[] kws:initialSize ?initialSize.}
+                [] kws:initialSize ?initialSize.
             }
         }
-        graph kwsg:groups{?bag kws:initialSize ?initialSize.}
+        ?bag kws:initialSize ?initialSize.
     }
 };
 
