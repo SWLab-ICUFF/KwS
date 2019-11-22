@@ -28,6 +28,17 @@ group by ?sol
 };
 
 
+
+
+
+
+
+
+
+
+
+
+
 #################################################################################
 # Calcular a cobertura de kws da solução
 #a palavra chave passada como parâmetro separada por espaçamento simples
