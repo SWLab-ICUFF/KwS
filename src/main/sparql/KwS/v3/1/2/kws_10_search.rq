@@ -146,12 +146,7 @@ using kwsg:groups
 WHERE {
     SELECT ?bag ((?maxInitialGroupSize - ?initialSize)/(?maxInitialGroupSize - 1) AS ?ssScore)
     where {
-        {
-            SELECT (max(?initialSize) as ?maxInitialGroupSize)
-            WHERE {
-                [] kws:initialSize ?initialSize.
-            }
-        }
+        {SELECT (max(?initialSize) as ?maxInitialGroupSize) {[] kws:initialSize ?initialSize.}}
         ?bag kws:initialSize ?initialSize.
     }
 };
