@@ -31,14 +31,14 @@ group by ?sol
 ############################################################################################
 # Armazenando as propriedades das seeds nos grupos de soluções
 #############################################################################################
-insert {graph ?sol {?s kws:matchingPredicate ?p; kws:value ?o; kws:infoRank ?inforank}}
+insert {graph ?sol {?s ?p ?o}}
 #using kwsg:seeds
 where{
     {
     	graph kwsg:seeds{
         	?s kws:matchingPredicate ?p.
        	 	?s kws:value ?o.
-      		?s kws:infoRank ?inforank.
+      		
     	}
         graph ?sol {?s ?p2 [].}
         FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
@@ -48,7 +48,6 @@ where{
     	graph kwsg:seeds{
         	?s kws:matchingPredicate ?p.
         	?s kws:value ?o.
-      		?s kws:infoRank ?inforank.
     	}
         graph ?sol {[] ?p2 ?s.}
         FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
@@ -59,9 +58,9 @@ where{
 # Armazenando as propriedades das novas entidades
 #############################################################################################
 
-insert {graph ?sol {?s  kws:matchingPredicate ?p; kws:value ?literal; kws:infoRank ?inforank}} 
+insert {graph ?sol {?s ?p ?o}} 
 WHERE{
-  		service <%1$s> {
+  		service <%2$s> {
     		service <%3$s> {
       			{
 					select distinct ?s
@@ -76,9 +75,8 @@ WHERE{
   						FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
         			}
 				}
-    			(?s ?score ?literal) text:query (rdfs:label '%1$s').
+    			(?s ?score ?literal) text:query (rdfs:label 'atacama desert').
        			?s ?p ?literal.
-      			?s quira:inforank ?inforank.
 			}
 		}
   		{
@@ -101,14 +99,14 @@ select ?sol (fn:countKwS('atacama desert', group_concat(?_value)) as ?coverageSc
 WHERE{
  graph ?sol{
   		#select (fn:countKwS('%1$s', group_concat(?_value)) as ?coverageScore) 
-      		?s kws:value ?_value.
+      		?s ?p ?_value.
+      		FILTER(isliteral(?_value))
   }
-  FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+  FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol") && (!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol")))
    
 }
 group by ?sol
 };
-
 
 
 ######################################################
@@ -134,17 +132,17 @@ WHERE {
   	
 };
 
-
 #######################################################################
 #Calcular OS (se cada palavra chave é correspondidado por um recurso OS)
 #####################################################################
 
 insert {graph ?sol {?sol kws:osScore ?osScore}}
 WHERE {
-    SELECT ?sol (agg:kwFreqScore('atacama desert', ?value) as ?osScore)
+    SELECT ?sol (agg:kwFreqScore('%1$s', ?value) as ?osScore)
     WHERE {
         graph ?sol {
-            ?s kws:value ?value.
+            ?s ?p ?value.
+      		FILTER(isliteral(?value) && (!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol")))
         }
     FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
     }
@@ -160,43 +158,18 @@ insert {graph ?sol {?sol kws:isScore ?isScore.}}
 WHERE{
   {
  select ?sol (avg(?infoRank) as ?isScore)
-    where {
-            graph ?sol{
-    			  ?s kws:infoRank ?infoRank.
-			}
-      		FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
-	}
+    WHERE{
+  graph ?sol{
+    	?s ?p ?value.
+    	FILTER(isliteral(?value) && (!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol")))
+   
+  }
+  service <%2$s> {
+  		?s quira:inforank ?infoRank.
+  }
+  FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+}
     group by ?sol 
   }
 }
-
-
-
-###########################################################################################################################
-# calculando harmonic mean (kws:score) de três modelos:
-# 	-Cobertura relativa de kws (coverageScore)
-#	-Normalizacão das entidades encontradas pela palavra chave (entityScore)
-#	-Frequência  das palavras chaves em relação ao kws:comment (frequencyScore)
-#   -Fómrula: (3 * (x1*x2*x3)) / ((x1*x2) + (x1*x3) + (x2*x3))
-###########################################################################################################################
-
-
-insert {graph ?g {?g kws:harmonicScore ?harmonicScore.}}
-WHERE{
-  	SELECT
-  ?g ( (3* (?frequencyScore*?coverageScore*?entityScore)) / ((?frequencyScore*?coverageScore) + (?frequencyScore*?entityScore) + (?coverageScore*?entityScore)) as ?harmonicScore)
-	WHERE{
-		graph ?g{
-    		?g kws:coverageScore ?coverageScore.
-    		?g kws:entityScore ?entityScore.
-      		?g kws:frequencyScore ?frequencyScore.
-    	}
-    FILTER(regex(str(?g),"urn:graph:kws:[0-9]{3}:sol"))
-
-	}
-};
-
-
-
-
 
