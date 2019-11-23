@@ -1,0 +1,30 @@
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+prefix text: <http://jena.apache.org/text#>
+PREFIX agg: <http://uff.ic.swlab.jena.sparql.aggregate/>
+
+
+
+  
+###########################################################################################################################
+# Calculando o score
+###########################################################################################################################
+
+
+insert {graph ?sol {?sol kws:score ?score.}}
+WHERE{
+  SELECT ?sol (((?csScore + ?isScore + ?osScore + ?ssScore) / 4) as ?score)
+	WHERE{
+		graph ?sol{
+    		?sol kws:csScore ?csScore;
+         	   kws:isScore ?isScore;
+               kws:osScore ?osScore;
+               kws:ssScore ?ssScore.
+    		
+    	}
+	}
+};

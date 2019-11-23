@@ -1,12 +1,11 @@
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 prefix : <urn:vocab:kws:>
 prefix kws: <urn:vocab:kws:>
 prefix kwsg: <urn:graph:kws:>
-prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix text: <http://jena.apache.org/text#>
 prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+prefix text: <http://jena.apache.org/text#>
+prefix quira: <http://www.quira.org/>
 PREFIX agg: <http://uff.ic.swlab.jena.sparql.aggregate/>
 
 
@@ -32,13 +31,14 @@ group by ?sol
 ############################################################################################
 # Armazenando as propriedades das seeds nos grupos de soluções
 #############################################################################################
-insert {graph ?sol {?s ?p ?o.}}
+insert {graph ?sol {?s kws:matchingPredicate ?p; kws:value ?o; kws:infoRank ?inforank}}
 #using kwsg:seeds
 where{
     {
     	graph kwsg:seeds{
         	?s kws:matchingPredicate ?p.
        	 	?s kws:value ?o.
+      		?s kws:infoRank ?inforank.
     	}
         graph ?sol {?s ?p2 [].}
         FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
@@ -48,17 +48,18 @@ where{
     	graph kwsg:seeds{
         	?s kws:matchingPredicate ?p.
         	?s kws:value ?o.
+      		?s kws:infoRank ?inforank.
     	}
         graph ?sol {[] ?p2 ?s.}
         FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
     }
-}
+};
 
 ############################################################################################
 # Armazenando as propriedades das novas entidades
 #############################################################################################
 
-insert {graph ?sol {?s ?p ?literal}} 
+insert {graph ?sol {?s  kws:matchingPredicate ?p; kws:value ?literal; kws:infoRank ?inforank}} 
 WHERE{
   		service <%1$s> {
     		service <%3$s> {
@@ -75,8 +76,9 @@ WHERE{
   						FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
         			}
 				}
-    			(?s ?score ?literal) text:query (rdfs:label 'atacama desert').
+    			(?s ?score ?literal) text:query (rdfs:label '%1$s').
        			?s ?p ?literal.
+      			?s quira:inforank ?inforank.
 			}
 		}
   		{
@@ -87,84 +89,88 @@ WHERE{
        		FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
    		}
   		
+};
+
+###################################################
+# calcular o coverageScore para as novas entidades #
+###################################################
+
+insert {graph ?sol {?sol kws:csScore ?coverageScore.}}
+WHERE{
+select ?sol (fn:countKwS('atacama desert', group_concat(?_value)) as ?coverageScore) 
+WHERE{
+ graph ?sol{
+  		#select (fn:countKwS('%1$s', group_concat(?_value)) as ?coverageScore) 
+      		?s kws:value ?_value.
+  }
+  FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+   
+}
+group by ?sol
+};
+
+
+
+######################################################
+# Calcular o SS score do grupo de cada grupo solução 
+######################################################
+
+
+insert {graph ?sol {?sol kws:ssScore ?ssScore; kws:maxGroupSize ?maxGroupSize.}}
+WHERE {
+  SELECT ?sol ?maxGroupSize ((?maxGroupSize - ?size)/(?maxGroupSize - 1) AS ?ssScore)
+    where {
+        {
+            SELECT (max(?size) as ?maxGroupSize)
+            WHERE {
+  				graph ?sol{ 
+                	[] kws:size ?size.
+  				}
+            }
+        }
+		graph ?sol{?sol kws:size ?size.}
+		
+    }
+  	
+};
+
+
+#######################################################################
+#Calcular OS (se cada palavra chave é correspondidado por um recurso OS)
+#####################################################################
+
+insert {graph ?sol {?sol kws:osScore ?osScore}}
+WHERE {
+    SELECT ?sol (agg:kwFreqScore('atacama desert', ?value) as ?osScore)
+    WHERE {
+        graph ?sol {
+            ?s kws:value ?value.
+        }
+    FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+    }
+    group by ?sol
+};
+
+###############################################################################
+#Armazenando infoRank de cada recurso no grupo de solução para calcular a média
+###############################################################################
+
+
+insert {graph ?sol {?sol kws:isScore ?isScore.}}
+WHERE{
+  {
+ select ?sol (avg(?infoRank) as ?isScore)
+    where {
+            graph ?sol{
+    			  ?s kws:infoRank ?infoRank.
+			}
+      		FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+	}
+    group by ?sol 
+  }
 }
 
 
-
-#################################################################################
-# Calcular a cobertura de kws da solução
-#a palavra chave passada como parâmetro separada por espaçamento simples
-#################################################################################
-
-insert {graph ?sol {?sol kws:coverageScore ?coverageScore.}}
-WHERE{
-  graph ?sol{
-  		?sol kws:comment ?comment.
-  		bind(xsd:float(fn:countKwS('%2$s', ?comment)) as ?coverageScore)
-  }
-  FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
-};
-
-#################################################################################
-# Calcular maior quantidade de grupos de entidades de todos os grupos de soluções.
-#################################################################################
-
-
-insert {graph ?sol {?sol kws:maxGroupSize ?total.}}
-WHERE{
-  	SELECT ?sol (max(?max_entity) as ?total)
-	WHERE {
-  		{
-  			SELECT (max(?number_entity) as ?max_entity)
-				WHERE{
-    				graph ?sol{
-      					?sol kws:size ?number_entity.
-
-    				}
-      				FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
-    			}
-  		}
-    {SELECT ?sol WHERE{graph ?sol{?sol ?p []}}}
-    FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
- 	}
-	group by ?sol
-};
-
-#################################################################################
-#Entity Score:
-#		(N - n) / (N - 1) , onde, "N" é o maior número de entidades encontradas no grupo e "n"
-#é o número de entidades de um grupo
-##################################################################################
-
-insert {graph ?sol {?sol kws:entityScore ?entityScore.}}
-WHERE{
-  SELECT ?sol ((?maxGroupSize - ?number_entity)/(?maxGroupSize - 1) AS ?entityScore)
-	WHERE{
-    	graph ?sol{
-    		?sol ?p [].
-    		?sol kws:size ?number_entity.
-    		?sol kws:maxGroupSize ?maxGroupSize.
-    	}
-	}
-};
-
-##########################################################
-#Calcular frequenceScore e armazenar em cada solução
-##########################################################
-insert {graph ?g {?g kws:frequencyScore ?freqScore.}}
-WHERE{
-  	SELECT ?g (agg:kwFreqScore('%2$s', ?kwscomment) as ?freqScore)
-    WHERE{
-  		graph ?g {
-  			 ?s kws:comment ?kwscomment.
-                         FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
-  		}
-    	FILTER(regex(str(?g),"urn:graph:kws:[0-9]{3}:sol"))
-
-	}
-  	group by ?g
-
-};
 
 ###########################################################################################################################
 # calculando harmonic mean (kws:score) de três modelos:
@@ -194,17 +200,3 @@ WHERE{
 
 
 
-###############################################
-# calculando Size para dentro das soluções
-###############################################
-
-#insert {graph ?sol {?bag kws:size ?size}}
-#WHERE{
-#  		SELECT ?bag (count(?m) as ?size)
-# 		WHERE{
-#  			graph ?sol{
-#    			?bag a rdf:Bag; rdfs:member ?m.
-#    		}
-#  		}
-#  		group by ?bag
-#};
