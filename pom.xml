@@ -12,6 +12,14 @@
         <maven.compiler.target>12</maven.compiler.target>
     </properties>
 
+    <build>
+        <resources>
+            <resource>
+                <directory>src/deprecated</directory>
+            </resource>
+        </resources>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>log4j</groupId>
