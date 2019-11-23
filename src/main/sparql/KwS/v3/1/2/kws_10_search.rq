@@ -102,7 +102,7 @@ where {
             }
         }
     }
-    bind(iri(concat("%3$s","sol",str(fn:sequential()))) as ?bag)
+    bind(iri(concat("%2$s","sol",str(fn:sequential()))) as ?bag)
 };
 
 #################################################################################
