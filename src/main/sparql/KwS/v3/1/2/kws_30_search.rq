@@ -127,7 +127,7 @@ WHERE {
 
 insert {graph ?sol {?sol kws:osScore ?osScore}}
 WHERE {
-    SELECT ?sol (agg:kwFreqScore('%1$s', ?value) as ?osScore)
+    SELECT ?sol (agg:kwFreqScore('%1$s', ?value_) as ?osScore)
     {
         SELECT ?sol ?s (group_concat(?value) as ?value_)
         WHERE {
