@@ -11,8 +11,7 @@ prefix quira: <http://www.quira.org/>
 
 with kwsg:seeds
 insert {?bag a rdf:Bag; rdfs:member ?s.
-        ?s kws:value ?literal;
-           kws:luceneScore ?score;
+        ?s kws:luceneScore ?score;
            kws:maxLuceneScore ?max_score;
            kws:infoRank ?inforank;
            kws:score ?score_final.}
@@ -37,16 +36,59 @@ WHERE{
                 }
             }
             {
-                SELECT ?s ?score ?inforank ?literal
-                WHERE{
-                    (?s ?score ?literal) text:query (rdfs:label '%2$s'). #lista de propriedades
-                     ?s quira:inforank ?inforank.
+                {
+                    SELECT ?s (max(?score_) as ?score)
+                    WHERE{
+                        (?s ?score_) text:query (rdfs:label '%2$s'). #lista de propriedades
+                    }
+                    group by ?s
                 }
+                ?s quira:inforank ?inforank.
             }
         }
         filter (((?score / ?max_score_lucene) + ?inforank)/2 > 0.4)
         }
         order by desc(?score_final)
-        limit 10
+        limit 30
     }
 }
+
+
+
+select ?s ?literal
+{
+    {
+        select ?s (max(?score_) as ?score)
+        where {
+            {
+                criar relação de seeds selecionadas
+            }
+            {
+                (?s ?score_ ?literal) text:query (rdfs:label '%2$s'). #lista de propriedades
+            }
+        }
+        group by ?s
+    }
+    {# ?s ?score ?literal
+        select ?s ?score ?literal
+        where {
+            {
+                criar relação de seeds selecionadas
+            }
+            {
+                (?s ?score0 ?literal) text:query (rdfs:label '%2$s'). #lista de propriedades
+            }
+        }
+    }
+}
+
+?s ?score ?literal
+s1  10    abcd           <----
+s1  10    adsfasdf       <----
+s1  9     dfasdf
+s2  20    asdgfsadgfas   <----
+s2  19    fgasdfdsf
+
+
+
+
