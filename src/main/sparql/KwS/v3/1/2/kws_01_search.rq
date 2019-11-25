@@ -39,7 +39,7 @@ WHERE{
             {
                 SELECT ?s ?score ?inforank ?literal
                 WHERE{
-                    (?s ?score ?literal) text:query (rdfs:label 'atacama desert'). #lista de propriedades
+                    (?s ?score ?literal) text:query (rdfs:label '%2$s'). #lista de propriedades
                      ?s quira:inforank ?inforank.
                 }
             }
