@@ -162,6 +162,11 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
             fuseki.execUpdate(queryString, "KwS.temp");
         }
          
+        {
+            Dataset dataset = fuseki.getDataset("KwS.temp");
+            bkpDataset(dataset, filename);
+        }
+         
        System.out.println("============================================ FIM PARA A KEYWORD "+ keywordQuery + " =============================================");
 
         
