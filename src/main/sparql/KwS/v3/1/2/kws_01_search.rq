@@ -20,11 +20,10 @@ WHERE{
     {
         #junção R1 com R2 (natural join) para cada linha da relação executar a normalização.
         SELECT ?s
-                ?literal
                 ?score
                 ?max_score_lucene
                 ?inforank
-                (?score / ?max_score as ?score_normalizado)
+                (?score / ?max_score_lucene as ?score_normalizado)
                 (((?score / ?max_score_lucene) + ?inforank)/2 as ?score_final)
         WHERE {
         #relação R1 com uma coluna contentdo o maior score lucene
@@ -49,42 +48,6 @@ WHERE{
         filter (((?score / ?max_score_lucene) + ?inforank)/2 > 0.4)
         }
         order by desc(?score_final)
-        limit 30
+        limit 40
     }
 }
-
-
-
-select ?s ?literal
-{
-    {
-        select ?s (max(?score_) as ?score)
-        where {
-            {
-                criar relação de seeds selecionadas
-            }
-            {
-                (?s ?score_ ?literal) text:query (rdfs:label '%2$s'). #lista de propriedades
-            }
-        }
-        group by ?s
-    }
-    {# ?s ?score ?literal
-        select ?s ?score ?literal
-        where {
-            {
-                criar relação de seeds selecionadas
-            }
-            {
-                (?s ?score0 ?literal) text:query (rdfs:label '%2$s'). #lista de propriedades
-            }
-        }
-    }
-}
-
-?s ?score ?literal
-s1  10    abcd           <----
-s1  10    adsfasdf       <----
-s1  9     dfasdf
-s2  20    asdgfsadgfas   <----
-s2  19    fgasdfdsf

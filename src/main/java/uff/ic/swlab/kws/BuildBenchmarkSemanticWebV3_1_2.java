@@ -74,6 +74,12 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
             queryString = String.format(queryString, service1, keywordQuery);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
+        
+          if (true) {
+            queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_01_literais.rq", kwsVersion)); //ok
+            queryString = String.format(queryString, service1, keywordQuery);
+            fuseki.execUpdate(queryString, "KwS.temp");
+        }
 
         if (true) {
             String newKws;
@@ -92,6 +98,12 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
                     queryString = String.format(queryString, service1, newKws);
                     fuseki.execUpdate(queryString, "KwS.temp");
 
+                }
+                
+                 if (true) {
+                    queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_01_literais.rq", kwsVersion)); //ok
+                    queryString = String.format(queryString, service1, keywordQuery);
+                    fuseki.execUpdate(queryString, "KwS.temp");
                 }
 
             }
