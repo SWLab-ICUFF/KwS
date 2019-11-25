@@ -24,8 +24,8 @@ WHERE{
                 ?score
                 ?max_score_lucene
                 ?inforank
-                (?score / ??max_score_lucene as ?score_normalizado)
-                ((?score / ?max_score_lucene) + ?inforank)/2 as ?score_final)
+                (?score / ?max_score as ?score_normalizado)
+                (((?score / ?max_score_lucene) + ?inforank)/2 as ?score_final)
         WHERE {
         #relação R1 com uma coluna contentdo o maior score lucene
         service <%1$s>{
@@ -88,7 +88,3 @@ s1  10    adsfasdf       <----
 s1  9     dfasdf
 s2  20    asdgfsadgfas   <----
 s2  19    fgasdfdsf
-
-
-
-
