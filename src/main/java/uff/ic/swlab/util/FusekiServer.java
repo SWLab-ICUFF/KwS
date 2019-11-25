@@ -120,10 +120,12 @@ public class FusekiServer {
 
     public synchronized ResultSet execSelect(String queryString, String datasetname) {
         ResultSet result;
-        try (final QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
-            ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-            result = exec.execSelect();
-        }
+        final QueryEngineHTTP qe = new QueryEngineHTTP(getSparqlURL(datasetname), queryString);
+        result = qe.execSelect();
+       // try (final QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
+       //     ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
+       //     result = exec.execSelect();
+       // }
         return result;
     }
 

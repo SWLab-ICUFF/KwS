@@ -79,19 +79,22 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_02_search.rq", kwsVersion)); //ok
             queryString = String.format(queryString, keywordQuery); 
             ResultSet result = fuseki.execSelect(queryString, "KwS.temp");
-            
+        
             newKws = null;
-            QuerySolution soln = result.nextSolution();
-            newKws = String.valueOf(soln.get("new_kws"));
-            if (newKws != null){
-                System.out.println("Buscando novas seeds");
-                queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_01_search.rq", kwsVersion)); //ok
-                queryString = String.format(queryString, service1, newKws);
-                fuseki.execUpdate(queryString, "KwS.temp");
-                
-            } 
-            
-            
+            while (result.hasNext()) {
+                QuerySolution soln = result.nextSolution();
+
+                newKws = String.valueOf(soln.get("new_kws"));
+                if (newKws != null) {
+                    System.out.println("Buscando novas seeds");
+                    queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_01_search.rq", kwsVersion)); //ok
+                    queryString = String.format(queryString, service1, newKws);
+                    fuseki.execUpdate(queryString, "KwS.temp");
+
+                }
+
+            }
+
         }
 
         if (true) {

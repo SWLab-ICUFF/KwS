@@ -13,7 +13,7 @@ with kwsg:seeds
 insert {?bag a rdf:Bag; rdfs:member ?s.
         ?s kws:value ?literal;
            kws:luceneScore ?score;
-           kws:maxLuceneScore ?max_score;
+           kws:maxLuceneScore ?max_score_lucene;
            kws:infoRank ?inforank;
            kws:score ?score_final.}
 WHERE{
@@ -25,8 +25,8 @@ WHERE{
                 ?score
                 ?max_score_lucene
                 ?inforank
-                (?score / ??max_score_lucene as ?score_normalizado)
-                ((?score / ?max_score_lucene) + ?inforank)/2 as ?score_final)
+                (?score / ?max_score as ?score_normalizado)
+                (((?score / ?max_score_lucene) + ?inforank)/2 as ?score_final)
         WHERE {
         #relação R1 com uma coluna contentdo o maior score lucene
         service <%1$s>{
@@ -39,14 +39,16 @@ WHERE{
             {
                 SELECT ?s ?score ?inforank ?literal
                 WHERE{
-                    (?s ?score ?literal) text:query (rdfs:label '%2$s'). #lista de propriedades
+                    (?s ?score ?literal) text:query (rdfs:label 'atacama desert'). #lista de propriedades
                      ?s quira:inforank ?inforank.
                 }
             }
         }
         filter (((?score / ?max_score_lucene) + ?inforank)/2 > 0.4)
         }
-        order by desc(?score_final)
-        limit 10
+    	order by desc(?score_final)
+    	limit 10
+
     }
-}
+};
+
