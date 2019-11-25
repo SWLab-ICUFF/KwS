@@ -22,7 +22,7 @@ WHERE
        	 		}
             }
             {
-        	   service <%2$s>{	
+        	   service <%1$s>{	
                 (?s ?score_ ?literal) text:query (rdfs:label '%2$s' 1). #lista de propriedades
       		  }
             }
