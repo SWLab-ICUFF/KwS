@@ -75,7 +75,7 @@ WHERE{
   						FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
         			}
 				}
-    			(?s ?score ?literal) text:query (rdfs:label 'atacama desert').
+    			(?s ?score ?literal) text:query (rdfs:label '%4$s').
        			?s ?p ?literal.
 			}
 		}
