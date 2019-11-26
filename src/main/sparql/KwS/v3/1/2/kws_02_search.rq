@@ -8,10 +8,11 @@ prefix text: <http://jena.apache.org/text#>
 prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
 prefix quira: <http://www.quira.org/>
 
-SELECT ?new_kws
+SELECT  (fn:genQueryString('%1$s', ?allValues) as ?new_kws)
 WHERE{
-    {select (group_concat(?value) as ?allValues) where {graph kwsg:seeds {[] kws:value ?value.}}} ### testar para ver se seeds existem
-    #procurar novas palavras chaves - palavras chaves que aparecem nos literais das seeds que são diferentes da palavra chave original
-    bind(fn:genQueryString('%1$s', ?allValue) as ?new_kws)
-    filter (strlen(?new_kws) > 0)
+  {
+    select  (group_concat(?value) as ?allValues) where { graph kwsg:seeds {[] kws:value ?value.}}
+   
+  } 
+  filter (strlen(?new_kws) > 0)
 }
