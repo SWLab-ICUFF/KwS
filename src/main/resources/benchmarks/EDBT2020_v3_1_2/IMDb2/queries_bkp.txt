@@ -1,40 +1,40 @@
-"denzel washington" Person
-"johnny depp" Actor
-"forrest gump" Work
-"star wars" Movie
-"Angelina Jolie" gender
-"the sound of music" length
-"lord of the rings" novel
-"will smith" Male
-"tom hanks 9" "July 1956"
-"gone with the wind" "August 1991"
-casablanca "They had a date with fate in Casablanca!"
-"johnny depp" Work
-"morgan freeman" Work
-"atticus finch" movie
-"indiana jones" movie
-"james bond" movie
-"rick blaine" movie
-will kane" movie
-"dr. hannibal lecter" movie
-"norman bates" movie
-"darth vader" movie
-"the wicked witch of the west" movie
-"nurse ratched" movie
-"jacques clouseau" actor
-"jack ryan" actor
-"terminator" actor
-"clint eastwood" "Frank Horrigan"
-"tom hanks" 2004
-"audrey hepburn" 1951
-"julia roberts" "richard gere" work
-"harrison ford" "george lucas" work
-"sean connery" "ian fleming" work
-"keanu reeves" "lana wachowski" work
-"dean jones" "herbie"
-"indiana Jones" and "the last crusade raiders of the lost ark" person
-"nathan algren" "tom cruise" Work
-"rocky balboa" "sylvester stallone" Work
-"Henry Jaynes Fonda Yours", "Mine and Ours" character
-"russell crowe" "gladiator" character
-"brent spiner" "star trek" character
+(denzel washington Person)
+(johnny depp Actor)
+(forrest gump Work)
+(star wars Movie)
+(Angelina Jolie gender)
+(the sound of music length)
+(lord of the rings novel)
+(will smith Male)
+(tom hanks 9 July 1956)
+(gone with the wind August 1991)
+(casablanca "They had a date with fate in Casablanca!")
+(johnny depp Work)
+(morgan freeman Work)
+(atticus finch movie)
+(indiana jones movie)
+(james bond movie)
+(rick blaine movie)
+(will kane movie)
+(dr. hannibal lecter movie)
+(norman bates movie)
+(darth vader movie)
+(the wicked witch of the west movie)
+(nurse ratched movie)
+(jacques clouseau actor)
+(jack ryan actor)
+(terminator actor)
+(clint eastwood Frank Horrigan)
+(tom hanks 2004)
+(audrey hepburn 1951)
+(julia roberts richard gere work)
+(harrison ford george lucas work)
+(sean connery ian fleming work)
+(keanu reeves lana wachowski work)
+(dean jones herbie)
+(indiana Jones and the last crusade raiders of the lost ark person)
+(nathan algren tom cruise Work)
+(rocky balboa sylvester stallone Work)
+(Henry Jaynes Fonda Yours, Mine and Ours character)
+(russell crowe gladiator character)
+(brent spiner star trek character)

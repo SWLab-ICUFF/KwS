@@ -33,7 +33,7 @@ import uff.ic.swlab.util.FusekiServer;
 public class BuildBenchmarkSemanticWebV3_1_2 {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
-        String service1 = "http://semanticweb.inf.puc-rio.br:3030/Mondial_ShortPaper/sparql";
+        String service1 = "http://semanticweb.inf.puc-rio.br:3030/IMDb_ShortPaper/sparql";
         String service2 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
 
         String kwsVersion = "v3/1/2";
@@ -41,7 +41,7 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
 
         System.out.println(benchmark);
 
-        try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/Mondial/queries_.txt", benchmark)));
+        try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/IMDb2/queries_.txt", benchmark)));
                 Scanner sc = new Scanner(in)) {
             int i = 0;
             while (sc.hasNext()) {
@@ -50,7 +50,7 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
                 System.out.println(keywordQuery);
                 if (keywordQuery != null && !keywordQuery.equals("")) {
                     String benchmarkNS = String.format("urn:graph:kws:%1$03d:", i);
-                    String benchmarkFilename = String.format("./src/main/resources/benchmarks/%1$s/Mondial/%2$03d.nq.gz", benchmark, i);
+                    String benchmarkFilename = String.format("./src/main/resources/benchmarks/%1$s/IMDb2/%2$03d.nq.gz", benchmark, i);
                     run(kwsVersion, service1, service2, keywordQuery, benchmarkNS, benchmarkFilename);
                 }
             }
