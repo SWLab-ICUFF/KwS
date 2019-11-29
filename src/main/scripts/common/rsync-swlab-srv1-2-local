@@ -1,0 +1,15 @@
+#!/bin/bash
+
+sudo mkdir -p /opt/local/etc/jena
+
+# sync Apache Jena
+#sudo rsync -avz --exclude "run" --delete -e "ssh -i $HOME/swlab-srv1.pem" --rsync-path="sudo rsync" ec2-user@swlab-srv1.ddns.net:/opt/local/etc/jena/apache-jena-3.13.1/ $HOME/local/etc/jena/apache-jena-3.13.1
+
+# Syn Apache Fuseki
+#sudo rsync -avz --exclude "run" --delete -e "ssh -i $HOME/swlab-srv1.pem" --rsync-path="sudo rsync" ec2-user@swlab-srv1.ddns.net:/opt/local/etc/jena/apache-jena-fuseki-3.13.1/ $HOME/local/etc/jena/apache-jena-fuseki-3.13.1
+
+# Sync Fuseki databases
+#sudo mkdir -p /opt/local/var/db/tdb/2/run
+#sudo rsync -avz --delete -e "ssh -i $HOME/swlab-srv1.pem" --rsync-path="sudo rsync" ec2-user@swlab-srv1.ddns.net:/opt/local/var/db/tdb/2/run $HOME/local/var/db/tdb/2/run/
+
+#sudo chmod -R 0777 /opt

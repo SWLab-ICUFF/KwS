@@ -1,0 +1,70 @@
+2016-10_dataid_core.ttl                            06-Jul-2017 14:29    286K (loaded)
+article_categories_en.ttl.bz2                      15-Mar-2017 17:37    225M
+category_labels_en.ttl.bz2                         15-Mar-2017 17:37     17M (loaded)
+geo_coordinates_en.ttl.bz2                         15-Mar-2017 17:38     17M (loaded)
+homepages_en.ttl.bz2                               15-Mar-2017 17:37     12M (loaded)
+infobox_properties_en.ttl.bz2                      04-Apr-2017 16:25    470M
+infobox_property_definitions_en.ttl.bz2            01-Apr-2017 01:13    770K (loaded)
+instance_types_en.ttl.bz2                          01-Apr-2017 01:13     40M (loaded)
+instance_types_transitive_en.ttl.bz2               01-Apr-2017 01:13    125M (loaded)
+labels_en.ttl.bz2                                  15-Mar-2017 17:37    181M (loaded)
+long_abstracts_en.ttl.bz2                          10-Jun-2017 12:48    780M
+page_ids_en.ttl.bz2                                15-Mar-2017 17:37    167M
+persondata_en.ttl.bz2                              27-Jun-2017 16:02     63M (loaded)
+short_abstracts_en.ttl.bz2                         10-Jun-2017 12:45    522M
+skos_categories_en.ttl.bz2                         15-Mar-2017 17:37     44M (loaded)
+wikipedia_links_en.ttl.bz2
+
+
+2016-10_dataid_core.json                           06-Jul-2017 14:29    351K
+_checksums.md5                                     06-Jul-2017 14:00    4908
+disambiguations_en.ttl.bz2                         04-Apr-2017 13:20     13M
+external_links_en.ttl.bz2                          15-Mar-2017 17:37    160M
+freebase_links_en.ttl.bz2                          07-Oct-2016 07:30     81M
+geo_coordinates_mappingbased_en.ttl.bz2            01-Apr-2017 01:13     17M
+geonames_links_en.ttl.bz2                          02-Jun-2017 11:12      4M
+images_en.ttl.bz2                                  15-Mar-2017 17:37     90M
+instance_types_lhd_dbo_en.ttl.bz2                  27-Jul-2017 13:08     38M
+instance_types_lhd_ext_en.ttl.bz2                  27-Jul-2017 13:08     44M
+interlanguage_links_chapters_en.ttl.bz2            29-Mar-2017 21:36    179M
+labels_en_uris_ar.ttl.bz2                          02-Jun-2017 17:40      4M
+labels_en_uris_de.ttl.bz2                          02-Jun-2017 19:03     14M
+labels_en_uris_es.ttl.bz2                          02-Jun-2017 20:54     11M
+labels_en_uris_fr.ttl.bz2                          02-Jun-2017 22:54     16M
+labels_en_uris_it.ttl.bz2                          03-Jun-2017 00:14     12M
+labels_en_uris_ja.ttl.bz2                          03-Jun-2017 00:34      7M
+labels_en_uris_nl.ttl.bz2                          03-Jun-2017 01:44      9M
+labels_en_uris_pl.ttl.bz2                          03-Jun-2017 02:27     10M
+labels_en_uris_pt.ttl.bz2                          03-Jun-2017 02:57      8M
+labels_en_uris_ru.ttl.bz2                          03-Jun-2017 03:31     10M
+labels_en_uris_zh.ttl.bz2                          03-Jun-2017 05:20      7M
+lines-bytes-packed.csv                             06-Jul-2017 14:00    5900
+long_abstracts_en_uris_ar.ttl.bz2                  10-Jun-2017 12:22     40M
+long_abstracts_en_uris_de.ttl.bz2                  10-Jun-2017 12:35    141M
+long_abstracts_en_uris_es.ttl.bz2                  10-Jun-2017 12:41    124M
+long_abstracts_en_uris_fr.ttl.bz2                  10-Jun-2017 12:32    128M
+long_abstracts_en_uris_it.ttl.bz2                  10-Jun-2017 12:35     81M
+long_abstracts_en_uris_ja.ttl.bz2                  10-Jun-2017 12:40     60M
+long_abstracts_en_uris_nl.ttl.bz2                  10-Jun-2017 12:41     79M
+long_abstracts_en_uris_pl.ttl.bz2                  10-Jun-2017 12:38     94M
+long_abstracts_en_uris_pt.ttl.bz2                  10-Jun-2017 12:38     80M
+long_abstracts_en_uris_ru.ttl.bz2                  10-Jun-2017 12:37    106M
+long_abstracts_en_uris_zh.ttl.bz2                  10-Jun-2017 12:23     62M
+mappingbased_literals_en.ttl.bz2                   01-Apr-2017 01:13    131M
+mappingbased_objects_en.ttl.bz2                    25-May-2017 07:33    164M
+revision_ids_en.ttl.bz2                            15-Mar-2017 17:37    189M
+revision_uris_en.ttl.bz2                           15-Mar-2017 17:38    249M
+short_abstracts_en_uris_ar.ttl.bz2                 10-Jun-2017 12:22     27M
+short_abstracts_en_uris_de.ttl.bz2                 10-Jun-2017 12:34     96M
+short_abstracts_en_uris_es.ttl.bz2                 10-Jun-2017 12:40     80M
+short_abstracts_en_uris_fr.ttl.bz2                 10-Jun-2017 12:31     95M
+short_abstracts_en_uris_it.ttl.bz2                 10-Jun-2017 12:34     57M
+short_abstracts_en_uris_ja.ttl.bz2                 10-Jun-2017 12:40     55M
+short_abstracts_en_uris_nl.ttl.bz2                 10-Jun-2017 12:41     53M
+short_abstracts_en_uris_pl.ttl.bz2                 10-Jun-2017 12:37     64M
+short_abstracts_en_uris_pt.ttl.bz2                 10-Jun-2017 12:37     53M
+short_abstracts_en_uris_ru.ttl.bz2                 10-Jun-2017 12:36     74M
+short_abstracts_en_uris_zh.ttl.bz2                 10-Jun-2017 12:23     59M
+specific_mappingbased_properties_en.ttl.bz2        01-Apr-2017 01:13      9M
+transitive_redirects_en.ttl.bz2                    06-Jul-2017 12:23    104M
+uri_same_as_iri_en.ttl.bz2                         03-Jul-2017 03:28     15M
