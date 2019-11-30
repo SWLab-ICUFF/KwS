@@ -1,7 +1,5 @@
 #!/bin/bash
-export JENA_HOME=/opt/local/etc/jena/apache-jena-3.13.1
-export DATA_HOME=/opt/local/var/db/tdb/2/run
 
-ssh -i ~/swlab-srv1.pem ec2-user@swlab-srv1.ddns.net "export JVM_ARGS=${JVM_ARGS:--Xmx60G} ; $JENA_HOME/bin/tdb2.tdbstats --verbose --loc=$DATA_HOME/databases/DBpedia > $DATA_HOME/databases/DBpedia/Data-0001/stats.opt"
+ssh -i ~/swlab-srv1.pem ec2-user@swlab-srv1.ddns.net 'export JVM_ARGS=--Xmx600G:$JVM_ARGS ; export JENA_HOME=/opt/local/etc/jena/apache-jena-fuseki-3.13.1 ; export DATA_HOME=/opt/local/var/db/tdb/2/run ; export PATH=$PATH:$JENA_HOME/bin ; tdb2.tdbstats --verbose --loc=$DATA_HOME/databases/DBpedia > $DATA_HOME/databases/DBpedia/Data-0001/stats.opt'
 
-ssh -i ~/swlab-srv1.pem ec2-user@swlab-srv1.ddns.net "export JVM_ARGS=${JVM_ARGS:--Xmx60G} | $JENA_HOME/bin/tdb2.tdbstats --verbose --loc=$DATA_HOME/databases/DBpedia --graph urn:x-arq:UnionGraph > $DATA_HOME/databases/DBpedia/Data-0001/stats_union.opt"
+ssh -i ~/swlab-srv1.pem ec2-user@swlab-srv1.ddns.net 'export JVM_ARGS=--Xmx600G:$JVM_ARGS ; export JENA_HOME=/opt/local/etc/jena/apache-jena-fuseki-3.13.1 ; export DATA_HOME=/opt/local/var/db/tdb/2/run ; export PATH=$PATH:$JENA_HOME/bin ; tdb2.tdbstats --verbose --loc=$DATA_HOME/databases/DBpedia --graph urn:x-arq:UnionGraph > $DATA_HOME/databases/DBpedia/Data-0001/stats_union.opt'
