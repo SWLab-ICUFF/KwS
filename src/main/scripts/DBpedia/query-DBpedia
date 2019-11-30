@@ -2,7 +2,7 @@
 export JVM_ARGS=${JVM_ARGS:--Xmx14G}
 export JENA_HOME=/Users/lapaesleme/local/jena/apache-jena-3.13.1
 export DATA_HOME=/Volumes/Data/Users/lapaesleme/local/var/db/tdb/2/run
-export QUERY_HOME=/Users/lapaesleme/GitHub/KwS/src/main/scripts/IMDb
+export QUERY_HOME=/Users/lapaesleme/GitHub/KwS/src/main/scripts/DBpedia
 export PATH=$PATH:$JENA_HOME/bin
 
-tdb2.tdbquery --tdb=$DATA_HOME/configuration/IMDb.ttl --query $QUERY_HOME/query.rq
+tdb2.tdbquery --tdb=$DATA_HOME/configuration/DBpedia.ttl --query $QUERY_HOME/query.rq

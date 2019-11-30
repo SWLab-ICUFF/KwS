@@ -6,9 +6,9 @@
 @prefix fuseki: <http://jena.apache.org/fuseki#> .
 
 :service_tdb_all a fuseki:Service ;
-        rdfs:label "TDB2 IMDb2" ;
+        rdfs:label "TDB2 DBpedia" ;
         fuseki:dataset :tdb_dataset_readwrite ;
-        fuseki:name "IMDb2" ;
+        fuseki:name "DBpedia" ;
         fuseki:serviceQuery "query" , "sparql" ;
         fuseki:serviceReadGraphStore "get" ;
         fuseki:serviceReadWriteGraphStore "data" ;
@@ -17,4 +17,4 @@
 
 :tdb_dataset_readwrite
         a tdb2:DatasetTDB2 ;
-        tdb2:location  "opt/local/var/db/tdb/2/run/databases/IMDb2" .
+        tdb2:location  "/Volumes/Data/Users/lapaesleme/local/var/db/tdb/2/run/databases/DBpedia" .

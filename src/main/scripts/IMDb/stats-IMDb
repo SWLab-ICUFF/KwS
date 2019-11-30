@@ -1,10 +1,9 @@
 #!/bin/bash
-
 export JVM_ARGS=${JVM_ARGS:--Xmx14G}
-export JENA_HOME=/Users/lapaesleme/local/apache-jena-3.11.0
+export JENA_HOME=/Users/lapaesleme/local/etc/jena/apache-jena-3.13.1
+export DATA_HOME=/Volumes/Data/Users/lapaesleme/local/var/db/tdb/2/run
 export PATH=$PATH:$JENA_HOME/bin
 
-cd /Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.11.0/run/databases/IMDb2
-~/local/etc/jena/apache-jena-3.11.0/bin/tdb2.tdbstats --verbose --loc=~/local/var/db/tdb/2/run/databases/IMDb2 > ~/local/var/db/tdb/2/run/databases/IMDb2/Data-0001/stats.opt
+tdb2.tdbstats --verbose --loc=$DATA_HOME/databases/IMDb > $DATA_HOME/databases/IMDb/Data-0001/stats.opt
 
-~/local/etc/jena/apache-jena-3.11.0/bin/tdb2.tdbstats --verbose --loc=~/local/var/db/tdb/2/run/databases/IMDb2 --graph urn:x-arq:UnionGraph >> ~/local/var/db/tdb/2/run/databases/IMDb2/Data-0001/stats.opt
+tdb2.tdbstats --verbose --loc=$DATA_HOME/databases/IMDb --graph urn:x-arq:UnionGraph > $DATA_HOME/databases/IMDb/Data-0001/stats_union.opt

@@ -2,11 +2,11 @@
 export JVM_ARGS=${JVM_ARGS:--Xmx14G}
 export JENA_HOME=/Users/lapaesleme/local/etc/jena/apache-jena-3.13.1
 export DATA_HOME=/Volumes/Data/Users/lapaesleme/local/var/db/tdb/2/run
-export DUMP_HOME=/Volumes/Data/Users/lapaesleme/local/var/temp/dump/IMDb
-export SCRIPT_HOME=/Users/lapaesleme/GitHub/KwS/src/main/scripts/IMDb
+export DUMP_HOME=/Volumes/Data/Users/lapaesleme/local/var/temp/dump/DBpedia
+export SCRIPT_HOME=/Users/lapaesleme/GitHub/KwS/src/main/scripts/DBpedia
 export PATH=$PATH:$JENA_HOME/bin
 
-cp $SCRIPT_HOME/IMDb.ttl.old $DATA_HOME/configuration/IMDb.ttl
+cp $SCRIPT_HOME/DBpedia.ttl.old $DATA_HOME/configuration/DBpedia.ttl
 echo $(date):" loading $DUMP_HOME/backup_imdb.nq..."
-tdb2.tdbloader -v --loader parallel --loc $DATA_HOME/databases/IMDb $DUMP_HOME/backup_imdb.nq
+tdb2.tdbloader -v --loader parallel --loc $DATA_HOME/databases/DBpedia $DUMP_HOME/backup_imdb.nq
 echo $(date):" finished loading $DUMP_HOME/backup_imdb.nq"

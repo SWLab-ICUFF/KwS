@@ -1,8 +1,9 @@
 #!/bin/bash
-
 export JVM_ARGS=${JVM_ARGS:--Xmx14G}
-export JENA_HOME=/Users/lapaesleme/local/etc/jena/apache-jena-3.13.1
+export JENA_HOME=/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.13.1
+export DATA_HOME=/Volumes/Data/Users/lapaesleme/local/var/db/tdb/2/run
+export SCRIPT_HOME=/Users/lapaesleme/GitHub/KwS/src/main/scripts/IMDb
 export PATH=$PATH:$JENA_HOME/bin
 
-cp /Users/lapaesleme/GitHub/KwS/src/main/scripts/IMDb/IMDb.ttl.new /Users/lapaesleme/local/var/db/tdb/2/run/configuration/IMDb2.ttl
-java -cp "/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.13.1/fuseki-server.jar" jena.textindexer --desc="/Users/lapaesleme/local/var/db/tdb/2/run/configuration/IMDb2.ttl"
+cp $SCRIPT_HOME/IMDb.ttl.new $DATA_HOME/configuration/IMDb.ttl
+java -cp $JENA_HOME/fuseki-server.jar jena.textindexer --desc=$DATA_HOME/configuration/IMDb.ttl

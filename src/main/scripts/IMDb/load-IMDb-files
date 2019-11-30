@@ -1,13 +1,16 @@
 #!/bin/bash
 export JVM_ARGS=${JVM_ARGS:--Xmx14G}
-export JENA_HOME=/Users/lapaesleme/local/etc/jena/apache-jena-3.10.0
+export JENA_HOME=/Users/lapaesleme/local/etc/jena/apache-jena-3.13.1
+export DATA_HOME=/Volumes/Data/Users/lapaesleme/local/var/db/tdb/2/run
+export DUMP_HOME=/Volumes/Data/Users/lapaesleme/local/var/temp/dump/IMDb
+export SCRIPT_HOME=/Users/lapaesleme/GitHub/KwS/src/main/scripts/IMDb
 export PATH=$PATH:$JENA_HOME/bin
 
-cp /Users/lapaesleme/GitHub/KwS/src/main/scripts/IMDb/IMDb.ttl.old /Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/configuration/IMDb.ttl
+cp $SCRIPT_HOME/IMDb.ttl.old $DATA_HOME/configuration/IMDb.ttl
 for i in {1..61}
   do
     echo ""
-    echo $(date):" loading /Users/lapaesleme/local/var/temp/dump/IMDb/imdb_triples_$i.n3..."
-    /Users/lapaesleme/local/etc/jena/apache-jena-3.10.0/bin/tdb2.tdbloader -v --loader parallel --loc /Volumes/Time\ Machine\ Backups/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/databases/IMDb /Users/lapaesleme/local/var/temp/dump/IMDb/imdb_triples_$i.n3
-    echo $(date):" finished loading /Users/lapaesleme/local/var/temp/dump/IMDb/imdb_triples_$i.n3"
+    echo $(date):" loading $DUMP_HOME/imdb_triples_$i.n3..."
+    tdb2.tdbloader -v --loader parallel --loc $DATA_HOME/databases/IMDb $DUMP_HOME/imdb_triples_$i.n3
+    echo $(date):" finished loading $DUMP_HOME/imdb_triples_$i.n3"
   done

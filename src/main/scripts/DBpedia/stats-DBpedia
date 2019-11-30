@@ -1,0 +1,9 @@
+#!/bin/bash
+export JVM_ARGS=${JVM_ARGS:--Xmx14G}
+export JENA_HOME=/Users/lapaesleme/local/etc/jena/apache-jena-3.13.1
+export DATA_HOME=/Volumes/Data/Users/lapaesleme/local/var/db/tdb/2/run
+export PATH=$PATH:$JENA_HOME/bin
+
+tdb2.tdbstats --verbose --loc=$DATA_HOME/databases/DBpedia > $DATA_HOME/databases/DBpedia/Data-0001/stats.opt
+
+tdb2.tdbstats --verbose --loc=$DATA_HOME/databases/DBpedia --graph urn:x-arq:UnionGraph > $DATA_HOME/databases/DBpedia/Data-0001/stats_union.opt

@@ -2,6 +2,6 @@
 cd "$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
 #echo $PWD
 
-ssh -i ~/swlab-srv1.pem ec2-user@swlab-srv1.ddns.net "export JVM_ARGS=${JVM_ARGS:--Xmx120G} | export JENA_HOME=/opt/local/etc/jena/apache-jena-3.13.1 | export PATH=$PATH:$JENA_HOME/bin | /opt/local/etc/jena/apache-jena-3.13.1/bin/tdb2.tdbstats --verbose --loc=/opt/local/var/db/tdb/2/run/databases/IMDb2 > /opt/local/var/db/tdb/2/run/databases/IMDb2/Data-0001/stats.opt"
+ssh -i ~/swlab-srv1.pem ec2-user@swlab-srv1.ddns.net "export JVM_ARGS=${JVM_ARGS:--Xmx120G} | export JENA_HOME=/opt/local/etc/jena/apache-jena-3.13.1 | export DATA_HOME=/opt/local/var/db/tdb/2/run | export PATH=$PATH:$JENA_HOME/bin | tdb2.tdbstats --verbose --loc=$DATA_HOME/databases/IMDb2 > $DATA_HOME/databases/IMDb2/Data-0001/stats.opt"
 
-#ssh -i ~/swlab-srv1.pem ec2-user@swlab-srv1.ddns.net "export JVM_ARGS=${JVM_ARGS:--Xmx120G} | export JENA_HOME=/opt/local/etc/jena/apache-jena-3.13.1 | export PATH=$PATH:$JENA_HOME/bin | /opt/local/etc/jena/apache-jena-3.13.1/bin/tdb2.tdbstats --verbose --loc=/opt/local/var/db/tdb/2/run/databases/IMDb2 --graph urn:x-arq:UnionGraph >> /opt/local/etc/jena/apache-jena-fuseki-3.13.1/run/databases/IMDb2/Data-0001/stats.opt"
+#ssh -i ~/swlab-srv1.pem ec2-user@swlab-srv1.ddns.net "export JVM_ARGS=${JVM_ARGS:--Xmx120G} | export JENA_HOME=/opt/local/etc/jena/apache-jena-3.13.1 | export DATA_HOME=/opt/local/var/db/tdb/2/run | export PATH=$PATH:$JENA_HOME/bin | tdb2.tdbstats --verbose --loc=$DATA_HOME/databases/IMDb2 --graph urn:x-arq:UnionGraph >> $DATA_HOME/databases/IMDb2/Data-0001/stats.opt"

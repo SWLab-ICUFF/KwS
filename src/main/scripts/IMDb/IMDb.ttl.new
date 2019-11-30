@@ -6,7 +6,6 @@
 @prefix ja:    <http://jena.hpl.hp.com/2005/11/Assembler#> .
 @prefix fuseki: <http://jena.apache.org/fuseki#> .
 @prefix text:   <http://jena.apache.org/text#> .
-@prefix vocab: <http://localhost:8080/resource/vocab/> .
 @prefix imdb: <http://www.imdb.com/>
 @prefix kws:    <urn:vocab:kws:>
 @prefix kwsg:   <urn:graph:kws:>
@@ -24,52 +23,17 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
   text:graphField "graph" ;
   text:defaultField "kwsComment" ;
   text:map (
-
         [ text:field "kwsComment" ; text:predicate kws:comment ]
         [ text:field "label" ; text:predicate rdfs:label ]
         [ text:field "comment" ; text:predicate rdfs:comment ]
-        [ text:field "field32" ; text:predicate imdb:aka ]
-
-
-        # [ text:field "field4" ; text:predicate vocab:profession ]
-        # [ text:field "field10" ; text:predicate vocab:originalTitle ]
-        # [ text:field "field11" ; text:predicate vocab:primaryTitle ]
-        # [ text:field "field12" ; text:predicate vocab:titleType ]
-        # [ text:field "field15" ; text:predicate vocab:genre ]
-        # [ text:field "field17" ; text:predicate vocab:characters ]
-        # [ text:field "field18" ; text:predicate vocab:job ]
-        # [ text:field "field22" ; text:predicate vocab:primaryName ]
-        # [ text:field "field24" ; text:predicate vocab:primaryProfession ]
-        # [ text:field "field28" ; text:predicate vocab:region ]
-        # [ text:field "field29" ; text:predicate vocab:types ]
-        # [ text:field "field30" ; text:predicate vocab:language ]
-        # [ text:field "field31" ; text:predicate vocab:attributes ]
-
-        # [ text:field "field1" ; text:predicate vocab:title ]
-        # [ text:field "field2" ; text:predicate vocab:name ]
-        # [ text:field "field3" ; text:predicate vocab:ordering ]
-        # [ text:field "field6" ; text:predicate vocab:principal ]
-        # [ text:field "field7" ; text:predicate vocab:crew ]
-        # [ text:field "field8" ; text:predicate vocab:akas ]
-        # [ text:field "field9" ; text:predicate vocab:startYear ]
-        # [ text:field "field13" ; text:predicate vocab:numVotes ]
-        # [ text:field "field14" ; text:predicate vocab:averageRating ]
-        # [ text:field "field16" ; text:predicate vocab:runtimeMinutes ]
-        # [ text:field "field19" ; text:predicate vocab:endYear ]
-        # [ text:field "field120" ; text:predicate vocab:knownForTitle ]
-        # [ text:field "field21" ; text:predicate vocab:birthYear ]
-        # [ text:field "field23" ; text:predicate vocab:deathYear ]
-        # [ text:field "field25" ; text:predicate vocab:parentTitle ]
-        # [ text:field "field26" ; text:predicate vocab:episodeNumber ]
-        # [ text:field "field27" ; text:predicate vocab:seasonNumber ]
-        ) .
+    ) .
 
 :tdb_dataset_readwrite a tdb2:DatasetTDB2 ;
-  tdb2:location  "/Users/lapaesleme/local/var/db/tdb/2/run/databases/IMDb2";
+  tdb2:location  "/Volumes/Data/Users/lapaesleme/local/var/db/tdb/2/run/databases/IMDb";
   .
 
 :indexLucene a text:TextIndexLucene ;
-  text:directory "/Users/lapaesleme/local/var/db/tdb/2/run/lucene/IMDb2" ;
+  text:directory "/Volumes/Data/Users/lapaesleme/local/var/db/tdb/2/run/lucene/IMDb" ;
   text:analyzer [a text:StandardAnalyzer];
   text:storeValues true ;
   #text:analyzer [a text:SimpleAnalyzer];
@@ -83,11 +47,10 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
   text:index :indexLucene ;
   .
 
-
 :service_tdb_all a fuseki:Service ;
         rdfs:label "TDB2 IMDb" ;
         fuseki:dataset :text_dataset ;
-        fuseki:name "IMDb2" ;
+        fuseki:name "IMDb" ;
         fuseki:serviceQuery "query" , "sparql" ;
         fuseki:serviceReadGraphStore "get" ;
         fuseki:serviceReadWriteGraphStore "data" ;

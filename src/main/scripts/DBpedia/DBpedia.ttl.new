@@ -26,16 +26,16 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
         [ text:field "kwsComment" ; text:predicate kws:comment ]
         [ text:field "label" ; text:predicate rdfs:label ]
         [ text:field "comment" ; text:predicate rdfs:comment ]
-        [ text:field "field32" ; text:predicate imdb:aka ]
     ) .
 
 :tdb_dataset_readwrite a tdb2:DatasetTDB2 ;
-  tdb2:location  "/opt/local/var/db/tdb/2/run/databases/IMDb2";
+  tdb2:location  "/Volumes/Data/Users/lapaesleme/local/var/db/tdb/2/run/databases/DBpedia";
   .
 
 :indexLucene a text:TextIndexLucene ;
-  text:directory "/opt/local/var/db/tdb/2/run/lucene/IMDb2" ;
+  text:directory "/Volumes/Data/Users/lapaesleme/local/var/db/tdb/2/run/lucene/DBpedia" ;
   text:analyzer [a text:StandardAnalyzer];
+  text:storeValues true ;
   #text:analyzer [a text:SimpleAnalyzer];
   #text:queryAnalyzer [a text:SimpleAnalyzer];
   #text:queryParser text:ComplexPhraseQueryParser;
@@ -47,11 +47,10 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
   text:index :indexLucene ;
   .
 
-
 :service_tdb_all a fuseki:Service ;
-        rdfs:label "TDB2 IMDb2" ;
+        rdfs:label "TDB2 DBpedia" ;
         fuseki:dataset :text_dataset ;
-        fuseki:name "IMDb2" ;
+        fuseki:name "DBpedia" ;
         fuseki:serviceQuery "query" , "sparql" ;
         fuseki:serviceReadGraphStore "get" ;
         fuseki:serviceReadWriteGraphStore "data" ;

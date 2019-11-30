@@ -1,0 +1,9 @@
+#!/bin/bash
+export JVM_ARGS=${JVM_ARGS:--Xmx14G}
+export JENA_HOME=/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.13.1
+export DATA_HOME=/Volumes/Data/Users/lapaesleme/local/var/db/tdb/2/run
+export SCRIPT_HOME=/Users/lapaesleme/GitHub/KwS/src/main/scripts/DBpedia
+export PATH=$PATH:$JENA_HOME/bin
+
+cp $SCRIPT_HOME/DBpedia.ttl.new $DATA_HOME/configuration/DBpedia.ttl
+java -cp $JENA_HOME/fuseki-server.jar jena.textindexer --desc=$DATA_HOME/configuration/DBpedia.ttl

@@ -30,11 +30,11 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
     ) .
 
 :tdb_dataset_readwrite a tdb2:DatasetTDB2 ;
-  tdb2:location  "/opt/local/var/db/tdb/2/run/databases/IMDb2";
+  tdb2:location  "/opt/local/var/db/tdb/2/run/databases/DBpedia";
   .
 
 :indexLucene a text:TextIndexLucene ;
-  text:directory "/opt/local/var/db/tdb/2/run/lucene/IMDb2" ;
+  text:directory "/opt/local/var/db/tdb/2/run/lucene/DBpedia" ;
   text:analyzer [a text:StandardAnalyzer];
   #text:analyzer [a text:SimpleAnalyzer];
   #text:queryAnalyzer [a text:SimpleAnalyzer];
@@ -49,9 +49,9 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
 
 
 :service_tdb_all a fuseki:Service ;
-        rdfs:label "TDB2 IMDb2" ;
+        rdfs:label "TDB2 IMDb" ;
         fuseki:dataset :text_dataset ;
-        fuseki:name "IMDb2" ;
+        fuseki:name "DBpedia" ;
         fuseki:serviceQuery "query" , "sparql" ;
         fuseki:serviceReadGraphStore "get" ;
         fuseki:serviceReadWriteGraphStore "data" ;
