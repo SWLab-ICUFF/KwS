@@ -1,4 +1,5 @@
 #!/bin/bash
+cd "$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
 
 sudo rsync -avz --exclude "run" --delete -e "ssh -i $HOME/swlab-srv1.pem" --rsync-path="sudo rsync" ./IMDb.ttl.new.aws  ec2-user@swlab-srv1.ddns.net:/opt/local/var/db/tdb/2/run/configuration/IMDb2.ttl
 
