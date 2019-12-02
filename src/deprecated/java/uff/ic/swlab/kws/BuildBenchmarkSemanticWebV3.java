@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package deprecated.uff.ic.swlab;
+package uff.ic.swlab.kws;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -65,19 +60,18 @@ public class BuildBenchmarkSemanticWebV3 {
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion));
             fuseki.execUpdate(queryString, "KwS.temp");
-        }  
-        
-       //verificar se vai ter a função para separar a kwS por palavras isoladas
+        }
 
+        //verificar se vai ter a função para separar a kwS por palavras isoladas
         Calendar t1 = Calendar.getInstance();
-        
-        if (true){
+
+        if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/seeds.rq", kwsVersion));
             queryString = String.format(queryString, service1, keywordQuery, benchmarkNS);
             fuseki.execUpdate(queryString, "KwS.temp");
-            
+
         }
-        
+
         if (true) {
             queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_10_search.rq", kwsVersion));
             queryString = String.format(queryString, service1, keywordQuery, benchmarkNS);
@@ -142,13 +136,12 @@ public class BuildBenchmarkSemanticWebV3 {
             queryString = String.format(queryString, benchmarkNS, keywordQuery, seconds);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
-        
-       // if (true) {
-       //     queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_42_finish.rq", kwsVersion));
-       //     queryString = String.format(queryString, benchmarkNS, keywordQuery, seconds);
-       //     fuseki.execUpdate(queryString, "KwS.temp");
-       // }
 
+        // if (true) {
+        //     queryString = readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_42_finish.rq", kwsVersion));
+        //     queryString = String.format(queryString, benchmarkNS, keywordQuery, seconds);
+        //     fuseki.execUpdate(queryString, "KwS.temp");
+        // }
         {
             Dataset dataset = fuseki.getDataset("KwS.temp");
             bkpDataset(dataset, filename);

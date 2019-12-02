@@ -15,7 +15,10 @@
     <build>
         <resources>
             <resource>
-                <directory>src/deprecated</directory>
+                <directory>src/deprecated/java</directory>
+            </resource>
+            <resource>
+                <directory>src/deprecated/resources</directory>
             </resource>
         </resources>
     </build>
