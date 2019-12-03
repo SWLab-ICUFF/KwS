@@ -4,10 +4,7 @@ export DATA_HOME=/Volumes/Data/Users/lapaesleme/local/var/db/tdb/2/run
 export SCRIPT_HOME=/Users/lapaesleme/GitHub/KwS/src/main/scripts/IMDb
 export PATH=$PATH:$JENA_HOME/bin
 
-export JVM_ARGS=${JVM_ARGS:--Xmx14G}
-export JENA_HOME=/Users/lapaesleme/local/etc/jena/apache-jena-3.10.0
-export PATH=$PATH:$JENA_HOME/bin
 
 cp $SCRIPT_HOME/Mondial.ttl.new $DATA_HOME/configuration/Mondial.ttl
 
-java -cp "/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/fuseki-server.jar" jena.textindexer --desc="/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.10.0/run/configuration/Mondial.ttl"
+java -cp $JENA_HOME/fuseki-server.jar jena.textindexer --desc=$DATA_HOME/configuration/Mondial.ttl"
