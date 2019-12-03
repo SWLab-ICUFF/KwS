@@ -6,7 +6,6 @@
 @prefix ja:    <http://jena.hpl.hp.com/2005/11/Assembler#> .
 @prefix fuseki: <http://jena.apache.org/fuseki#> .
 @prefix text:   <http://jena.apache.org/text#> .
-@prefix imdb: <http://www.imdb.com/>
 @prefix kws:    <urn:vocab:kws:>
 @prefix kwsg:   <urn:graph:kws:>
 
@@ -26,7 +25,6 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
         [ text:field "kwsComment" ; text:predicate kws:comment ]
         [ text:field "label" ; text:predicate rdfs:label ]
         [ text:field "comment" ; text:predicate rdfs:comment ]
-        [ text:field "field32" ; text:predicate imdb:aka ]
     ) .
 
 :tdb_dataset_readwrite a tdb2:DatasetTDB2 ;
