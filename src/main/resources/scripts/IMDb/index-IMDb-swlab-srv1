@@ -1,6 +1,6 @@
 #!/bin/bash
-cd "$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
+export SCRIPT_HOME=/Users/lapaesleme/GitHub/KwS/src/main/scripts/IMDb
 
-sudo rsync -avz --exclude "run" --delete -e "ssh -i $HOME/swlab-srv1.pem" --rsync-path="sudo rsync" ./IMDb.ttl.new.aws  ec2-user@swlab-srv1.ddns.net:/opt/local/var/db/tdb/2/run/configuration/IMDb2.ttl
+sudo rsync -avz --exclude "run" --delete -e "ssh -i $HOME/swlab-srv1.pem" --rsync-path="sudo rsync" $SCRIPT_HOME/IMDb.ttl.new.aws  ec2-user@swlab-srv1.ddns.net:/opt/local/var/db/tdb/2/run/configuration/IMDb2.ttl
 
 ssh -i ~/swlab-srv1.pem ec2-user@swlab-srv1.ddns.net 'export JVM_ARGS=-Xmx60G ; export JENA_HOME=/opt/local/etc/jena/apache-jena-fuseki-3.13.1 ; export DATA_HOME=/opt/local/var/db/tdb/2/run ; export PATH=$PATH:$JENA_HOME/bin ; java -cp $JENA_HOME/fuseki-server.jar jena.textindexer --desc=$DATA_HOME/configuration/IMDb2.ttl'
