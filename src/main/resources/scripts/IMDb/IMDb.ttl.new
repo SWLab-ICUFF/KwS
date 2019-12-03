@@ -26,6 +26,7 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
         [ text:field "kwsComment" ; text:predicate kws:comment ]
         [ text:field "label" ; text:predicate rdfs:label ]
         [ text:field "comment" ; text:predicate rdfs:comment ]
+        [ text:field "field1" ; text:predicate imdb:gender ]
     ) .
 
 :tdb_dataset_readwrite a tdb2:DatasetTDB2 ;
