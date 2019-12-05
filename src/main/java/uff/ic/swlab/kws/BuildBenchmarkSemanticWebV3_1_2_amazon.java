@@ -30,18 +30,18 @@ import uff.ic.swlab.util.FusekiServer;
  *
  * @author angelo
  */
-public class BuildBenchmarkSemanticWebV3_1_2 {
-
+public class BuildBenchmarkSemanticWebV3_1_2_amazon {
+    
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
-        String service1 = "http://semanticweb.inf.puc-rio.br:3030/DBpedia/sparql";
-        String service2 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
+        String service1 = "http://swlab-srv1.ddns.net:3030/DBpedia/sparql";
+        String service2 = "http://swlab-srv1.ddns.net:3030/KwS.temp/sparql";
 
         String kwsVersion = "v3/1/2";
         String benchmark = "ESWC2020";
 
         System.out.println(benchmark);
 
-        try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/DBpedia/queries_.txt", benchmark)));
+        try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/DBpedia/queries_amazon.txt", benchmark)));
                 Scanner sc = new Scanner(in)) {
             int i = 0;
             while (sc.hasNext()) {
@@ -59,7 +59,7 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
     }
 
     public static void run(String kwsVersion, String service1, String service2, String keywordQuery, String benchmarkNS, String filename) throws FileNotFoundException, IOException, InvalidNameException {
-        FusekiServer fuseki = new FusekiServer("semanticweb.inf.puc-rio.br", 3030);
+        FusekiServer fuseki = new FusekiServer("swlab-srv1.ddns.net", 3030);
         String format_keywordQuery = keywordQuery.replaceAll("\\(|\\)", "");
         
         String queryString = "";
@@ -212,5 +212,5 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
         } finally {
         }
     }
-
+    
 }
