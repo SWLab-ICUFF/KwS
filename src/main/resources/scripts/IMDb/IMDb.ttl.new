@@ -6,9 +6,9 @@
 @prefix ja:    <http://jena.hpl.hp.com/2005/11/Assembler#> .
 @prefix fuseki: <http://jena.apache.org/fuseki#> .
 @prefix text:   <http://jena.apache.org/text#> .
-@prefix imdb: <http://www.imdb.com/>
-@prefix kws:    <urn:vocab:kws:>
-@prefix kwsg:   <urn:graph:kws:>
+@prefix imdb: <http://www.imdb.com/> .
+@prefix kws:    <urn:vocab:kws:> .
+@prefix kwsg:   <urn:graph:kws:> .
 
 []                    ja:loadClass      "org.apache.jena.query.text.TextQuery" .
 text:TextDataset      rdfs:subClassOf   ja:RDFDataset .
@@ -30,11 +30,11 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
     ) .
 
 :tdb_dataset_readwrite a tdb2:DatasetTDB2 ;
-  tdb2:location  "/Volumes/Data/Users/lapaesleme/local/var/db/tdb/2/run/databases/IMDb";
+  tdb2:location  "/Users/lapaesleme/local/var/db/tdb/2/run/databases/IMDb";
   .
 
 :indexLucene a text:TextIndexLucene ;
-  text:directory "/Volumes/Data/Users/lapaesleme/local/var/db/tdb/2/run/lucene/IMDb" ;
+  text:directory "/Users/lapaesleme/local/var/db/tdb/2/run/lucene/IMDb" ;
   text:analyzer [a text:StandardAnalyzer];
   text:storeValues true ;
   #text:analyzer [a text:SimpleAnalyzer];

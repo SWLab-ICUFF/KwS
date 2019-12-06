@@ -18,4 +18,4 @@
 
 :tdb_dataset_readwrite
         a              tdb2:DatasetTDB2 ;
-        tdb2:location  "/Volumes/Data/Users/lapaesleme/local/var/db/tdb/2/run/databases/Mondial" .
+        tdb2:location  "/Users/lapaesleme/local/var/db/tdb/2/run/databases/Mondial" .

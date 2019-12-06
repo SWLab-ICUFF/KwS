@@ -6,9 +6,9 @@
 @prefix ja:    <http://jena.hpl.hp.com/2005/11/Assembler#> .
 @prefix fuseki: <http://jena.apache.org/fuseki#> .
 @prefix text:   <http://jena.apache.org/text#> .
-@prefix imdb: <http://www.imdb.com/>
-@prefix kws:    <urn:vocab:kws:>
-@prefix kwsg:   <urn:graph:kws:>
+@prefix imdb: <http://www.imdb.com/> .
+@prefix kws:    <urn:vocab:kws:> .
+@prefix kwsg:   <urn:graph:kws:> .
 
 []                    ja:loadClass      "org.apache.jena.query.text.TextQuery" .
 text:TextDataset      rdfs:subClassOf   ja:RDFDataset .
@@ -36,7 +36,7 @@ text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
 :indexLucene a text:TextIndexLucene ;
   text:directory "/opt/local/var/db/tdb/2/run/lucene/IMDb2" ;
   text:analyzer [a text:StandardAnalyzer];
-  text:storeValues true; 
+  text:storeValues true;
   #text:analyzer [a text:SimpleAnalyzer];
   #text:queryAnalyzer [a text:SimpleAnalyzer];
   #text:queryParser text:ComplexPhraseQueryParser;
