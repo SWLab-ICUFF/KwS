@@ -1,7 +1,7 @@
 #!/bin/bash
-export SCRIPT_HOME=/Users/lapaesleme/GitHub/KwS/src/main/scripts/IMDb
-export DATA_HOME=/opt/local/var/db/tdb/2/run
 export HOME=/Users/lapaesleme
+export SCRIPT_HOME=$HOME/GitHub/KwS/src/main/resources/scripts/IMDb
+export DATA_HOME=/opt/local/var/db/tdb/2/run
 
 sudo rsync -avz --exclude "run" --delete -e "ssh -i $HOME/swlab-srv1.pem" --rsync-path="sudo rsync" $SCRIPT_HOME/IMDb.ttl.new.aws  ec2-user@swlab-srv1.ddns.net:$DATA_HOME/configuration/IMDb2.ttl
 
