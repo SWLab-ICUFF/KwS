@@ -31,14 +31,14 @@ WHERE{
             {
                 SELECT  ?max_score_lucene
                 WHERE{
-                (?s ?max_score_lucene) text:query (rdfs:label '%2$s' 1). #lista de propriedades
+                (?s ?max_score_lucene) text:query (rdfs:label <http://www.imdb.com/gender> '%2$s' 1). #lista de propriedades
                 }
             }
             {
                 {
                     SELECT ?s (max(?score_) as ?score)
                     WHERE{
-                        (?s ?score_) text:query (rdfs:label '%2$s'). #lista de propriedades
+                        (?s ?score_) text:query (rdfs:label <http://www.imdb.com/gender> '%2$s'). #lista de propriedades
                     }
                     group by ?s
                 }
@@ -48,6 +48,6 @@ WHERE{
         filter (((?score / ?max_score_lucene) + ?inforank)/2 > 0.4)
         }
         order by desc(?score_final)
-        limit 10
+        limit 4
     }
 }
