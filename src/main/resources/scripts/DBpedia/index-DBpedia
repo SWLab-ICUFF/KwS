@@ -1,8 +1,9 @@
 #!/bin/bash
+export HOME=~
 export JVM_ARGS=${JVM_ARGS:--Xmx14G}
-export JENA_HOME=/Users/lapaesleme/local/etc/jena/apache-jena-fuseki-3.13.1
-export DATA_HOME=/Volumes/Data/Users/lapaesleme/local/var/db/tdb/2/run
-export SCRIPT_HOME=/Users/lapaesleme/GitHub/KwS/src/main/scripts/DBpedia
+export JENA_HOME=$HOME/local/etc/jena/apache-jena-fuseki-3.13.1
+export DATA_HOME=$HOME/local/var/db/tdb/2/run
+export SCRIPT_HOME="$(cd -P -- "$(dirname -- "$0")" && pwd -P)"/DBpedia
 export PATH=$PATH:$JENA_HOME/bin
 
 cp $SCRIPT_HOME/DBpedia.ttl.new $DATA_HOME/configuration/DBpedia.ttl
