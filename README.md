@@ -1,4 +1,4 @@
-# IMDb
+# Keyword Search (KwS)
 Offline Keyword search over RDF Graphs.
 
 Dependency: https://github.com/lapaesleme/SWLabJenaARQExtensions
