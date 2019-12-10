@@ -20,7 +20,7 @@ import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
 
-public class BuildBenchmarkV3_1_2 {
+public class BuildBenchmark_v312 {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
         String service1 = "http://semanticweb.inf.puc-rio.br:3030/DBpedia/sparql";
