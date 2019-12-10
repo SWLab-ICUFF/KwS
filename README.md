@@ -1,5 +1,5 @@
 # Keyword Search (KwS)
-Offline Keyword search over RDF Graphs.
+Offline Keyword search app over RDF Graphs.
 
 Dependency: https://github.com/lapaesleme/SWLabJenaARQExtensions
 
