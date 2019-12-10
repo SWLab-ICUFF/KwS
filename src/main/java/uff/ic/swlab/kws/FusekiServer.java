@@ -1,4 +1,4 @@
-package uff.ic.swlab.util;
+package uff.ic.swlab.kws;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -122,10 +122,10 @@ public class FusekiServer {
         ResultSet result;
         final QueryEngineHTTP qe = new QueryEngineHTTP(getSparqlURL(datasetname), queryString);
         result = qe.execSelect();
-       // try (final QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
-       //     ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-       //     result = exec.execSelect();
-       // }
+        // try (final QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
+        //     ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
+        //     result = exec.execSelect();
+        // }
         return result;
     }
 
@@ -152,10 +152,9 @@ public class FusekiServer {
             HttpEntity entity = response.getEntity();
             if (entity != null && statuscode == 200)
                 try (final InputStream instream = entity.getContent()) {
-                    System.out.println(IOUtils.toString(instream, "utf-8"));
-                    System.out.println("Done.");
-                }
-            else
+                System.out.println(IOUtils.toString(instream, "utf-8"));
+                System.out.println("Done.");
+            } else
                 System.out.println("Backup request failed.");
         } catch (Throwable e) {
             System.out.println("Backup request failed.");

@@ -19,7 +19,6 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
-import uff.ic.swlab.util.FusekiServer;
 
 public class BuildBenchmarkV3_1_2 {
 

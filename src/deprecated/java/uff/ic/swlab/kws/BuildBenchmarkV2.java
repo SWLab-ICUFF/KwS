@@ -20,7 +20,6 @@ import org.apache.jena.riot.RDFFormat;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.XSD;
-import uff.ic.swlab.util.FusekiServer;
 
 public class BuildBenchmarkV2 {
 
