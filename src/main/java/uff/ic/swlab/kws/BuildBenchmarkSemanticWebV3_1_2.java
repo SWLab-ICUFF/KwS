@@ -33,7 +33,7 @@ import uff.ic.swlab.util.FusekiServer;
 public class BuildBenchmarkSemanticWebV3_1_2 {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
-        String service1 = "http://semanticweb.inf.puc-rio.br:3030/IMDb_ShortPaper/sparql";
+        String service1 = "http://semanticweb.inf.puc-rio.br:3030/DBpedia/sparql";
         String service2 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
 
         String kwsVersion = "v3/1/2";
@@ -41,7 +41,7 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
 
         System.out.println(benchmark);
 
-        try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/IMDb/queries_.txt", benchmark)));
+        try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/DBpedia/queries_.txt", benchmark)));
                 Scanner sc = new Scanner(in)) {
             int i = 0;
             while (sc.hasNext()) {
@@ -50,7 +50,7 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
                 System.out.println(keywordQuery);
                 if (keywordQuery != null && !keywordQuery.equals("")) {
                     String benchmarkNS = String.format("urn:graph:kws:%1$03d:", i);
-                    String benchmarkFilename = String.format("./src/main/resources/benchmarks/%1$s/IMDb/%2$03d.nq.gz", benchmark, i);
+                    String benchmarkFilename = String.format("./src/main/resources/benchmarks/%1$s/DBpedia/%2$03d.nq.gz", benchmark, i);
                     run(kwsVersion, service1, service2, keywordQuery, benchmarkNS, benchmarkFilename);
                 }
             }
@@ -72,7 +72,7 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
         
         System.out.println("Buscando seeds");
         if (true) {
-            queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_01_search.rq", kwsVersion)); //ok
+            queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_01_search_DBPedia.rq", kwsVersion)); //ok
             queryString = String.format(queryString, service1, keywordQuery);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
@@ -96,7 +96,7 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
                 newKws = String.valueOf(soln.get("new_kws"));
                 if (newKws != null) {
                     System.out.println("Buscando novas seeds");
-                    queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_01_search.rq", kwsVersion)); //ok
+                    queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_01_search_DBPedia.rq", kwsVersion)); //ok
                     queryString = String.format(queryString, service1, newKws);
                     fuseki.execUpdate(queryString, "KwS.temp");
 
@@ -152,7 +152,7 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
         
         if (true){
             System.out.println("Trazendo propriedades das novas entidades e gerando scores das soluções..."); //ok
-            queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_30_search.rq", kwsVersion)); 
+            queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_30_search_DBPedia.rq", kwsVersion)); 
             queryString = String.format(queryString, keywordQuery, service1, service2, format_keywordQuery, "KwS.temp");
             fuseki.execUpdate(queryString, "KwS.temp");
             
