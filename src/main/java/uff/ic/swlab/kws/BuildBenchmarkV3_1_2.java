@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uff.ic.swlab.kws;
 
 import java.io.File;
@@ -26,11 +21,7 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
 import uff.ic.swlab.util.FusekiServer;
 
-/**
- *
- * @author angelo
- */
-public class BuildBenchmarkSemanticWebV3_1_2 {
+public class BuildBenchmarkV3_1_2 {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
         String service1 = "http://semanticweb.inf.puc-rio.br:3030/DBpedia/sparql";
@@ -61,23 +52,23 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
     public static void run(String kwsVersion, String service1, String service2, String keywordQuery, String benchmarkNS, String filename) throws FileNotFoundException, IOException, InvalidNameException {
         FusekiServer fuseki = new FusekiServer("semanticweb.inf.puc-rio.br", 3030);
         String format_keywordQuery = keywordQuery.replaceAll("\\(|\\)", "");
-        
+
         String queryString = "";
-        System.out.println("=============================================GERANDO BENCHMARK PARA A PALVRA CHAVE "+ keywordQuery + "=============================================");
+        System.out.println("=============================================GERANDO BENCHMARK PARA A PALVRA CHAVE " + keywordQuery + "=============================================");
         if (true) {
             queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion)); //ok
             fuseki.execUpdate(queryString, "KwS.temp");
         }
         Calendar t1 = Calendar.getInstance();
-        
+
         System.out.println("Buscando seeds");
         if (true) {
             queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_01_search_DBPedia.rq", kwsVersion)); //ok
             queryString = String.format(queryString, service1, keywordQuery);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
-        
-          if (true) {
+
+        if (true) {
             queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_01_literais.rq", kwsVersion)); //ok
             queryString = String.format(queryString, service1, keywordQuery);
             fuseki.execUpdate(queryString, "KwS.temp");
@@ -86,9 +77,9 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
         if (true) {
             String newKws;
             queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_02_search.rq", kwsVersion)); //ok
-            queryString = String.format(queryString, keywordQuery); 
+            queryString = String.format(queryString, keywordQuery);
             ResultSet result = fuseki.execSelect(queryString, "KwS.temp");
-        
+
             newKws = null;
             while (result.hasNext()) {
                 QuerySolution soln = result.nextSolution();
@@ -101,8 +92,8 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
                     fuseki.execUpdate(queryString, "KwS.temp");
 
                 }
-                
-                 if (true) {
+
+                if (true) {
                     queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_01_literais.rq", kwsVersion)); //ok
                     queryString = String.format(queryString, service1, keywordQuery);
                     fuseki.execUpdate(queryString, "KwS.temp");
@@ -118,73 +109,71 @@ public class BuildBenchmarkSemanticWebV3_1_2 {
             queryString = String.format(queryString, service1);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
-        
-        if (true){
+
+        if (true) {
             System.out.println("Gerando os pares, calculando scores");
             queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_10_search.rq", kwsVersion)); //ok
             queryString = String.format(queryString, format_keywordQuery, benchmarkNS);
             fuseki.execUpdate(queryString, "KwS.temp");
-            
+
         }
-        
-        if (true){
+
+        if (true) {
             System.out.println("Filtrando o conjunto de soluções");
             queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_12_search.rq", kwsVersion)); //ok
             queryString = String.format(queryString);
             fuseki.execUpdate(queryString, "KwS.temp");
-            
+
         }
-        
-        if (true){
+
+        if (true) {
             System.out.println("Gerando os caminhos....");
             queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_20_search.rq", kwsVersion)); //ok
             queryString = String.format(queryString, service1, service2);
             fuseki.execUpdate(queryString, "KwS.temp");
-            
+
         }
-        
-        if (true){
+
+        if (true) {
             System.out.println("Deletando os grafos conexos");
             queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_25_search.rq", kwsVersion)); //ok
             queryString = String.format(queryString);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
-        
-        if (true){
+
+        if (true) {
             System.out.println("Trazendo propriedades das novas entidades e gerando scores das soluções..."); //ok
-            queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_30_search_DBPedia.rq", kwsVersion)); 
+            queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_30_search_DBPedia.rq", kwsVersion));
             queryString = String.format(queryString, keywordQuery, service1, service2, format_keywordQuery, "KwS.temp");
             fuseki.execUpdate(queryString, "KwS.temp");
-            
+
         }
-        
-        if (true){
+
+        if (true) {
             System.out.println("Calculando o score das soluções..."); //ok
-            queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_40_finish.rq", kwsVersion)); 
+            queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_40_finish.rq", kwsVersion));
             queryString = String.format(queryString, "KwS.temp");
             fuseki.execUpdate(queryString, "KwS.temp");
         }
-        
+
         Calendar t2 = Calendar.getInstance();
         double seconds = Duration.between(t1.toInstant(), t2.toInstant()).toMillis() / 1000.0;
         System.out.println("");
         System.out.println(String.format("Elapsed time: %1$f seconds", seconds));
-        
-         if (true){
+
+        if (true) {
             System.out.println("Exportando Resultado..."); //ok
-            queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_42_finish.rq", kwsVersion)); 
+            queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_42_finish.rq", kwsVersion));
             queryString = String.format(queryString, benchmarkNS, keywordQuery, seconds);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
-         
+
         {
             Dataset dataset = fuseki.getDataset("KwS.temp");
             bkpDataset(dataset, filename);
         }
-         
-       System.out.println("============================================ FIM PARA A KEYWORD "+ keywordQuery + " =============================================");
 
-        
+        System.out.println("============================================ FIM PARA A KEYWORD " + keywordQuery + " =============================================");
 
     }
 
