@@ -11,4 +11,12 @@ sudo rsync -avz --exclude "run" --delete -e "ssh -i $HOME/swlab-srv1.pem" --rsyn
 #ssh -i ~/swlab-srv1.pem ec2-user@swlab-srv1.ddns.net sudo mkdir -p /opt/local/var/db/tdb/2/run
 #sudo rsync -avz --delete -e "ssh -i $HOME/swlab-srv1.pem" --rsync-path="sudo rsync" $HOME/local/var/db/tdb/2/run/  ec2-user@swlab-srv1.ddns.net:/opt/local/var/db/tdb/2/run
 
+
+
+ssh -i ~/swlab-srv1.pem ec2-user@swlab-srv1.ddns.net 'sudo chmod -R 0777 /opt ; sudo mkdir -p /opt/local/etc/tomcat'
+
+sudo rsync -avz --exclude "run" --delete -e "ssh -i $HOME/swlab-srv1.pem" --rsync-path="sudo rsync" $HOME/local/etc/tomcat/apache-tomcat-9.0.30/  ec2-user@swlab-srv1.ddns.net:/opt/local/etc/tomcat/apache-tomcat-9.0.30
+
+
+
 ssh -i ~/swlab-srv1.pem ec2-user@swlab-srv1.ddns.net sudo chmod -R 0777 /opt
