@@ -1,4 +1,4 @@
-# Keyword Search App (KwS)
+# Java app for computing benchmarks for RDF Keyword Search
 Offline keyword search app over RDF graphs.
 
 Dependency: https://github.com/lapaesleme/SWLabJenaARQExtensions
