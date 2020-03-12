@@ -1,0 +1,21 @@
+PREFIX kw: <http://kwantu.net/kw/>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix text: <http://jena.apache.org/text#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+prefix quira: <http://www.quira.org/>
+
+#buscando as propriedades que match
+with kwsg:seeds
+insert {?member kws:matchingPredicate ?property_match.}
+WHERE{
+    graph kwsg:seeds {
+        ?member kws:value ?value.
+        service <%1$s> {
+            ?member ?property_match ?value.
+        }
+    }
+};

@@ -28,7 +28,7 @@ import org.apache.jena.riot.RDFDataMgr;
 public class BuildBenchmark_v4 {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
-        String database = "Mondial";
+        String database = "Mondial_ShortPaper";
         String service1 = String.format("http://semanticweb.inf.puc-rio.br:3030/%1$s/sparql", database);
         String service2 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
 
