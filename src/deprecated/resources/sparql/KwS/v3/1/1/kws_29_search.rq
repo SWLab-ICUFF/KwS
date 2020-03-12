@@ -23,6 +23,7 @@ where {
 with kwsg:subgraphs
 delete {?l rdf:_1 ?sol; rdf:_2 ?sol_; kws:member ?s}
 insert {?sol2 kws:head ?sol_; kws:graph ?sol;  kws:member ?s.}
+using kwsg:subgraphs
 where {
   ?l rdf:_1 ?sol; rdf:_2 ?sol_; kws:member ?s.
   bind (iri(concat(str(?sol),'-',SHA384(str(?sol_)))) as ?sol2)
@@ -30,6 +31,7 @@ where {
 
 with kwsg:subgraphs
 delete {?sol2 kws:head ?sol_; kws:graph ?sol; kws:member ?s}
+using kwsg:subgraphs
 where {
   ?sol2 kws:head ?sol_; kws:graph ?sol; kws:member ?s.
   {select ?sol {?sol2 kws:graph ?sol} group by ?sol having (count(*)=1)}
