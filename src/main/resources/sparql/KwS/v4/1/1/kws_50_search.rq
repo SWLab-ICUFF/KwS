@@ -7,16 +7,121 @@ prefix text: <http://jena.apache.org/text#>
 prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
 
 
-with kwsg:pairs
-insert {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:pair ?bag.}
+#with kwsg:pairs
+#insert {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e2; kws:pair ?bag.}
+#using kwsg:seeds
+#where {
+#         {
+#           [] rdfs:member ?e1;
+#           	  rdfs:member ?e2.
+#  			 filter (str(?e2)>str(?e1))
+#
+#         }
+#       bind(iri(concat("%2$s","sol",str(fn:sequential()))) as ?bag)
+#
+#};
+
+
+#################################################################################################################
+# Fazer combinações das entidades encontradas com score > 0 e concatenar os comentários das entidades do grupo. #
+#################################################################################################################
+
+with kwsg:groups
+insert {
+    ?bag a rdf:Bag;
+        kws:initialSize ?size;
+        rdfs:member ?m;
+    .
+}
 using kwsg:seeds
 where {
-         {
-           [] rdfs:member ?e1; 
-           	  rdfs:member ?e2. 
-  			 filter (str(?e2)>str(?e1))
-             
-         }
-       bind(iri(concat("%2$s","sol",str(fn:sequential()))) as ?bag)
-
+    select ?m {[] rdfs:member ?m.}
+    select (count(?m) as ?size) {[] rdfs:member ?m.}
+    select ?bag {bind(iri(concat("%2$s","sol",str(fn:sequential()))) as ?bag)}
 };
+
+#################################################################################
+#Trazendo as triplas das sementes para o grupo de solução
+#################################################################################
+with kwsg:groups
+insert{?s kws:value ?value; kws:matchingPredicate ?predicate; kws:infoRank ?inforank.}
+using kwsg:seeds
+where {
+    [] rdfs:member ?s.
+    ?s kws:value ?value.
+    ?s kws:matchingPredicate ?predicate.
+    ?s kws:infoRank ?inforank.
+};
+
+###################################################
+# calcular coverageScore  #
+###################################################
+
+with kwsg:groups
+insert {?bag kws:csScore ?coverageScore.}
+using kwsg:groups
+where {
+  select ?bag (fn:countKwS('%1$s', group_concat(?_value)) as ?coverageScore)
+    where {
+        ?bag rdfs:member ?m.
+        ?m kws:value ?_value.
+    }
+    group by ?bag
+};
+
+
+
+#################################################################################
+# Calcular o SS score do grupo de cada grupo solução (COMMENT)
+#################################################################################
+
+with kwsg:groups
+insert {?bag kws:ssScore ?ssScore; kws:maxInitialGroupSize ?maxInitialGroupSize.}
+using kwsg:groups
+WHERE {
+    SELECT ?bag ((?maxInitialGroupSize - ?initialSize)/(?maxInitialGroupSize - 1) AS ?ssScore)
+    where {
+        {SELECT (max(?initialSize) as ?maxInitialGroupSize) {[] kws:initialSize ?initialSize.}}
+        ?bag kws:initialSize ?initialSize.
+    }
+};
+
+
+
+#######################################################################
+#Calcular OS (se cada palavra chave é correspondidado por um recurso OS)
+#####################################################################
+
+with kwsg:groups
+insert {?sol kws:osScore ?osScore}
+WHERE {
+    SELECT ?sol (agg:kwFreqScore('%1$s', ?value) as ?osScore)
+    WHERE {
+        graph kwsg:groups {
+            ?sol rdfs:member ?s.
+            ?s kws:value ?value.
+        }
+    }
+    group by ?sol
+};
+
+
+###############################################################################
+#Armazenando infoRank de cada recurso no grupo de solução para calcular a média
+###############################################################################
+
+with kwsg:groups
+insert  {?bag kws:isScore ?isScore.}
+WHERE{
+  {
+ select ?bag (avg(?infoRank) as ?isScore)
+    where {
+            graph kwsg:groups{
+    			  ?bag rdfs:member ?s.
+    			  ?s kws:infoRank ?infoRank.
+
+			}
+	}
+    group by ?bag
+  }
+}
