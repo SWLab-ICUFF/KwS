@@ -126,8 +126,8 @@ insert {
     graph ?sol {?e2 ?_p1 ?e1. ?e2 ?p2 ?e3. ?e4 ?_p3 ?e3.}
     graph ?sol {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2. ?e3 ?p3 ?e4.}
     graph ?sol {?e2 ?_p1 ?e1. ?e3 ?_p2 ?e2. ?e4 ?_p3 ?e3.}
-    graph kwsg:groups {?sol rdfs:member ?e2.}
-    graph kwsg:groups {?sol rdfs:member ?e3.}
+    graph kwsg:groups2 {?sol rdfs:member ?e2.}
+    graph kwsg:groups2 {?sol rdfs:member ?e3.}
 }
 where {
     #graph kwsg:pairs {?seq a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e4; kws:solution ?sol.}
