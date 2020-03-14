@@ -32,3 +32,51 @@ WHERE{
   group by ?class
 }
 
+
+
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+prefix quira: <http://www.quira.org/>
+
+DELETE{?class quira:inforank ?inforank.}
+INSERT{?class quira:inforank ?inforank_normalized}
+WHERE{
+SELECT ?class ?inforank (?inforank/?max_inforank as ?inforank_normalized)
+WHERE{
+  	   #retorna uma tabela nx2
+	   {
+    	 SELECT DISTINCT ?class ?inforank
+         WHERE {	
+      			 ?s a ?class.
+				 ?class quira:inforank ?inforank.
+  				 FILTER(?class != <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> &&  ?class != 										<http://www.w3.org/2002/07/owl#SymmetricProperty> && ?class != <http://www.w3.org/2002/07/owl#FunctionalProperty> &&    
+      						?class != <http://www.w3.org/2002/07/owl#Class> && ?class != 		<http://www.w3.org/2002/07/owl#DatatypeProperty> &&
+      						?class != <http://www.w3.org/2002/07/owl#ObjectProperty> && ?class != 		<http://www.w3.org/2002/07/owl#Restriction> &&
+      						?class != rdfs:Class)
+    	 }
+     
+	   }
+
+	  {
+  		#retorna tabela 1x1 contento o maior valor inforank
+		SELECT (MAX(?inforank) as ?max_inforank) 
+		WHERE{
+    		?s a ?class.
+			?class quira:inforank ?inforank.
+  			FILTER(?class != <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> &&  ?class != 				<http://www.w3.org/2002/07/owl#SymmetricProperty> && ?class != <http://www.w3.org/2002/07/owl#FunctionalProperty> &&
+      		?class != <http://www.w3.org/2002/07/owl#Class> && ?class != <http://www.w3.org/2002/07/owl#DatatypeProperty> &&
+      		?class != <http://www.w3.org/2002/07/owl#ObjectProperty> && ?class != <http://www.w3.org/2002/07/owl#Restriction> &&
+      	?class != rdfs:Class)
+		}
+	}
+}
+}
+
+
+
+
+

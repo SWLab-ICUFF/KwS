@@ -95,7 +95,7 @@ WHERE{
 
 insert {graph ?sol {?sol kws:csScore ?coverageScore.}}
 WHERE{
-    select ?sol (fn:countKwS('%1$s', group_concat(?_value)) as ?coverageScore)
+    select ?sol (fn:countKwS('%4$s', group_concat(?_value)) as ?coverageScore)
     WHERE{
         graph ?sol{
             ?s ?p ?_value.
@@ -127,7 +127,7 @@ WHERE {
 
 insert {graph ?sol {?sol kws:osScore ?osScore}}
 WHERE {
-    SELECT ?sol (agg:kwFreqScore('%1$s', ?value_) as ?osScore)
+    SELECT ?sol (agg:kwFreqScore('%4$s', ?value_) as ?osScore)
     {
         SELECT ?sol ?s (group_concat(?value) as ?value_)
         WHERE {

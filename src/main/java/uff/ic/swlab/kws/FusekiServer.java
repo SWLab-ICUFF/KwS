@@ -118,7 +118,7 @@ public class FusekiServer {
         return result;
     }
 
-    public synchronized ResultSet execSelect(String queryString, String datasetname) {
+    public ResultSet execSelect(String queryString, String datasetname) {
         ResultSet result;
         final QueryEngineHTTP qe = new QueryEngineHTTP(getSparqlURL(datasetname), queryString);
         result = qe.execSelect();

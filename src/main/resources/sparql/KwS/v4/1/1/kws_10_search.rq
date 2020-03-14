@@ -45,9 +45,9 @@ WHERE{
                 ?s quira:inforank ?inforank.
             }
         }
-        filter (((?score / ?max_score_lucene) + ?inforank)/2 > 0.2)
+        filter (((?score / ?max_score_lucene) + ?inforank)/2 > 0.4)
         }
         order by desc(?score_final)
-        limit 10
+        limit 5
     }
 }
