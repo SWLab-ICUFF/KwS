@@ -48,6 +48,6 @@ WHERE{
         filter (((?score / ?max_score_lucene) + ?inforank)/2 > 0.4)
         }
         order by desc(?score_final)
-        limit 5
+        limit 30
     }
 }
