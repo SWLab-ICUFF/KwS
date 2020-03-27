@@ -35,7 +35,7 @@ public class BuildBenchmark_v4 {
         String service2 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
 
         String kwsVersion = "v4/1/1";
-        String benchmark = "DEXA2020";
+        String benchmark = "ER2020";
         String path_database = "DBpedia"; //IMDb DBpedia
 
         try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/%2$s/queries_.txt", benchmark, path_database)));

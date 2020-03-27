@@ -151,7 +151,7 @@ WHERE {
 
 insert {graph ?sol {?sol kws:isScore ?isScore.}}
 WHERE{
-    select ?sol (avg(?infoRank) as ?isScore)
+    select ?sol (avg(?inforank) as ?isScore)
     WHERE {
         graph ?sol {
             ?s ?p ?value.
