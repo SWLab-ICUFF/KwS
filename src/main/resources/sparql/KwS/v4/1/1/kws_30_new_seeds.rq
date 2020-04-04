@@ -14,5 +14,6 @@ WHERE{
     select  (group_concat(?value) as ?allValues) where { graph kwsg:seeds {[] kws:value ?value.}}
    
   } 
-  filter (strlen(?new_kws) > 0)
+  # esse filtro não funciona. Filtrar quando receber o valor do select no codigo
+  # filter (strlen(?new_kws) > 0)
 }

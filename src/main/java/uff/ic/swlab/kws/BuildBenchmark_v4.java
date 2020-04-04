@@ -18,6 +18,8 @@ import java.util.Scanner;
 import java.util.zip.GZIPOutputStream;
 import javax.naming.InvalidNameException;
 import org.apache.jena.query.Dataset;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.riot.Lang;
@@ -29,14 +31,14 @@ import org.apache.jena.riot.RDFDataMgr;
  */
 public class BuildBenchmark_v4 {
 
-    public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException {
-        String database = "Mondial_ShortPaper";
+    public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException, InterruptedException {
+        String database = "IMDb_ShortPaper";
         String service1 = String.format("http://semanticweb.inf.puc-rio.br:3030/%1$s/sparql", database);
         String service2 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
 
         String kwsVersion = "v4/1/1";
         String benchmark = "ER2020";
-        String path_database = "Mondial"; //IMDb DBpedia
+        String path_database = "IMDb"; //IMDb DBpedia
 
         try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/%2$s/queries_.txt", benchmark, path_database)));
                 Scanner sc = new Scanner(in)) {
@@ -56,7 +58,7 @@ public class BuildBenchmark_v4 {
 
     }
 
-    public static void run(String kwsVersion, String service1, String service2, String keywordQuery, String benchmarkNS, String filename, String database) throws FileNotFoundException, IOException, InvalidNameException {
+    public static void run(String kwsVersion, String service1, String service2, String keywordQuery, String benchmarkNS, String filename, String database) throws FileNotFoundException, IOException, InvalidNameException, InterruptedException {
         FusekiServer fuseki = new FusekiServer("semanticweb.inf.puc-rio.br", 3030);
         String format_keywordQuery = keywordQuery.replaceAll("\\(|\\)", "");
 
@@ -91,45 +93,54 @@ public class BuildBenchmark_v4 {
         if (true) {
             String newKws = "";
             queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_30_new_seeds.rq", kwsVersion)); //ok
-            queryString = String.format(queryString, keywordQuery);
-            ResultSet result = fuseki.execSelect(queryString, "KwS.temp");
-
-            newKws = null;
-            while (result.hasNext()) {
-                QuerySolution soln = result.nextSolution();
-
-                newKws = String.valueOf(soln.get("new_kws"));
-                if (newKws != null) {
-                    System.out.println("Buscando novas seeds");
-                    if (database.equals("DBpedia")) {
-                        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_10_search_DBpedia.rq", kwsVersion)); //ok
-                        queryString = String.format(queryString, service1, newKws);
-                        fuseki.execUpdate(queryString, "KwS.temp");
-
-                    } else {
-                        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_10_search.rq", kwsVersion)); //ok
-                        queryString = String.format(queryString, service1, newKws);
-                        fuseki.execUpdate(queryString, "KwS.temp");
-
-                    }
-
+            queryString = String.format(queryString, format_keywordQuery);
+            QueryExecution q = QueryExecutionFactory.sparqlService(service2, queryString);
+            ResultSet result = q.execSelect();
+            QuerySolution soln = result.nextSolution();
+            newKws = String.valueOf(soln.get("new_kws"));
+            QueryExecution new_q = null;
+            while (newKws != null) {
+                
+                if (new_q != null) {
+                    new_q.close();
                 }
 
+                System.out.println("Buscando novas seeds");
+                if (database.equals("DBpedia")) {
+                    queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_10_search_DBpedia.rq", kwsVersion)); //ok
+                    queryString = String.format(queryString, service1, newKws);
+                    fuseki.execUpdate(queryString, "KwS.temp");
+                } else {
+                    queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_10_search_1.rq", kwsVersion)); //ok
+                    queryString = String.format(queryString, service1, newKws);
+                    fuseki.execUpdate(queryString, "KwS.temp");
+                }
                 if (true) {
                     queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_20_literais.rq", kwsVersion)); //ok
                     queryString = String.format(queryString, service1, newKws);
                     fuseki.execUpdate(queryString, "KwS.temp");
                 }
+                if (true) {
+                    System.out.println("Buscando propriedades que match");
+                    queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_40_search_properties_match.rq", kwsVersion)); //ok
+                    queryString = String.format(queryString, service1);
+                    fuseki.execUpdate(queryString, "KwS.temp");
+                }
+                if (true) {
+                    queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_30_new_seeds.rq", kwsVersion)); //ok
+                    queryString = String.format(queryString, newKws);
+                    new_q = QueryExecutionFactory.sparqlService(service2, queryString);
+                    ResultSet new_result = new_q.execSelect();
+                    QuerySolution new_soln = new_result.nextSolution();
+                    newKws = String.valueOf(new_soln.get("new_kws"));
+                    if (newKws.equals(""))
+                        newKws = null;
+                            
+                    q.close();
+                }
 
+                //}
             }
-
-        }
-
-        if (true) {
-            System.out.println("Buscando propriedades que match");
-            queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_40_search_properties_match.rq", kwsVersion)); //ok
-            queryString = String.format(queryString, service1);
-            fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         if (true) {

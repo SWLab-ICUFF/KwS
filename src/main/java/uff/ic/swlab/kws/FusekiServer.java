@@ -129,7 +129,7 @@ public class FusekiServer {
         return result;
     }
 
-    public synchronized void execUpdate(String queryString, String datasetname) {
+    public void execUpdate(String queryString, String datasetname) {
         String aggUri1 = "http://uff.ic.swlab.jena.sparql.aggregate/tMinMax";
         String aggUri2 = "http://uff.ic.swlab.jena.sparql.aggregate/kwFreqScore";
         String aggUri3 = "http://uff.ic.swlab.jena.sparql.aggregate/minimumCommonString";
