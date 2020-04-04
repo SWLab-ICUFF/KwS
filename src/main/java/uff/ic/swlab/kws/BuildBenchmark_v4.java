@@ -98,9 +98,11 @@ public class BuildBenchmark_v4 {
             ResultSet result = q.execSelect();
             QuerySolution soln = result.nextSolution();
             newKws = String.valueOf(soln.get("new_kws"));
+            if (newKws.equals("")) {
+                newKws = null;
+            }
             QueryExecution new_q = null;
             while (newKws != null) {
-                
                 if (new_q != null) {
                     new_q.close();
                 }
@@ -121,26 +123,27 @@ public class BuildBenchmark_v4 {
                     fuseki.execUpdate(queryString, "KwS.temp");
                 }
                 if (true) {
-                    System.out.println("Buscando propriedades que match");
-                    queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_40_search_properties_match.rq", kwsVersion)); //ok
-                    queryString = String.format(queryString, service1);
-                    fuseki.execUpdate(queryString, "KwS.temp");
-                }
-                if (true) {
                     queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_30_new_seeds.rq", kwsVersion)); //ok
                     queryString = String.format(queryString, newKws);
                     new_q = QueryExecutionFactory.sparqlService(service2, queryString);
                     ResultSet new_result = new_q.execSelect();
                     QuerySolution new_soln = new_result.nextSolution();
                     newKws = String.valueOf(new_soln.get("new_kws"));
-                    if (newKws.equals(""))
+                    if (newKws.equals("")) {
                         newKws = null;
-                            
+                    }
+
                     q.close();
                 }
-
-                //}
             }
+            q.close();
+        }
+
+        if (true) {
+            System.out.println("Buscando propriedades que match");
+            queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_40_search_properties_match.rq", kwsVersion)); //ok
+            queryString = String.format(queryString, service1);
+            fuseki.execUpdate(queryString, "KwS.temp");
         }
 
         if (true) {
