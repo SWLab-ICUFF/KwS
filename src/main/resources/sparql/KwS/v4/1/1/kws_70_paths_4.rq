@@ -44,13 +44,13 @@ where {
               			{
       						{select distinct ?e1 ?e5 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}}
             #service <%1$s>  {
-                			?e1 ?p1 ?e2. filter(?e2 not in (?e1) && !fn:schema(?p1))
+                			?e1 ?p1 ?e2. filter(?e2 not in (?e1) && !fn:schema(?p1) && !fn:schema(?e2))
               			}
-                	    ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2) && !fn:schema(?p2))
+                	    ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2) && !fn:schema(?p2) && !fn:schema(?e3))
             		 }
-                	  ?e3 ?p3 ?e4. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?p3))
+                	  ?e3 ?p3 ?e4. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?p3) && !fn:schema(?e4))
           		 }
-                 ?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?p4))
+                 ?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?p4) && !fn:schema(?e5))
         	}
             #}
         }
@@ -62,13 +62,13 @@ where {
           			
       						{select distinct ?e1 ?e5 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}}
             #service <%1$s>  {
-               				 	?e1 ?p1 ?e2. filter(?e2 not in (?e1) && !fn:schema(?p1)) #1
+               				 	?e1 ?p1 ?e2. filter(?e2 not in (?e1) && !fn:schema(?p1) && !fn:schema(?e2)) #1
               				 }
-                			 ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2) && !fn:schema(?p2)) #2
+                			 ?e2 ?p2 ?e3. filter(?e3 not in (?e1,?e2) && !fn:schema(?p2) && !fn:schema(?e3)) #2
             			}
-                		?e3 ?p3 ?e4. filter(isIRI(?e4) && ?e4 not in (?e1,?e2,?e3) && !fn:schema(?p3)) #3
+                		?e3 ?p3 ?e4. filter(isIRI(?e4) && ?e4 not in (?e1,?e2,?e3) && !fn:schema(?p3) && !fn:schema(?e4)) #3
           			}
-                	?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?_p4)) #4
+                	?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?_p4) && !fn:schema(?e4)) #4
         		}
             #}
         }
@@ -79,13 +79,13 @@ where {
               				{
       						{select distinct ?e1 ?e5 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}}
             #service <%1$s>  {
-                			?e1 ?p1 ?e2. filter(?e2 not in (?e1) && !fn:schema(?p1)) #1
+                			?e1 ?p1 ?e2. filter(?e2 not in (?e1) && !fn:schema(?p1) && !fn:schema(?e2)) #1
               				}
-                			?e2 ?p2 ?e3. filter(isIRI(?e3) && ?e3 not in (?e1,?e2) && !fn:schema(?p2)) #2
+                			?e2 ?p2 ?e3. filter(isIRI(?e3) && ?e3 not in (?e1,?e2) && !fn:schema(?p2) && !fn:schema(?e3)) #2
             			}
-                		?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?_p3)) #3
+                		?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?_p3) && !fn:schema(?e3)) #3
           			}
-                	?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?p4)) #4
+                	?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?p4) && !fn:schema(?e5)) #4
         		}
             #}
         }
@@ -96,13 +96,13 @@ where {
               				{
       						{select distinct ?e1 ?e5 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}}
             #service <%1$s>  {
-                			?e1 ?p1 ?e2. filter(?e2 not in (?e1) && !fn:schema(?p1)) #1
+                			?e1 ?p1 ?e2. filter(?e2 not in (?e1) && !fn:schema(?p1) && !fn:schema(?e2)) #1
               				}
-                		    ?e2 ?p2 ?e3. filter(isIRI(?e3) && ?e3 not in (?e1,?e2) && !fn:schema(?p2)) #2
+                		    ?e2 ?p2 ?e3. filter(isIRI(?e3) && ?e3 not in (?e1,?e2) && !fn:schema(?p2) && !fn:schema(?e3)) #2
             			}
-                		?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?_p3)) #3
+                		?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?_p3) && !fn:schema(?e3)) #3
           			}
-                	?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?_p4)) #4
+                	?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?_p4) && !fn:schema(?e4)) #4
         		}
             #}
         }
@@ -113,13 +113,13 @@ where {
               				{
       						{select distinct ?e1 ?e5 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}}
             #service <%1$s>  {
-                			?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1) && !fn:schema(?p1)) #1
+                			?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1) && !fn:schema(?p1) && !fn:schema(?e2)) #1
               				}
-                			?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2) && !fn:schema(?_p2)) #2
+                			?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2) && !fn:schema(?_p2) && !fn:schema(?e2)) #2
             			}
-                		?e3 ?p3 ?e4. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?p3)) #3
+                		?e3 ?p3 ?e4. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?p3) && !fn:schema(?e4)) #3
           		  }
-                  ?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?p4)) #4
+                  ?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?p4) && !fn:schema(?e5)) #4
         	}
             #}
         }
@@ -130,13 +130,13 @@ where {
               				{
       						{select distinct ?e1 ?e5 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}}
             #service <%1$s>  {
-                			?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1) && !fn:schema(?p1)) #1
+                			?e1 ?p1 ?e2. filter(isIRI(?e2) && ?e2 not in (?e1) && !fn:schema(?p1) && !fn:schema(?e2)) #1
               				}
-                			?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2) && !fn:schema(?_p2)) #2
+                			?e3 ?_p2 ?e2. filter(?e3 not in (?e1,?e2) && !fn:schema(?_p2) && !fn:schema(?e2)) #2
             			}
-                		?e3 ?p3 ?e4. filter(isIRI(?e4) && ?e4 not in (?e1,?e2,?e3) && !fn:schema(?p3)) #3
+                		?e3 ?p3 ?e4. filter(isIRI(?e4) && ?e4 not in (?e1,?e2,?e3) && !fn:schema(?p3) && !fn:schema(?e4)) #3
           			}
-                	?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?_p4)) #4
+                	?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?_p4) && !fn:schema(?e4)) #4
         		}
             #}
         }
@@ -147,13 +147,13 @@ where {
               				{
       						{select distinct ?e1 ?e5 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}}
             #service <%1$s>  {
-                			?e1 ?p1 ?e2. filter (isIRI(?e2) && ?e2 not in (?e1) && !fn:schema(?p1)) #1
+                			?e1 ?p1 ?e2. filter (isIRI(?e2) && ?e2 not in (?e1) && !fn:schema(?p1) && !fn:schema(?e2)) #1
               				}
-                			?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2) && !fn:schema(?_p2)) #2
+                			?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2) && !fn:schema(?_p2) && !fn:schema(?e2)) #2
             			}
-                		?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?_p3)) #3
+                		?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?_p3) && !fn:schema(?e3)) #3
           			}
-                	?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?p4)) #4
+                	?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?p4) && !fn:schema(?e5)) #4
         		}
             #}
         }
@@ -164,13 +164,13 @@ where {
               				{
       						{select distinct ?e1 ?e5 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}}
             #service <%1$s>  {
-                			?e1 ?p1 ?e2. filter (isIRI(?e2) && ?e2 not in (?e1) && !fn:schema(?p1)) #1
+                			?e1 ?p1 ?e2. filter (isIRI(?e2) && ?e2 not in (?e1) && !fn:schema(?p1) && !fn:schema(?e2)) #1
               				}
-                			?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2) && !fn:schema(?_p2)) #2
+                			?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2) && !fn:schema(?_p2) && !fn:schema(?e2)) #2
             			}
-                		?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?_p3)) #3
+                		?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?_p3) && !fn:schema(?e3)) #3
           			}
-                	?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?_p4)) #4
+                	?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?_p4) && !fn:schema(?e4)) #4
         		}
             #}
         }
@@ -181,13 +181,13 @@ where {
               				{
       						{select distinct ?e1 ?e5 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}}
             #service <%1$s>  {
-                			?e2 ?_p1 ?e1. filter (?e2 not in (?e1) && !fn:schema(?_p1)) #1
+                			?e2 ?_p1 ?e1. filter (?e2 not in (?e1) && !fn:schema(?_p1) && !fn:schema(?e1)) #1
               				}
-                			?e2 ?p2 ?e3. filter (?e3 not in (?e1,?e2) && !fn:schema(?p2)) #2
+                			?e2 ?p2 ?e3. filter (?e3 not in (?e1,?e2) && !fn:schema(?p2) && !fn:schema(?e3)) #2
             			}
-                		?e3 ?p3 ?e4. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?p3)) #3
+                		?e3 ?p3 ?e4. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?p3) && !fn:schema(?e4)) #3
           			}
-                	?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?p4)) #4
+                	?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?p4) && !fn:schema(?e5)) #4
         	}
             #}
         }
@@ -198,13 +198,13 @@ where {
               				{
       						{select distinct ?e1 ?e5 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}}
             #service <%1$s>  {
-                			?e2 ?_p1 ?e1. filter (?e2 not in (?e1) && !fn:schema(?_p1)) #1
+                			?e2 ?_p1 ?e1. filter (?e2 not in (?e1) && !fn:schema(?_p1) && !fn:schema(?e1)) #1
               				}
-                			?e2 ?p2 ?e3. filter (?e3 not in (?e1,?e2) && !fn:schema(?p2)) #2
+                			?e2 ?p2 ?e3. filter (?e3 not in (?e1,?e2) && !fn:schema(?p2) && !fn:schema(?e3)) #2
             			}
-                		?e3 ?p3 ?e4. filter(isIRI(?e4) && ?e4 not in (?e1,?e2,?e3) && !fn:schema(?p3)) #3
+                		?e3 ?p3 ?e4. filter(isIRI(?e4) && ?e4 not in (?e1,?e2,?e3) && !fn:schema(?p3) && !fn:schema(?e4)) #3
           			}
-                	?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?_p4)) #4
+                	?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?_p4) && !fn:schema(?e4)) #4
         		}
             #}
         }
@@ -215,13 +215,13 @@ where {
               				{
       						{select distinct ?e1 ?e5 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}}
             #service <%1$s>  {
-                			?e2 ?_p1 ?e1. filter (?e2 not in (?e1) && !fn:schema(?_p1)) #1
+                			?e2 ?_p1 ?e1. filter (?e2 not in (?e1) && !fn:schema(?_p1) && !fn:schema(?e1)) #1
               				}
-                			?e2 ?p2 ?e3. filter (isIRI(?e3) && ?e3 not in (?e1,?e2) && !fn:schema(?p2)) #2
+                			?e2 ?p2 ?e3. filter (isIRI(?e3) && ?e3 not in (?e1,?e2) && !fn:schema(?p2) && !fn:schema(?e3)) #2
             			}	
-                		?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?_p3)) #3
+                		?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?_p3) && !fn:schema(?e3)) #3
           			}
-                  	?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?p4)) #4
+                  	?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?p4) && !fn:schema(?e5)) #4
         		}
             #}
         }
@@ -232,13 +232,13 @@ where {
               				{
       						{select distinct ?e1 ?e5 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}}
             #service <%1$s>  {
-               		 		?e2 ?_p1 ?e1. filter (?e2 not in (?e1) && !fn:schema(?_p1)) #1
+               		 		?e2 ?_p1 ?e1. filter (?e2 not in (?e1) && !fn:schema(?_p1) && !fn:schema(?e1)) #1
               				}
-                			?e2 ?p2 ?e3. filter (isIRI(?e3) && ?e3 not in (?e1,?e2) && !fn:schema(?p2)) #2
+                			?e2 ?p2 ?e3. filter (isIRI(?e3) && ?e3 not in (?e1,?e2) && !fn:schema(?p2) && !fn:schema(?e3)) #2
             			}
-                		?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?_p3)) #3
+                		?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?_p3) && !fn:schema(?e3)) #3
           			}
-                	?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?_p4)) #4
+                	?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?_p4) && !fn:schema(?e4)) #4
         	}
             #}
         }
@@ -249,13 +249,13 @@ where {
               				{
       						{select distinct ?e1 ?e5 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}}
             #service <%1$s> {
-                			?e2 ?_p1 ?e1. filter (?e2 not in (?e1) && !fn:schema(?_p1)) #1
+                			?e2 ?_p1 ?e1. filter (?e2 not in (?e1) && !fn:schema(?_p1) && !fn:schema(?e1)) #1
               				}
-                			?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2) && !fn:schema(?_p2)) #2
+                			?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2) && !fn:schema(?_p2) && !fn:schema(?e2)) #2
             			}
-                		?e3 ?p3 ?e4. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?p3)) #3
+                		?e3 ?p3 ?e4. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?p3) && !fn:schema(?e4)) #3
           			}
-                	?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?p4)) #4
+                	?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?p4) && !fn:schema(?e5)) #4
         		}
             #}
         }
@@ -266,13 +266,13 @@ where {
               				{
       						{select distinct ?e1 ?e5 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}}
             #service <%1$s>  {
-                			?e2 ?_p1 ?e1. filter (?e2 not in (?e1) && !fn:schema(?_p1)) #1
+                			?e2 ?_p1 ?e1. filter (?e2 not in (?e1) && !fn:schema(?_p1) && !fn:schema(?e1)) #1
               				}
-                			?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2) && !fn:schema(?_p2)) #2
+                			?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2) && !fn:schema(?_p2) && !fn:schema(?e2)) #2
             			}
-                		?e3 ?p3 ?e4. filter(isIRI(?e4) && ?e4 not in (?e1,?e2,?e3) && !fn:schema(?p3)) #3
+                		?e3 ?p3 ?e4. filter(isIRI(?e4) && ?e4 not in (?e1,?e2,?e3) && !fn:schema(?p3) && !fn:schema(?e4)) #3
           			}
-                	?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?_p4)) #4
+                	?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?_p4) && !fn:schema(?e4)) #4
         		}
             #}
         }
@@ -283,13 +283,13 @@ where {
               				{
       						{select distinct ?e1 ?e5 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}}
             #service <%1$s>  {
-                			?e2 ?_p1 ?e1. filter (?e2 not in (?e1) && !fn:schema(?_p1)) #1
+                			?e2 ?_p1 ?e1. filter (?e2 not in (?e1) && !fn:schema(?_p1) && !fn:schema(?e1)) #1
               				}
-               		 		?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2) && !fn:schema(?_p2)) #2
+               		 		?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2) && !fn:schema(?_p2) && !fn:schema(?e2)) #2
             			}
-                		?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?_p3)) #3
+                		?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?_p3) && !fn:schema(?e3)) #3
           			}
-                	?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?p4)) #4
+                	?e4 ?p4 ?e5. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?p4) && !fn:schema(?e5)) #4
         		}
             #}
         }
@@ -300,13 +300,13 @@ where {
               				{
       						{select distinct ?e1 ?e5 WHERE {service <%2$s> 													{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5.}}}}
             #service <%1$s>  {
-                			?e2 ?_p1 ?e1. filter (?e2 not in (?e1) && !fn:schema(?_p1)) #1
+                			?e2 ?_p1 ?e1. filter (?e2 not in (?e1) && !fn:schema(?_p1) && !fn:schema(?e1)) #1
               				}
-                			?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2) && !fn:schema(?_p2)) #2
+                			?e3 ?_p2 ?e2. filter (?e3 not in (?e1,?e2) && !fn:schema(?_p2) && !fn:schema(?e2)) #2
             			}
-                		?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?_p3)) #3
+                		?e4 ?_p3 ?e3. filter(?e4 not in (?e1,?e2,?e3) && !fn:schema(?_p3) && !fn:schema(?e3)) #3
           			}
-                	?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?_p4)) #4
+                	?e5 ?_p4 ?e4. filter(?e4 not in (?e1,?e2,?e3,?e4) && !fn:schema(?_p4) && !fn:schema(?e4)) #4
         		}
             #}
         }
@@ -314,5 +314,3 @@ where {
   }
   	{graph kwsg:pairs {[] a rdf:Seq; rdf:_1 ?e1; rdf:_2 ?e5; kws:solution ?sol.}}
 };
-
-drop graph kwsg:pairs;
