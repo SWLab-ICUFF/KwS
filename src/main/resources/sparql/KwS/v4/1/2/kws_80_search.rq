@@ -1,0 +1,164 @@
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+prefix text: <http://jena.apache.org/text#>
+prefix quira: <http://www.quira.org/>
+PREFIX agg: <http://uff.ic.swlab.jena.sparql.aggregate/>
+
+
+############################################################################################
+# criando uri nomeada da solução e calcular a quantidade de entidades novas em cada solução
+#############################################################################################
+
+insert {graph ?sol {?sol kws:size ?size}}
+where{
+	SELECT ?sol (count(distinct ?entity) as ?size)
+WHERE{
+  graph ?sol {
+    {?entity ?p []} UNION {[] ?p ?entity}
+    FILTER(!isBlank(?entity) && !isLiteral(?entity))
+  }
+   FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+}
+group by ?sol
+};
+
+
+
+############################################################################################
+# Armazenando as propriedades das seeds nos grupos de soluções
+#############################################################################################
+insert {graph ?sol {?s ?p ?o}}
+#using kwsg:seeds
+where{
+    {
+    	graph kwsg:seeds{
+        	?s kws:matchingPredicate ?p.
+       	 	?s kws:value ?o.
+
+    	}
+        graph ?sol {?s ?p2 [].}
+        FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+    }
+    union
+    {
+    	graph kwsg:seeds{
+        	?s kws:matchingPredicate ?p.
+        	?s kws:value ?o.
+    	}
+        graph ?sol {[] ?p2 ?s.}
+        FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+    }
+};
+
+############################################################################################
+# Armazenando as propriedades das novas entidades
+#############################################################################################
+
+insert {graph ?sol {?s ?p ?o}}
+WHERE{
+  		service <%2$s> {
+    		service <%3$s> {
+      			{
+					select distinct ?s
+ 					WHERE{
+          				{
+               				graph ?sol {?s ?p2 []. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
+               				FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+  		 				}union{
+                    		graph ?sol {[] ?p2 ?s. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
+                    		FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+                		}
+  						FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
+        			}
+				}
+    			(?s ?score ?literal) text:query (rdfs:label '%4$s').
+       			?s ?p ?literal.
+			}
+		}
+  		{
+       		graph ?sol {?s ?p2 []. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
+       		FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
+    	}union{
+       		graph ?sol {[] ?p2 ?s. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
+       		FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
+   		}
+
+};
+
+###################################################
+# calcular o coverageScore para as novas entidades #
+###################################################
+
+insert {graph ?sol {?sol kws:csScore ?coverageScore.}}
+WHERE{
+    select ?sol (fn:countKwS('%4$s', group_concat(?_value)) as ?coverageScore)
+    WHERE{
+        graph ?sol{
+            ?s ?p ?_value.
+            FILTER(isliteral(?_value) && !regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
+        }
+        FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+    }
+    group by ?sol
+};
+
+
+######################################################
+# Calcular o SS score do grupo de cada grupo solução
+######################################################
+
+
+insert {graph ?sol {?sol kws:ssScore ?ssScore; kws:maxGroupSize ?maxGroupSize.}}
+WHERE {
+    SELECT ?sol ?maxGroupSize ((?maxGroupSize - ?size)/(?maxGroupSize - 1) AS ?ssScore)
+    where {
+        {SELECT (max(?size) as ?maxGroupSize) {graph ?sol {[] kws:size ?size.}}}
+        graph ?sol {?sol kws:size ?size.}
+    }
+};
+
+#######################################################################
+#Calcular OS (se cada palavra chave é correspondidado por um recurso OS)
+#####################################################################
+
+insert {graph ?sol {?sol kws:osScore ?osScore}}
+WHERE {
+    SELECT ?sol (agg:kwFreqScore('%4$s', ?value_) as ?osScore)
+    {
+        SELECT ?sol ?s (group_concat(?value) as ?value_)
+        WHERE {
+            graph ?sol {
+                ?s ?p ?value.
+                FILTER(isliteral(?value) && (!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol")))
+            }
+        FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+        }
+        group by ?sol ?s
+    }
+    group by ?sol
+};
+
+###############################################################################
+#Armazenando infoRank de cada recurso no grupo de solução para calcular a média
+###############################################################################
+
+
+insert {graph ?sol {?sol kws:isScore ?isScore.}}
+WHERE{
+    select ?sol (avg(?infoRank) as ?isScore)
+    WHERE {
+        graph ?sol {
+            ?s ?p ?value.
+            FILTER(isliteral(?value) && (!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol")))
+        }
+        service <%2$s> {?s quira:inforank ?infoRank.}
+        FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+    }
+    group by ?sol
+}
+
+
