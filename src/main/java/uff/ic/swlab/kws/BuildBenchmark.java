@@ -32,13 +32,13 @@ import org.apache.jena.riot.RDFDataMgr;
 public class BuildBenchmark {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException, InterruptedException {
-        String database = "IMDb_ShortPaper";
+        String database = "Mondial_ShortPaper";
         String service1 = String.format("http://semanticweb.inf.puc-rio.br:3030/%1$s/sparql", database);
         String service2 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
 
-        String kwsVersion = "v4/1/1";
+        String kwsVersion = "v4/1/2";
         String benchmark = "ER2020";
-        String path_database = "IMDb"; //IMDb DBpedia
+        String path_database = "Mondial"; //IMDb DBpedia
 
         try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/%2$s/queries_.txt", benchmark, path_database)));
                 Scanner sc = new Scanner(in)) {
@@ -209,12 +209,7 @@ public class BuildBenchmark {
             fuseki.execUpdate(queryString, "KwS.temp");
         }
 
-        if (true) {
-            System.out.println("Separando os grafos conexos");
-            queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_75_split.rq", kwsVersion)); //ok
-            queryString = String.format(queryString);
-            fuseki.execUpdate(queryString, "KwS.temp");
-        }
+       
 
         if (true) {
             System.out.println("Calculando o score das soluções..."); //ok
