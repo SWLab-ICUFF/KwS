@@ -17,7 +17,7 @@ where {
     {
         select ?bag {
             graph kwsg:groups {?bag kws:csScore ?csScore; kws:isScore ?isScore; kws:osScore ?osScore; kws:ssScore ?ssScore}
-            filter (?csScore >= 0.7 && ?isScore >= 0.000000005 && ?osScore >= 0.5 && ?ssScore >= 0.7)
+            filter (?csScore >= 0.6 && ?isScore >= 0.0 && ?osScore >= 0.5 && ?ssScore >= 0.7)
         }
     }
   graph kwsg:groups {?bag ?p1 ?o1. ?o1 ?p2 ?o2.}
