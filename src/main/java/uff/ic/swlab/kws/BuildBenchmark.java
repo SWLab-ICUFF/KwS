@@ -208,6 +208,12 @@ public class BuildBenchmark {
             queryString = String.format(queryString);
             fuseki.execUpdate(queryString, "KwS.temp");
         }
+        
+         if (true){
+            queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_75_search.rq", kwsVersion)); //ok
+            queryString = String.format(queryString);
+            fuseki.execUpdate(queryString, "KwS.temp");
+        }
 
        
 
