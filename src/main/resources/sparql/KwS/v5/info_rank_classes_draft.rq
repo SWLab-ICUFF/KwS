@@ -1,0 +1,59 @@
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix quira: <http://www.quira.org/>
+
+#adicionando inforank das classes
+INSERT{
+	?class quira:inforank ?inforank
+}
+WHERE{
+  	SELECT (MAX(?number_literais) AS ?inforank) ?class
+  {
+    SELECT ?entity (count(*) as ?number_literais) ?class 
+	WHERE{
+  		?entity a ?class.
+                ?entity ?predicate ?object.
+  		FILTER(isLiteral(?object))
+	}
+	group by ?class ?entity
+ }
+  group by ?class
+}
+
+
+
+
+
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix quira: <http://www.quira.org/>
+
+DELETE{?class quira:inforank ?inforank.}
+INSERT{?class quira:inforank ?inforank_normalized}
+WHERE{
+SELECT ?class ?inforank (?inforank/?max_inforank as ?inforank_normalized)
+WHERE{
+  	   #retorna uma tabela nx2
+	{
+    	 SELECT DISTINCT ?class ?inforank
+         WHERE {	
+                    ?s a ?class.
+		    ?class quira:inforank ?inforank.
+               }
+     
+	 }
+
+	  {
+            #retorna tabela 1x1 contento o maior valor inforank
+            SELECT (MAX(?inforank) as ?max_inforank) 
+	    WHERE{
+    		?s a ?class.
+		?class quira:inforank ?inforank.
+  		
+	    }
+	  }
+}
+}
+
+
+
+
+
