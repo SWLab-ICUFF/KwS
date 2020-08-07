@@ -54,6 +54,33 @@ WHERE{
 }
 
 
+##############VERSÃO OTIMIZADA ###############
 
+INSERT{
+    ?entity quira:informativeness ?informativeness
+}
+where{ 
+SELECT ?entity (count(*) as ?informativeness)
+WHERE{
+    ?entity ?predicate ?object.
+    FILTER(isLiteral(?object))
+  
+}
+group by ?entity
+}
+
+
+
+INSERT{
+	?class quira:inforank ?irc
+}
+WHERE{
+  	SELECT (MAX(?informativeness) AS ?irc) ?class
+	WHERE{
+  		?entity a ?class.
+                ?entity quira:informativeness ?informativeness.
+ }
+  group by ?class
+}
 
 
