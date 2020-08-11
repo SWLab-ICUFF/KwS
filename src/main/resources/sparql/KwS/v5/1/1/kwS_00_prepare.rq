@@ -1,0 +1,6 @@
+#INICIO DO ALGORITMO DE KwS
+#PRE-REQUISITOS: #label das classes e propriedades
+                 #inforank computado e normalizado com o predicado kws:inforanknormalized
+                 #criar um grafo nomeado contendo todas as triplas com os objetos literais. Ex: 
+                    #kwsg:indexed contendo triplas do tipo uri kws:comment literal.
+drop all;
