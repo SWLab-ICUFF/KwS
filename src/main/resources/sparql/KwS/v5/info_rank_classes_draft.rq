@@ -84,3 +84,277 @@ WHERE{
 }
 
 
+
+
+DELETE{
+    ?s quira:inforank ?inforank
+}
+INSERT{
+	?s quira:inforank ?irc_normalized.
+    ?entity quira:inforank ?irc_normalized_.
+}
+WHERE{
+  	{
+       SELECT ?s (?inforank/?max_inforank as ?irc_normalized) ?entity (?informativeness/?max_inforank as ?irc_normalized_)
+    	WHERE{
+  			?s quira:inforank ?inforank.
+            ?entity quira:informativeness ?informativeness.
+    	}
+    }
+    {
+  		SELECT (MAX(?inforank) AS ?max_inforank)
+		WHERE{
+  			?s quira:inforank ?inforank.
+    	}
+   }
+}
+
+
+##################################################################### VERSÃO INFORANK BSBM ########################################
+# acontece que no BSBM uma instância é do tipo outra instância #### EX: instances/dataFromProducer1/Product1 a instances/ProductType1, portanto foi feito um filro que as classes teriam que ter o termo 'vocabulary' como por exemplo na query abaixo:
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT distinct ?class
+WHERE {
+  [] rdf:type ?class.
+  FILTER(CONTAINS(str(?class), "vocabulary"))
+  
+}
+LIMIT 25
+
+
+#informatividade:
+
+prefix quira: <http://www.quira.org/>
+
+INSERT{
+    ?entity quira:informativeness ?informativeness
+}
+where{ 
+SELECT ?entity (count(*) as ?informativeness)
+WHERE{
+    ?entity ?predicate ?object.
+    FILTER(isLiteral(?object))
+  
+}
+group by ?entity
+}
+
+
+
+# inforank das classes sem normalizar:
+prefix quira: <http://www.quira.org/>
+
+
+INSERT{
+	?class quira:inforank ?irc
+}
+WHERE{
+  	SELECT (MAX(?informativeness) AS ?irc) ?class
+	WHERE{
+            ?entity a ?class.
+            ?entity quira:informativeness ?informativeness.
+            FILTER(CONTAINS(str(?class), "vocabulary"))
+ }
+  group by ?class
+}
+
+
+
+
+#inforank das classes normalizado:
+
+prefix quira: <http://www.quira.org/>
+
+INSERT{?class quira:inforankNormalized ?inforank_normalized.}
+WHERE{
+SELECT ?class (?inforank/?max_inforank as ?inforank_normalized)
+WHERE{
+	{
+    SELECT ?class ?inforank
+    	WHERE{
+        	?class quira:inforank ?inforank.
+        	FILTER(CONTAINS(str(?class), "vocabulary"))
+		}
+  	}
+		
+  	{
+    	SELECT (MAX(?inforank) as ?max_inforank)
+    	WHERE{
+      		?class quira:inforank ?inforank.
+            FILTER(CONTAINS(str(?class), "vocabulary"))
+    	}
+
+  	}
+}
+}
+
+
+#inforank das entidades normalizado
+
+prefix quira: <http://www.quira.org/>
+
+
+INSERT{?entity quira:inforankNormalized ?inforank_normalized.}
+WHERE{
+SELECT ?entity (?inforank/?max_inforank as ?inforank_normalized)
+WHERE{
+	{
+    SELECT ?entity ?inforank
+    	WHERE{
+        	?entity quira:inforank ?inforank.
+        	FILTER(!CONTAINS(str(?entity), "vocabulary"))
+      		BIND (?inforank/?max_inforank as ?inforank_normalized)
+		}
+  	}
+		
+  	{
+    	SELECT (MAX(?inforank) as ?max_inforank)
+    	WHERE{
+      		?entity quira:inforank ?inforank.
+            FILTER(!CONTAINS(str(?entity), "vocabulary"))
+    	}
+
+  	}
+}
+}
+
+###########################################################################################################
+
+##################################################################### VERSÃO INFORANK LUBM ########################################
+#informatividade:
+
+prefix quira: <http://www.quira.org/>
+
+INSERT{
+    ?entity quira:informativeness ?informativeness
+}
+where{ 
+SELECT ?entity (count(*) as ?informativeness)
+WHERE{
+    ?entity ?predicate ?object.
+    FILTER(isLiteral(?object))
+  
+}
+group by ?entity
+}
+
+
+
+
+# inforank das classes sem normalizar:
+prefix quira: <http://www.quira.org/>
+
+
+INSERT{
+	?class quira:inforank ?irc
+}
+WHERE{
+  	SELECT (MAX(?informativeness) AS ?irc) ?class
+	WHERE{
+            ?entity a ?class.
+            ?entity quira:informativeness ?informativeness.
+ }
+  group by ?class
+}
+
+# normalização das classes:
+
+prefix quira: <http://www.quira.org/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+INSERT{?class quira:inforankNormalized ?inforank_normalized.}
+WHERE{
+SELECT ?class (?inforank/?max_inforank as ?inforank_normalized)
+WHERE{
+	{
+    SELECT DISTINCT ?class  ?inforank 
+    	WHERE{
+        	?entity a ?class.
+  			?class quira:inforank ?inforank.
+           
+		}
+  	}
+		
+  	{
+    	SELECT (MAX(?inforank) as ?max_inforank)
+    	WHERE{
+        	?entity a ?class.
+  			?class quira:inforank ?inforank.
+           
+		}
+  	}
+}
+}
+
+
+#inforank das entidades normalizado
+prefix quira: <http://www.quira.org/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+INSERT{?entity quira:inforankNormalized ?inforank_normalized.}
+WHERE{
+SELECT ?entity (?inforank/?max_inforank as ?inforank_normalized)
+WHERE{
+	{
+    SELECT ?entity ?inforank
+    	WHERE{
+        	?entity quira:inforank ?inforank.
+        	?entity ?p ?o.
+  		FILTER regex(str(?p), str(rdf:type))
+		}
+      	group by ?entity ?inforank
+  	}
+		
+  	{
+    	SELECT (MAX(?inforank) as ?max_inforank)
+   		 WHERE{
+      			?entity quira:inforank ?inforank.
+  			?entity ?p ?o.
+  			FILTER regex(str(?p), str(rdf:type))
+    	}
+  	}
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# RASCUNHO   
+
+DELETE{
+    ?s quira:inforank ?inforank
+}
+INSERT{
+	?s quira:inforank ?irc_normalized.
+        ?entity quira:inforank ?irc_normalized_.
+}
+WHERE{
+       {
+            SELECT ?s (?inforank/?max_inforank as ?irc_normalized) ?entity (?informativeness/?max_inforank as ?irc_normalized_)
+            WHERE{
+                ?s quira:inforank ?inforank.
+                ?entity quira:informativeness ?informativeness.
+            }
+        }
+        {
+            SELECT (MAX(?inforank) AS ?max_inforank)
+            WHERE{
+                  ?s quira:inforank ?inforank.
+            }
+        }
+}
