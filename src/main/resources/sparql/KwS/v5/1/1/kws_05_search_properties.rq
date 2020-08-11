@@ -1,6 +1,6 @@
 #STEP 1.4: BUSCANDO AS PROPRIEDADES DAS SEEDS
-prefix kws: <urn:vocab:kws:>
-prefix kwsg: <urn:graph:kws:>
+PREFIX kws: <urn:vocab:kws:>
+PREFIX kwsg: <urn:graph:kws:>
 
 #buscando as propriedades que match
 WITH kwsg:seeds

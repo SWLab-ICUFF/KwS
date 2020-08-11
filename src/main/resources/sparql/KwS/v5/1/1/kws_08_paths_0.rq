@@ -1,0 +1,24 @@
+#STEP 4: CALCULAR DISTÂNCIA 1,2,3,4 ENTRE AS ENTIDADES FILTRADAS 
+
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix meta: <http://www.semwebtech.org/mondial/10/meta#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix text: <http://jena.apache.org/text#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+
+##########################################
+##########################################
+
+insert {
+    graph ?sol {?e1 a ?T.}
+}
+where {
+    graph kwsg:groups2 {
+        ?sol a rdf:Bag; rdfs:member ?e1.
+        filter(not exists {?sol rdfs:member ?e2. filter(?e2 != ?e1)})
+    }
+    service <%1$s> {?e1 a ?T.}
+};
