@@ -1,0 +1,13 @@
+#PASSO 1.2: TENTAR ENCONTRAR NOVAS SEMENTES QUE NÃO FORAM ENCONTRADAS DA PRIMEIRA ITERAÇÃO DE BUSCA
+
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+PREFIX kwsg: <urn:graph:kws:>
+PREFIX kws: <urn:vocab:kws:>
+
+
+SELECT  (fn:genQueryString('%1$s', ?allValues) as ?new_kws)
+WHERE{
+  {
+    SELECT  (GROUP_CONCAT(?value) as ?allValues) where { graph kwsg:seeds {[] kws:value ?value.}}
+  } 
+}
