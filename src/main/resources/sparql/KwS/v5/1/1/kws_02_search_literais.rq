@@ -1,45 +1,50 @@
 #STEP 1.1: BUSCA DOS LITERAIS DAS SEMENTES ENCONTRADAS
 
-prefix kwsg: <urn:graph:kws:>
-prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix text: <http://jena.apache.org/text#>
-prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+PREFIX kwsg: <urn:graph:kws:>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX text: <http://jena.apache.org/text#>
+PREFIX fn: <java:uff.ic.swlab.jena.sparql.function.>
+PREFIX kws: <urn:vocab:kws:>
 
 
 
-with kwsg:seeds
-insert {?s kws:value ?literal}
+WITH kwsg:seeds
+INSERT {?s kws:value ?literal}
 WHERE
 {
     {
-        select ?s (max(?score_) as ?score)
-        where {
+        SELECT ?s (max(?score_) as ?score)
+        WHERE {
             {
-        		graph kwsg:seeds{
-        			?bag rdfs:member ?s.
+        		GRAPH kwsg:seeds{
+                            ?bag rdfs:member ?s.
         		
        	 		}
             }
             {
-        	   service <%1$s>{	
-                (?s ?score_ ?literal) text:query (rdfs:label '%2$s' 1). #lista de propriedades
+              SERVICE <%1$s>{
+                    GRAPH kwsg:indexed{
+                        (?s ?score_ ?literal) text:query (kws:comment '%2$s' 1).
+                    } 
       		  }
             }
         }
-        group by ?s
+        GROUP BY ?s
     }
-    {# ?s ?score ?literal
-        select ?s ?literal
-        where {
+    {
+        SELECT ?s ?literal
+        WHERE {
             {
-                graph kwsg:seeds{
+                GRAPH kwsg:seeds{
         			 ?bag rdfs:member ?s.
         		
        	 		}
             }
             {
-        		service <%1$s>{
-                	(?s ?score ?literal) text:query (rdfs:label '%2$s'). #lista de propriedades
+        		SERVICE <%1$s>{
+                            GRAPH kwsg:indexed{
+                                (?s ?score ?literal) text:query (kws:comment '%2$s'). #lista de propriedades
+                            }
       			}
             }
         }
