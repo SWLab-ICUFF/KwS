@@ -1,0 +1,203 @@
+#STEP 2: Fazendo combinações 2 a 2 das seeds e criando os grupos de soluções com scores:
+ #coverageScore
+ # SS score
+ # infoRank score
+ # OS score
+
+
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix text: <http://jena.apache.org/text#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+PREFIX agg: <http://uff.ic.swlab.jena.sparql.aggregate/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+#################################################################################################################
+# Fazer combinações das entidades encontradas com score > 0 e concatenar os comentários das entidades do grupo. #
+#################################################################################################################
+
+WITH kwsg:groups
+INSERT {
+    ?bag a rdf:Bag;
+        kws:initialSize ?size;
+        rdfs:member ?m1;
+        rdfs:member ?m2;
+        rdfs:member ?m3;
+        rdfs:member ?m4;
+        rdfs:member ?m5;
+    .
+}
+USING kwsg:seeds
+WHERE {
+       {
+        {
+            SELECT ?size ?m1
+            WHERE {
+                [] rdfs:member ?m1.
+                BIND(1 as ?size)
+            }
+        }
+        UNION {
+            SELECT ?size ?m1 ?m2
+            WHERE {
+                [] rdfs:member ?m1.
+                [] rdfs:member ?m2.
+                FILTER (str(?m2)>str(?m1))
+                BIND(2 as ?size)
+            }
+        }
+        UNION {
+            SELECT ?size ?m1 ?m2 ?m3
+            WHERE {
+                {
+                    {
+                        [] rdfs:member ?m1.
+                        [] rdfs:member ?m2.
+                        filter (str(?m2)>str(?m1))
+                    }
+                    [] rdfs:member ?m3.
+                    FILTER (str(?m3)>str(?m2))
+                    BIND(3 as ?size)
+                }
+            }
+        }
+        UNION {
+            SELECT ?size ?m1 ?m2 ?m3 ?m4
+            WHERE {
+                {
+                    {
+                        {
+                          [] rdfs:member ?m1.
+                          [] rdfs:member ?m2.
+                          FILTER (str(?m2)>str(?m1))
+                        }
+                        [] rdfs:member ?m3.
+                        FILTER (str(?m3)>str(?m2))
+                    }
+                    [] rdfs:member ?m4.
+                    FILTER (str(?m4)>str(?m3))
+                    BIND(4 as ?size)
+                }
+            }
+        }
+        UNION {
+            SELECT ?size ?m1 ?m2 ?m3 ?m4 ?m5
+            WHERE {
+                {
+                    {
+                        {
+                            {
+                                [] rdfs:member ?m1.
+                                [] rdfs:member ?m2.
+                                filter (str(?m2)>str(?m1))
+                            }
+                            [] rdfs:member ?m3.
+                            FILTER (str(?m3)>str(?m2))
+                        }
+                        [] rdfs:member ?m4.
+                        FILTER (str(?m4)>str(?m3))
+                    }
+                    [] rdfs:member ?m5.
+                    FILTER (str(?m5)>str(?m4))
+                    BIND(5 as ?size)
+                }
+            }
+        }
+    }
+    BIND(iri(concat("%2$s","sol",str(fn:sequential()))) as ?bag)
+};
+
+#################################################################################
+#Trazendo as triplas das sementes para o grupo de solução
+#################################################################################
+WITH kwsg:groups
+INSERT{?s kws:value ?value; kws:matchingPredicate ?predicate; kws:inforankNormalized ?inforank.}
+USING kwsg:seeds
+WHERE {
+    [] rdfs:member ?s.
+    ?s kws:value ?value.
+    ?s kws:matchingPredicate ?predicate.
+    ?s kws:inforankNormalized ?inforank.
+};
+
+###################################################
+# calcular coverageScore  #
+###################################################
+
+WITH kwsg:groups
+INSERT {?bag kws:csScore ?coverageScore.}
+USING kwsg:groups
+WHERE {
+  SELECT ?bag (fn:countKwS('%1$s', group_concat(?_value)) as ?coverageScore)
+    WHERE {
+        ?bag rdfs:member ?m.
+        ?m kws:value ?_value.
+    }
+    GROUP BY ?bag
+};
+
+
+
+#################################################################################
+# Calcular o SS score do grupo de cada grupo solução (COMMENT)
+#################################################################################
+
+WITH kwsg:groups
+INSERT {?bag kws:ssScore ?ssScore; kws:maxInitialGroupSize ?maxInitialGroupSize.}
+USING kwsg:groups
+WHERE {
+    SELECT ?bag ((?maxInitialGroupSize - ?initialSize)/(?maxInitialGroupSize - 1) AS ?ssScore)
+    WHERE {
+        {SELECT (max(?initialSize) as ?maxInitialGroupSize) {[] kws:initialSize ?initialSize.}}
+        ?bag kws:initialSize ?initialSize.
+    }
+};
+
+
+
+#######################################################################
+#Calcular OS (se cada palavra chave é correspondidado por um recurso OS)
+#####################################################################
+
+WITH kwsg:groups
+INSERT {?sol kws:osScore ?osScore}
+WHERE {
+    SELECT ?sol (agg:kwFreqScore('%1$s', ?value) as ?osScore)
+    WHERE {
+        GRAPH kwsg:groups {
+            ?sol rdfs:member ?s.
+            ?s kws:value ?value.
+        }
+    }
+    GROUP BY ?sol
+};
+
+
+###############################################################################
+#Armazenando infoRank de cada recurso no grupo de solução para calcular a média
+###############################################################################
+
+WITH kwsg:groups
+INSERT  {?bag kws:isScore ?isScore.}
+WHERE{
+  {
+ SELECT ?bag (avg(?infoRank) as ?isScore)
+    WHERE {
+            GRAPH kwsg:groups{
+    			  ?bag rdfs:member ?s.
+    			  ?s kws:inforankNormalized ?infoRank.
+
+			}
+	}
+    GROUP BY ?bag
+  }
+}
+
+
+
+
+
