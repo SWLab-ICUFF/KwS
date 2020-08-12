@@ -3,9 +3,9 @@ labels classes BSBM:
 
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/ProductType> rdfs:label "Product Type"};
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/ProductType> rdfs:label "ProductType"};
 
-INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/ProductFeature> rdfs:label "Product Feature"};
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/ProductFeature> rdfs:label "ProductFeature"};
 
 INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/Producer> rdfs:label "Producer"};
 
@@ -24,29 +24,29 @@ INSERT DATA{<http://swat.cse.lehigh.edu/#Department> rdfs:label "Department"};
 
 INSERT DATA{<http://swat.cse.lehigh.edu/#University> rdfs:label "University"};
 
-INSERT DATA{<http://swat.cse.lehigh.edu/#FullProfessor> rdfs:label "Full Professor"};
+INSERT DATA{<http://swat.cse.lehigh.edu/#FullProfessor> rdfs:label "FullProfessor"};
 
-INSERT DATA{<http://swat.cse.lehigh.edu/#AssociateProfessor> rdfs:label "Associate Professor"};
+INSERT DATA{<http://swat.cse.lehigh.edu/#AssociateProfessor> rdfs:label "AssociateProfessor"};
 
-INSERT DATA{<http://swat.cse.lehigh.edu/#AssistantProfessor> rdfs:label "Assistant Professor"};
+INSERT DATA{<http://swat.cse.lehigh.edu/#AssistantProfessor> rdfs:label "AssistantProfessor"};
 
 INSERT DATA{<http://swat.cse.lehigh.edu/#Lecturer> rdfs:label "Lecturer"};
 
-INSERT DATA{<http://swat.cse.lehigh.edu/#UndergraduateStudent> rdfs:label "Undergraduate Student"};
+INSERT DATA{<http://swat.cse.lehigh.edu/#UndergraduateStudent> rdfs:label "UndergraduateStudent"};
 
-INSERT DATA{<http://swat.cse.lehigh.edu/#GraduateStudent> rdfs:label "Graduate Student"};
+INSERT DATA{<http://swat.cse.lehigh.edu/#GraduateStudent> rdfs:label "GraduateStudent"};
 
-INSERT DATA{<http://swat.cse.lehigh.edu/#ResearchGroup> rdfs:label "Research Group"};
+INSERT DATA{<http://swat.cse.lehigh.edu/#ResearchGroup> rdfs:label "ResearchGroup"};
 
 INSERT DATA{<http://swat.cse.lehigh.edu/#Publication> rdfs:label "Publication"};
 
 INSERT DATA{<http://swat.cse.lehigh.edu/#Course> rdfs:label "Course"};
 
-INSERT DATA{<http://swat.cse.lehigh.edu/#GraduateCourse> rdfs:label "Graduate Course"};
+INSERT DATA{<http://swat.cse.lehigh.edu/#GraduateCourse> rdfs:label "GraduateCourse"};
 
-INSERT DATA{<http://swat.cse.lehigh.edu/#TeachingAssistant> rdfs:label "Teaching Assistant"};
+INSERT DATA{<http://swat.cse.lehigh.edu/#TeachingAssistant> rdfs:label "TeachingAssistant"};
 
-INSERT DATA{<http://swat.cse.lehigh.edu/#ResearchAssistant> rdfs:label "Research Assistant"};
+INSERT DATA{<http://swat.cse.lehigh.edu/#ResearchAssistant> rdfs:label "ResearchAssistant"};
 
 labels properties LUBM:
 
@@ -54,34 +54,128 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 INSERT DATA{<http://swat.cse.lehigh.edu/#name> rdfs:label "name"};
 
-INSERT DATA{<http://swat.cse.lehigh.edu/#emailAddress> rdfs:label "email Address"};
+INSERT DATA{<http://swat.cse.lehigh.edu/#emailAddress> rdfs:label "emailAddress"};
 
 INSERT DATA{<http://swat.cse.lehigh.edu/#telephone> rdfs:label "telephone"};
 
-INSERT DATA{<http://swat.cse.lehigh.edu/#researchInterest> rdfs:label "research Interest"};
+INSERT DATA{<http://swat.cse.lehigh.edu/#researchInterest> rdfs:label "researchInterest"};
+
+
+INSERT DATA{<http://swat.cse.lehigh.edu/#publicationAuthor> rdfs:label "publicationAuthor"};
+
+INSERT DATA{<http://swat.cse.lehigh.edu/#teachingAssistantOf> rdfs:label "teachingAssistantOf"};
+
+INSERT DATA{<http://swat.cse.lehigh.edu/#advisor> rdfs:label "advisor"};
+
+INSERT DATA{<http://swat.cse.lehigh.edu/#takesCourse> rdfs:label "takesCourse"};
+
+INSERT DATA{<http://swat.cse.lehigh.edu/#memberOf> rdfs:label "memberOf"};
+
+INSERT DATA{<http://swat.cse.lehigh.edu/#headOf> rdfs:label "headOf"};
+
+INSERT DATA{<http://swat.cse.lehigh.edu/#worksFor> rdfs:label "worksFor"};
+
+INSERT DATA{<http://swat.cse.lehigh.edu/#doctoralDegreeFrom> rdfs:label "doctoralDegreeFrom"};
+
+INSERT DATA{<http://swat.cse.lehigh.edu/#mastersDegreeFrom> rdfs:label "mastersDegreeFrom"};
+
+INSERT DATA{<http://swat.cse.lehigh.edu/#undergraduateDegreeFrom> rdfs:label "undergraduateDegreeFrom"};
+
+INSERT DATA{<http://swat.cse.lehigh.edu/#teacherOf> rdfs:label "teacherOf"};
+
+INSERT DATA{<http://swat.cse.lehigh.edu/#subOrganizationOf> rdfs:label "subOrganizationOf"};
+
+
+
+
+
+
+
+
+
 
     
 label properties BSBM:
 
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyTextual1> rdfs:label "product Property Textual 1"};
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyTextual1> rdfs:label "productPropertyTextual1"};
 
-INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyTextual2> rdfs:label "product Property Textual 2"};
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyTextual2> rdfs:label "productPropertyTextual2"};
 
-INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyTextual3> rdfs:label "product Property Textual 3"};
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyTextual3> rdfs:label "productPropertyTextual3"};
 
-INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyTextual4> rdfs:label "product Property Textual 4"};
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyTextual4> rdfs:label "productPropertyTextual4"};
 
-INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyTextual5> rdfs:label "product Property Textual 5"};
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyTextual5> rdfs:label "productPropertyTextual5"};
 
-INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyTextual6> rdfs:label "product Property Textual 6"};
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyTextual6> rdfs:label "productPropertyTextual6"};
 
 INSERT DATA{<http://xmlns.com/foaf/0.1/name> rdfs:label "name"};
 
 INSERT DATA{<http://purl.org/dc/elements/1.1/title> rdfs:label "title"};
 
 INSERT DATA{<http://purl.org/stuff/rev#text> rdfs:label "text"};
+
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/rating4> rdfs:label "rating4"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/rating1> rdfs:label "rating1"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/rating3> rdfs:label "rating3"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/rating2> rdfs:label "rating2"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/reviewDate> rdfs:label "reviewDate"};
+
+INSERT DATA{<http://purl.org/stuff/rev#reviewer> rdfs:label "reviewer"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/reviewFor> rdfs:label "reviewFor"};
+
+INSERT DATA{<http://xmlns.com/foaf/0.1/mbox_sha1sum> rdfs:label "mbox_sha1sum"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/offerWebpage> rdfs:label "offerWebpage"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/deliveryDays> rdfs:label "deliveryDays"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/validTo> rdfs:label "validTo"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/validFrom> rdfs:label "validFrom"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/price> rdfs:label "price"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/vendor> rdfs:label "vendor"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/product> rdfs:label "product"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyNumeric4> rdfs:label "productPropertyNumeric4"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyNumeric6> rdfs:label "productPropertyNumeric6"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productFeature> rdfs:label "productFeature"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyNumeric5> rdfs:label "productPropertyNumeric5"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyNumeric3> rdfs:label "productPropertyNumeric3"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyNumeric2> rdfs:label "productPropertyNumeric2"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyNumeric1> rdfs:label "productPropertyNumeric1"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/producer> rdfs:label "producer"};
+
+INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/country> rdfs:label "country"};
+
+INSERT DATA{<http://xmlns.com/foaf/0.1/homepage> rdfs:label "country"};
+    
+INSERT DATA{<http://www.w3.org/2000/01/rdf-schema#subClassOf> rdfs:label "subClassOf"};
+
+INSERT DATA{<http://purl.org/dc/elements/1.1/date> rdfs:label "date"};
+
+
+
+
+
 
 
 
