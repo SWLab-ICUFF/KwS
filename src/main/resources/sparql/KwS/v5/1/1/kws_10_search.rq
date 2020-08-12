@@ -100,7 +100,7 @@ WHERE{
     SELECT ?sol (fn:countKwS('%4$s', group_concat(?_value)) as ?coverageScorePredicate)
     WHERE{
         GRAPH ?sol{
-            ?s ?p ?o.
+            [] ?p [].
             SERVICE <%2$s>{
                 ?p rdfs:label ?label. 
             }
