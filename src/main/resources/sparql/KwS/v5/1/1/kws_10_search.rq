@@ -167,11 +167,20 @@ WHERE {
     {
         SELECT ?sol ?s (group_concat(?value) as ?value_)
         WHERE {
-            graph ?sol {
-                ?s ?p ?value.
-                FILTER(isliteral(?value) && (!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol")))
+            {
+               graph ?sol {
+                    ?s ?p ?value.
+                    FILTER(isliteral(?value) && (!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol")))
+                }
+            FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
             }
-        FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+            union {
+                graph ?sol{
+                    [] ?p [].
+                    ?p rdfs:label ?_value.
+                }
+                FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+            }
         }
         group by ?sol ?s
     }
