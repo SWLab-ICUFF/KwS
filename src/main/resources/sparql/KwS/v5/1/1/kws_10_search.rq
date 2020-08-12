@@ -102,7 +102,6 @@ WHERE{
         GRAPH ?sol{
             ?s ?p ?o.
             ?p rdfs:label ?label. 
-            FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
         }
          FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
     }
