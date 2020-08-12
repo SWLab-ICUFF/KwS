@@ -99,13 +99,15 @@ INSERT {GRAPH ?sol {?sol kws:csScorePredicate ?coverageScore.}}
 WHERE{
     SELECT ?sol (fn:countKwS('%4$s', group_concat(?_value)) as ?coverageScorePredicate)
     WHERE{
-        GRAPH ?sol{
+        {GRAPH ?sol{
             [] ?p [].
-            SERVICE <%2$s>{
-                ?p rdfs:label ?label. 
-            }
+            filter ...
         }
          FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+        }
+        SERVICE <%2$s>{
+                ?p rdfs:label ?label.
+        }
     }
     group by ?sol
 
