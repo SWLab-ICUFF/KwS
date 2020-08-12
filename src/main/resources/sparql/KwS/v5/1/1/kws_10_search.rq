@@ -97,7 +97,7 @@ WHERE{
 ######################################################################################################
 INSERT {GRAPH ?sol {?p rdfs:label ?label.}}
 WHERE{
-    SELECT ?sol (fn:countKwS('%4$s', group_concat(?_value)) as ?coverageScorePredicate)
+###    SELECT ?sol (fn:countKwS('%4$s', group_concat(?_value)) as ?coverageScorePredicate)
     WHERE{
         {GRAPH ?sol{
             [] ?p [].
@@ -109,7 +109,7 @@ WHERE{
                 ?p rdfs:label ?label.
         }
     }
-    group by ?sol
+###    group by ?sol
 
 }
 
