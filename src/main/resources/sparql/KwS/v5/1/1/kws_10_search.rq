@@ -95,7 +95,7 @@ WHERE{
 ######################################################################################################
 # calcular o score das labels das propriedades por grupo de solução#
 ######################################################################################################
-INSERT {GRAPH ?sol {?sol kws:csScorePredicate ?coverageScore.}}
+INSERT {GRAPH ?sol {?p rdfs:label ?label.}}
 WHERE{
     SELECT ?sol (fn:countKwS('%4$s', group_concat(?_value)) as ?coverageScorePredicate)
     WHERE{
