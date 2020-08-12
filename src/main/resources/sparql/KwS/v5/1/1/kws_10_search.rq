@@ -61,34 +61,56 @@ WHERE{
 
 INSERT {graph ?sol {?s ?p ?o}}
 WHERE{
-  		SERVICE <%2$s> {
-    		SERVICE <%3$s> {
-      			{
-					SELECT DISTINCT ?s
- 					WHERE{
-          				{
-               				GRAPH ?sol {?s ?p2 []. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
-               				FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
-  		 				}UNION{
-                    		GRAPH ?sol {[] ?p2 ?s. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
-                    		FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
-                		}
+       SERVICE <%2$s> {
+            SERVICE <%3$s> {
+                                {
+                                  SELECT DISTINCT ?s
+                                  WHERE{
+                                           {
+                                                GRAPH ?sol {?s ?p2 []. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
+                                                FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+                                            }UNION{
+                                                GRAPH ?sol {[] ?p2 ?s. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
+                                                FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+                                            }
   						FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
-        			}
-				}
-    			(?s ?score ?literal) text:query (rdfs:label '%4$s').
-       			?s ?p ?literal.
-			}
+                                  }
+                                }
+                                (?s ?score ?literal) text:query (rdfs:label '%4$s').
+                                ?s ?p ?literal.
+                            }
 		}
   		{
-       		graph ?sol {?s ?p2 []. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
-       		FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
-    	}union{
-       		graph ?sol {[] ?p2 ?s. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
-       		FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
+                   GRAPH ?sol {?s ?p2 []. FILTER (NOT EXISTS {GRAPH kwsg:seeds {?s ?p [].}})}
+                   FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
+                }UNION{
+                    GRAPH ?sol {[] ?p2 ?s. filter (NOT EXISTS {GRAPH kwsg:seeds {?s ?p [].}})}
+                    FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
    		}
 
 };
+
+
+
+######################################################################################################
+# calcular o score das labels das propriedades por grupo de solução#
+######################################################################################################
+INSERT {GRAPH ?sol {?sol kws:csScorePredicate ?coverageScore.}}
+WHERE{
+    SELECT ?sol (fn:countKwS('%4$s', group_concat(?_value)) as ?coverageScorePredicate)
+    WHERE{
+        GRAPH ?sol{
+            ?s ?p ?o.
+            ?p rdfs:label ?label. 
+            FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
+        }
+         FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+    }
+    group by ?sol
+
+}
+
+
 
 ###################################################
 # calcular o coverageScore para as novas entidades #
