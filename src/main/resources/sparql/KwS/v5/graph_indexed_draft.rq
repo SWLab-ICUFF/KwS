@@ -192,3 +192,37 @@ WHERE{
   		FILTER(fn:isString(?object))
   	}  
 }
+
+
+
+########################NOVA VERSÃO: ################################
+
+#INSERINDO LABEL DAS INSTANCES
+
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+prefix kwsg: <urn:graph:kws:>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+INSERT {?instance rdfs:label ?label}
+WHERE{
+	SELECT DISTINCT ?instance ?label
+	WHERE {
+  		?instance a ?class.
+  		BIND(fn:label(?instance) as ?label)
+  	}
+}
+
+# inserindo as triplas para indexação:
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+prefix kwsg: <urn:graph:kws:>
+prefix kws: <urn:vocab:kws:>
+
+
+insert{graph kwsg:indexed {?subject kws:comment ?object}}
+WHERE{
+  	SELECT ?subject ?object
+  	WHERE {
+    	?subject ?predicate ?object.
+  		FILTER(fn:isString(?object))
+  	}  
+}
