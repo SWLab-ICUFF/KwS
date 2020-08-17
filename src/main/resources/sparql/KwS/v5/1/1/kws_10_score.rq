@@ -76,8 +76,10 @@ WHERE{
   						FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
                                   }
                                 }
-                                (?s ?score ?literal) text:query (rdfs:label '%4$s').
-                                ?s ?p ?literal.
+                                graph kwsg:indexed{
+                                    (?s ?score ?literal) text:query (kws:comment '%4$s').
+                                    ?s ?p ?literal.
+                                }
                             }
 		}
   		{
@@ -93,25 +95,21 @@ WHERE{
 
 
 ######################################################################################################
-# calcular o score das labels das propriedades por grupo de solução#
+# label das propriedades
 ######################################################################################################
 INSERT {GRAPH ?sol {?p rdfs:label ?label.}}
 WHERE{
-###    SELECT ?sol (fn:countKwS('%4$s', group_concat(?_value)) as ?coverageScorePredicate)
-    WHERE{
         {GRAPH ?sol{
             [] ?p [].
-            filter ...
+            filter(!regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
         }
          FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
         }
         SERVICE <%2$s>{
                 ?p rdfs:label ?label.
         }
-    }
-###    group by ?sol
-
-}
+    
+};
 
 
 
