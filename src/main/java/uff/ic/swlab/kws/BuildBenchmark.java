@@ -94,13 +94,17 @@ public class BuildBenchmark {
         String keywordsNotSearch = String.valueOf(soln.get("new_kws"));
         //indica que existem palavras chaves que precisam ser encontradas
         if (!keywordsNotSearch.equals("")) {
-            String AllKeywordsNotSearch = keywordsNotSearch;
+            // loop para cobrir todas as palavras chaves
             while (!keywordsNotSearch.equals("")) {
-                
+                // armazenando a nova iteração de seeds
                 queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_04_search_new_seed.rq", kwsVersion));
                 queryString = String.format(queryString, serviceDatabase, keywordsNotSearch);
                 fuseki.execUpdate(queryString, "KwS.temp");
-
+                
+                queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_02_search_literais.rq", kwsVersion));
+                queryString = String.format(queryString, serviceDatabase, keywordQuery);
+                fuseki.execUpdate(queryString, "KwS.temp");
+                
                 // verificando se inseriu alguma nova seed
                 queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_03_search_new_seeds.rq", kwsVersion));
                 queryString = String.format(queryString, format_keywordQuery);
@@ -109,17 +113,17 @@ public class BuildBenchmark {
                 ResultSet new_result = new_q.execSelect();
                 QuerySolution new_soln = new_result.nextSolution();
 
-                String NewkeywordsNotSearch = String.valueOf(soln.get("new_kws"));
+                String NewkeywordsNotSearch = String.valueOf(new_soln.get("new_kws"));
                 new_q.close();
-                if (NewkeywordsNotSearch.equals(AllKeywordsNotSearch)) {
-                    //significa que não inseriu nenhuma palavra chave
+
+                //se nao inseriu nenhuma keyword
+                if (NewkeywordsNotSearch.equals(keywordsNotSearch)) {
                     String[] vector = keywordsNotSearch.split(" ");
                     ArrayList<String> listWords = new ArrayList<>();
                     if (vector.length > 1) {
                         for (int i = 1; i < vector.length; i++) {
                             listWords.add(vector[i]);
                         }
-
                         String searchKws = String.join(" ", listWords);
                         keywordsNotSearch = searchKws;
                     } else {
@@ -127,12 +131,7 @@ public class BuildBenchmark {
                     }
 
                 } else {
-                    // inserindo literais das novas seeds
-                    queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_02_search_literais.rq", kwsVersion));
-                    queryString = String.format(queryString, serviceDatabase, keywordQuery);
-                    fuseki.execUpdate(queryString, "KwS.temp");
-                    
-                    //verificando novas palavras chaves
+                     //verificando novas palavras chaves
                     queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_03_search_new_seeds.rq", kwsVersion));
                     queryString = String.format(queryString, format_keywordQuery);
 
@@ -140,17 +139,15 @@ public class BuildBenchmark {
                     new_result = new_q.execSelect();
                     new_soln = new_result.nextSolution();
                     
-                    NewkeywordsNotSearch = String.valueOf(soln.get("new_kws"));
+                    keywordsNotSearch = String.valueOf(new_soln.get("new_kws"));
 
                     new_q.close();
                     
-
                 }
 
             }
-
         }
-
+        q.close();
 
         System.out.println("Buscando propriedades que match");
         queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_05_search_properties.rq", kwsVersion));
