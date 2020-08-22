@@ -1,5 +1,1 @@
-
-
-
-
-(productFeature productPropertyNumeric1 productPropertyNumeric2 dataFromProducer1Product1 productPropertyNumeric2)
+(ProductType1 productFeature ProductFeature1 ProductFeature2 productPropertyNumeric1)
