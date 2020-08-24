@@ -91,6 +91,25 @@ WHERE{
 
 };
 
+
+
+
+#
+# Trazer matching triples das propriedades encontradas nos solution generartors
+#
+
+
+
+#
+# Trazer matching triples das propriedades utilizadas por entidades dos solution generators
+#
+
+
+#
+# Levar em consideração essas novas matching triples no cálculo dos scores
+#
+
+
 ######################################################################################################
 # ADICIONANDO ENTIDADES DAS DATAPROPERTIES NOS GRUPOS DE SOLUÇÕES
 ######################################################################################################
@@ -117,7 +136,7 @@ WHERE{
                         ?s ?p ?o.
                     }
                     FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
-                } 
+                }
                 group by ?sol ?s ?o
                } UNION {
                         #retorna relacao nx1 contendo as seeds que são propriedades
@@ -133,9 +152,9 @@ WHERE{
                             }
                           }
                         }
-  
+
                 }
-  
+
             }
 
         }
@@ -157,7 +176,7 @@ WHERE{
         SERVICE <%2$s>{
                 ?p rdfs:label ?label.
         }
-    
+
 };
 
 

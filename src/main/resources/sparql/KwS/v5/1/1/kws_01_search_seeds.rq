@@ -45,10 +45,10 @@ WHERE{
                     }
                     GROUP BY ?s
                 }
-                OPTIONAL{?s quira:inforankNormalized ?inforankNormalized.}
+                #OPTIONAL{?s quira:inforankNormalized ?inforankNormalized.}
             }
         }
-        # FILTER (((?score / ?max_score_lucene) + ?inforankNormalized)/2 > 0.0)
+        FILTER (((?score / ?max_score_lucene) + ?inforankNormalized)/2 > 0.0)
         }
         ORDER BY DESC(?score_final)
         LIMIT 5

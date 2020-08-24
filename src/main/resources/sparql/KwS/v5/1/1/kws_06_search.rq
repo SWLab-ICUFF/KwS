@@ -18,6 +18,12 @@ PREFIX agg: <http://uff.ic.swlab.jena.sparql.aggregate/>
 # Fazer combinações das entidades encontradas com score > 0 e concatenar os comentários das entidades do grupo. #
 #################################################################################################################
 
+
+#
+# garantir que entidades não são propriedades
+#
+
+
 WITH kwsg:groups
 INSERT {
     ?bag a rdf:Bag;
