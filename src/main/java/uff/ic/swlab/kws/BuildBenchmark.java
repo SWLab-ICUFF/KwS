@@ -178,27 +178,32 @@ public class BuildBenchmark {
         queryString = String.format(queryString, serviceDatabase, service2);
         fuseki.execUpdate(queryString, "KwS.temp");
 
-        System.out.println("Gerando os caminhos de distância 3....");
-        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_08_paths_3.rq", kwsVersion));
-        queryString = String.format(queryString, serviceDatabase, service2);
-        fuseki.execUpdate(queryString, "KwS.temp");
-
-        System.out.println("Gerando os caminhos de distância 4....");
-        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_08_paths_4.rq", kwsVersion));
-        queryString = String.format(queryString, serviceDatabase, service2);
-        fuseki.execUpdate(queryString, "KwS.temp");
+//        System.out.println("Gerando os caminhos de distância 3....");
+//        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_08_paths_3.rq", kwsVersion));
+//        queryString = String.format(queryString, serviceDatabase, service2);
+//        fuseki.execUpdate(queryString, "KwS.temp");
+//
+//        System.out.println("Gerando os caminhos de distância 4....");
+//        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_08_paths_4.rq", kwsVersion));
+//        queryString = String.format(queryString, serviceDatabase, service2);
+//        fuseki.execUpdate(queryString, "KwS.temp");
 
         System.out.println("Deletando grafo de pares....");
         queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/delete_pairs.rq", kwsVersion));
         queryString = String.format(queryString);
         fuseki.execUpdate(queryString, "KwS.temp");
 
-        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_09_split_graph.rq", kwsVersion));
-        queryString = String.format(queryString);
+//        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_09_split_graph.rq", kwsVersion));
+//        queryString = String.format(queryString);
+//        fuseki.execUpdate(queryString, "KwS.temp");
+
+        System.out.println("Trazendo os predicados nos grupos de soluções...");
+        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_10_predicates.rq", kwsVersion));
+        queryString = String.format(queryString, keywordQuery, serviceDatabase, service2, format_keywordQuery, "KwS.temp");
         fuseki.execUpdate(queryString, "KwS.temp");
 
         System.out.println("Calculando o score das soluções...");
-        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_10_search.rq", kwsVersion));
+        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_11_score.rq", kwsVersion));
         queryString = String.format(queryString, keywordQuery, serviceDatabase, service2, format_keywordQuery, "KwS.temp");
         fuseki.execUpdate(queryString, "KwS.temp");
 

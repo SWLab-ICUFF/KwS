@@ -1,0 +1,167 @@
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+prefix text: <http://jena.apache.org/text#>
+prefix quira: <http://www.quira.org/>
+PREFIX agg: <http://uff.ic.swlab.jena.sparql.aggregate/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+############################################################################################
+# criando uri nomeada da solução e calcular a quantidade de entidades novas em cada solução
+#############################################################################################
+
+INSERT {graph ?sol {?sol kws:size ?size}}
+WHERE{
+	SELECT ?sol (count(distinct ?entity) as ?size)
+WHERE{
+  GRAPH ?sol {
+    {?entity ?p []} UNION {[] ?p ?entity}
+    FILTER(!isBlank(?entity) && !isLiteral(?entity))
+  }
+   FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+}
+GROUP BY ?sol
+};
+
+
+
+############################################################################################
+# Armazenando as propriedades das seeds nos grupos de soluções
+#############################################################################################
+INSERT {graph ?sol {?s ?p ?o}}
+WHERE{
+    {
+    	GRAPH kwsg:seeds{
+        	?s kws:matchingPredicate ?p.
+       	 	?s kws:value ?o.
+
+    	}
+        GRAPH ?sol {?s ?p2 [].}
+        FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+    }
+    UNION
+    {
+    	GRAPH kwsg:seeds{
+        	?s kws:matchingPredicate ?p.
+        	?s kws:value ?o.
+    	}
+        GRAPH ?sol {[] ?p2 ?s.}
+        FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+    }
+};
+
+############################################################################################
+# Armazenando as propriedades das novas entidades
+#############################################################################################
+
+INSERT {graph ?sol {?s ?p ?o}}
+WHERE{
+       SERVICE <%2$s> {
+            SERVICE <%3$s> {
+                                {
+                                  SELECT DISTINCT ?s
+                                  WHERE{
+                                           {
+                                                GRAPH ?sol {?s ?p2 []. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
+                                                FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+                                            }UNION{
+                                                GRAPH ?sol {[] ?p2 ?s. filter (not exists {graph kwsg:seeds {?s ?p [].}})}
+                                                FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+                                            }
+  						FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
+                                  }
+                                }
+                                graph kwsg:indexed{
+                                    (?s ?score ?literal) text:query (kws:comment '%4$s').
+                                    ?s ?p ?literal.
+                                }
+                            }
+		}
+  		{
+                   GRAPH ?sol {?s ?p2 []. FILTER (NOT EXISTS {GRAPH kwsg:seeds {?s ?p [].}})}
+                   FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
+                }UNION{
+                    GRAPH ?sol {[] ?p2 ?s. filter (NOT EXISTS {GRAPH kwsg:seeds {?s ?p [].}})}
+                    FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
+   		}
+
+};
+
+######################################################################################################
+# ADICIONANDO ENTIDADES DAS DATAPROPERTIES NOS GRUPOS DE SOLUÇÕES
+######################################################################################################
+
+INSERT {graph ?sol {?s ?seed_properties ?object.
+                    ?subject ?seed_properties ?o.}}
+WHERE{
+    #relação de ?s ?o ?seedsproperties
+        {
+            SERVICE <%2$s>{
+                {?s ?seed_properties ?object.} UNION{?subject ?seed_properties ?o.}
+            }
+        }
+
+
+        { # retorna relação nx4 contendo as entidades dos grupos de soluções e a seeds
+            SELECT ?sol ?s ?o ?seed_properties
+            {
+               {
+                 #retorna relação nx3 contendo as entidades dos grupos de soluções
+                 SELECT ?sol ?s ?o
+                 {
+                    GRAPH ?sol{
+                        ?s ?p ?o.
+                    }
+                    FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+                } 
+                group by ?sol ?s ?o
+               } UNION {
+                        #retorna relacao nx1 contendo as seeds que são propriedades
+                        SELECT DISTINCT ?seed_properties
+                        {
+                          GRAPH kwsg:seeds{
+                            ?bag rdfs:member ?seed_properties.
+                          }
+                          {
+                            SERVICE <http://semanticweb.inf.puc-rio.br:3030/BSBM_10M/sparql>{
+                                [] ?seed_properties ?object.
+                                FILTER(isLiteral(?object))
+                            }
+                          }
+                        }
+  
+                }
+  
+            }
+
+        }
+}
+
+
+
+
+######################################################################################################
+# label das propriedades
+######################################################################################################
+INSERT {GRAPH ?sol {?p rdfs:label ?label.}}
+WHERE{
+        {GRAPH ?sol{
+            [] ?p [].
+        }
+         FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+        }
+        SERVICE <%2$s>{
+                ?p rdfs:label ?label.
+        }
+    
+};
+
+
+
+
+
+
