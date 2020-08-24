@@ -45,7 +45,7 @@ WHERE{
                     }
                     GROUP BY ?s
                 }
-                #OPTIONAL{?s quira:inforankNormalized ?inforankNormalized.}
+                ?s quira:inforankNormalized ?inforankNormalized.
             }
         }
         FILTER (((?score / ?max_score_lucene) + ?inforankNormalized)/2 > 0.0)

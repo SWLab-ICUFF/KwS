@@ -75,7 +75,7 @@ WHERE{
   						FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
                                   }
                                 }
-                                graph kwsg:indexed{
+                                graph kwsg:indexed{ 
                                     (?s ?score ?literal) text:query (kws:comment '%4$s').
                                     ?s ?p ?literal.
                                 }
@@ -93,90 +93,39 @@ WHERE{
 
 
 
-
-#
+######################################################################################################
 # Trazer matching triples das propriedades encontradas nos solution generartors
-#
-
-
-
-#
-# Trazer matching triples das propriedades utilizadas por entidades dos solution generators
-#
-
-
-#
-# Levar em consideração essas novas matching triples no cálculo dos scores
-#
-
-
-######################################################################################################
-# ADICIONANDO ENTIDADES DAS DATAPROPERTIES NOS GRUPOS DE SOLUÇÕES
-######################################################################################################
-
-INSERT {graph ?sol {?s ?seed_properties ?object.
-                    ?subject ?seed_properties ?o.}}
-WHERE{
-    #relação de ?s ?o ?seedsproperties
-        {
-            SERVICE <%2$s>{
-                {?s ?seed_properties ?object.} UNION{?subject ?seed_properties ?o.}
-            }
-        }
-
-
-        { # retorna relação nx4 contendo as entidades dos grupos de soluções e a seeds
-            SELECT ?sol ?s ?o ?seed_properties
-            {
-               {
-                 #retorna relação nx3 contendo as entidades dos grupos de soluções
-                 SELECT ?sol ?s ?o
-                 {
-                    GRAPH ?sol{
-                        ?s ?p ?o.
-                    }
-                    FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
-                }
-                group by ?sol ?s ?o
-               } UNION {
-                        #retorna relacao nx1 contendo as seeds que são propriedades
-                        SELECT DISTINCT ?seed_properties
-                        {
-                          GRAPH kwsg:seeds{
-                            ?bag rdfs:member ?seed_properties.
-                          }
-                          {
-                            SERVICE <http://semanticweb.inf.puc-rio.br:3030/BSBM_10M/sparql>{
-                                [] ?seed_properties ?object.
-                                FILTER(isLiteral(?object))
-                            }
-                          }
-                        }
-
-                }
-
-            }
-
-        }
-}
-
-
-
-
-######################################################################################################
-# label das propriedades
 ######################################################################################################
 INSERT {GRAPH ?sol {?p rdfs:label ?label.}}
 WHERE{
-        {GRAPH ?sol{
-            [] ?p [].
+         # retorna nx2 relação dos predicados que tem dentro do S.G
+            { SELECT DISTINCT ?sol ?p
+                    WHERE{
+                            GRAPH ?sol{
+                                [] ?p [].
+                                FILTER(!regex(str(?p),"http://www.w3.org/1999/02/22-rdf-syntax-ns#type") 
+                                        && (!regex(str(?p),"http://www.w3.org/2000/01/rdf-schema#label")) 
+                                        && (!regex(str(?p),"urn:vocab:kws:size")))
+                            }
+                            FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+                    }
         }
-         FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
-        }
-        SERVICE <%2$s>{
-                ?p rdfs:label ?label.
-        }
-
+        # retorna relação dos predicados que batem com alguma keyword dentro dos S.G
+        {
+            SERVICE <%2$s>{
+                            {  
+                                graph kwsg:indexed{
+                                  (?p ?score ?label) text:query (kws:comment '%1$s').  
+                                }
+            
+                            }
+                            {
+                                SELECT DISTINCT ?p
+                                WHERE{?subject ?p ?o.?p rdfs:label ?label.}
+                            }
+  		
+            }
+       }
 };
 
 
@@ -184,3 +133,33 @@ WHERE{
 
 
 
+#######################################################################################################
+# Trazer matching triples das propriedades utilizadas por entidades dos solution generators
+#######################################################################################################
+
+   
+
+INSERT {GRAPH ?sol {?predicate_match rdfs:label ?label.}}
+WHERE{	
+  		#retorna relação de todas as entidades dentro de S.G
+  		{
+  				SELECT DISTINCT ?sol ?s
+                    {
+                            GRAPH ?sol{
+                                ?s ?p [].
+                                FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
+                            }
+                            FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+					}	
+  		}
+  		{
+  			SERVICE <%$s2>{
+      			{SELECT DISTINCT ?predicate_match WHERE { ?s ?predicate_match ?o.}}
+      			{
+      				 graph kwsg:indexed{
+                                  (?predicate_match ?score ?label) text:query (kws:comment '%1$s').  
+                                }
+      			}
+    		}
+  		}
+};
