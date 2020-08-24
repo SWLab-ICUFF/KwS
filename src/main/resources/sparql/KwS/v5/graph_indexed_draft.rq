@@ -16,6 +16,34 @@ INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/Vendor> r
 INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/Offer> rdfs:label "Offer"};
 
 
+
+label dos COUNTRIES BSBM:
+
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+
+INSERT DATA {<http://downlode.org/rdf/iso-3166/countries#DE> rdfs:label "DE"}; 
+
+INSERT DATA { <http://downlode.org/rdf/iso-3166/countries#US>  rdfs:label "US"}; 
+
+INSERT DATA { <http://downlode.org/rdf/iso-3166/countries#KR>  rdfs:label "KR"}; 
+
+INSERT DATA { <http://downlode.org/rdf/iso-3166/countries#AT>  rdfs:label "AT"}; 
+
+INSERT DATA { <http://downlode.org/rdf/iso-3166/countries#GB>  rdfs:label "GB"}; 
+
+INSERT DATA { <http://downlode.org/rdf/iso-3166/countries#FR>  rdfs:label "FR"}; 
+
+INSERT DATA { <http://downlode.org/rdf/iso-3166/countries#JP>  rdfs:label "JP"}; 
+
+INSERT DATA { <http://downlode.org/rdf/iso-3166/countries#ES>  rdfs:label "ES"}; 
+
+INSERT DATA { <http://downlode.org/rdf/iso-3166/countries#RU>  rdfs:label "RU"}; 
+
+INSERT DATA { <http://downlode.org/rdf/iso-3166/countries#CN>  rdfs:label "CN"}; 
+
+
 labels classes LUBM:
 
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -226,3 +254,58 @@ WHERE{
   		FILTER(fn:isString(?object))
   	}  
 }
+
+
+
+
+############### Inserindo label das instancias no kws:comment:
+PREFIX kws: <urn:vocab:kws:>
+PREFIX kwsg: <urn:graph:kws:>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX text: <http://jena.apache.org/text#>
+PREFIX quira: <http://www.quira.org/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+
+insert{graph kwsg:indexed {?instance kws:comment ?label}}
+WHERE{
+  
+  SELECT DISTINCT ?instance ?label
+	WHERE {
+  		?instance a ?class.
+  		BIND(fn:label(?instance) as ?label)
+  	}
+}
+                  
+# Inserindo label dos predicados no kws:comment
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix kwsg: <urn:graph:kws:>
+prefix kws: <urn:vocab:kws:>
+
+insert{graph kwsg:indexed {?predicate kws:comment ?label}}
+WHERE{
+	SELECT DISTINCT ?predicate ?label
+	WHERE {
+  		[] ?predicate [].
+  		?predicate rdfs:label ?label
+  	}
+}
+
+#inserindo label das classes no kws:comment (BSBM)
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix kwsg: <urn:graph:kws:>
+prefix kws: <urn:vocab:kws:>
+
+insert{graph kwsg:indexed {?class kws:comment ?label}}
+WHERE{
+	SELECT distinct ?class
+	WHERE {
+  		[] rdf:type ?class.
+  		?class rdfs:label ?label
+  		FILTER(CONTAINS(str(?class), "vocabulary"))
+  	}
+  }
+  
+
