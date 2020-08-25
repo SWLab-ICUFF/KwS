@@ -194,11 +194,13 @@ INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/producer>
 
 INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/country> rdfs:label "country"};
 
-INSERT DATA{<http://xmlns.com/foaf/0.1/homepage> rdfs:label "country"};
+INSERT DATA{<http://xmlns.com/foaf/0.1/homepage> rdfs:label "homepage"};
     
 INSERT DATA{<http://www.w3.org/2000/01/rdf-schema#subClassOf> rdfs:label "subClassOf"};
 
 INSERT DATA{<http://purl.org/dc/elements/1.1/date> rdfs:label "date"};
+
+INSERT DATA{<http://purl.org/dc/elements/1.1/publisher> rdfs:label "publisher"};
 
 
 
