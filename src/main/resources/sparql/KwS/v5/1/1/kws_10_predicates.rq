@@ -75,7 +75,7 @@ WHERE{
   						FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol") && isuri(?s))
                                   }
                                 }
-                                graph kwsg:indexed{ 
+                                graph kwsg:indexed{
                                     (?s ?score ?literal) text:query (kws:comment '%4$s').
                                     ?s ?p ?literal.
                                 }
@@ -103,29 +103,30 @@ WHERE{
                     WHERE{
                             GRAPH ?sol{
                                 [] ?p [].
-                                FILTER(!regex(str(?p),"http://www.w3.org/1999/02/22-rdf-syntax-ns#type") 
-                                        && (!regex(str(?p),"http://www.w3.org/2000/01/rdf-schema#label")) 
+                                FILTER(!regex(str(?p),"http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
+                                        && (!regex(str(?p),"http://www.w3.org/2000/01/rdf-schema#label"))
                                         && (!regex(str(?p),"urn:vocab:kws:size")))
                             }
                             FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
                     }
         }
         # retorna relação dos predicados que batem com alguma keyword dentro dos S.G
-        {
+
             SERVICE <%2$s>{
-                            {  
-                                graph kwsg:indexed{
-                                  (?p ?score ?label) text:query (kws:comment '%1$s').  
-                                }
-            
-                            }
                             {
-                                SELECT DISTINCT ?p
-                                WHERE{?subject ?p ?o.?p rdfs:label ?label.}
+                                graph kwsg:indexed{
+                                  (?p ?score ?label) text:query (kws:comment '%1$s').
+                                    filter (exists {[] ?p []})
+                                }
+
                             }
-  		
+                            #{
+                            #    SELECT DISTINCT ?p
+                            #    WHERE{?subject ?p ?o.?p rdfs:label ?label.}
+                            #}
+
             }
-       }
+
 };
 
 
@@ -137,29 +138,41 @@ WHERE{
 # Trazer matching triples das propriedades utilizadas por entidades dos solution generators
 #######################################################################################################
 
-   
 
-INSERT {GRAPH ?sol {?predicate_match rdfs:label ?label.}}
-WHERE{	
-  		#retorna relação de todas as entidades dentro de S.G
-  		{
-  				SELECT DISTINCT ?sol ?s
-                    {
-                            GRAPH ?sol{
-                                ?s ?p [].
-                                FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
-                            }
-                            FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
-					}	
-  		}
-  		{
-  			SERVICE <%$s2>{
-      			{SELECT DISTINCT ?predicate_match WHERE { ?s ?predicate_match ?o.}}
-      			{
-      				 graph kwsg:indexed{
-                                  (?predicate_match ?score ?label) text:query (kws:comment '%1$s').  
-                                }
-      			}
-    		}
-  		}
+
+INSERT {GRAPH ?sol {?p rdfs:label ?label.}}
+WHERE{
+    #retorna relação de todas as entidades dentro de S.G
+    {
+        SELECT DISTINCT ?sol ?s
+        {
+            GRAPH ?sol{
+                ?s ?p__ [].
+                FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
+            }
+            FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+        }
+    }
+
+    SERVICE <%$s2>{
+
+        SELECT DISTINCT ?s ?p ?label
+        where {
+            graph kwsg:indexed {
+                (?p ?score ?label) text:query (kws:comment '%1$s').
+                filter (exists {[] ?p []})
+            }
+            ?s ?p [].
+
+            filter exists {service <>{
+                    GRAPH ?sol{
+                        ?s ?p_ [].
+                        FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
+                    }
+                    FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+                }
+            }
+        }
+    }
+
 };
