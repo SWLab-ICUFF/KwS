@@ -137,17 +137,7 @@ WHERE{
 
 INSERT {GRAPH ?sol {?p rdfs:label ?label. ?s ?p ?v.}}
 WHERE{
-    #retorna relação de todas as entidades dentro de S.G
-    {
-        SELECT DISTINCT ?sol ?s
-        {
-            GRAPH ?sol{
-                ?s ?p__ [].
-                FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
-            }
-            FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
-        }
-    }
+
 
     SERVICE <%2$s>{
 
@@ -159,16 +149,30 @@ WHERE{
             }
             #filter (exists {[] ?p []})
             ?s ?p ?v.
-            filter exists {service <%3$s>{
-                    GRAPH ?sol{
-                        ?s ?p_ [].
-                        FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
-                    }
-                    FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
-                }
-            }
+            #filter exists {service <%3$s>{
+            #        GRAPH ?sol{
+            #            ?s ?p_ [].
+            #            FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
+            #        }
+            #        FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+            #    }
+            #}
         }
     }
+
+    #retorna relação de todas as entidades dentro de S.G
+    optional {
+        SELECT DISTINCT ?sol ?s
+        {
+            GRAPH ?sol{
+                ?s ?p__ [].
+                FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
+            }
+            FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+        }
+    }
+
+    bind (COALESCE(?sol,iri(concat("%2$s","sol",str(fn:sequential())))) as ?sol)
 
 };
 
