@@ -141,10 +141,13 @@ INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPr
 
 INSERT DATA{<http://xmlns.com/foaf/0.1/name> rdfs:label "name"};
 
+INSERT DATA{<http://www.w3.org/2000/01/rdf-schema#label> rdfs:label "label"};
+
 INSERT DATA{<http://purl.org/dc/elements/1.1/title> rdfs:label "title"};
 
 INSERT DATA{<http://purl.org/stuff/rev#text> rdfs:label "text"};
 
+INSERT DATA{<http://www.w3.org/2000/01/rdf-schema#comment> rdfs:label "comment"};
 
 INSERT DATA{<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/rating4> rdfs:label "rating4"};
 

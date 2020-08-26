@@ -154,10 +154,12 @@ WITH kwsg:groups
 INSERT {?bag kws:ssScore ?ssScore; kws:maxInitialGroupSize ?maxInitialGroupSize.}
 USING kwsg:groups
 WHERE {
-    SELECT ?bag ((?maxInitialGroupSize - ?initialSize)/(?maxInitialGroupSize - 1) AS ?ssScore)
+    SELECT ?bag ?ssScore
     WHERE {
         {SELECT (max(?initialSize) as ?maxInitialGroupSize) {[] kws:initialSize ?initialSize.}}
         ?bag kws:initialSize ?initialSize.
+        BIND((?maxInitialGroupSize - ?initialSize)/(?maxInitialGroupSize - 1) AS ?sscore)
+        bind(if((?maxInitialGroupSize) = 1, 0 , ?maxInitialGroupSize) AS ?ssScore) 
     }
 };
 

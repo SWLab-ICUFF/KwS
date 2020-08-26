@@ -1,2 +1,7 @@
 
-(dataFromProducer1Product1 comment producer publisher productFeature productPropertyTextual1 productPropertyTextual2 productPropertyTextual3 productPropertyNumeric1 productPropertyNumeric2)
+
+
+
+
+
+(dataFromProducer17Product810 price vendor country US publisher validTo reviewFor reviewer rating1 rating2 name)

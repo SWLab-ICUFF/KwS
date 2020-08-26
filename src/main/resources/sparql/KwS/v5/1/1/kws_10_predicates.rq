@@ -116,20 +116,15 @@ WHERE{
                             {
                                 graph kwsg:indexed{
                                   (?p ?score ?label) text:query (kws:comment '%1$s').
-                                    filter (exists {[] ?p []})
+                                    
                                 }
-
+                                filter (exists {[] ?p []})
                             }
-                            #{
-                            #    SELECT DISTINCT ?p
-                            #    WHERE{?subject ?p ?o.?p rdfs:label ?label.}
-                            #}
+      
 
             }
 
 };
-
-
 
 
 
@@ -154,17 +149,17 @@ WHERE{
         }
     }
 
-    SERVICE <%$s2>{
+    SERVICE <%2$s>{
 
         SELECT DISTINCT ?s ?p ?label
         where {
             graph kwsg:indexed {
                 (?p ?score ?label) text:query (kws:comment '%1$s').
-                filter (exists {[] ?p []})
+                
             }
+            #filter (exists {[] ?p []})
             ?s ?p [].
-
-            filter exists {service <>{
+            filter exists {service <%3$s>{
                     GRAPH ?sol{
                         ?s ?p_ [].
                         FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
@@ -176,3 +171,4 @@ WHERE{
     }
 
 };
+
