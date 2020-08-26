@@ -116,11 +116,11 @@ WHERE{
                             {
                                 graph kwsg:indexed{
                                   (?p ?score ?label) text:query (kws:comment '%1$s').
-                                    
+
                                 }
                                 filter (exists {[] ?p []})
                             }
-      
+
 
             }
 
@@ -135,7 +135,7 @@ WHERE{
 
 
 
-INSERT {GRAPH ?sol {?p rdfs:label ?label.}}
+INSERT {GRAPH ?sol {?p rdfs:label ?label. ?s ?p ?v.}}
 WHERE{
     #retorna relação de todas as entidades dentro de S.G
     {
@@ -151,14 +151,14 @@ WHERE{
 
     SERVICE <%2$s>{
 
-        SELECT DISTINCT ?s ?p ?label
+        SELECT DISTINCT ?s ?p ?v ?label
         where {
             graph kwsg:indexed {
                 (?p ?score ?label) text:query (kws:comment '%1$s').
-                
+
             }
             #filter (exists {[] ?p []})
-            ?s ?p [].
+            ?s ?p ?v.
             filter exists {service <%3$s>{
                     GRAPH ?sol{
                         ?s ?p_ [].
