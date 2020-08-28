@@ -193,13 +193,13 @@ public class BuildBenchmark {
         queryString = String.format(queryString);
         fuseki.execUpdate(queryString, "KwS.temp");
 
-//        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_09_split_graph.rq", kwsVersion));
-//        queryString = String.format(queryString);
-//        fuseki.execUpdate(queryString, "KwS.temp");
+        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_09_split_graph.rq", kwsVersion));
+        queryString = String.format(queryString);
+        fuseki.execUpdate(queryString, "KwS.temp");
 
         System.out.println("Trazendo os predicados nos grupos de soluções...");
         queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_10_predicates.rq", kwsVersion));
-        queryString = String.format(queryString, keywordQuery, serviceDatabase, service2, format_keywordQuery, "KwS.temp");
+        queryString = String.format(queryString, keywordQuery, serviceDatabase, service2, format_keywordQuery, benchmarkNS, "KwS.temp");
         fuseki.execUpdate(queryString, "KwS.temp");
 
         System.out.println("Calculando o score das soluções...");

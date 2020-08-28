@@ -135,44 +135,66 @@ WHERE{
 
 
 
-INSERT {GRAPH ?sol {?p rdfs:label ?label. ?s ?p ?v.}}
+INSERT {GRAPH ?sol {?p rdfs:label ?label. ?s ?p ?v. ?s_ ?p ?o}}
 WHERE{
-
-
     SERVICE <%2$s>{
-
         SELECT DISTINCT ?s ?p ?v ?label
         where {
             graph kwsg:indexed {
                 (?p ?score ?label) text:query (kws:comment '%1$s').
 
             }
-            #filter (exists {[] ?p []})
-            ?s ?p ?v.
-            #filter exists {service <%3$s>{
-            #        GRAPH ?sol{
-            #            ?s ?p_ [].
-            #            FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
-            #        }
-            #        FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
-            #    }
-            #}
+            filter (exists {[] ?p []})
+            {?s ?p ?v.} UNION {?s_ ?p ?o.}
         }
     }
 
     #retorna relação de todas as entidades dentro de S.G
     optional {
-        SELECT DISTINCT ?sol ?s
+        SELECT DISTINCT ?sol ?s ?o
         {
             GRAPH ?sol{
-                ?s ?p__ [].
+                ?s ?p__ ?o.
                 FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
             }
             FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
         }
     }
-
-    bind (COALESCE(?sol,iri(concat("%2$s","sol",str(fn:sequential())))) as ?sol)
+    FILTER NOT EXISTS{GRAPH ?sol{ ?s ?p ?o.
+                                    bind (COALESCE(?sol,iri(concat("%5$s","sol",str(fn:sequential())))) as ?sol)}}
 
 };
 
+#######################################################################################################
+# Trazer label dos sujeitos e objetos no S.G
+#######################################################################################################
+
+INSERT {GRAPH ?sol {?s rdfs:label ?label_s. ?o rdfs:label ?label_o}}
+WHERE{
+        {
+            GRAPH ?sol{
+                ?s ?p_ ?o.
+                FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
+            }
+            FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+        }
+        SERVICE <%2$s>{
+                {
+                    ?s rdfs:label ?label_s.
+                }UNION{
+                    ?o rdfs:label ?label_o
+
+                }
+                SERVICE <%3$s>{
+                       GRAPH ?sol{
+                            ?s ?p__ ?o.
+                            FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
+                        }
+                        FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+                
+                    
+                }
+        }
+        
+
+}
