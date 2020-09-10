@@ -1,14 +1,11 @@
-(GraduateStudent takesCourse Department0University0GraduateCourse0)
-(GraduateStudent University Department memberOf subOrganizationOf undergraduateDegreeFrom)
-(Publication publicationAuthor Department0University0AssistantProfessor0)
-(FullProfessor worksFor Department0University0 emailAddress telephone)
-(UndergraduateStudent memberOf Department0University0)
-(FullProfessor)
-(GraduateStudent takesCourse GraduateCourse Department0University0AssociateProfessor0 teacherOf)
-(UndergraduateStudent Department memberOf subOrganizationOf University0 emailAddress)
-(UndergraduateStudent advisor teacherOf Course takesCourse AssistantProfessor)
-(GraduateStudent takesCourse Department0University0GraduateCourse0)
+
+
+
+
+
+
+
+
+
+
 (ResearchGroup subOrganizationOf Department0University0)
-(worksFor Department FullProfessor  subOrganizationOf University7)
-(GraduateStudent undergraduateDegreeFrom University5)
-(UndergraduateStudent)

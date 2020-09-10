@@ -159,8 +159,9 @@ WHERE {
         {SELECT (max(?initialSize) as ?maxInitialGroupSize) {[] kws:initialSize ?initialSize.}}
         ?bag kws:initialSize ?initialSize.
         BIND((?maxInitialGroupSize - ?initialSize)/(?maxInitialGroupSize - 1) AS ?sscore)
-        bind(if((?maxInitialGroupSize) = 1, 0 , ?maxInitialGroupSize) AS ?ssScore) 
+        BIND(COALESCE(?sscore, 0) as ?ssScore)
     }
+   
 };
 
 
