@@ -35,13 +35,13 @@ import org.apache.jena.riot.RDFDataMgr;
 public class BuildBenchmark {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException, InterruptedException {
-        String database = "LUBM_10M";
+        String database = "Mondial_ShortPaper";
         String serviceDatabase = String.format("http://semanticweb.inf.puc-rio.br:3030/%1$s/sparql", database);
         String service2 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
 
         String kwsVersion = "v5/1/1";
         String benchmark = "IS";
-        String path_database = "LUBM_10M";
+        String path_database = "Mondial";
 
         try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/%2$s/queries_.txt", benchmark, path_database)));
                 Scanner sc = new Scanner(in)) {
@@ -193,9 +193,9 @@ public class BuildBenchmark {
         queryString = String.format(queryString);
         fuseki.execUpdate(queryString, "KwS.temp");
 
-//        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_09_split_graph.rq", kwsVersion));
-//        queryString = String.format(queryString);
-//        fuseki.execUpdate(queryString, "KwS.temp");
+        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_09_split_graph.rq", kwsVersion));
+        queryString = String.format(queryString);
+        fuseki.execUpdate(queryString, "KwS.temp");
 
         System.out.println("Trazendo os predicados nos grupos de soluções...");
         queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_10_predicates.rq", kwsVersion));
