@@ -17,7 +17,7 @@
 (hutu country africa)
 (country asia uzbek)
 (country america catholic)
-(country america european jewish)
+(country european jewish)
 (paranaiba province brazil)
 (atacama province argentina)
 (everest province china)
