@@ -1,0 +1,48 @@
+prefix : <urn:vocab:kws:>
+prefix kws: <urn:vocab:kws:>
+prefix kwsg: <urn:graph:kws:>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix fn: <java:uff.ic.swlab.jena.sparql.function.>
+prefix text: <http://jena.apache.org/text#>
+prefix quira: <http://www.quira.org/>
+PREFIX agg: <http://uff.ic.swlab.jena.sparql.aggregate/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+#######################################################################################################
+# Trazer label e comment dos sujeitos e objetos no S.G
+#######################################################################################################
+
+INSERT {GRAPH ?sol {?s rdfs:label ?label_s. ?o rdfs:label ?label_o. ?s rdfs:comment ?comment_s. ?o rdfs:comment ?comment_o.}}
+WHERE{
+        {
+            GRAPH ?sol{
+                ?s ?p_ ?o.
+                FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
+            }
+            FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+        }
+        SERVICE <%2$s>{
+                {
+                    ?s rdfs:label ?label_s.
+                    ?s rdfs:comment ?comment_s.
+                }UNION{
+                    ?o rdfs:label ?label_o.
+                    ?o rdfs:comment ?comment_o.
+
+                }
+                SERVICE <%3$s>{
+                       GRAPH ?sol{
+                            ?s ?p__ ?o.
+                            FILTER(!regex(str(?s),"urn:graph:kws:[0-9]{3}:sol"))
+                        }
+                        FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))
+                
+                    
+                }
+        }
+        
+
+}
+

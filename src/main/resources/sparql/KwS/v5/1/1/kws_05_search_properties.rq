@@ -8,8 +8,9 @@ INSERT {?member kws:matchingPredicate ?property_match.}
 WHERE{
     GRAPH kwsg:seeds {
         ?member kws:value ?value.
+        OPTIONAL { ?member kws:value ?value. bind(STRLANG(?value, "en") as ?value_)}
         SERVICE <%1$s> {
-            ?member ?property_match ?value.
+            ?member ?property_match ?value_.
         }
     }
 };
