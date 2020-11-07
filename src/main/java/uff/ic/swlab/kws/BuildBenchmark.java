@@ -35,13 +35,13 @@ import org.apache.jena.riot.RDFDataMgr;
 public class BuildBenchmark {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException, InterruptedException {
-        String database = "DBPedia_70M";
+        String database = "IMDb";
         String serviceDatabase = String.format("http://semanticweb.inf.puc-rio.br:3030/%1$s/sparql", database);
         String service2 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
 
         String kwsVersion = "v5/1/1";
         String benchmark = "IS";
-        String path_database = "DBpedia";
+        String path_database = "IMDb";
 
         try ( InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/%2$s/queries_.txt", benchmark, path_database)));  Scanner sc = new Scanner(in)) {
             int i = 0;
@@ -62,7 +62,7 @@ public class BuildBenchmark {
 
     public static void run(String kwsVersion, String serviceDatabase, String service2, String keywordQuery, String benchmarkNS, String filename, String database) throws FileNotFoundException, IOException, InvalidNameException, InterruptedException {
         FusekiServer fuseki = new FusekiServer("semanticweb.inf.puc-rio.br", 3030);
-        Integer interationSeed = 2;
+        Integer interationSeed = 0;
         String queryString = "";
         System.out.println("=============================================GERANDO BENCHMARK PARA A PALVRA CHAVE " + keywordQuery + "=============================================");
 
@@ -90,53 +90,54 @@ public class BuildBenchmark {
         ResultSet result = q.execSelect();
         QuerySolution soln = result.nextSolution();
 
-//        String keywordsNotSearch = String.valueOf(soln.get("new_kws"));
-//        //indica que existem palavras chaves que precisam ser encontradas
-//        if (!keywordsNotSearch.equals("")) {
-//            Integer count = 1;
-//            //loop para as iterações
-//            while (count <= interationSeed || !keywordsNotSearch.equals("")) {
-//                // armazenando a nova iteração de seeds
-//                queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_04_search_new_seed.rq", kwsVersion));
-//                queryString = String.format(queryString, serviceDatabase, keywordsNotSearch);
-//                fuseki.execUpdate(queryString, "KwS.temp");
-//
-//                queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_02_search_literais.rq", kwsVersion));
-//                queryString = String.format(queryString, serviceDatabase, keywordQuery);
-//                fuseki.execUpdate(queryString, "KwS.temp");
-//
-//                // verificando se inseriu alguma nova seed
-//                queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_03_search_new_seeds.rq", kwsVersion));
-//                queryString = String.format(queryString, format_keywordQuery);
-//
-//                QueryExecution new_q = QueryExecutionFactory.sparqlService(service2, queryString);
-//                ResultSet new_result = new_q.execSelect();
-//                QuerySolution new_soln = new_result.nextSolution();
-//
-//                String NewkeywordsNotSearch = String.valueOf(new_soln.get("new_kws"));
-//                new_q.close();
-//
-//                //se nao inseriu nenhuma keyword
-//                if (NewkeywordsNotSearch.equals(keywordsNotSearch)) {
-//                    break;
-//                } else {
-//                    //verificando novas palavras chaves
-//                    queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_03_search_new_seeds.rq", kwsVersion));
-//                    queryString = String.format(queryString, format_keywordQuery);
-//
-//                    new_q = QueryExecutionFactory.sparqlService(service2, queryString);
-//                    new_result = new_q.execSelect();
-//                    new_soln = new_result.nextSolution();
-//
-//                    keywordsNotSearch = String.valueOf(new_soln.get("new_kws"));
-//
-//                    new_q.close();
-//
-//                }
-//
-//            }
-//        }
-//        q.close();
+        String keywordsNotSearch = String.valueOf(soln.get("new_kws"));
+        //indica que existem palavras chaves que precisam ser encontradas
+        if (!keywordsNotSearch.equals("")) {
+            Integer count = 1;
+            //loop para as iterações
+            while (count <= interationSeed && !keywordsNotSearch.equals("")) {
+                count++;
+                // armazenando a nova iteração de seeds
+                queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_04_search_new_seed.rq", kwsVersion));
+                queryString = String.format(queryString, serviceDatabase, keywordsNotSearch);
+                fuseki.execUpdate(queryString, "KwS.temp");
+
+                queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_02_search_literais.rq", kwsVersion));
+                queryString = String.format(queryString, serviceDatabase, keywordQuery);
+                fuseki.execUpdate(queryString, "KwS.temp");
+
+                // verificando se inseriu alguma nova seed
+                queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_03_search_new_seeds.rq", kwsVersion));
+                queryString = String.format(queryString, format_keywordQuery);
+
+                QueryExecution new_q = QueryExecutionFactory.sparqlService(service2, queryString);
+                ResultSet new_result = new_q.execSelect();
+                QuerySolution new_soln = new_result.nextSolution();
+
+                String NewkeywordsNotSearch = String.valueOf(new_soln.get("new_kws"));
+                new_q.close();
+
+                //se nao inseriu nenhuma keyword
+                if (NewkeywordsNotSearch.equals(keywordsNotSearch)) {
+                    break;
+                } else {
+                    //verificando novas palavras chaves
+                    queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_03_search_new_seeds.rq", kwsVersion));
+                    queryString = String.format(queryString, format_keywordQuery);
+
+                    new_q = QueryExecutionFactory.sparqlService(service2, queryString);
+                    new_result = new_q.execSelect();
+                    new_soln = new_result.nextSolution();
+
+                    keywordsNotSearch = String.valueOf(new_soln.get("new_kws"));
+
+                    new_q.close();
+
+                }
+
+            }
+        }
+        q.close();
 
         System.out.println("Buscando propriedades que match");
         queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_05_search_properties.rq", kwsVersion));
@@ -167,15 +168,16 @@ public class BuildBenchmark {
         queryString = String.format(queryString, serviceDatabase, service2);
         fuseki.execUpdate(queryString, "KwS.temp");
 
-//        System.out.println("Gerando os caminhos de distância 3....");
-//        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_08_paths_3.rq", kwsVersion));
-//        queryString = String.format(queryString, serviceDatabase, service2);
-//        fuseki.execUpdate(queryString, "KwS.temp");
-//
-//        System.out.println("Gerando os caminhos de distância 4....");
-//        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_08_paths_4.rq", kwsVersion));
-//        queryString = String.format(queryString, serviceDatabase, service2);
-//        fuseki.execUpdate(queryString, "KwS.temp");
+        System.out.println("Gerando os caminhos de distância 3....");
+        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_08_paths_3.rq", kwsVersion));
+        queryString = String.format(queryString, serviceDatabase, service2);
+        fuseki.execUpdate(queryString, "KwS.temp");
+
+        System.out.println("Gerando os caminhos de distância 4....");
+        queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_08_paths_4.rq", kwsVersion));
+        queryString = String.format(queryString, serviceDatabase, service2);
+        fuseki.execUpdate(queryString, "KwS.temp");
+        
         System.out.println("Deletando grafo de pares....");
         queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/delete_pairs.rq", kwsVersion));
         queryString = String.format(queryString);
@@ -184,7 +186,7 @@ public class BuildBenchmark {
         queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_09_split_graph.rq", kwsVersion));
         queryString = String.format(queryString);
         fuseki.execUpdate(queryString, "KwS.temp");
-        
+
         System.out.println("Trazendo os predicados nos grupos de soluções...");
         queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_10_predicates_0.rq", kwsVersion));
         queryString = String.format(queryString, keywordQuery, serviceDatabase, service2, format_keywordQuery, benchmarkNS, "KwS.temp");
@@ -197,7 +199,7 @@ public class BuildBenchmark {
         queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_10_predicates_2.rq", kwsVersion));
         queryString = String.format(queryString, keywordQuery, serviceDatabase, service2, format_keywordQuery, benchmarkNS, "KwS.temp");
         fuseki.execUpdate(queryString, "KwS.temp");
-
+        
         System.out.println("Calculando o score das soluções...");
         queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_11_score.rq", kwsVersion));
         queryString = String.format(queryString, keywordQuery, serviceDatabase, service2, format_keywordQuery, "KwS.temp");

@@ -81,5 +81,3 @@ WHERE{
                                     bind (COALESCE(?sol,iri(concat("%5$s","sol",str(fn:sequential())))) as ?sol)}}
 
 };
-
-

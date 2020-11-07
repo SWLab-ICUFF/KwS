@@ -1,4 +1,21 @@
 #STEP 1.4: BUSCANDO AS PROPRIEDADES DAS SEEDS
+#PREFIX kws: <urn:vocab:kws:>
+#PREFIX kwsg: <urn:graph:kws:>
+
+#buscando as propriedades que match
+#WITH kwsg:seeds
+#INSERT {?member kws:matchingPredicate ?property_match.}
+#WHERE{
+#    GRAPH kwsg:seeds {
+#        ?member kws:value ?value.
+#        #OPTIONAL { ?member kws:value ?value. bind(STRLANG(?value, "en") as ?value_)}
+#        SERVICE <%1$s> {
+#            ?member ?property_match ?value_.
+#        }
+#    }
+#};
+
+#STEP 1.4: BUSCANDO AS PROPRIEDADES DAS SEEDS
 PREFIX kws: <urn:vocab:kws:>
 PREFIX kwsg: <urn:graph:kws:>
 
@@ -8,9 +25,8 @@ INSERT {?member kws:matchingPredicate ?property_match.}
 WHERE{
     GRAPH kwsg:seeds {
         ?member kws:value ?value.
-        OPTIONAL { ?member kws:value ?value. bind(STRLANG(?value, "en") as ?value_)}
         SERVICE <%1$s> {
-            ?member ?property_match ?value_.
+            ?member ?property_match ?value.
         }
     }
 };
