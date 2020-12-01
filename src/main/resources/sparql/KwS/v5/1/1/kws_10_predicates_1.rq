@@ -52,17 +52,17 @@ WHERE{
 
 
 
-INSERT {GRAPH ?sol {?p rdfs:label ?label. ?s ?p ?v. ?s_ ?p ?o. ?v_ ?p ?s.}}
+INSERT {GRAPH ?sol {?p rdfs:label ?label. ?s ?p ?v.}}
 WHERE{
     SERVICE <%2$s>{
-        SELECT DISTINCT ?s ?p ?v ?label ?v_
+        SELECT DISTINCT ?s ?p ?v
         where {
             graph kwsg:indexed {
                 (?p ?score ?label) text:query (kws:comment '%1$s').
 
             }
             filter (exists {[] ?p []})
-            {?s ?p ?v.} UNION {?s_ ?p ?o.} UNION {?v_ ?p ?s.}
+            {?s ?p ?v.} 
         }
     }
 
