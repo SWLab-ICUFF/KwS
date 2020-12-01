@@ -62,7 +62,7 @@ public class BuildBenchmark {
 
     public static void run(String kwsVersion, String serviceDatabase, String service2, String keywordQuery, String benchmarkNS, String filename, String database) throws FileNotFoundException, IOException, InvalidNameException, InterruptedException {
         FusekiServer fuseki = new FusekiServer("semanticweb.inf.puc-rio.br", 3030);
-        Integer interationSeed = 0;
+        Integer interationSeed = 1;
         String queryString = "";
         System.out.println("=============================================GERANDO BENCHMARK PARA A PALVRA CHAVE " + keywordQuery + "=============================================");
 
