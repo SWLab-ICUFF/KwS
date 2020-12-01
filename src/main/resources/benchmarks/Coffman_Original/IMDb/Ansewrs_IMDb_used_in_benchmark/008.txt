@@ -1,5 +1,0 @@
-# [reference standard]
-# imdb2009
-# will smith
-# 39807078 = search_id table name
-([39807078], [])

@@ -1,5 +1,0 @@
-# [reference standard]
-# imdb2009
-# name terminator
-([39768793, 8782918, 21243595], [(8782918, 21243595), (8782918, 39768793)]) # Arnold Schwarzenegger in "Terminator 2: Judgment Day"
-([39768793, 8782951, 21243595], [(8782951, 21243595), (8782951, 39768793)]) # Arnold Schwarzenegger in "T2 3-D: Battle Across Time"

@@ -1,5 +1,0 @@
-# [reference standard]
-# imdb2009
-# angelina jolie
-# 40255278 = search_id table name
-([40255278], [])

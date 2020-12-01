@@ -1,5 +1,0 @@
-# [reference standard]
-# imdb2009
-# denzel washington 
-# 39927668 = __search_id table name
-([39927668], [])
