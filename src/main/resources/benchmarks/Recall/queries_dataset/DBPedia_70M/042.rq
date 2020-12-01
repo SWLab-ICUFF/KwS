@@ -1,0 +1,16 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?label
+WHERE  {
+     
+  { <http://dbpedia.org/resource/Arres%C3%B8> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/B%C3%B8lling_lake> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Fures%C3%B8_%28lake%29> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Lake_Bagsv%C3%A6rd> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/The_Lakes,_Copenhagen> rdfs:label ?label.}
+  	
+  
+  }
+      
+    
+

@@ -1,0 +1,34 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?label
+WHERE{
+  
+  		{ <http://dbpedia.org/resource/A_Perfect_World> rdfs:label ?label } UNION{
+    	  <http://dbpedia.org/resource/Absolute_Power_%28film%29> rdfs:label ?label }UNION{
+         <http://dbpedia.org/resource/Blood_Work_%28film%29> rdfs:label ?label }UNION{
+        <http://dbpedia.org/resource/Bronco_Billy> rdfs:label ?label }UNION {
+       <http://dbpedia.org/resource/Gran_Torino> rdfs:label ?label } UNION {
+      <http://dbpedia.org/resource/Heartbreak_Ridge> rdfs:label ?label } UNION {
+      <http://dbpedia.org/resource/High_Plains_Drifter> rdfs:label ?label } UNION {
+      <http://dbpedia.org/resource/Honkytonk_Man> rdfs:label ?label } UNION {
+      <http://dbpedia.org/resource/Million_Dollar_Baby>  rdfs:label ?label } UNION {
+       <http://dbpedia.org/resource/Pale_Rider> rdfs:label ?label } UNION {
+      <http://dbpedia.org/resource/Play_Misty_for_Me> rdfs:label ?label } UNION { 
+      <http://dbpedia.org/resource/Space_Cowboys> rdfs:label ?label } UNION { 
+          <http://dbpedia.org/resource/The_Bridges_of_Madison_County_%28film%29> rdfs:label ?label } UNION { 
+      <http://dbpedia.org/resource/The_Eiger_Sanction_%28film%29> rdfs:label ?label } UNION {
+      <http://dbpedia.org/resource/The_Gauntlet_%28film%29> rdfs:label ?label } UNION {
+      <http://dbpedia.org/resource/The_Outlaw_Josey_Wales> rdfs:label ?label } UNION {
+      <http://dbpedia.org/resource/The_Rookie_%281990_film%29> rdfs:label ?label } UNION {
+      <http://dbpedia.org/resource/True_Crime_%281999_film%29>  rdfs:label ?label } UNION {
+      <http://dbpedia.org/resource/Unforgiven> rdfs:label ?label } UNION {
+      <http://dbpedia.org/resource/White_Hunter_Black_Heart>  rdfs:label ?label }
+      
+      
+      
+      
+       
+    	 
+    
+  }
+
+

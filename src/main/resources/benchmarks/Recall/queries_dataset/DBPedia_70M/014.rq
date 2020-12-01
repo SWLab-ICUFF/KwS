@@ -1,0 +1,12 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?label
+WHERE   { {<http://dbpedia.org/resource/Emil_von_Reznicek>  rdfs:label ?label. } UNION {
+    		<http://dbpedia.org/resource/Grete_von_Zieritz> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Hilde_K%C3%B6rber>  rdfs:label ?label. } UNION {
+    	<http://dbpedia.org/resource/Karl_Etlinger>  rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Karl_Hellmer>  rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Peter_Sturm> rdfs:label ?label. }
+}
+    
+          

@@ -1,0 +1,7 @@
+# [reference standard]
+# imdb2009
+# title darth vader
+([44182175, 21271662, 8138933], [(8138933, 44182175), (8138933, 21271662)]) # Star Wars
+([44160570, 21271662, 5950918], [(5950918, 44160570), (5950918, 21271662)]) # Star Wars: Episode V - The Empire Strikes Back
+([44215530, 21271662, 8138936], [(8138936, 44215530), (8138936, 21271662)]) # Star Wars: Episode VI - Return of the Jedi
+([44190586, 21271662, 5950917], [(5950917, 44190586), (5950917, 21271662)]) # Star Wars: Episode III - Revenge of the Sith

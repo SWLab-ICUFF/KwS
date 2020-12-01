@@ -1,0 +1,16 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>
+PREFIX lubm: <http://swat.cse.lehigh.edu/#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX lu: <http://www.ontologydesignpatterns.org/ont/framenet/abox/lu/>
+
+SELECT DISTINCT ?label
+WHERE
+{ 
+  graph ?sol{
+   ?X rdf:type lubm:ResearchGroup .
+  ?X lubm:subOrganizationOf <http://www.Department0.University0.edu>.
+  ?X rdfs:label ?label
+ 
+}
+}

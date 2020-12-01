@@ -1,0 +1,7 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?label
+WHERE   { {<http://dbpedia.org/resource/Valentina_Tereshkova>  rdfs:label ?label. } UNION {
+    		 <http://dbpedia.org/resource/Yelena_Kondakova> rdfs:label ?label. } UNION {
+             <http://dbpedia.org/resource/Yelena_Serova> rdfs:label ?label.
+}}

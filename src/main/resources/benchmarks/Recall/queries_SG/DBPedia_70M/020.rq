@@ -1,0 +1,38 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?label
+WHERE   { graph ?sol {{<http://dbpedia.org/resource/Apocalypse_Now> rdfs:label ?label. } UNION {
+  			<http://dbpedia.org/resource/Apocalypse_Now_Redux> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Dementia_13>  rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Dracula_%281992_film%29> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Gardens_of_Stone> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Godfather_Trilogy> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Jack_%281996_film%29> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/New_York_Stories> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/One_from_the_Heart> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Peggy_Sue_Got_Married> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Rumble_Fish> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Supernova_%282000_film%29> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Tetro>  rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/The_Bellboy_and_the_Playgirls> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/The_Conversation> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/The_Cotton_Club_%28film%29> rdfs:label  ?label. } UNION {
+        <http://dbpedia.org/resource/The_Godfather> rdfs:label  ?label. } UNION {
+    <http://dbpedia.org/resource/The_Godfather_Part_II> rdfs:label  ?label. } UNION {
+    <http://dbpedia.org/resource/The_Godfather_Part_III> rdfs:label  ?label. } UNION {
+    <http://dbpedia.org/resource/The_Godfather_Saga> rdfs:label  ?label. } UNION {
+    <http://dbpedia.org/resource/The_Outsiders_%28film%29> rdfs:label  ?label. } UNION {
+    <http://dbpedia.org/resource/The_Rain_People> rdfs:label  ?label. } UNION {
+    <http://dbpedia.org/resource/The_Rainmaker_%281997_film%29> rdfs:label  ?label. } UNION {
+    <http://dbpedia.org/resource/The_Terror_%281963_film%29> rdfs:label  ?label. } UNION {
+    <http://dbpedia.org/resource/Tucker:_The_Man_and_His_Dream> rdfs:label  ?label. } UNION {
+    <http://dbpedia.org/resource/Twixt_%28film%29> rdfs:label  ?label. } UNION {
+    <http://dbpedia.org/resource/You%27re_a_Big_Boy_Now> rdfs:label  ?label. } UNION {
+    <http://dbpedia.org/resource/Youth_Without_Youth_%28film%29>  rdfs:label  ?label.
+  } 
+   			
+  
+    		
+}}
+    
+          

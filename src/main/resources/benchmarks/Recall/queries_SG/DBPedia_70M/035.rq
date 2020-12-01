@@ -1,0 +1,9 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?label
+WHERE  {
+     graph ?sol {
+  { <http://dbpedia.org/resource/Uzi>  rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Minebea_PM-9> rdfs:label ?label.}
+    
+}}

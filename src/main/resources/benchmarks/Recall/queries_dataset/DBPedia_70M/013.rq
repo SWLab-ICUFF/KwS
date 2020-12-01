@@ -1,0 +1,35 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?label
+WHERE   { {<http://dbpedia.org/resource/AMC_Javelin>  rdfs:label ?label. } UNION {
+           <http://dbpedia.org/resource/Artega_GT> rdfs:label ?label. } UNION {
+           <http://dbpedia.org/resource/Audi_100> rdfs:label ?label. } UNION {
+    	   <http://dbpedia.org/resource/Audi_A2> rdfs:label ?label. } UNION {
+          <http://dbpedia.org/resource/Audi_A4> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Audi_A5> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Audi_A6> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Audi_A6_allroad_quattro> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Audi_A8> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Audi_Coup%C3%A9_%28B2%29> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Audi_Le_Mans_quattro> rdfs:label ?label. } UNION {
+     <http://dbpedia.org/resource/Audi_Q5> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Audi_Quattro> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Audi_Roadjet> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Audi_RS2_Avant>  rdfs:label ?label. } UNION {
+     <http://dbpedia.org/resource/Audi_RS4> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Audi_S4> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Audi_S6> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Audi_S8> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Audi_Type_C>  rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Audi_V8>  rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Bertone_Birusa> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/BMW_1_Series> rdfs:label ?label. } UNION {
+     <http://dbpedia.org/resource/BMW_1_Series_%28E81%29> rdfs:label ?label. } UNION {
+     <http://dbpedia.org/resource/BMW_1_Series_M_Coupe> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/BMW_3_Series> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/BMW_3_Series_%28E21%29> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/BMW_3_Series_%28E30%29> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/BMW_3_Series_%28E36%29> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/BMW_3_Series_%28E46%29>  rdfs:label ?label. } UNION {
+    	
+}}

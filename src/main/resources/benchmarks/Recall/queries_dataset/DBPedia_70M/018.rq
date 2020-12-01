@@ -1,0 +1,18 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?label
+WHERE   { {<http://dbpedia.org/resource/Baden-W%C3%BCrttemberg> rdfs:label ?label. } UNION {
+   			 <http://dbpedia.org/resource/Berlin> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Brandenburg> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Bremen_%28state%29> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Hamburg> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Mecklenburg-Vorpommern> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/North_Rhine-Westphalia> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Rhineland-Palatinate> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Saxony-Anhalt> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Thuringia>  rdfs:label ?label.
+  }
+    		
+}
+    
+          

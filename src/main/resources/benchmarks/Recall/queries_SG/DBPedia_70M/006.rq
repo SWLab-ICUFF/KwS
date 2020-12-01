@@ -1,0 +1,5 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?label
+WHERE   { graph ?sol {<http://dbpedia.org/resource/Minnesota> rdfs:label ?label. }}
+ 

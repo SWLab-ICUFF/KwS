@@ -1,0 +1,23 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?label
+WHERE  {
+     
+  { <http://dbpedia.org/resource/Broglio_Space_Centre> rdfs:label ?label.} UNION {
+     <http://dbpedia.org/resource/Cape_Canaveral_Air_Force_Station_Launch_Complex_13> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Cape_Canaveral_Air_Force_Station_Launch_Complex_18> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Cape_Canaveral_Air_Force_Station_Space_Launch_Complex_17> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Kennedy_Space_Center_Launch_Complex_39> rdfs:label ?label.} UNION {
+     <http://dbpedia.org/resource/Mid-Atlantic_Regional_Spaceport_Launch_Pad_0> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Spaceport_Florida_Launch_Complex_36> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Wallops_Flight_Facility_Launch_Area_3> rdfs:label ?label.}
+    
+    
+    
+   
+  	
+  
+  }
+      
+    
+

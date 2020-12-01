@@ -1,0 +1,61 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?label
+WHERE  {
+     
+  { <http://dbpedia.org/resource/Abuja> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Accra>  rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Addis_Ababa> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Algiers> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Antananarivo> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Asmara> rdfs:label ?label.} UNION {
+   <http://dbpedia.org/resource/Bamako> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Banjul> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Bissau>  rdfs:label ?label.} UNION {
+     <http://dbpedia.org/resource/Bloemfontein>  rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Bujumbura> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Cairo> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Cape_Town> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Dakar> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Djibouti_%28city%29> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Dodoma> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/El_Aai%C3%BAn>  rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Freetown> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Gaborone> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Harare> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Kampala> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Kigali> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Libreville> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Lilongwe> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Lobamba> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Lom%C3%A9> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Luanda> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Lusaka> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Maseru> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Mbabane> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Mogadishu> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Monrovia> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Nairobi> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Niamey>  rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Nouakchott> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Ouagadougou> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Port_Louis> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Porto-Novo> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Praia> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Pretoria> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Rabat> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Tripoli> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Tunis> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Victoria,_Seychelles>  rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Windhoek> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Yamoussoukro> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Yaound%C3%A9>  rdfs:label ?label.}
+    
+    
+   
+  	
+  
+  }
+      
+    
+

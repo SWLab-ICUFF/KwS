@@ -1,0 +1,17 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?label
+WHERE  {
+     
+  { <http://dbpedia.org/resource/Aphrodite> rdfs:label ?label.} UNION{
+  	<http://dbpedia.org/resource/Athena> rdfs:label ?label.} UNION{
+    <http://dbpedia.org/resource/Demeter> rdfs:label ?label.} UNION{
+     <http://dbpedia.org/resource/Hebe_%28mythology%29> rdfs:label ?label.} UNION{
+    <http://dbpedia.org/resource/Hera>  rdfs:label ?label.} UNION{
+    <http://dbpedia.org/resource/Hygieia> rdfs:label ?label.} UNION{
+    <http://dbpedia.org/resource/Nike_%28mythology%29> rdfs:label ?label.}
+  
+    
+      
+    
+}

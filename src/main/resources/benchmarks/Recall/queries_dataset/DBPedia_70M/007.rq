@@ -1,0 +1,58 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?label
+WHERE   {{<http://dbpedia.org/resource/Abatte_Barihun> rdfs:label ?label. } UNION {
+		 <http://dbpedia.org/resource/Alan_Silva>  rdfs:label ?label. } UNION {
+        <http://dbpedia.org/resource/Benny_Carter>  rdfs:label ?label. } UNION {
+        <http://dbpedia.org/resource/Bobby_Hackett> rdfs:label ?label. } UNION {
+        <http://dbpedia.org/resource/Brian_Jones>  rdfs:label ?label. } UNION {
+        <http://dbpedia.org/resource/Cleveland_Eaton> rdfs:label ?label. } UNION {
+        <http://dbpedia.org/resource/Clifford_Thornton> rdfs:label ?label. } UNION {
+        <http://dbpedia.org/resource/Danny_Davis_%28country_musician%29> rdfs:label ?label. } UNION {
+        <http://dbpedia.org/resource/Dave_Bartholomew> rdfs:label ?label. } UNION {
+        <http://dbpedia.org/resource/Dave_Douglas_%28trumpeter%29> rdfs:label ?label. } UNION {
+        <http://dbpedia.org/resource/Dizzy_Gillespie> rdfs:label ?label. } UNION {
+        <http://dbpedia.org/resource/Doc_Cheatham> rdfs:label ?label. } UNION {
+        <http://dbpedia.org/resource/Doc_Severinsen>  rdfs:label ?label. } UNION {
+        <http://dbpedia.org/resource/Dominick_Farinacci> rdfs:label ?label. } UNION {
+       <http://dbpedia.org/resource/Don_Albert> rdfs:label ?label. } UNION {
+        <http://dbpedia.org/resource/Ernest_%22Doc%22_Paulin>  rdfs:label ?label. } UNION {
+       <http://dbpedia.org/resource/Farnell_Newton> rdfs:label ?label. } UNION {
+       <http://dbpedia.org/resource/Freddie_Hubbard> rdfs:label ?label. } UNION {
+       <http://dbpedia.org/resource/Gerald_Wilson> rdfs:label ?label. } UNION {
+    <http://dbpedia.org/resource/Gerard_Presencer> rdfs:label ?label }UNION {
+    <http://dbpedia.org/resource/Guy_Barker> rdfs:label ?label. }UNION {
+       <http://dbpedia.org/resource/Hot_Lips_Page> rdfs:label ?label. }UNION {
+      <http://dbpedia.org/resource/Hugh_Masekela> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Irvin_Mayfield> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Jack_Walrath> rdfs:label ?label. }UNION { 
+    <http://dbpedia.org/resource/Jens_Winther> rdfs:label ?label. }UNION { 
+    <http://dbpedia.org/resource/Jimmy_Dorsey> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Joe_Morris_%28trumpeter%29> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Joe_Wilder> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Joey_DeFrancesco> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Kenny_Dorham> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Lloyd_Hunter> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Louis_Prima> rdfs:label ?label. }UNION {
+     <http://dbpedia.org/resource/Louis_Prima_Jr> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Mark_Egan> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Marlon_Jordan> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Maynard_Ferguson> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Nat_Gonella> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Neil_Yates> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Nick_LaRocca> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Orbert_Davis> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Papa_Celestin> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Pete_Brown_%28jazz_musician%29>  rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Red_Perkins> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Richard_Maltby,_Sr.> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Sean_Jones_%28trumpeter%29> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Terumasa_Hino> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Theo_Croker> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Tommy_Dorsey> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Vic_Schoen>  rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/W._C._Handy> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Willie_Mitchell_%28musician%29> rdfs:label ?label. }UNION {
+    <http://dbpedia.org/resource/Woody_Shaw> rdfs:label ?label. }
+  }
+ 

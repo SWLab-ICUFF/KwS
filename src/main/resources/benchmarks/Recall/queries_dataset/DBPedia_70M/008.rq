@@ -1,0 +1,11 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?label
+WHERE   { graph ?sol {{<http://dbpedia.org/resource/Atop_an_Underwood:_Early_Stories_and_Other_Writings>  rdfs:label ?label } UNION{
+        <http://dbpedia.org/resource/Door_Wide_Open> rdfs:label ?label } UNION{
+         <http://dbpedia.org/resource/On_the_Road> rdfs:label ?label } UNION{
+        <http://dbpedia.org/resource/References_in_On_the_Road> rdfs:label ?label } UNION{
+        <http://dbpedia.org/resource/The_Dharma_Bums> rdfs:label ?label } 
+  }}
+  
+ 

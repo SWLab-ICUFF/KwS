@@ -1,0 +1,25 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?label
+WHERE  { graph ?sol{
+     {
+    <http://dbpedia.org/resource/Aboriginal_Literacy_Foundation>  rdfs:label ?label.}UNION{
+     <http://dbpedia.org/resource/Australia_21> rdfs:label ?label.}UNION{
+    <http://dbpedia.org/resource/Children%27s_Book_Council_of_Australia> rdfs:label ?label.}UNION{
+    <http://dbpedia.org/resource/Cooperative_Research_Centre_for_Advanced_Composite_Structures> rdfs:label ?label.}UNION{
+    <http://dbpedia.org/resource/Fair_Trade_Association_of_Australia_and_New_Zealand> rdfs:label ?label.}UNION{
+    <http://dbpedia.org/resource/Forum_for_European%E2%80%93Australian_Science_and_Technology_Cooperation> rdfs:label ?label.}UNION{
+    <http://dbpedia.org/resource/GMHBA_Limited> rdfs:label ?label.}UNION{
+    <http://dbpedia.org/resource/HBF_Health_Fund>  rdfs:label ?label.}UNION{
+    <http://dbpedia.org/resource/LIXI> rdfs:label ?label.}UNION{
+    <http://dbpedia.org/resource/National_Science_Summer_School_Inc.> rdfs:label ?label.}UNION{
+    <http://dbpedia.org/resource/National_Youth_Science_Forum>  rdfs:label ?label.}UNION{
+    <http://dbpedia.org/resource/Outcomes_Research_Consortium> rdfs:label ?label.}UNION{
+    <http://dbpedia.org/resource/Outward_Bound_Australia> rdfs:label ?label.}UNION{
+    <http://dbpedia.org/resource/Poultry_CRC> rdfs:label ?label.}UNION{
+    <http://dbpedia.org/resource/Snow_Foundation> rdfs:label ?label.}UNION{
+    <http://dbpedia.org/resource/Sustainable_Tourism_CRC> rdfs:label ?label.}UNION{
+    <http://dbpedia.org/resource/The_Co-op_Bookshop> rdfs:label ?label.}UNION{
+    <http://dbpedia.org/resource/The_Conversation_%28website%29> rdfs:label ?label.}UNION{
+    <http://dbpedia.org/resource/Victorian_Employers%27_Chamber_of_Commerce_and_Industry> rdfs:label ?label.}
+}}

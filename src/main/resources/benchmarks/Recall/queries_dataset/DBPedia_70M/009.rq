@@ -1,0 +1,71 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?label
+WHERE   { {<http://dbpedia.org/resource/Albula_Railway> rdfs:label ?label } UNION{
+    	  <http://dbpedia.org/resource/Australian_Convict_Sites> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Bah%C3%A1%27%C3%AD_World_Centre_buildings> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Bernina_Railway> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Canals_of_Amsterdam>  rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Caral> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Cave_of_Altamira_and_Paleolithic_Cave_Art_of_Northern_Spain> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Central_Highlands_of_Sri_Lanka> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/China_Danxia> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Citadel_of_Ho_Dynasty> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Ciudad_Universitaria> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Diriyah> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Fagus_Factory> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Fortifications_of_Vauban> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Fremantle_Prison> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Fujian_Tulou>  rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Gamzigrad>  rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Glarus_thrust> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Gobustan_Rock_Art_Cultural_Landscape>  rdfs:label ?label } UNION{
+        <http://dbpedia.org/resource/Hahoe_Folk_Village> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Hanoi_Citadel> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Imperial_Citadel_of_Thang_Long> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Iwami_Ginzan_Silver_Mine> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Jantar_Mantar_%28Jaipur%29> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Jeju_Volcanic_Island_and_Lava_Tubes> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Joggins,_Nova_Scotia>  rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Kaiping_Diaolou> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Kuk_Swamp> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Lavaux> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Le_Morne_Brabant> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Le%C3%B3n_Cathedral_%28Nicaragua%29> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Longobards_in_Italy._Places_of_the_power_%28568-774_A.D.%29>  rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Mada%27in_Saleh> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Mehmed_Pa%C5%A1a_Sokolovi%C4%87_Bridge> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Mijikenda_peoples> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Mitla> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Modernist_Housing_Estates> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Monarch_Butterfly_Biosphere_Reserve> rdfs:label ?label } UNION{
+     <http://dbpedia.org/resource/Monte_Titano>  rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Mount_Sanqing> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/New_Caledonia_Barrier_Reef>  rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Nisa,_Turkmenistan> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Pontcysyllte_Aqueduct> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Preah_Vihear_Temple> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Prehistoric_Pile_dwellings_around_the_Alps> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Rainforests_of_the_Atsinanana>  rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Red_Fort>  rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Rhaetian_Railway> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Richtersveld> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Roy_Mata>  rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/S%C3%A3o_Crist%C3%B3v%C3%A3o>  rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Saint_Stepanos_Monastery> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Saint_Thaddeus_Monastery> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Saryarka_%E2%80%94_Steppe_and_Lakes_of_Northern_Kazakhstan> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Sheikh_Safi_al-Din_Kh%C4%81neg%C4%81h_and_Shrine_Ensemble> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Siega_Verde> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/South_China_Karst> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Sulayman_Mountain> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Surtsey> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Tabriz_Bazaar> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Tianluokeng_Tulou_cluster> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Wadden_Sea> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/West_Lake> rdfs:label ?label } UNION{
+    <http://dbpedia.org/resource/Wooden_Churches_of_the_Slovak_Carpathians> rdfs:label ?label } 
+    
+  }
+
+ 

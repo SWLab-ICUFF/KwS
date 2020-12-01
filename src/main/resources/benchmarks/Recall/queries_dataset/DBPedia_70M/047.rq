@@ -1,0 +1,20 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?label
+WHERE  {
+     
+  { <http://dbpedia.org/resource/List_of_Jiminy_Cricket_educational_serials> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/The_Disney_Afternoon> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/The_Mickey_Mouse_Club>  rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Walt_Disney_anthology_television_series> rdfs:label ?label.}
+     
+    
+    
+    
+   
+  	
+  
+  }
+      
+    
+

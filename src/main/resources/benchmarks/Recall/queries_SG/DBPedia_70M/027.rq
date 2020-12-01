@@ -1,0 +1,15 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?label
+WHERE  {
+    graph ?sol {
+     
+  { <http://dbpedia.org/resource/Chandragupta_%28board_game%29> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Commands_&_Colors:_Ancients>  rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Fields_of_Fire_%28game%29>  rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Paths_of_Glory_%28board_game%29> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Sword_of_Rome> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Twilight_Struggle> rdfs:label ?label.} UNION {
+    <http://dbpedia.org/resource/Washington%27s_War> rdfs:label ?label. }
+}
+}
