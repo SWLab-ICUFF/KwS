@@ -1,16 +1,18 @@
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>
-PREFIX lubm: <http://swat.cse.lehigh.edu/#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lu: <http://www.ontologydesignpatterns.org/ont/framenet/abox/lu/>
+prefix swat: <http://swat.cse.lehigh.edu/#>
+select(concat('<',str(?X),'>', ' a ', '<', str(swat:UndergraduateStudent), '> .') as ?l0)
+(concat('<',str(?Y),'>', ' a ', '<', str(swat:AssistantProfessor), '> .') as ?l1)
+(concat('<',str(?Y),'>', ' a ', '<', str(swat:Course), '> .') as ?l2) 
+(concat('<',str(?X),'>', ' <', str(swat:advisor) ,'> ', '<', str(?Y), '> .') as ?l3)
+(concat('<',str(?Y),'>', ' <', str(swat:teacherOf) ,'> ', '<', str(?Z), '> .') as ?l4)
+(concat('<',str(?X),'>', ' <', str(swat:takesCourse) ,'> ', '<', str(?Z), '> .') as ?l5)
+WHERE{
+  ?X rdf:type swat:UndergraduateStudent .
+  ?Y rdf:type swat:AssistantProfessor .
+  ?Z rdf:type swat:Course .
+  ?X swat:advisor ?Y .
+  ?Y swat:teacherOf ?Z .
+  ?X swat:takesCourse ?Z
+}
 
-SELECT DISTINCT ?label
-WHERE
-{  
-  ?X rdf:type lubm:UndergraduateStudent .
-  ?Y rdf:type lubm:AssistantProfessor .
-  ?Z rdf:type lubm:Course .
-  ?X lubm:advisor ?Y .
-  ?Y lubm:teacherOf ?Z .
-  ?X lubm:takesCourse ?Z.
-  ?X rdfs:label ?label.}

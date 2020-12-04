@@ -1,10 +1,11 @@
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>
-PREFIX lubm: <http://swat.cse.lehigh.edu/#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lu: <http://www.ontologydesignpatterns.org/ont/framenet/abox/lu/>
-SELECT DISTINCT ?label
-WHERE
-{?X rdf:type lubm:GraduateStudent .
-  <http://www.University5.edu> lubm:hasAlumnus ?X.
-  ?X rdfs:label ?label.}
+prefix swat: <http://swat.cse.lehigh.edu/#>
+select(concat('<',str(?s),'>', ' <',str(rdfs:label),'> ', '"University5" .') as ?l0)
+(concat('<',str(?X),'>', ' a ', '<', str(swat:GraduateStudent), '> .') as ?l1)
+(concat('<',str(?X),'>', ' <', str(swat:undergraduateDegreeFrom) ,'> ', '<', str(?s), '> .') as ?l2)
+WHERE {
+ ?s rdfs:label "University5" .
+ ?X rdf:type swat:GraduateStudent .
+ ?X swat:undergraduateDegreeFrom ?s
+}
