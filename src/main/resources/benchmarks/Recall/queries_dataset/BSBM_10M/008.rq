@@ -1,24 +1,32 @@
+PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
 PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX rev: <http://purl.org/stuff/rev#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 
-SELECT DISTINCT ?label 
+SELECT (concat('<', str(?review), '> ',  str(bsbm:reviewFor) , ' <' , str(?productXYZ), '> .') as ?l0) 
+(concat('<', str(?productXYZ), '> ',  str(rdfs:label) , ' <' , str(?label), '> .') as ?l1) 
+(concat('<', str(?review), '> ',  str(dc:title) , ' <' , str(?title), '> .') as ?l2) 
+(concat('<', str(?review), '> ',  str(rev:text) , ' <' , str(?text), '> .') as ?l3) 
+(concat('<', str(?review), '> ',  str(bsbm:reviewDate) , ' <' , str(?reviewDate), '> .') as ?l4) 
+(concat('<', str(?review), '> ',  str(rev:reviewer) , ' <' , str(?reviewer), '> .') as ?l5) 
+(concat('<', str(?reviewer), '> ',  str(foaf:name) , ' <' , str(?reviewerName), '> .') as ?l6) 
+(concat('<', str(?review), '> ',  str(bsbm:rating1) , ' <' , str(?rating1), '> .') as ?l7) 
+(concat('<', str(?review), '> ',  str(bsbm:rating2) , ' <' , str(?rating2), '> .') as ?l8) 
+(concat('<', str(?review), '> ',  str(bsbm:rating3) , ' <' , str(?rating3), '> .') as ?l9) 
+(concat('<', str(?review), '> ',  str(bsbm:rating4) , ' <' , str(?rating4), '> .') as ?20) 
 WHERE { 
-	?review bsbm:reviewFor <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer15/Product702>.
+	?review bsbm:reviewFor ?productXYZ .
+  	?productXYZ rdfs:label ?label.
 	?review dc:title ?title .
 	?review rev:text ?text .
 	?review bsbm:reviewDate ?reviewDate .
 	?review rev:reviewer ?reviewer .
 	?reviewer foaf:name ?reviewerName .
-  ?reviewer rdfs:label ?label
 	OPTIONAL { ?review bsbm:rating1 ?rating1 . }
 	OPTIONAL { ?review bsbm:rating2 ?rating2 . }
 	OPTIONAL { ?review bsbm:rating3 ?rating3 . }
 	OPTIONAL { ?review bsbm:rating4 ?rating4 . }
 }
-ORDER BY DESC(?reviewDate)
-LIMIT 20

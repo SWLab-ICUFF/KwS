@@ -1,15 +1,19 @@
-PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
 PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-
-SELECT DISTINCT ?label
-WHERE { 
-  		?product rdfs:label ?label .
- 		?product a bsbm-inst:ProductType1 .
- 		?product bsbm:productFeature bsbm-inst:ProductFeature1 . 
- 		?product bsbm:productFeature bsbm-inst:ProductFeature2 . 
-		?product bsbm:productPropertyNumeric1 ?value1 . 
+select (concat('<', str(?product), '> ',  'a' , ' <' , str(?type), '> .') as ?l0) 
+(concat('<', str(?type), '> <',  str(rdfs:label), '> ' , '"ProductType1" .') as ?l1) 
+(concat('<', str(?product), '> <', str(bsbm:productFeature), '> <', str(?f1), '> .') as ?l2) 
+(concat('<', str(?f1), '> <',  str(rdfs:label), '> ' , '"ProductFeature1" .') as ?l3) 
+(concat('<', str(?product), '> <', str(bsbm:productFeature), '> <', str(?f2), '> .') as ?l4) 
+(concat('<', str(?f2), '> <',  str(rdfs:label), '> ' , '"ProductFeature2" .') as ?l5)
+(concat('<', str(?product), '> <',  str(bsbm:productPropertyNumeric1), '> "' , str(?value1) ,'" .') as ?l6)
+where{ 
+   ?product a ?type .
+   ?type rdfs:label "ProductType1" .
+   ?product bsbm:productFeature  ?f1 .
+   ?f1 rdfs:label "ProductFeature1" . 
+   ?product bsbm:productFeature ?f2 .
+   ?f2 rdfs:label "ProductFeature2" . 
+   ?product bsbm:productPropertyNumeric1 ?value1 . 
 }
-ORDER BY ?label
-limit 10

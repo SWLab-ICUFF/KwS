@@ -1,18 +1,29 @@
+PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
 PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX rev: <http://purl.org/stuff/rev#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-
-SELECT DISTINCT ?label
-WHERE { <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromVendor1/Offer1509> bsbm:product ?productURI .
-      ?productURI rdfs:label ?label .
- <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromVendor1/Offer1509> bsbm:vendor ?vendorURI .
- ?vendorURI rdfs:label ?vendorname .
- ?vendorURI foaf:homepage ?vendorhomepage .
- <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromVendor1/Offer352> bsbm:offerWebpage ?offerURL .
- <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromVendor1/Offer352> bsbm:price ?price .
- <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromVendor1/Offer352> bsbm:deliveryDays ?deliveryDays .
- <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromVendor1/Offer352> bsbm:validTo ?validTo }
+SELECT (concat('<', str(?OfferXYZ), '> ',  str(bsbm:product) , ' <' , str(?productURI), '> .') as ?l0) 
+(concat('<', str(?OfferXYZ), '> ',  str(rdfs:label) , ' <' , str(?label), '> .') as ?l1) 
+(concat('<', str(?productURI), '> ',  str(rdfs:label) , ' <' , str(?productlabel), '> .') as ?l2) 
+(concat('<', str(?OfferXYZ), '> ',  str(bsbm:vendor) , ' <' , str(?vendorURI), '> .') as ?l3) 
+(concat('<', str(?vendorURI), '> ',  str(rdfs:label) , ' <' , str(?vendorname), '> .') as ?l4)
+(concat('<', str(?vendorURI), '> ',  str(foaf:homepage) , ' <' , str(?vendorhomepage), '> .') as ?l5)
+(concat('<', str(?OfferXYZ), '> ',  str(bsbm:offerWebpage) , ' <' , str(?offerURL), '> .') as ?l6)
+(concat('<', str(?OfferXYZ), '> ',  str(bsbm:price) , ' <' , str(?price), '> .') as ?l7)
+(concat('<', str(?OfferXYZ), '> ',  str(bsbm:deliveryDays) , ' <' , str(?deliveryDays), '> .') as ?l8)
+(concat('<', str(?OfferXYZ), '> ',  str(bsbm:validTo) , ' <' , str(?validTo), '> .') as ?19)
+WHERE { 
+  		?OfferXYZ bsbm:product ?productURI .
+  		?OfferXYZ rdfs:label ?label.
+ 		?productURI rdfs:label ?productlabel .
+ 		?OfferXYZ bsbm:vendor ?vendorURI .
+ 		?vendorURI rdfs:label ?vendorname .
+ 		?vendorURI foaf:homepage ?vendorhomepage .
+ 		?OfferXYZ bsbm:offerWebpage ?offerURL .
+ 		?OfferXYZ bsbm:price ?price .
+ 		?OfferXYZ bsbm:deliveryDays ?deliveryDays .
+ 		?OfferXYZ bsbm:validTo ?validTo 
+}

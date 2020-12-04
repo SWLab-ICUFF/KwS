@@ -1,26 +1,42 @@
 PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
 PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-
-SELECT DISTINCT  ?label
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX bsbm-inst-datafrom-producer: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/>
+SELECT 
+	(concat('<', str(?product), '> ',  'a' , ' <' , str(?type), '> .') as ?l0) 
+(concat('<', str(?type), '> ',  str(rdfs:label) , ' <' , "ProductType1", '> .') as ?l1) 
+(concat('<', str(?product), '> ',  str(rdfs:label) , ' <' , str(?label), '> .') as ?l2) 
+(concat('<', str(?product), '> ',  str(bsbm:productFeature) , ' <' , str(?f1), '> .') as ?l3) 
+(concat('<', str(?f1), '> ',  str(rdfs:label) , ' <' , "ProductFeature1", '> .') as ?l4) 
+(concat('<', str(?product), '> ',  str(bsbm:productFeature) , ' <' , str(?f2), '> .') as ?l5) 
+(concat('<', str(?f2), '> ',  str(rdfs:label) , ' <' , "ProductFeature2", '> .') as ?l6) 
+(concat('<', str(?product), '> ',  str(bsbm:productPropertyTextual1) , ' <' , str(?propertyTextual), '> .') as ?l7) 
+(concat('<', str(?product), '> ',  str(bsbm:productPropertyNumeric1) , ' <' , str(?p1), '> .') as ?l8) 
+(concat('<', str(?product), '> ',  str(bsbm:productFeature) , ' <' , str(?f3), '> .') as ?l9) 
+(concat('<', str(?f3), '> ',  str(rdfs:label) , ' <' , "ProductFeature3", '> .') as ?20) 
+(concat('<', str(?product), '> ',  str(bsbm:productPropertyNumeric2) , ' <' , str(?p2), '> .') as ?21) 
 WHERE {
- { 
- ?product rdfs:label ?label .
- ?product rdf:type bsbm-inst:ProductType1 .
- ?product bsbm:productFeature bsbm-inst:ProductFeature1 .
-	?product bsbm:productFeature bsbm-inst:ProductFeature2 .
-	?product bsbm:productPropertyNumeric1 ?p1 .
+ 	    { 
+    		?product a ?type.
+    		?type rdfs:label "ProductType1".
+ 			?product rdfs:label ?label.
+ 			?product bsbm:productFeature ?f1 .
+        	?f1 rdfs:label "ProductFeature1".
+			?product bsbm:productFeature ?f2 .
+        	?f2 rdfs:label "ProductFeature2".
+ 			?product bsbm:productPropertyTextual1 ?propertyTextual .
+			?product bsbm:productPropertyNumeric1 ?p1 .
+	     } UNION {
+ 			?product rdfs:label ?label .
+ 			?product a ?type .
+        	?type rdfs:label "ProductType1".
+ 			?product bsbm:productFeature ?f1 .
+        	?f1 rdfs:label "ProductFeature1".
+			?product bsbm:productFeature ?f3 .
+        	?f3 rdfs:label "ProductFeature3".
+ 			?product bsbm:productPropertyTextual1 ?propertyTextual .
+			?product bsbm:productPropertyNumeric2 ?p2 .
 	
- } UNION {
- ?product rdfs:label ?label .
- ?product rdf:type bsbm-inst:ProductType1 .
- ?product bsbm:productFeature bsbm-inst:ProductFeature1 .
-	?product bsbm:productFeature bsbm-inst:ProductFeature2 .
-	?product bsbm:productPropertyNumeric2 ?p2 .
-	
- } 
+ 		} 
 }
-ORDER BY ?label
-OFFSET 5
-LIMIT 10

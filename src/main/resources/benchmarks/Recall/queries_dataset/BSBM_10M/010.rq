@@ -1,23 +1,25 @@
+PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
 PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX rev: <http://purl.org/stuff/rev#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
+SELECT (concat('<', str(?offer), '> ',  str(bsbm:product) , ' <' , str(?productXYZ), '> .') as ?l0) 
+(concat('<', str(?productXYZ), '> ',  str(rdfs:label) , ' <' , str(?label), '> .') as ?l1) 
+(concat('<', str(?offer), '> ',  str(bsbm:vendor) , ' <' , str(?vendor), '> .') as ?l2) 
+(concat('<', str(?offer), '> ',  str(dc:publisher) , ' <' , str(?vendor), '> .') as ?l3) 
+(concat('<', str(?vendor), '> ',  str(bsbm:country) , ' <' , str(<http://downlode.org/rdf/iso-3166/countries#US>), '> .') as ?l4) 
+(concat('<', str(?offer), '> ',  str(bsbm:price) , ' <' , str(?price), '> .') as ?l5) 
+(concat('<', str(?offer), '> ',  str(bsbm:validTo) , ' <' , str(?date), '> .') as ?l6) 
 
-
-SELECT DISTINCT ?label 
 WHERE {
-	?offer bsbm:product <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer27/Product1265> .
+	?offer bsbm:product ?productXYZ .
+  	?productXYZ rdfs:label ?label.
 	?offer bsbm:vendor ?vendor .
  	?offer dc:publisher ?vendor .
 	?vendor bsbm:country <http://downlode.org/rdf/iso-3166/countries#US> .
 	?offer bsbm:deliveryDays ?deliveryDays .
-	
 	?offer bsbm:price ?price .
  	?offer bsbm:validTo ?date .
-    ?offer rdfs:label ?label.
 }
-
-LIMIT 10

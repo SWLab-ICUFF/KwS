@@ -1,10 +1,16 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
 PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX bsbm-inst-datafrom-producer: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/>
 
-SELECT DISTINCT ?label
+SELECT (concat('<', str(?product), '> ',  str(rdfs:label ) , ' <' , str(?label), '> .') as ?l0) 
+(concat('<', str(?product), '> ',  'a' , ' <' , str(?type), '> .') as ?l1) 
+(concat('<', str(?type), '> ',  str(rdfs:label) , ' <' , "Product", '> .') as ?l2) 
+
+
 WHERE {
-	?product rdfs:label ?label .
- ?product rdf:type bsbm:Product .
-	FILTER regex(?label, "dataFromProducer1Product1")
+		?product rdfs:label ?label .
+ 		?product a ?type .
+  		?type rdfs:label "Product"
 }

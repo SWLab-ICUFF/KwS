@@ -1,20 +1,26 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
 PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX bsbm-inst-datafrom-producer: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/>
 
-
-SELECT DISTINCT ?label
+SELECT (concat('<', str(?product), '> ',  str(rdfs:label) , ' <' , str(?productLabel), '> .') as ?l0) 
+(concat('<', str(?productXYZ), '> ',  str(bsbm:productFeature) , ' <' , str(?prodFeature), '> .') as ?l1) 
+(concat('<', str(?productXYZ), '> ',  str(rdfs:label) , ' <' , "dataFromProducer1Product1", '> .') as ?l2) 
+(concat('<', str(?product), '> ',  str(bsbm:productFeature) , ' <' , str(?prodFeature), '> .') as ?l3) 
+(concat('<', str(?productXYZ), '> ',  str(bsbm:productPropertyNumeric1) , ' <' , str(?origProperty1), '> .') as ?l4) 
+(concat('<', str(?productXYZ), '> ',  str(bsbm:productPropertyNumeric1) , ' <' , str(?simProperty1), '> .') as ?l5) 
+(concat('<', str(?productXYZ), '> ',  str(bsbm:productPropertyNumeric2) , ' <' , str(?origProperty2), '> .') as ?l6) 
+(concat('<', str(?productXYZ), '> ',  str(bsbm:productPropertyNumeric2) , ' <' , str(?simProperty2), '> .') as ?l7) 
 WHERE { 
-	?product rdfs:label ?label .
-	<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/Product1>  bsbm:productFeature ?prodFeature. 
-	?product bsbm:productFeature ?prodFeature .
-	<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/Product1> bsbm:productPropertyNumeric1 ?origProperty1 .
-	?product bsbm:productPropertyNumeric1 ?simProperty1 .
-	
-	<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/Product1> bsbm:productPropertyNumeric2 ?origProperty2 .
-	?product bsbm:productPropertyNumeric2 ?simProperty2 .
+	   	?product rdfs:label ?productLabel . 
+	   	?productXYZ bsbm:productFeature ?prodFeature .
+  		?productXYZ rdfs:label "dataFromProducer1Product1".
+		?product bsbm:productFeature ?prodFeature .
+		?productXYZ bsbm:productPropertyNumeric1 ?origProperty1 .
+		?product bsbm:productPropertyNumeric1 ?simProperty1 .	
+		?productXYZ bsbm:productPropertyNumeric2 ?origProperty2 .
+		?product bsbm:productPropertyNumeric2 ?simProperty2 .
 	
 }
-ORDER BY ?productLabel
-LIMIT 5
+
