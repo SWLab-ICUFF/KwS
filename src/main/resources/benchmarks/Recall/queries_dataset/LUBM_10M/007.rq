@@ -4,7 +4,7 @@ prefix swat: <http://swat.cse.lehigh.edu/#>
 select (concat('<',str(?X),'>', ' a ', '<', str(swat:GraduateStudent), '> .') as ?l0)
  (concat('<',str(?Y),'>', ' a ', '<', str(swat:GraduateCourse), '> .') as ?l1)
 (concat('<',str(?X),'>', ' <', str(swat:takesCourse) ,'> ', '<', str(?Y), '> .') as ?l2)
-(concat('<',str(?s),'>', ' <', str(rdfs:label) ,'> ', '"Department0University0AssociateProfessor0" .') as ?l3)
+(concat('<',str(?s),'>', ' <', str(rdfs:label) ,'> ', "'Department0University0AssociateProfessor0' .") as ?l3)
 (concat('<',str(?s),'>', ' <', str(swat:teacherOf) ,'> ', '<', str(?Y), '> .') as ?l4)
 WHERE {
   ?X rdf:type swat:GraduateStudent .

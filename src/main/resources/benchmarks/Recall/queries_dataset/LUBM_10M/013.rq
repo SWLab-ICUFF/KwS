@@ -1,7 +1,7 @@
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix swat: <http://swat.cse.lehigh.edu/#>
-select(concat('<',str(?s),'>', ' <',str(rdfs:label),'> ', '"University5" .') as ?l0)
+select(concat('<',str(?s),'>', ' <',str(rdfs:label),'> ', "'University5' .") as ?l0)
 (concat('<',str(?X),'>', ' a ', '<', str(swat:GraduateStudent), '> .') as ?l1)
 (concat('<',str(?X),'>', ' <', str(swat:undergraduateDegreeFrom) ,'> ', '<', str(?s), '> .') as ?l2)
 WHERE {

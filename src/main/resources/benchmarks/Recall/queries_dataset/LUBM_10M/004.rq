@@ -1,11 +1,11 @@
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix swat: <http://swat.cse.lehigh.edu/#>
-select (concat('<', str(?s), '>', ' <', str(rdfs:label), '> ', '"Department0University0" .') as ?l0)
+select (concat('<', str(?s), '>', ' <', str(rdfs:label), '> ', "'Department0University0' .") as ?l0)
 (concat('<', str(?X), '>', ' a ', '<',str(swat:FullProfessor),'> .') as ?l1)
 (concat('<', str(?X), '>', ' <', str(swat:worksFor), '> ', '<',str(?s),'> .') as ?l2)
-(concat('<', str(?X), '>', ' <', str(swat:emailAddress), '> ', '"',str(?Y2),'" .') as ?l3)
-(concat('<', str(?X), '>', ' <', str(swat:telephone), '> ', '"',str(?Y3),'" .') as ?l4)
+(concat('<', str(?X), '>', ' <', str(swat:emailAddress), '> ', '<',str(?Y2),'> .') as ?l3)
+(concat('<', str(?X), '>', ' <', str(swat:telephone), '> ', '"', '<',str(?Y3),'> .') as ?l4)
 WHERE{
   ?s rdfs:label "Department0University0" .
   ?X rdf:type swat:FullProfessor .

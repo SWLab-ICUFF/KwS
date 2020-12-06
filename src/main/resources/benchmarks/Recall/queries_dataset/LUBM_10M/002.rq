@@ -3,7 +3,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix swat: <http://swat.cse.lehigh.edu/#>
 select (concat('<', str(?X), '>', ' a ' , '<', str(swat:GraduateStudent), '> .' ) as ?l0)
 (concat('<', str(?Y), '>', ' a ' , '<', str(swat:University), '> .' ) as ?l1)
-(concat('<', str(?Z), '>', ' a ' , '<', str(swat:Departmen), '> .' ) as ?l2)
+(concat('<', str(?Z), '>', ' a ' , '<', str(swat:Department), '> .' ) as ?l2)
 (concat('<', str(?X), '>', ' <', str(swat:memberOf), '> ', '<', str(?Z), '> .' ) as ?l3)
 (concat('<', str(?Z), '>', ' <', str(swat:subOrganizationOf), '> ', '<', str(?Y), '> .' ) as ?l4)
 (concat('<', str(?X), '>', ' <', str(swat:undergraduateDegreeFrom), '> ', '<', str(?Y), '> .' ) as ?l5)
