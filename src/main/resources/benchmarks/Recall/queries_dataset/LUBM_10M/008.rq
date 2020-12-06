@@ -5,7 +5,7 @@ select (concat('<',str(?s),'>', ' <', str(rdfs:label) ,'> ', "'University0' .") 
 (concat('<',str(?X),'>', ' a ', '<', str(swat:UndergraduateStudent), '> .') as ?l1)
  (concat('<',str(?Y),'>', ' a ', '<', str(swat:Department), '> .') as ?l2)
 (concat('<',str(?X),'>', ' <', str(swat:memberOf) ,'> ', '<', str(?Y), '> .') as ?l3)
-(concat('<',str(?X),'>', ' <', str(swat:emailAddress) ,'> ', '"', str(?Z), '" .') as ?l4)
+(concat('<',str(?X),'>', ' <', str(swat:emailAddress) ,'> ',"'", str(?Z), "'",  '.') as ?l4)
 WHERE{
   ?s rdfs:label "University0" .
   ?X rdf:type swat:UndergraduateStudent  .

@@ -3,4 +3,7 @@
 
 
 
-(FullProfessor)
+
+
+
+(UndergraduateStudent advisor teacherOf Course takesCourse AssistantProfessor)
