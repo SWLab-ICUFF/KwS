@@ -4,9 +4,9 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX bsbm-inst-datafrom-producer: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/>
 
-SELECT (concat('<', str(?product), '> ',  str(rdfs:label ) , ' <' , str(?label), '> .') as ?l0) 
+SELECT (concat('<', str(?product), '> ',  ' <', str(rdfs:label), '> ', "'", str(?label), "'",  '.') as ?l0) 
 (concat('<', str(?product), '> ',  'a' , ' <' , str(?type), '> .') as ?l1) 
-(concat('<', str(?type), '> ',  str(rdfs:label) , ' <' , "Product", '> .') as ?l2) 
+(concat('<', str(?type), '> ', ' <', str(rdfs:label) , '> ', "'Product' .") as ?l2) 
 
 
 WHERE {

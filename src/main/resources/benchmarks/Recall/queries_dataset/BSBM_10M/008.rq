@@ -6,20 +6,16 @@ PREFIX rev: <http://purl.org/stuff/rev#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
 
-SELECT (concat('<', str(?review), '> ',  str(bsbm:reviewFor) , ' <' , str(?productXYZ), '> .') as ?l0) 
-(concat('<', str(?productXYZ), '> ',  str(rdfs:label) , ' <' , str(?label), '> .') as ?l1) 
-(concat('<', str(?review), '> ',  str(dc:title) , ' <' , str(?title), '> .') as ?l2) 
-(concat('<', str(?review), '> ',  str(rev:text) , ' <' , str(?text), '> .') as ?l3) 
-(concat('<', str(?review), '> ',  str(bsbm:reviewDate) , ' <' , str(?reviewDate), '> .') as ?l4) 
-(concat('<', str(?review), '> ',  str(rev:reviewer) , ' <' , str(?reviewer), '> .') as ?l5) 
-(concat('<', str(?reviewer), '> ',  str(foaf:name) , ' <' , str(?reviewerName), '> .') as ?l6) 
-(concat('<', str(?review), '> ',  str(bsbm:rating1) , ' <' , str(?rating1), '> .') as ?l7) 
-(concat('<', str(?review), '> ',  str(bsbm:rating2) , ' <' , str(?rating2), '> .') as ?l8) 
-(concat('<', str(?review), '> ',  str(bsbm:rating3) , ' <' , str(?rating3), '> .') as ?l9) 
-(concat('<', str(?review), '> ',  str(bsbm:rating4) , ' <' , str(?rating4), '> .') as ?20) 
+SELECT (concat('<', str(?review), '> ',  '<' , str(bsbm:reviewFor), '> ', ' <' , str(?productXYZ), '> .') as ?l0) 
+(concat('<', str(?productXYZ), '> ',  '<', str(rdfs:label), '> ', "'dataFromProducer15Product702' .") as ?l1) 
+(concat('<', str(?review), '> ',  '<', str(dc:title), '> ',  "'", str(?title), "'",  '.') as ?l2) 
+(concat('<', str(?review), '> ', '<',  str(rev:text), '> ', "'", str(?text), "'",  '.') as ?l3) 
+(concat('<', str(?review), '> ', '<', str(bsbm:reviewDate), '> ', "'", str(?reviewDate), "'",  '.') as ?l4) 
+(concat('<', str(?review), '> ',  '<', str(rev:reviewer), '> ', ' <' , str(?reviewer), '> .') as ?l5) 
+(concat('<', str(?reviewer), '> ', '<', str(foaf:name), '> ', "'", str(?reviewerName), "'",  '.') as ?l6) 
 WHERE { 
 	?review bsbm:reviewFor ?productXYZ .
-  	?productXYZ rdfs:label ?label.
+        ?productXYZ rdfs:label "dataFromProducer15Product702".
 	?review dc:title ?title .
 	?review rev:text ?text .
 	?review bsbm:reviewDate ?reviewDate .

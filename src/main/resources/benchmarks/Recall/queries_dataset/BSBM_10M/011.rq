@@ -4,14 +4,14 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX rev: <http://purl.org/stuff/rev#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-SELECT (concat('<', str(?OfferXYZ), '> ',  str(?property) , ' <' , str(?hasValue), '> .') as ?l0) 
-(concat('<', str(?OfferXYZ), '> ',  str(rdfs:label) , ' <' , str(?label), '> .') as ?l1) 
-(concat('<', str(?isValueOf), '> ',  str(?property) , ' <' , str(?OfferXYZ), '> .') as ?l2) 
+SELECT (concat('<', str(?OfferXYZ), '> ',  '<', str(?property), '>', ' <' , str(?hasValue), '> .') as ?l0) 
+(concat('<', str(?OfferXYZ), '> ',  '<', str(rdfs:label), '>', "'dataFromVendor1Offer352' .") as ?l1) 
+(concat('<', str(?isValueOf), '> ',  '<', str(?property), '>', ' <' , str(?OfferXYZ), '> .') as ?l2) 
 WHERE {
  { ?OfferXYZ ?property ?hasValue.
-    ?OfferXYZ rdfs:label ?label.}
+    ?OfferXYZ rdfs:label "dataFromVendor1Offer352".}
  UNION
  { ?isValueOf ?property ?OfferXYZ.
-   ?OfferXYZ rdfs:label ?label.}
+   ?OfferXYZ rdfs:label "dataFromVendor1Offer352".}
 }
 

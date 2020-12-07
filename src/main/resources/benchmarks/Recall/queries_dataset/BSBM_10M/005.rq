@@ -4,14 +4,10 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX bsbm-inst-datafrom-producer: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/>
 
-SELECT (concat('<', str(?product), '> ',  str(rdfs:label) , ' <' , str(?productLabel), '> .') as ?l0) 
-(concat('<', str(?productXYZ), '> ',  str(bsbm:productFeature) , ' <' , str(?prodFeature), '> .') as ?l1) 
-(concat('<', str(?productXYZ), '> ',  str(rdfs:label) , ' <' , "dataFromProducer1Product1", '> .') as ?l2) 
-(concat('<', str(?product), '> ',  str(bsbm:productFeature) , ' <' , str(?prodFeature), '> .') as ?l3) 
-(concat('<', str(?productXYZ), '> ',  str(bsbm:productPropertyNumeric1) , ' <' , str(?origProperty1), '> .') as ?l4) 
-(concat('<', str(?productXYZ), '> ',  str(bsbm:productPropertyNumeric1) , ' <' , str(?simProperty1), '> .') as ?l5) 
-(concat('<', str(?productXYZ), '> ',  str(bsbm:productPropertyNumeric2) , ' <' , str(?origProperty2), '> .') as ?l6) 
-(concat('<', str(?productXYZ), '> ',  str(bsbm:productPropertyNumeric2) , ' <' , str(?simProperty2), '> .') as ?l7) 
+SELECT (concat('<', str(?product), '> ',  '<', str(rdfs:label), '> ', "'", str(?productLabel), "'",  '.') as ?l0) 
+(concat('<', str(?productXYZ), '> ',  '<', str(bsbm:productFeature) , '> ', ' <' , str(?prodFeature), '> .') as ?l1) 
+(concat('<', str(?productXYZ), '> ',  '<', str(rdfs:label) , '> ', "'dataFromProducer1Product1' .") as ?l2) 
+(concat('<', str(?product), '> ',  '<', str(bsbm:productFeature) , '> ', ' <' , str(?prodFeature), '> .') as ?l3) 
 WHERE { 
 	   	?product rdfs:label ?productLabel . 
 	   	?productXYZ bsbm:productFeature ?prodFeature .

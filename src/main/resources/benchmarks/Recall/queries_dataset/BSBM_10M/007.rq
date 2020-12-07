@@ -8,23 +8,19 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
 
 
-SELECT (concat('<', str(?productXYZ), '> ',  str(rdfs:label) , ' <' , str(?productLabel), '> .') as ?l0) 
-(concat('<', str(?offer), '> ',  str(bsbm:product) , ' <' , str(?productXYZ), '> .') as ?l1) 
-(concat('<', str(?offer), '> ',  str(bsbm:price) , ' <' , str(?price), '> .') as ?l2) 
-(concat('<', str(?offer), '> ',  str(bsbm:vendor) , ' <' , str(?vendor), '> .') as ?l3) 
-(concat('<', str(?vendor), '> ',  str(rdfs:label) , ' <' , str(?vendorTitle), '> .') as ?l4) 
-(concat('<', str(?vendor), '> ',  str(bsbm:country) , ' <' , str(<http://downlode.org/rdf/iso-3166/countries#DE>), '> .') as ?l5) 
-(concat('<', str(?offer), '> ',  str(dc:publisher) , ' <' , str(?vendor), '> .') as ?l6) 
-(concat('<', str(?offer), '> ',  str(bsbm:validTo) , ' <' , str(?date), '> .') as ?l7) 
-(concat('<', str(?review), '> ',  str(bsbm:reviewFor) , ' <' , str(?productXYZ), '> .') as ?l8) 
-(concat('<', str(?review), '> ',  str(rev:reviewer) , ' <' , str(?reviewer), '> .') as ?l9) 
-(concat('<', str(?reviewer), '> ',  str(foaf:name) , ' <' , str(?revName), '> .') as ?20) 
-(concat('<', str(?review), '> ',  str(dc:title) , ' <' , str(?revTitle), '> .') as ?21) 
-(concat('<', str(?review), '> ',  str(bsbm:rating1) , ' <' , str(?rating1), '> .') as ?22) 
-(concat('<', str(?review), '> ',  str(bsbm:rating2) , ' <' , str(?rating2), '> .') as ?23) 
+SELECT (concat('<', str(?productXYZ), '> ', '<', str(rdfs:label), '>', ' <' , "dataFromProducer17Product810", '> .') as ?l0) 
+(concat('<', str(?offer), '> ',  '<', str(bsbm:product), '>', ' <' , str(?productXYZ), '> .') as ?l1) 
+(concat('<', str(?offer), '> ',  '<', str(bsbm:vendor), '>', ' <' , str(?vendor), '> .') as ?l3) 
+(concat('<', str(?vendor), '> ', '<', str(rdfs:label), '>', "'", str(?vendorTitle), "'",  '.') as ?l4) 
+(concat('<', str(?offer), '> ',  '<', str(dc:publisher), '>', ' <' , str(?vendor), '> .') as ?l6) 
+(concat('<', str(?offer), '> ',  '<', str(bsbm:validTo), '>', "'", str(?date), "'",  '.') as ?l7) 
+(concat('<', str(?review), '> ',  '<', str(bsbm:reviewFor), '>', ' <' , str(?productXYZ), '> .') as ?l8) 
+(concat('<', str(?review), '> ',  '<', str(rev:reviewer), '>', ' <' , str(?reviewer), '> .') as ?l9) 
+(concat('<', str(?reviewer), '> ', '<',  str(foaf:name), '>', "'", str(foaf:name), "'",  '.') as ?20) 
+(concat('<', str(?review), '> ',  '<', str(dc:title), '>', "'", str(?revTitle), "'",  '.') as ?21) 
 
 WHERE { 
-		?productXYZ rdfs:label ?productLabel .
+		?productXYZ rdfs:label "dataFromProducer17Product810" .
   		
  		OPTIONAL {
  			?offer bsbm:product ?productXYZ .

@@ -4,23 +4,18 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX bsbm-inst-datafrom-producer: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/>
 
-select (concat('<', str(?product), '> ',  str(rdfs:label) , ' <' , str(?label), '> .') as ?l0) 
-(concat('<', str(?product), '> <',  str(rdfs:comment), '> ' , str(?comment), '.') as ?l1) 
-(concat('<', str(?product), '> <',  str(bsbm:producer), '> ' , str(?p), '.') as ?l2) 
-(concat('<', str(?p), '> <',  str(rdfs:label), '> ' , str(?producer), '.') as ?l3) 
-(concat('<', str(?product), '> <',  str(dc:publisher), '> ' , str(?p), '.') as ?l4) 
-(concat('<', str(?product), '> <',  str(bsbm:productFeature), '> ' , str(?f), '.') as ?l5) 
-(concat('<', str(?f), '> <',  str(rdfs:label), '> ' , str(?productFeature), '.') as ?l6) 
-(concat('<', str(?product), '> <',  str(bsbm:productPropertyTextual1), '> ' , str(?propertyTextual1), '.') as ?l7) 
-(concat('<', str(?product), '> <',  str(bsbm:productPropertyTextual2), '> ' , str(?propertyTextual2), '.') as ?l8) 
-(concat('<', str(?product), '> <',  str(bsbm:productPropertyTextual3), '> ' , str(?propertyTextual3), '.') as ?l9) 
-(concat('<', str(?product), '> <',  str(bsbm:productPropertyNumeric1), '> ' , str(?propertyNumeric1), '.') as ?20) 
-(concat('<', str(?product), '> <',  str(bsbm:productPropertyNumeric2), '> ' , str(?propertyNumeric2), '.') as ?21) 
-(concat('<', str(?product), '> <',  str(bsbm:productPropertyTextual4), '> ' , str(?propertyTextual4), '.') as ?22) 
-(concat('<', str(?product), '> <',  str(bsbm:productPropertyTextual5), '> ' , str(?propertyTextual5), '.') as ?23) 
-(concat('<', str(?product), '> <',  str(bsbm:productPropertyNumeric4), '> ' , str(?propertyNumeric4), '.') as ?24) 
+select (concat('<', str(?product), '> ',  '<',  str(rdfs:label) ,'>', "'dataFromProducer1Product1' .") as ?l0) 
+(concat('<', str(?product), '> <',  str(rdfs:comment), '> ' , "'",  str(?comment), "'", '.') as ?l1) 
+(concat('<', str(?product), '> <',  str(bsbm:producer), '> ' , '<', str(?p), '>', '.') as ?l2) 
+(concat('<', str(?p), '> <',  str(rdfs:label), '> ' , "'", str(?producer), "'", '.') as ?l3) 
+(concat('<', str(?product), '> <',  str(dc:publisher), '> ', '<', str(?p), '>', '.') as ?l4) 
+(concat('<', str(?product), '> <',  str(bsbm:productFeature), '> ' , '<', str(?f), '>', '.') as ?l5) 
+(concat('<', str(?f), '> <',  str(rdfs:label), '> ' , "'", str(?productFeature), "'",  '.') as ?l6) 
+(concat('<', str(?product), '> <',  str(bsbm:productPropertyTextual1), '> ' , "'", str(?propertyTextual1), "'",  '.') as ?l7) 
+(concat('<', str(?product), '> <',  str(bsbm:productPropertyTextual2), '> ' , "'", str(?propertyTextual2), "'",  '.') as ?l8) 
+(concat('<', str(?product), '> <',  str(bsbm:productPropertyTextual3), '> ' , "'", str(?propertyTextual3), "'",  '.') as ?l9) 
 WHERE {
-    ?product rdfs:label ?label .
+        ?product rdfs:label "dataFromProducer1Product1" .
 	?product rdfs:comment ?comment .
 	?product bsbm:producer ?p .
 	?p rdfs:label ?producer .

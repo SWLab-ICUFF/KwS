@@ -98,7 +98,7 @@ public class BuildRecall {
                 String queryString = readQuery(pathQuery);
                 QueryExecution q = QueryExecutionFactory.sparqlService(serviceDatabase, queryString);
                 ResultSet result = q.execSelect();
-                Integer allAnsewrs = 0;
+                Double allAnsewrs = 0.0;
                 Integer ansewrsFind = 0;
 
                 while (result.hasNext()) {

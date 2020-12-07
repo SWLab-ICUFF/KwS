@@ -2,12 +2,11 @@ PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 select (concat('<', str(?product), '> ',  'a' , ' <' , str(?type), '> .') as ?l0) 
-(concat('<', str(?type), '> <',  str(rdfs:label), '> ' , '"ProductType1" .') as ?l1) 
+(concat('<', str(?type), '> <',  str(rdfs:label), '> ' , "'ProductType1' .") as ?l1) 
 (concat('<', str(?product), '> <', str(bsbm:productFeature), '> <', str(?f1), '> .') as ?l2) 
-(concat('<', str(?f1), '> <',  str(rdfs:label), '> ' , '"ProductFeature1" .') as ?l3) 
+(concat('<', str(?f1), '> <',  str(rdfs:label), '> ' , "'ProductFeature1' .") as ?l3) 
 (concat('<', str(?product), '> <', str(bsbm:productFeature), '> <', str(?f2), '> .') as ?l4) 
-(concat('<', str(?f2), '> <',  str(rdfs:label), '> ' , '"ProductFeature2" .') as ?l5)
-(concat('<', str(?product), '> <',  str(bsbm:productPropertyNumeric1), '> "' , str(?value1) ,'" .') as ?l6)
+(concat('<', str(?f2), '> <',  str(rdfs:label), '> ' , "'ProductFeature2' .") as ?l5)
 where{ 
    ?product a ?type .
    ?type rdfs:label "ProductType1" .

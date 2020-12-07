@@ -5,15 +5,13 @@ PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX bsbm-inst-datafrom-producer: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/>
 
 SELECT  (concat('<', str(?product), '> ',  'a' , ' <' , str(?type), '> .') as ?l0)
-(concat('<', str(?type), '> ',  str(rdfs:label) , ' <' , "ProductType1", '> .') as ?l1)
-(concat('<', str(?product), '> ',  str(rdfs:label) , ' <' , str(?label), '> .') as ?l2)
-(concat('<', str(?product), '> ',  str(bsbm:productFeature) , ' <' , str(?f1), '> .') as ?l3)
-(concat('<', str(?f1), '> ',  str(rdfs:label) , ' <' , "ProductFeature1", '> .') as ?l4)
-(concat('<', str(?product), '> ',  str(bsbm:productPropertyNumeric1) , ' <' , str(?p1), '> .') as ?l5)
-(concat('<', str(?product), '> ',  str(bsbm:productPropertyNumeric3) , ' <' , str(?p3), '> .') as ?l6)
-(concat('<', str(?product), '> ',  str(bsbm:productFeature) , ' <' , str(?f2), '> .') as ?l7)
-(concat('<', str(?f2), '> ',  str(rdfs:label) , ' <' , str("productFeature2"), '> .') as ?l8)
-(concat('<', str(?product), '> ',  str(rdfs:label) , ' <' , ?testVar , '> .') as ?l9)
+(concat('<', str(?type), '> ',  '<', str(rdfs:label), '>', "'ProductType1' .") as ?l1)
+(concat('<', str(?product), '> ',  '<', str(rdfs:label) , '>', "'", str(?label), "'",  '.') as ?l2)
+(concat('<', str(?product), '> ', '<',  str(bsbm:productFeature) , '>', ' <' , str(?f1), '> .') as ?l3)
+(concat('<', str(?f1), '> ',  '<', str(rdfs:label) ,  '>', "'ProductFeature1' .") as ?l4)
+(concat('<', str(?product), '> ', '<', str(bsbm:productFeature), '>', "'", str(?f2), "'",  '.') as ?l7)
+(concat('<', str(?f2), '> ',  '<', str(rdfs:label) ,  '>', "'ProductFeature2' .") as ?l8)
+(concat('<', str(?product), '> ',  '<', str(rdfs:label),  '>', "'", str(?testVar), "'",  '.') as ?l9)
 
 WHERE{
   	?product a ?type.
@@ -25,7 +23,7 @@ WHERE{
 	?product bsbm:productPropertyNumeric3 ?p3 .
  	OPTIONAL { 
  		?product bsbm:productFeature ?f2 .
-    	?f2 rdfs:label "productFeature2".
+                ?f2 rdfs:label "ProductFeature2".
  		?product rdfs:label ?testVar 
 	}
 }

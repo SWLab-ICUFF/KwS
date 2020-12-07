@@ -5,19 +5,16 @@ PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX rev: <http://purl.org/stuff/rev#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
-SELECT (concat('<', str(?OfferXYZ), '> ',  str(bsbm:product) , ' <' , str(?productURI), '> .') as ?l0) 
-(concat('<', str(?OfferXYZ), '> ',  str(rdfs:label) , ' <' , str(?label), '> .') as ?l1) 
-(concat('<', str(?productURI), '> ',  str(rdfs:label) , ' <' , str(?productlabel), '> .') as ?l2) 
-(concat('<', str(?OfferXYZ), '> ',  str(bsbm:vendor) , ' <' , str(?vendorURI), '> .') as ?l3) 
-(concat('<', str(?vendorURI), '> ',  str(rdfs:label) , ' <' , str(?vendorname), '> .') as ?l4)
-(concat('<', str(?vendorURI), '> ',  str(foaf:homepage) , ' <' , str(?vendorhomepage), '> .') as ?l5)
-(concat('<', str(?OfferXYZ), '> ',  str(bsbm:offerWebpage) , ' <' , str(?offerURL), '> .') as ?l6)
-(concat('<', str(?OfferXYZ), '> ',  str(bsbm:price) , ' <' , str(?price), '> .') as ?l7)
-(concat('<', str(?OfferXYZ), '> ',  str(bsbm:deliveryDays) , ' <' , str(?deliveryDays), '> .') as ?l8)
-(concat('<', str(?OfferXYZ), '> ',  str(bsbm:validTo) , ' <' , str(?validTo), '> .') as ?19)
+SELECT (concat('<', str(?OfferXYZ), '> ', '<', str(bsbm:product), '>', ' <' , str(?productURI), '> .') as ?l0) 
+(concat('<', str(?OfferXYZ), '> ',  '<', str(rdfs:label), '>', "'dataFromVendor1Offer1509' .") as ?l1) 
+(concat('<', str(?productURI), '> ',  '<', str(rdfs:label), '>', str(?productLabel), "'",  '.') as ?l2) 
+(concat('<', str(?OfferXYZ), '> ',  '<', str(bsbm:vendor) , '>', ' <' , str(?vendorURI), '> .') as ?l3) 
+(concat('<', str(?vendorURI), '> ',  '<', str(rdfs:label) , '>', "'", str(?vendorname), "'",  '.') as ?l4)
+(concat('<', str(?vendorURI), '> ', '<', str(foaf:homepage) , '>', "'", str(?vendorhomepage), "'",  '.') as ?l5)
+(concat('<', str(?OfferXYZ), '> ',  '<', str(bsbm:offerWebpage) , '>', "'", str(?offerURL), "'",  '.') as ?l6)
 WHERE { 
   		?OfferXYZ bsbm:product ?productURI .
-  		?OfferXYZ rdfs:label ?label.
+  		?OfferXYZ rdfs:label "dataFromVendor1Offer1509".
  		?productURI rdfs:label ?productlabel .
  		?OfferXYZ bsbm:vendor ?vendorURI .
  		?vendorURI rdfs:label ?vendorname .
