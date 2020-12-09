@@ -1,58 +1,128 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE   {{<http://dbpedia.org/resource/Abatte_Barihun> rdfs:label ?label. } UNION {
-		 <http://dbpedia.org/resource/Alan_Silva>  rdfs:label ?label. } UNION {
-        <http://dbpedia.org/resource/Benny_Carter>  rdfs:label ?label. } UNION {
-        <http://dbpedia.org/resource/Bobby_Hackett> rdfs:label ?label. } UNION {
-        <http://dbpedia.org/resource/Brian_Jones>  rdfs:label ?label. } UNION {
-        <http://dbpedia.org/resource/Cleveland_Eaton> rdfs:label ?label. } UNION {
-        <http://dbpedia.org/resource/Clifford_Thornton> rdfs:label ?label. } UNION {
-        <http://dbpedia.org/resource/Danny_Davis_%28country_musician%29> rdfs:label ?label. } UNION {
-        <http://dbpedia.org/resource/Dave_Bartholomew> rdfs:label ?label. } UNION {
-        <http://dbpedia.org/resource/Dave_Douglas_%28trumpeter%29> rdfs:label ?label. } UNION {
-        <http://dbpedia.org/resource/Dizzy_Gillespie> rdfs:label ?label. } UNION {
-        <http://dbpedia.org/resource/Doc_Cheatham> rdfs:label ?label. } UNION {
-        <http://dbpedia.org/resource/Doc_Severinsen>  rdfs:label ?label. } UNION {
-        <http://dbpedia.org/resource/Dominick_Farinacci> rdfs:label ?label. } UNION {
-       <http://dbpedia.org/resource/Don_Albert> rdfs:label ?label. } UNION {
-        <http://dbpedia.org/resource/Ernest_%22Doc%22_Paulin>  rdfs:label ?label. } UNION {
-       <http://dbpedia.org/resource/Farnell_Newton> rdfs:label ?label. } UNION {
-       <http://dbpedia.org/resource/Freddie_Hubbard> rdfs:label ?label. } UNION {
-       <http://dbpedia.org/resource/Gerald_Wilson> rdfs:label ?label. } UNION {
-    <http://dbpedia.org/resource/Gerard_Presencer> rdfs:label ?label }UNION {
-    <http://dbpedia.org/resource/Guy_Barker> rdfs:label ?label. }UNION {
-       <http://dbpedia.org/resource/Hot_Lips_Page> rdfs:label ?label. }UNION {
-      <http://dbpedia.org/resource/Hugh_Masekela> rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/Irvin_Mayfield> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Jack_Walrath> rdfs:label ?label. }UNION { 
-    <http://dbpedia.org/resource/Jens_Winther> rdfs:label ?label. }UNION { 
-    <http://dbpedia.org/resource/Jimmy_Dorsey> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Joe_Morris_%28trumpeter%29> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Joe_Wilder> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Joey_DeFrancesco> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Kenny_Dorham> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Lloyd_Hunter> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Louis_Prima> rdfs:label ?label. }UNION {
-     <http://dbpedia.org/resource/Louis_Prima_Jr> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Mark_Egan> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Marlon_Jordan> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Maynard_Ferguson> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Nat_Gonella> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Neil_Yates> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Nick_LaRocca> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Orbert_Davis> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Papa_Celestin> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Pete_Brown_%28jazz_musician%29>  rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Red_Perkins> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Richard_Maltby,_Sr.> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Sean_Jones_%28trumpeter%29> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Terumasa_Hino> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Theo_Croker> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Tommy_Dorsey> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Vic_Schoen>  rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/W._C._Handy> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Willie_Mitchell_%28musician%29> rdfs:label ?label. }UNION {
-    <http://dbpedia.org/resource/Woody_Shaw> rdfs:label ?label. }
-  }
- 
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/Abatte_Barihun>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?10) 
+(concat('<http://dbpedia.org/resource/Alan_Silva>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?11) 
+(concat('<http://dbpedia.org/resource/Benny_Carter>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?12) 
+(concat('<http://dbpedia.org/resource/Brian_Jones>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?13) 
+(concat('<http://dbpedia.org/resource/Cleveland_Eaton>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?14) 
+(concat('<http://dbpedia.org/resource/Clifford_Thornton> ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?15) 
+(concat('<http://dbpedia.org/resource/Danny_Davis_%28country_musician%29> ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?16) 
+(concat('<http://dbpedia.org/resource/Dave_Bartholomew> ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?17) 
+(concat('<http://dbpedia.org/resource/Dave_Douglas_%28trumpeter%29>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?18) 
+(concat('<http://dbpedia.org/resource/Dizzy_Gillespie>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?19) 
+(concat('<http://dbpedia.org/resource/Doc_Cheatham>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?20) 
+(concat('<http://dbpedia.org/resource/Doc_Severinsen>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?21)
+(concat('<http://dbpedia.org/resource/Dominick_Farinacci>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?22) 
+(concat('<http://dbpedia.org/resource/Don_Albert>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?23) 
+(concat(' <http://dbpedia.org/resource/Ernest_%22Doc%22_Paulin>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?24)
+(concat(' <http://dbpedia.org/resource/Farnell_Newton>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?25)
+(concat(' <http://dbpedia.org/resource/Gerald_Wilson>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?26)
+(concat(' <http://dbpedia.org/resource/Gerard_Presencer>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?27)
+(concat(' <http://dbpedia.org/resource/Guy_Barker>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?28)
+(concat(' <http://dbpedia.org/resource/Hot_Lips_Page>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?29)
+(concat(' <http://dbpedia.org/resource/Hugh_Masekela>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?30)
+(concat(' <http://dbpedia.org/resource/Irvin_Mayfield>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?31)
+(concat(' <http://dbpedia.org/resource/Jens_Winther>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?32)
+(concat(' <http://dbpedia.org/resource/Jimmy_Dorsey>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?33)
+(concat(' <http://dbpedia.org/resource/Joe_Morris_%28trumpeter%29>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?34)
+(concat('  <http://dbpedia.org/resource/Joe_Wilder>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?35)
+(concat('  <http://dbpedia.org/resource/Joey_DeFrancesco>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?36)
+(concat('  <http://dbpedia.org/resource/Kenny_Dorham>  ', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?37)
+(concat(' <http://dbpedia.org/resource/Lloyd_Hunter>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?38)
+(concat(' <http://dbpedia.org/resource/Louis_Prima>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?39)
+(concat(' <http://dbpedia.org/resource/Louis_Prima_Jr>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?40)
+(concat(' <http://dbpedia.org/resource/Mark_Egan>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?41)
+(concat(' <http://dbpedia.org/resource/Marlon_Jordan>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?42)
+(concat(' <http://dbpedia.org/resource/Maynard_Ferguson>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?43)
+(concat(' <http://dbpedia.org/resource/Nat_Gonella>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?44)
+(concat(' <http://dbpedia.org/resource/Neil_Yates>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?45)
+(concat(' <http://dbpedia.org/resource/Nick_LaRocca>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?46)
+(concat(' <http://dbpedia.org/resource/Orbert_Davis>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?47)
+(concat(' <http://dbpedia.org/resource/Papa_Celestin>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?48)
+(concat(' <http://dbpedia.org/resource/Pete_Brown_%28jazz_musician%29>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?49)
+(concat(' <http://dbpedia.org/resource/Red_Perkins>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?50)
+(concat(' <http://dbpedia.org/resource/Richard_Maltby,_Sr.>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?51)
+(concat(' <http://dbpedia.org/resource/Sean_Jones_%28trumpeter%29>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?52)
+(concat(' <http://dbpedia.org/resource/Terumasa_Hino>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?53)
+(concat(' <http://dbpedia.org/resource/Theo_Croker>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?54)
+(concat(' <http://dbpedia.org/resource/Tommy_Dorsey>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?55)
+(concat(' <http://dbpedia.org/resource/Vic_Schoen>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?56)
+(concat(' <http://dbpedia.org/resource/W._C._Handy>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?57)
+(concat(' <http://dbpedia.org/resource/Willie_Mitchell_%28musician%29>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?58)
+(concat(' <http://dbpedia.org/resource/Woody_Shaw>', ' ', ' <http://dbpedia.org/property/occupation>', ' ', '<http://dbpedia.org/resource/Bandleader>', ';', ' <http://dbpedia.org/property/instrument>', ' <http://dbpedia.org/resource/Trumpet>') as ?59)
+WHERE {
+
+  { <http://dbpedia.org/resource/Abatte_Barihun> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+
+
+
+UNION { <http://dbpedia.org/resource/Alan_Silva> <http://www.w3.org/2000/01/rdf-schema#comment> ?o2 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o3 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+
+
+UNION { <http://dbpedia.org/resource/Benny_Carter> <http://www.w3.org/2000/01/rdf-schema#comment> ?o4 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o5 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . } 
+
+ UNION { <http://dbpedia.org/resource/Bobby_Hackett> <http://www.w3.org/2000/01/rdf-schema#comment> ?o6 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o7 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  
+  
+  UNION { <http://dbpedia.org/resource/Brian_Jones> <http://www.w3.org/2000/01/rdf-schema#comment> ?o8 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o9 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  
+  
+  UNION { <http://dbpedia.org/resource/Cleveland_Eaton> <http://www.w3.org/2000/01/rdf-schema#comment> ?o10 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o11 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  
+  UNION { <http://dbpedia.org/resource/Clifford_Thornton> <http://www.w3.org/2000/01/rdf-schema#comment> ?o12 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o13 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  
+  UNION { <http://dbpedia.org/resource/Danny_Davis_%28country_musician%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o14 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o15 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  
+  UNION { <http://dbpedia.org/resource/Dave_Bartholomew> <http://www.w3.org/2000/01/rdf-schema#comment> ?o16 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o17 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  
+  UNION { <http://dbpedia.org/resource/Dave_Douglas_%28trumpeter%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o18 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o19 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  
+  UNION { <http://dbpedia.org/resource/Dizzy_Gillespie> <http://www.w3.org/2000/01/rdf-schema#comment> ?o20 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o21 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  
+  UNION { <http://dbpedia.org/resource/Doc_Cheatham> <http://www.w3.org/2000/01/rdf-schema#comment> ?o22 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o23 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  
+  UNION { <http://dbpedia.org/resource/Doc_Severinsen> <http://www.w3.org/2000/01/rdf-schema#comment> ?o24 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o25 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  
+  UNION { <http://dbpedia.org/resource/Dominick_Farinacci> <http://www.w3.org/2000/01/rdf-schema#comment> ?o26 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o27 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  
+  UNION { <http://dbpedia.org/resource/Don_Albert> <http://www.w3.org/2000/01/rdf-schema#comment> ?o28 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o29 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Ernest_%22Doc%22_Paulin> <http://www.w3.org/2000/01/rdf-schema#comment> ?o30 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o31 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  
+  UNION { <http://dbpedia.org/resource/Farnell_Newton> <http://www.w3.org/2000/01/rdf-schema#comment> ?o32 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o33 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Freddie_Hubbard> <http://www.w3.org/2000/01/rdf-schema#comment> ?o34 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o35 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Gerald_Wilson> <http://www.w3.org/2000/01/rdf-schema#comment> ?o36 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o37 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Gerard_Presencer> <http://www.w3.org/2000/01/rdf-schema#comment> ?o38 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o39 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Guy_Barker> <http://www.w3.org/2000/01/rdf-schema#comment> ?o40 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o41 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Hot_Lips_Page> <http://www.w3.org/2000/01/rdf-schema#comment> ?o42 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o43 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  
+  UNION { <http://dbpedia.org/resource/Hugh_Masekela> <http://www.w3.org/2000/01/rdf-schema#comment> ?o44 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o45 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Irvin_Mayfield> <http://www.w3.org/2000/01/rdf-schema#comment> ?o46 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o47 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Jack_Walrath> <http://www.w3.org/2000/01/rdf-schema#comment> ?o48 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o49 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Jens_Winther> <http://www.w3.org/2000/01/rdf-schema#comment> ?o50 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o51 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Jimmy_Dorsey> <http://www.w3.org/2000/01/rdf-schema#comment> ?o52 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o53 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Joe_Morris_%28trumpeter%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o54 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o55 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . } 
+  UNION { <http://dbpedia.org/resource/Joe_Wilder> <http://www.w3.org/2000/01/rdf-schema#comment> ?o56 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o57 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Joey_DeFrancesco> <http://www.w3.org/2000/01/rdf-schema#comment> ?o58 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o59 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Kenny_Dorham> <http://www.w3.org/2000/01/rdf-schema#comment> ?o60 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o61 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Lloyd_Hunter> <http://www.w3.org/2000/01/rdf-schema#comment> ?o62 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o63 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Louis_Prima> <http://www.w3.org/2000/01/rdf-schema#comment> ?o64 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o65 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Louis_Prima_Jr> <http://www.w3.org/2000/01/rdf-schema#comment> ?o66 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o67 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Mark_Egan> <http://www.w3.org/2000/01/rdf-schema#comment> ?o68 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o69 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . } 
+  UNION { <http://dbpedia.org/resource/Marlon_Jordan> <http://www.w3.org/2000/01/rdf-schema#comment> ?o70 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o71 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  
+ UNION { <http://dbpedia.org/resource/Maynard_Ferguson> <http://www.w3.org/2000/01/rdf-schema#comment> ?o72 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o73 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . } 
+  UNION { <http://dbpedia.org/resource/Nat_Gonella> <http://www.w3.org/2000/01/rdf-schema#comment> ?o74 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o75 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Neil_Yates> <http://www.w3.org/2000/01/rdf-schema#comment> ?o76 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o77 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Nick_LaRocca> <http://www.w3.org/2000/01/rdf-schema#comment> ?o78 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o79 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Orbert_Davis> <http://www.w3.org/2000/01/rdf-schema#comment> ?o80 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o81 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Papa_Celestin> <http://www.w3.org/2000/01/rdf-schema#comment> ?o82 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o83 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Pete_Brown_%28jazz_musician%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o84 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o85 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Red_Perkins> <http://www.w3.org/2000/01/rdf-schema#comment> ?o86 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o87 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Richard_Maltby,_Sr.> <http://www.w3.org/2000/01/rdf-schema#comment> ?o88 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o89 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Sean_Jones_%28trumpeter%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o90 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o91 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . } 
+  UNION { <http://dbpedia.org/resource/Terumasa_Hino> <http://www.w3.org/2000/01/rdf-schema#comment> ?o92 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o93 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Theo_Croker> <http://www.w3.org/2000/01/rdf-schema#comment> ?o94 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o95 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . } 
+  UNION { <http://dbpedia.org/resource/Tommy_Dorsey> <http://www.w3.org/2000/01/rdf-schema#comment> ?o96 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o97 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Vic_Schoen> <http://www.w3.org/2000/01/rdf-schema#comment> ?o98 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o99 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/W._C._Handy> <http://www.w3.org/2000/01/rdf-schema#comment> ?o100 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o101 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Willie_Mitchell_%28musician%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o102 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o103 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  
+  UNION { <http://dbpedia.org/resource/Woody_Shaw> <http://www.w3.org/2000/01/rdf-schema#comment> ?o104 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o105 ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Bandleader> ;  <http://dbpedia.org/property/instrument> <http://dbpedia.org/resource/Trumpet> . }  }

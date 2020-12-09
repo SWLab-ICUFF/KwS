@@ -1,71 +1,131 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE   { {<http://dbpedia.org/resource/Albula_Railway> rdfs:label ?label } UNION{
-    	  <http://dbpedia.org/resource/Australian_Convict_Sites> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Bah%C3%A1%27%C3%AD_World_Centre_buildings> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Bernina_Railway> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Canals_of_Amsterdam>  rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Caral> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Cave_of_Altamira_and_Paleolithic_Cave_Art_of_Northern_Spain> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Central_Highlands_of_Sri_Lanka> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/China_Danxia> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Citadel_of_Ho_Dynasty> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Ciudad_Universitaria> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Diriyah> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Fagus_Factory> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Fortifications_of_Vauban> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Fremantle_Prison> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Fujian_Tulou>  rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Gamzigrad>  rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Glarus_thrust> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Gobustan_Rock_Art_Cultural_Landscape>  rdfs:label ?label } UNION{
-        <http://dbpedia.org/resource/Hahoe_Folk_Village> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Hanoi_Citadel> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Imperial_Citadel_of_Thang_Long> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Iwami_Ginzan_Silver_Mine> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Jantar_Mantar_%28Jaipur%29> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Jeju_Volcanic_Island_and_Lava_Tubes> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Joggins,_Nova_Scotia>  rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Kaiping_Diaolou> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Kuk_Swamp> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Lavaux> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Le_Morne_Brabant> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Le%C3%B3n_Cathedral_%28Nicaragua%29> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Longobards_in_Italy._Places_of_the_power_%28568-774_A.D.%29>  rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Mada%27in_Saleh> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Mehmed_Pa%C5%A1a_Sokolovi%C4%87_Bridge> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Mijikenda_peoples> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Mitla> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Modernist_Housing_Estates> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Monarch_Butterfly_Biosphere_Reserve> rdfs:label ?label } UNION{
-     <http://dbpedia.org/resource/Monte_Titano>  rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Mount_Sanqing> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/New_Caledonia_Barrier_Reef>  rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Nisa,_Turkmenistan> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Pontcysyllte_Aqueduct> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Preah_Vihear_Temple> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Prehistoric_Pile_dwellings_around_the_Alps> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Rainforests_of_the_Atsinanana>  rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Red_Fort>  rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Rhaetian_Railway> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Richtersveld> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Roy_Mata>  rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/S%C3%A3o_Crist%C3%B3v%C3%A3o>  rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Saint_Stepanos_Monastery> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Saint_Thaddeus_Monastery> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Saryarka_%E2%80%94_Steppe_and_Lakes_of_Northern_Kazakhstan> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Sheikh_Safi_al-Din_Kh%C4%81neg%C4%81h_and_Shrine_Ensemble> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Siega_Verde> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/South_China_Karst> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Sulayman_Mountain> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Surtsey> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Tabriz_Bazaar> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Tianluokeng_Tulou_cluster> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Wadden_Sea> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/West_Lake> rdfs:label ?label } UNION{
-    <http://dbpedia.org/resource/Wooden_Churches_of_the_Slovak_Carpathians> rdfs:label ?label } 
-    
-  }
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/Albula_Railway>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?10) 
+(concat('<http://dbpedia.org/resource/Australian_Convict_Sites>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?11) 
+(concat('<http://dbpedia.org/resource/Bah%C3%A1%27%C3%AD_World_Centre_buildings>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?12) 
+(concat('<http://dbpedia.org/resource/Bernina_Railway>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?13) 
+(concat('<http://dbpedia.org/resource/Canals_of_Amsterdam>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?14) 
+(concat('<http://dbpedia.org/resource/Caral>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?15) 
+(concat('<http://dbpedia.org/resource/Cave_of_Altamira_and_Paleolithic_Cave_Art_of_Northern_Spain>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?16) 
+(concat('<http://dbpedia.org/resource/Central_Highlands_of_Sri_Lanka>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?17) 
+(concat('<http://dbpedia.org/resource/China_Danxia>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?18) 
+(concat('<http://dbpedia.org/resource/Citadel_of_Ho_Dynasty>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?19) 
+(concat('<http://dbpedia.org/resource/Ciudad_Universitaria>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?20) 
+(concat('<http://dbpedia.org/resource/Diriyah>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?21) 
+(concat('<http://dbpedia.org/resource/Fagus_Factory>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?22) 
+(concat('<http://dbpedia.org/resource/Fortifications_of_Vauban>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?23) 
+(concat('<http://dbpedia.org/resource/Fremantle_Prison>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?24) 
+(concat('<http://dbpedia.org/resource/Fujian_Tulou>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?25) 
+(concat('<http://dbpedia.org/resource/Gamzigrad>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?26) 
+(concat('<http://dbpedia.org/resource/Glarus_thrust>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?27) 
+(concat('<http://dbpedia.org/resource/Gobustan_Rock_Art_Cultural_Landscape>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?28) 
+(concat('<http://dbpedia.org/resource/Hahoe_Folk_Village>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?29) 
+(concat('<http://dbpedia.org/resource/Hanoi_Citadel>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?30) 
+(concat('<http://dbpedia.org/resource/Imperial_Citadel_of_Thang_Long>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?31) 
+(concat('<http://dbpedia.org/resource/Iwami_Ginzan_Silver_Mine>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?32) 
+(concat('<http://dbpedia.org/resource/Jantar_Mantar_%28Jaipur%29>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?33) 
+(concat('<http://dbpedia.org/resource/Jeju_Volcanic_Island_and_Lava_Tubes>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?34) 
+(concat('<http://dbpedia.org/resource/Joggins,_Nova_Scotia>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?35) 
+(concat('<http://dbpedia.org/resource/Kaiping_Diaolou>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?36) 
+(concat('<http://dbpedia.org/resource/Kuk_Swamp>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?37) 
+(concat('<http://dbpedia.org/resource/Lavaux>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?38) 
+(concat(' <http://dbpedia.org/resource/Le_Morne_Brabant>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?39) 
+(concat(' <http://dbpedia.org/resource/Le%C3%B3n_Cathedral_%28Nicaragua%29>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?40) 
+(concat(' <http://dbpedia.org/resource/Longobards_in_Italy._Places_of_the_power_%28568-774_A.D.%29>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?41) 
+(concat(' <http://dbpedia.org/resource/Mada%27in_Saleh>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?42) 
+(concat(' <http://dbpedia.org/resource/Mehmed_Pa%C5%A1a_Sokolovi%C4%87_Bridge>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?43) 
+(concat(' <http://dbpedia.org/resource/Mijikenda_peoples>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?44) 
+(concat(' <http://dbpedia.org/resource/Mitla>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?45) 
+(concat(' <http://dbpedia.org/resource/Modernist_Housing_Estates>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?46) 
+(concat(' <http://dbpedia.org/resource/Monarch_Butterfly_Biosphere_Reserve>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?47) 
+(concat(' <http://dbpedia.org/resource/Monte_Titano>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?48) 
+(concat(' <http://dbpedia.org/resource/Mount_Sanqing> ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?49) 
+(concat(' <http://dbpedia.org/resource/New_Caledonia_Barrier_Reef> ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?50) 
+(concat(' <http://dbpedia.org/resource/Nisa,_Turkmenistan> ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?51) 
+(concat(' <http://dbpedia.org/resource/Pontcysyllte_Aqueduct> ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?52) 
+(concat(' <http://dbpedia.org/resource/Preah_Vihear_Temple>  ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?53) 
+(concat(' <http://dbpedia.org/resource/Prehistoric_Pile_dwellings_around_the_Alps>  ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?54) 
+(concat(' <http://dbpedia.org/resource/Rainforests_of_the_Atsinanana>  ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?55) 
+(concat(' <http://dbpedia.org/resource/Red_Fort>  ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?56) 
+(concat(' <http://dbpedia.org/resource/Rhaetian_Railway>  ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?57) 
+(concat(' <http://dbpedia.org/resource/Richtersveld>  ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?58)
+(concat(' <http://dbpedia.org/resource/Roy_Mata>  ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?59)
+(concat(' <http://dbpedia.org/resource/S%C3%A3o_Crist%C3%B3v%C3%A3o>  ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?60)
+(concat(' <http://dbpedia.org/resource/Saint_Stepanos_Monastery>  ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?61)
+(concat(' <http://dbpedia.org/resource/Saryarka_%E2%80%94_Steppe_and_Lakes_of_Northern_Kazakhstan>  ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?62)
+(concat(' <http://dbpedia.org/resource/Sheikh_Safi_al-Din_Kh%C4%81neg%C4%81h_and_Shrine_Ensemble>   ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?63)
+(concat(' <http://dbpedia.org/resource/Siega_Verde>   ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?64)
+(concat(' <http://dbpedia.org/resource/South_China_Karst>   ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?65)
+(concat(' <http://dbpedia.org/resource/Sulayman_Mountain>   ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?66)
+(concat(' <http://dbpedia.org/resource/Surtsey>   ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?67)
+(concat(' <http://dbpedia.org/resource/Tabriz_Bazaar>   ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?68)
+(concat(' <http://dbpedia.org/resource/Tianluokeng_Tulou_cluster>   ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?69)
+(concat(' <http://dbpedia.org/resource/Twyfelfontein>   ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?70)
+(concat(' <http://dbpedia.org/resource/Wadden_Sea>   ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?71)
+(concat(' <http://dbpedia.org/resource/West_Lake>   ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?72)
+(concat(' <http://dbpedia.org/resource/Wooden_Churches_of_the_Slovak_Carpathians>   ', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/WorldHeritageSite>') as ?73)
 
- 
+WHERE {  { <http://dbpedia.org/resource/Albula_Railway> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Australian_Convict_Sites> <http://www.w3.org/2000/01/rdf-schema#comment> ?o2 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o3 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Bah%C3%A1%27%C3%AD_World_Centre_buildings> <http://www.w3.org/2000/01/rdf-schema#comment> ?o4 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o5 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Bernina_Railway> <http://www.w3.org/2000/01/rdf-schema#comment> ?o6 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o7 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Canals_of_Amsterdam> <http://www.w3.org/2000/01/rdf-schema#comment> ?o8 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o9 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Caral> <http://www.w3.org/2000/01/rdf-schema#comment> ?o10 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o11 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Cave_of_Altamira_and_Paleolithic_Cave_Art_of_Northern_Spain> <http://www.w3.org/2000/01/rdf-schema#comment> ?o12 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o13 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Central_Highlands_of_Sri_Lanka> <http://www.w3.org/2000/01/rdf-schema#comment> ?o14 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o15 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/China_Danxia> <http://www.w3.org/2000/01/rdf-schema#comment> ?o16 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o17 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Citadel_of_Ho_Dynasty> <http://www.w3.org/2000/01/rdf-schema#comment> ?o18 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o19 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Ciudad_Universitaria> <http://www.w3.org/2000/01/rdf-schema#comment> ?o20 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o21 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Diriyah> <http://www.w3.org/2000/01/rdf-schema#comment> ?o22 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o23 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Fagus_Factory> <http://www.w3.org/2000/01/rdf-schema#comment> ?o24 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o25 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Fortifications_of_Vauban> <http://www.w3.org/2000/01/rdf-schema#comment> ?o26 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o27 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Fremantle_Prison> <http://www.w3.org/2000/01/rdf-schema#comment> ?o28 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o29 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Fujian_Tulou> <http://www.w3.org/2000/01/rdf-schema#comment> ?o30 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o31 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Gamzigrad> <http://www.w3.org/2000/01/rdf-schema#comment> ?o32 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o33 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Glarus_thrust> <http://www.w3.org/2000/01/rdf-schema#comment> ?o34 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o35 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Gobustan_Rock_Art_Cultural_Landscape> <http://www.w3.org/2000/01/rdf-schema#comment> ?o36 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o37 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Hahoe_Folk_Village> <http://www.w3.org/2000/01/rdf-schema#comment> ?o38 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o39 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Hanoi_Citadel> <http://www.w3.org/2000/01/rdf-schema#comment> ?o40 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o41 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Imperial_Citadel_of_Thang_Long> <http://www.w3.org/2000/01/rdf-schema#comment> ?o42 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o43 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Iwami_Ginzan_Silver_Mine> <http://www.w3.org/2000/01/rdf-schema#comment> ?o44 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o45 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Jantar_Mantar_%28Jaipur%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o46 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o47 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Jeju_Volcanic_Island_and_Lava_Tubes> <http://www.w3.org/2000/01/rdf-schema#comment> ?o48 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o49 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Joggins,_Nova_Scotia> <http://www.w3.org/2000/01/rdf-schema#comment> ?o50 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o51 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Kaiping_Diaolou> <http://www.w3.org/2000/01/rdf-schema#comment> ?o52 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o53 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Kuk_Swamp> <http://www.w3.org/2000/01/rdf-schema#comment> ?o54 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o55 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Lavaux> <http://www.w3.org/2000/01/rdf-schema#comment> ?o56 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o57 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Le_Morne_Brabant> <http://www.w3.org/2000/01/rdf-schema#comment> ?o58 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o59 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Le%C3%B3n_Cathedral_%28Nicaragua%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o60 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o61 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Longobards_in_Italy._Places_of_the_power_%28568-774_A.D.%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o62 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o63 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Mada%27in_Saleh> <http://www.w3.org/2000/01/rdf-schema#comment> ?o64 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o65 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Mehmed_Pa%C5%A1a_Sokolovi%C4%87_Bridge> <http://www.w3.org/2000/01/rdf-schema#comment> ?o66 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o67 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Mijikenda_peoples> <http://www.w3.org/2000/01/rdf-schema#comment> ?o68 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o69 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Mitla> <http://www.w3.org/2000/01/rdf-schema#comment> ?o70 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o71 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Modernist_Housing_Estates> <http://www.w3.org/2000/01/rdf-schema#comment> ?o72 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o73 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Monarch_Butterfly_Biosphere_Reserve> <http://www.w3.org/2000/01/rdf-schema#comment> ?o74 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o75 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Monte_Titano> <http://www.w3.org/2000/01/rdf-schema#comment> ?o76 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o77 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Mount_Sanqing> <http://www.w3.org/2000/01/rdf-schema#comment> ?o78 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o79 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/New_Caledonia_Barrier_Reef> <http://www.w3.org/2000/01/rdf-schema#comment> ?o80 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o81 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Nisa,_Turkmenistan> <http://www.w3.org/2000/01/rdf-schema#comment> ?o82 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o83 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Pontcysyllte_Aqueduct> <http://www.w3.org/2000/01/rdf-schema#comment> ?o84 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o85 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Preah_Vihear_Temple> <http://www.w3.org/2000/01/rdf-schema#comment> ?o86 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o87 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Prehistoric_Pile_dwellings_around_the_Alps> <http://www.w3.org/2000/01/rdf-schema#comment> ?o88 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o89 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }
+  UNION { <http://dbpedia.org/resource/Rainforests_of_the_Atsinanana> <http://www.w3.org/2000/01/rdf-schema#comment> ?o90 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o91 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Red_Fort> <http://www.w3.org/2000/01/rdf-schema#comment> ?o92 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o93 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Rhaetian_Railway> <http://www.w3.org/2000/01/rdf-schema#comment> ?o94 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o95 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Richtersveld> <http://www.w3.org/2000/01/rdf-schema#comment> ?o96 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o97 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Roy_Mata> <http://www.w3.org/2000/01/rdf-schema#comment> ?o98 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o99 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/S%C3%A3o_Crist%C3%B3v%C3%A3o> <http://www.w3.org/2000/01/rdf-schema#comment> ?o100 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o101 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Saint_Stepanos_Monastery> <http://www.w3.org/2000/01/rdf-schema#comment> ?o102 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o103 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Saint_Thaddeus_Monastery> <http://www.w3.org/2000/01/rdf-schema#comment> ?o104 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o105 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Saryarka_%E2%80%94_Steppe_and_Lakes_of_Northern_Kazakhstan> <http://www.w3.org/2000/01/rdf-schema#comment> ?o106 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o107 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Sheikh_Safi_al-Din_Kh%C4%81neg%C4%81h_and_Shrine_Ensemble> <http://www.w3.org/2000/01/rdf-schema#comment> ?o108 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o109 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Siega_Verde> <http://www.w3.org/2000/01/rdf-schema#comment> ?o110 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o111 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/South_China_Karst> <http://www.w3.org/2000/01/rdf-schema#comment> ?o112 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o113 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }
+  UNION { <http://dbpedia.org/resource/Sulayman_Mountain> <http://www.w3.org/2000/01/rdf-schema#comment> ?o114 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o115 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Surtsey> <http://www.w3.org/2000/01/rdf-schema#comment> ?o116 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o117 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Tabriz_Bazaar> <http://www.w3.org/2000/01/rdf-schema#comment> ?o118 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o119 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  
+  UNION { <http://dbpedia.org/resource/Tianluokeng_Tulou_cluster> <http://www.w3.org/2000/01/rdf-schema#comment> ?o120 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o121 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Twyfelfontein> <http://www.w3.org/2000/01/rdf-schema#comment> ?o122 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o123 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Wadden_Sea> <http://www.w3.org/2000/01/rdf-schema#comment> ?o124 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o125 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/West_Lake> <http://www.w3.org/2000/01/rdf-schema#comment> ?o126 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o127 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . } 
+  UNION { <http://dbpedia.org/resource/Wooden_Churches_of_the_Slovak_Carpathians> <http://www.w3.org/2000/01/rdf-schema#comment> ?o128 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o129 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . }  }

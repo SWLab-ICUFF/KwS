@@ -1,7 +1,6 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE{
-	<http://dbpedia.org/resource/Klaus_Wowereit> rdfs:label ?label.
-}
- 
+SELECT  (concat('<http://dbpedia.org/resource/Klaus_Wowereit>', ' ', ' <http://dbpedia.org/property/office>', ' ', '<http://dbpedia.org/resource/Governing_Mayor_of_Berlin>', '.') as ?10) 
+
+
+
+WHERE {  { <http://dbpedia.org/resource/Klaus_Wowereit> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/office> <http://dbpedia.org/resource/Governing_Mayor_of_Berlin> . }  }

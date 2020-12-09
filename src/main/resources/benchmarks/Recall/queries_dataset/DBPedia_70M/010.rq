@@ -1,4 +1,4 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE   { <http://dbpedia.org/resource/Jack_Kirby> rdfs:label ?label.}
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/Jack_Kirby>', ' ', ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', ' ', '<http://dbpedia.org/ontology/ComicsCreator>') as ?10) 
+
+WHERE {  { <http://dbpedia.org/resource/Jack_Kirby> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/type> "creator"@en ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/ComicsCreator> ;  <http://dbpedia.org/property/notableWorks> "Captain America"@en . }  }

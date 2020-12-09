@@ -1,7 +1,8 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE   { {<http://dbpedia.org/resource/Keith_Flint>  rdfs:label ?label. } UNION {
-    <http://dbpedia.org/resource/Liam_Howlett>   rdfs:label ?label. } UNION {
-    		<http://dbpedia.org/resource/Maxim_Reality> rdfs:label ?label.
-}}
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/Keith_Flint>', ' ', ' <http://dbpedia.org/property/associatedActs>', ' ', '<http://dbpedia.org/resource/The_Prodigy>') as ?10) 
+(concat('<http://dbpedia.org/resource/Liam_Howlett> ', ' ', ' <http://dbpedia.org/property/associatedActs>', ' ', '<http://dbpedia.org/resource/The_Prodigy>') as ?11) 
+(concat('<http://dbpedia.org/resource/Maxim_Reality> ', ' ', ' <http://dbpedia.org/property/associatedActs>', ' ', '<http://dbpedia.org/resource/The_Prodigy>') as ?12) 
+
+WHERE {  { <http://dbpedia.org/resource/Keith_Flint> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/associatedActs> <http://dbpedia.org/resource/The_Prodigy> . }  
+  UNION { <http://dbpedia.org/resource/Liam_Howlett> <http://www.w3.org/2000/01/rdf-schema#comment> ?o2 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o3 ;  <http://dbpedia.org/property/associatedActs> <http://dbpedia.org/resource/The_Prodigy> . }  UNION { <http://dbpedia.org/resource/Maxim_Reality> <http://www.w3.org/2000/01/rdf-schema#comment> ?o4 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o5 ;  <http://dbpedia.org/property/associatedActs> <http://dbpedia.org/resource/The_Prodigy> . }  }
+

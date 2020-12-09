@@ -1,6 +1,6 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT  (concat('<http://dbpedia.org/resource/Lyndon_B._Johnson>', ' ', '<http://dbpedia.org/property/predecessor>', ' ', '<http://dbpedia.org/resource/John_F._Kennedy>', '.') as ?10) 
 
 
 
-SELECT DISTINCT ?label WHERE {
-         <http://dbpedia.org/resource/Lyndon_B._Johnson> rdfs:label ?label. }
+WHERE {  { <http://dbpedia.org/resource/Lyndon_B._Johnson> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/predecessor> <http://dbpedia.org/resource/John_F._Kennedy> . }  }

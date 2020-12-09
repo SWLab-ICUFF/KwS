@@ -1,11 +1,12 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE   { graph ?sol {{<http://dbpedia.org/resource/Atop_an_Underwood:_Early_Stories_and_Other_Writings>  rdfs:label ?label } UNION{
-        <http://dbpedia.org/resource/Door_Wide_Open> rdfs:label ?label } UNION{
-         <http://dbpedia.org/resource/On_the_Road> rdfs:label ?label } UNION{
-        <http://dbpedia.org/resource/References_in_On_the_Road> rdfs:label ?label } UNION{
-        <http://dbpedia.org/resource/The_Dharma_Bums> rdfs:label ?label } 
-  }}
-  
- 
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/Atop_an_Underwood:_Early_Stories_and_Other_Writings>', ' ', ' <http://dbpedia.org/property/author>', ' ', '<http://dbpedia.org/resource/Jack_Kerouac>', ';', ' <http://dbpedia.org/property/publisher>', ' <http://dbpedia.org/resource/Viking_Press>') as ?10) 
+(concat('<http://dbpedia.org/resource/Door_Wide_Open>', ' ', ' <http://dbpedia.org/property/author>', ' ', '<http://dbpedia.org/resource/Jack_Kerouac>', ';', ' <http://dbpedia.org/property/publisher>', ' <http://dbpedia.org/resource/Viking_Press>') as ?11) 
+(concat('<http://dbpedia.org/resource/On_the_Road>', ' ', ' <http://dbpedia.org/property/author>', ' ', '<http://dbpedia.org/resource/Jack_Kerouac>', ';', ' <http://dbpedia.org/property/publisher>', ' <http://dbpedia.org/resource/Viking_Press>') as ?12)
+(concat('<http://dbpedia.org/resource/References_in_On_the_Road>', ' ', ' <http://dbpedia.org/property/author>', ' ', '<http://dbpedia.org/resource/Jack_Kerouac>', ';', ' <http://dbpedia.org/property/publisher>', ' <http://dbpedia.org/resource/Viking_Press>') as ?13)
+(concat('<http://dbpedia.org/resource/The_Dharma_Bums>', ' ', ' <http://dbpedia.org/property/author>', ' ', '<http://dbpedia.org/resource/Jack_Kerouac>', ';', ' <http://dbpedia.org/property/publisher>', ' <http://dbpedia.org/resource/Viking_Press>') as ?14)
+
+WHERE {  { <http://dbpedia.org/resource/Atop_an_Underwood:_Early_Stories_and_Other_Writings> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/author> <http://dbpedia.org/resource/Jack_Kerouac> ;  <http://dbpedia.org/property/publisher> <http://dbpedia.org/resource/Viking_Press> . }  
+  UNION { <http://dbpedia.org/resource/Door_Wide_Open> <http://www.w3.org/2000/01/rdf-schema#comment> ?o2 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o3 ;  <http://dbpedia.org/property/author> <http://dbpedia.org/resource/Jack_Kerouac> ;  <http://dbpedia.org/property/publisher> <http://dbpedia.org/resource/Viking_Press> . }  
+  UNION { <http://dbpedia.org/resource/On_the_Road> <http://www.w3.org/2000/01/rdf-schema#comment> ?o4 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o5 ;  <http://dbpedia.org/property/author> <http://dbpedia.org/resource/Jack_Kerouac> ;  <http://dbpedia.org/property/publisher> <http://dbpedia.org/resource/Viking_Press> . } 
+  UNION { <http://dbpedia.org/resource/References_in_On_the_Road> <http://www.w3.org/2000/01/rdf-schema#comment> ?o6 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o7 ;  <http://dbpedia.org/property/author> <http://dbpedia.org/resource/Jack_Kerouac> ;  <http://dbpedia.org/property/publisher> <http://dbpedia.org/resource/Viking_Press> . } 
+  UNION { <http://dbpedia.org/resource/The_Dharma_Bums> <http://www.w3.org/2000/01/rdf-schema#comment> ?o8 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o9 ;  <http://dbpedia.org/property/author> <http://dbpedia.org/resource/Jack_Kerouac> ;  <http://dbpedia.org/property/publisher> <http://dbpedia.org/resource/Viking_Press> . }  }

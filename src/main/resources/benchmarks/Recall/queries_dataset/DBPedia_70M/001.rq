@@ -1,34 +1,26 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-SELECT DISTINCT ?label
-WHERE{
-  
-  		{ <http://dbpedia.org/resource/A_Perfect_World> rdfs:label ?label } UNION{
-    	  <http://dbpedia.org/resource/Absolute_Power_%28film%29> rdfs:label ?label }UNION{
-         <http://dbpedia.org/resource/Blood_Work_%28film%29> rdfs:label ?label }UNION{
-        <http://dbpedia.org/resource/Bronco_Billy> rdfs:label ?label }UNION {
-       <http://dbpedia.org/resource/Gran_Torino> rdfs:label ?label } UNION {
-      <http://dbpedia.org/resource/Heartbreak_Ridge> rdfs:label ?label } UNION {
-      <http://dbpedia.org/resource/High_Plains_Drifter> rdfs:label ?label } UNION {
-      <http://dbpedia.org/resource/Honkytonk_Man> rdfs:label ?label } UNION {
-      <http://dbpedia.org/resource/Million_Dollar_Baby>  rdfs:label ?label } UNION {
-       <http://dbpedia.org/resource/Pale_Rider> rdfs:label ?label } UNION {
-      <http://dbpedia.org/resource/Play_Misty_for_Me> rdfs:label ?label } UNION { 
-      <http://dbpedia.org/resource/Space_Cowboys> rdfs:label ?label } UNION { 
-          <http://dbpedia.org/resource/The_Bridges_of_Madison_County_%28film%29> rdfs:label ?label } UNION { 
-      <http://dbpedia.org/resource/The_Eiger_Sanction_%28film%29> rdfs:label ?label } UNION {
-      <http://dbpedia.org/resource/The_Gauntlet_%28film%29> rdfs:label ?label } UNION {
-      <http://dbpedia.org/resource/The_Outlaw_Josey_Wales> rdfs:label ?label } UNION {
-      <http://dbpedia.org/resource/The_Rookie_%281990_film%29> rdfs:label ?label } UNION {
-      <http://dbpedia.org/resource/True_Crime_%281999_film%29>  rdfs:label ?label } UNION {
-      <http://dbpedia.org/resource/Unforgiven> rdfs:label ?label } UNION {
-      <http://dbpedia.org/resource/White_Hunter_Black_Heart>  rdfs:label ?label }
-      
-      
-      
-      
-       
-    	 
-    
-  }
+
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/A_Perfect_World>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?10) 
+(concat('<http://dbpedia.org/resource/Absolute_Power_%28film%29>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?11) 
+(concat('<http://dbpedia.org/resource/Blood_Work_%28film%29>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?12)
+(concat('<http://dbpedia.org/resource/Bronco_Billy>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?13) 
+(concat('<http://dbpedia.org/resource/Gran_Torino>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?14) 
+(concat('<http://dbpedia.org/resource/Heartbreak_Ridge>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?15)
+(concat('<http://dbpedia.org/resource/Honkytonk_Man>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?16)
+(concat('<http://dbpedia.org/resource/Million_Dollar_Baby>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?17)
+(concat('<http://dbpedia.org/resource/Pale_Rider>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?18)
+(concat('<http://dbpedia.org/resource/Play_Misty_for_Me>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?19)
+(concat('<http://dbpedia.org/resource/Space_Cowboys>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?20)
+(concat('<http://dbpedia.org/resource/The_Bridges_of_Madison_County_%28film%29>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?21)
+(concat('<http://dbpedia.org/resource/The_Eiger_Sanction_%28film%29>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?22)
+(concat('<http://dbpedia.org/resource/The_Eiger_Sanction_%28film%29>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?23)
+(concat('<http://dbpedia.org/resource/The_Gauntlet_%28film%29>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?24)
+(concat('<http://dbpedia.org/resource/The_Outlaw_Josey_Wales>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?25)
+(concat('<http://dbpedia.org/resource/The_Rookie_%281990_film%29>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?26)(concat('<http://dbpedia.org/resource/True_Crime_%281999_film%29>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?27)
+(concat('<http://dbpedia.org/resource/Unforgiven>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?28)
+(concat('<http://dbpedia.org/resource/White_Hunter_Black_Heart>', ' ', '<http://dbpedia.org/property/director>', ' ', '<http://dbpedia.org/resource/Clint_Eastwood>', '.') as ?29)
+
+
+{ 
+  { <http://dbpedia.org/resource/A_Perfect_World> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/Absolute_Power_%28film%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o2 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o3 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/Blood_Work_%28film%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o4 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o5 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/Bronco_Billy> <http://www.w3.org/2000/01/rdf-schema#comment> ?o6 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o7 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/Gran_Torino> <http://www.w3.org/2000/01/rdf-schema#comment> ?o8 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o9 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/Heartbreak_Ridge> <http://www.w3.org/2000/01/rdf-schema#comment> ?o10 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o11 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/High_Plains_Drifter> <http://www.w3.org/2000/01/rdf-schema#comment> ?o12 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o13 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/Honkytonk_Man> <http://www.w3.org/2000/01/rdf-schema#comment> ?o14 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o15 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/Million_Dollar_Baby> <http://www.w3.org/2000/01/rdf-schema#comment> ?o16 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o17 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/Pale_Rider> <http://www.w3.org/2000/01/rdf-schema#comment> ?o18 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o19 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/Play_Misty_for_Me> <http://www.w3.org/2000/01/rdf-schema#comment> ?o20 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o21 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/Space_Cowboys> <http://www.w3.org/2000/01/rdf-schema#comment> ?o22 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o23 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/The_Bridges_of_Madison_County_%28film%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o24 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o25 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/The_Eiger_Sanction_%28film%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o26 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o27 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/The_Gauntlet_%28film%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o28 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o29 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/The_Outlaw_Josey_Wales> <http://www.w3.org/2000/01/rdf-schema#comment> ?o30 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o31 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/The_Rookie_%281990_film%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o32 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o33 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/True_Crime_%281999_film%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o34 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o35 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/Unforgiven> <http://www.w3.org/2000/01/rdf-schema#comment> ?o36 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o37 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  UNION { <http://dbpedia.org/resource/White_Hunter_Black_Heart> <http://www.w3.org/2000/01/rdf-schema#comment> ?o38 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o39 ;  <http://dbpedia.org/property/starring> "Clint Eastwood"@en ;  <http://dbpedia.org/property/director> <http://dbpedia.org/resource/Clint_Eastwood> . }  }
 
 

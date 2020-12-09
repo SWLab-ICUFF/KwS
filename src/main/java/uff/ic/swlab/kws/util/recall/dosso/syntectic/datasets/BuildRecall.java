@@ -77,11 +77,8 @@ public class BuildRecall {
         }
 
     }
-
-    public static void main(String[] args) throws IOException {
-        String nameDataset = "LUBM_10M";
-        String serviceDatabase = String.format("http://semanticweb.inf.puc-rio.br:3030/%1$s/sparql", nameDataset);
-
+    
+    public static HashMap<Integer, Double> calculateRecallSyntecticDatasets(String nameDataset, String serviceDatabase) throws IOException{
         HashMap<Integer, Double> mapRecall = new HashMap<>();
 
         File folder = new File(String.format("./src/main/resources/benchmarks/IS/%1$s", nameDataset));
@@ -132,7 +129,71 @@ public class BuildRecall {
 
             }
         }
+        return mapRecall;
+        
+    }
+    
+    
+    public static HashMap<Integer, Double> calculateRecallDBPedia(String nameDataset, String serviceDatabase) throws IOException{
+        HashMap<Integer, Double> mapRecall = new HashMap<>();
 
+        File folder = new File(String.format("./src/main/resources/benchmarks/IS/%1$s", nameDataset));
+        File[] listOfFiles = folder.listFiles();
+        Arrays.sort(listOfFiles);
+        Integer count = 1;
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].toString().endsWith(".nq.gz")) {
+                System.out.println(i);
+                //read S.G
+                Dataset dataset = ReadDataset(listOfFiles[i].toString());
+
+                String pathQuery = String.format("./src/main/resources/benchmarks/Recall/queries_dataset/%1$s/%2$03d.rq", nameDataset, count);
+                String queryString = readQuery(pathQuery);
+                QueryExecution q = QueryExecutionFactory.sparqlService(serviceDatabase, queryString);
+                ResultSet result = q.execSelect();
+                Double allAnsewrs = 0.0;
+                Integer ansewrsFind = 0;
+
+                while (result.hasNext()) {
+                    QuerySolution soln = result.nextSolution();
+                    Iterator<String> iteratorVars = soln.varNames();
+                    String allTriplepatterns = "";
+                    Integer answer_flag = 0;
+                    while (iteratorVars.hasNext()) {
+
+                        String triplePattern = String.valueOf(soln.get(iteratorVars.next()));
+                        if (executeTriplePattern(dataset, triplePattern)) {
+                             ansewrsFind++;
+                        }
+
+                    allAnsewrs++;
+                    }
+                   
+
+                   
+                }
+                double recall = ansewrsFind / allAnsewrs;
+                mapRecall.put(count, recall);
+   
+                count++;
+                q.close();
+                dataset.close();
+                System.gc();
+
+            }
+        }
+        return mapRecall;
+        
+    }
+
+
+    public static void main(String[] args) throws IOException {
+        String nameDataset = "DBPedia_70M";
+        String serviceDatabase = String.format("http://semanticweb.inf.puc-rio.br:3030/%1$s/sparql", nameDataset);
+
+
+        //HashMap<Integer, Double> mapRecall = calculateRecallSyntecticDatasets(nameDataset, serviceDatabase);
+        HashMap<Integer, Double> mapRecall = calculateRecallDBPedia(nameDataset, serviceDatabase);
         ExportCSV(mapRecall, nameDataset);
     }
 

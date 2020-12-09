@@ -1,12 +1,10 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE   { {<http://dbpedia.org/resource/Emil_von_Reznicek>  rdfs:label ?label. } UNION {
-    		<http://dbpedia.org/resource/Grete_von_Zieritz> rdfs:label ?label. } UNION {
-    <http://dbpedia.org/resource/Hilde_K%C3%B6rber>  rdfs:label ?label. } UNION {
-    	<http://dbpedia.org/resource/Karl_Etlinger>  rdfs:label ?label. } UNION {
-    <http://dbpedia.org/resource/Karl_Hellmer>  rdfs:label ?label. } UNION {
-    <http://dbpedia.org/resource/Peter_Sturm> rdfs:label ?label. }
-}
-    
-          
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/Emil_von_Reznicek>', ' ', ' <http://dbpedia.org/property/placeOfBirth>', ' ', '<http://dbpedia.org/resource/Vienna>', ';', ' <http://dbpedia.org/property/placeOfDeath>' , '<http://dbpedia.org/resource/Berlin>') as ?10) 
+(concat('<http://dbpedia.org/resource/Grete_von_Zieritz>', ' ', ' <http://dbpedia.org/property/placeOfBirth>', ' ', '<http://dbpedia.org/resource/Vienna>', ';', ' <http://dbpedia.org/property/placeOfDeath>' , '<http://dbpedia.org/resource/Berlin>') as ?11) 
+(concat('<http://dbpedia.org/resource/Hilde_K%C3%B6rber>', ' ', ' <http://dbpedia.org/property/placeOfBirth>', ' ', '<http://dbpedia.org/resource/Vienna>', ';', ' <http://dbpedia.org/property/placeOfDeath>' , '<http://dbpedia.org/resource/Berlin>') as ?12) 
+(concat('<http://dbpedia.org/resource/Karl_Etlinger>', ' ', ' <http://dbpedia.org/property/placeOfBirth>', ' ', '<http://dbpedia.org/resource/Vienna>', ';', ' <http://dbpedia.org/property/placeOfDeath>' , '<http://dbpedia.org/resource/Berlin>') as ?13) 
+(concat('<http://dbpedia.org/resource/Karl_Hellmer>', ' ', ' <http://dbpedia.org/property/placeOfBirth>', ' ', '<http://dbpedia.org/resource/Vienna>', ';', ' <http://dbpedia.org/property/placeOfDeath>' , '<http://dbpedia.org/resource/Berlin>') as ?14) 
+(concat('<http://dbpedia.org/resource/Peter_Sturm>', ' ', ' <http://dbpedia.org/property/placeOfBirth>', ' ', '<http://dbpedia.org/resource/Vienna>', ';', ' <http://dbpedia.org/property/placeOfDeath>' , '<http://dbpedia.org/resource/Berlin>') as ?15) 
+ 
+
+WHERE {  { <http://dbpedia.org/resource/Emil_von_Reznicek> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/placeOfBirth> <http://dbpedia.org/resource/Vienna> ;  <http://dbpedia.org/property/placeOfDeath> <http://dbpedia.org/resource/Berlin> . }  UNION { <http://dbpedia.org/resource/Grete_von_Zieritz> <http://www.w3.org/2000/01/rdf-schema#comment> ?o2 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o3 ;  <http://dbpedia.org/property/placeOfBirth> <http://dbpedia.org/resource/Vienna> ;  <http://dbpedia.org/property/placeOfDeath> <http://dbpedia.org/resource/Berlin> . }  UNION { <http://dbpedia.org/resource/Hilde_K%C3%B6rber> <http://www.w3.org/2000/01/rdf-schema#comment> ?o4 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o5 ;  <http://dbpedia.org/property/placeOfBirth> <http://dbpedia.org/resource/Vienna> ;  <http://dbpedia.org/property/placeOfDeath> <http://dbpedia.org/resource/Berlin> . }  UNION { <http://dbpedia.org/resource/Karl_Etlinger> <http://www.w3.org/2000/01/rdf-schema#comment> ?o6 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o7 ;  <http://dbpedia.org/property/placeOfBirth> <http://dbpedia.org/resource/Vienna> ;  <http://dbpedia.org/property/placeOfDeath> <http://dbpedia.org/resource/Berlin> . }  UNION { <http://dbpedia.org/resource/Karl_Hellmer> <http://www.w3.org/2000/01/rdf-schema#comment> ?o8 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o9 ;  <http://dbpedia.org/property/placeOfBirth> <http://dbpedia.org/resource/Vienna> ;  <http://dbpedia.org/property/placeOfDeath> <http://dbpedia.org/resource/Berlin> . }  UNION { <http://dbpedia.org/resource/Peter_Sturm> <http://www.w3.org/2000/01/rdf-schema#comment> ?o10 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o11 ;  <http://dbpedia.org/property/placeOfBirth> <http://dbpedia.org/resource/Vienna> ;  <http://dbpedia.org/property/placeOfDeath> <http://dbpedia.org/resource/Berlin> . }  }

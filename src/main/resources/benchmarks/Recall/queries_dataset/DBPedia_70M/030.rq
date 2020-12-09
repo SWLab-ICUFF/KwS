@@ -1,11 +1,11 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE  {
-     
-  { <http://dbpedia.org/resource/Crumstone_Irma>  rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/Jet_of_Iada>  rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/Lightning_%28dog%29> rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/Trakr> rdfs:label ?label.}
-    
-}
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/Crumstone_Irma> ',  ' <http://dbpedia.org/property/breed> ', '<http://dbpedia.org/resource/German_Shepherd_Dog>') as ?10)
+(concat('<http://dbpedia.org/resource/Jet_of_Iada> ',  ' <http://dbpedia.org/property/breed> ', '<http://dbpedia.org/resource/German_Shepherd_Dog>') as ?11)
+(concat('<http://dbpedia.org/resource/Lightning_%28dog%29> ',  ' <http://dbpedia.org/property/breed> ', '<http://dbpedia.org/resource/German_Shepherd_Dog>') as ?12)
+(concat('<http://dbpedia.org/resource/Trakr> ',  ' <http://dbpedia.org/property/breed> ', '<http://dbpedia.org/resource/German_Shepherd_Dog>') as ?13)
+
+
+WHERE {  { <http://dbpedia.org/resource/Crumstone_Irma> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/breed> <http://dbpedia.org/resource/German_Shepherd_Dog> . }  
+  UNION { <http://dbpedia.org/resource/Jet_of_Iada> <http://www.w3.org/2000/01/rdf-schema#comment> ?o2 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o3 ;  <http://dbpedia.org/property/breed> <http://dbpedia.org/resource/German_Shepherd_Dog> . }  
+  UNION { <http://dbpedia.org/resource/Lightning_%28dog%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o4 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o5 ;  <http://dbpedia.org/property/breed> <http://dbpedia.org/resource/German_Shepherd_Dog> . } 
+  UNION { <http://dbpedia.org/resource/Trakr> <http://www.w3.org/2000/01/rdf-schema#comment> ?o6 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o7 ;  <http://dbpedia.org/property/breed> <http://dbpedia.org/resource/German_Shepherd_Dog> . }  }

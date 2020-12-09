@@ -1,5 +1,6 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE  { <http://dbpedia.org/resource/Palace_of_Moncloa> rdfs:label ?label.  }
- 
+SELECT  (concat('<http://dbpedia.org/resource/Palace_of_Moncloa>', ' ', ' <http://dbpedia.org/property/currentTenants>', ' ', '<http://dbpedia.org/resource/Prime_Minister_of_Spain>', '.') as ?10) 
+
+
+
+WHERE {  { <http://dbpedia.org/resource/Palace_of_Moncloa> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/currentTenants> <http://dbpedia.org/resource/Prime_Minister_of_Spain> . }  }

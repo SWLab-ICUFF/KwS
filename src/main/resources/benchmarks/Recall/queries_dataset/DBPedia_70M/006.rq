@@ -1,5 +1,6 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE   {<http://dbpedia.org/resource/Minnesota> rdfs:label ?label. }
- 
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/Minnesota>', ' ', ' ?p', " '", str(?o1), " '") as ?10) 
+
+
+
+  WHERE {  { <http://dbpedia.org/resource/Minnesota> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/postalabbreviation> "MN"@en . }  }

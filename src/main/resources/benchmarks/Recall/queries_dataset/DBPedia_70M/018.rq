@@ -1,18 +1,23 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE   { {<http://dbpedia.org/resource/Baden-W%C3%BCrttemberg> rdfs:label ?label. } UNION {
-   			 <http://dbpedia.org/resource/Berlin> rdfs:label ?label. } UNION {
-    <http://dbpedia.org/resource/Brandenburg> rdfs:label ?label. } UNION {
-    <http://dbpedia.org/resource/Bremen_%28state%29> rdfs:label ?label. } UNION {
-    <http://dbpedia.org/resource/Hamburg> rdfs:label ?label. } UNION {
-    <http://dbpedia.org/resource/Mecklenburg-Vorpommern> rdfs:label ?label. } UNION {
-    <http://dbpedia.org/resource/North_Rhine-Westphalia> rdfs:label ?label. } UNION {
-    <http://dbpedia.org/resource/Rhineland-Palatinate> rdfs:label ?label. } UNION {
-    <http://dbpedia.org/resource/Saxony-Anhalt> rdfs:label ?label. } UNION {
-    <http://dbpedia.org/resource/Thuringia>  rdfs:label ?label.
-  }
-    		
-}
-    
-          
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/Baden-W%C3%BCrttemberg>', ' ', ' ?p', " '", str(?o1), " '") as ?10) 
+(concat('<http://dbpedia.org/resource/Berlin>', ' ', ' ?p', " '", str(?o3), " '") as ?11) 
+(concat('<http://dbpedia.org/resource/Brandenburg>', ' ', ' ?p', " '", str(?o5), " '") as ?12) 
+(concat('<http://dbpedia.org/resource/Bremen_%28state%29>', ' ', ' ?p', " '", str(?o7), " '") as ?13) 
+(concat('<http://dbpedia.org/resource/Hamburg>', ' ', ' ?p', " '", str(?o9), " '") as ?14) 
+(concat('<http://dbpedia.org/resource/Mecklenburg-Vorpommern>', ' ', ' ?p', " '", str(?o11), " '") as ?15) 
+(concat('<http://dbpedia.org/resource/North_Rhine-Westphalia>', ' ', ' ?p', " '", str(?o13), " '") as ?16) 
+(concat('<http://dbpedia.org/resource/Rhineland-Palatinate>', ' ', ' ?p', " '", str(?o13), " '") as ?17) 
+(concat('<http://dbpedia.org/resource/Saxony-Anhalt>', ' ', ' ?p', " '", str(?o15), " '") as ?18) 
+(concat('<http://dbpedia.org/resource/Thuringia>', ' ', ' ?p', " '", str(?o19), " '") as ?19) 
+
+
+WHERE {  { <http://dbpedia.org/resource/Baden-W%C3%BCrttemberg> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/rulingParty> "SPD"@en . }  
+  UNION { <http://dbpedia.org/resource/Berlin> <http://www.w3.org/2000/01/rdf-schema#comment> ?o2 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o3 ;  <http://dbpedia.org/property/rulingParty> "SPD"@en . } 
+  UNION { <http://dbpedia.org/resource/Brandenburg> <http://www.w3.org/2000/01/rdf-schema#comment> ?o4 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o5 ;  <http://dbpedia.org/property/rulingParty> "SPD"@en . }  
+  UNION { <http://dbpedia.org/resource/Bremen_%28state%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o6 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o7 ;  <http://dbpedia.org/property/rulingParty> "SPD"@en . } 
+  UNION { <http://dbpedia.org/resource/Hamburg> <http://www.w3.org/2000/01/rdf-schema#comment> ?o8 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o9 ;  <http://dbpedia.org/property/rulingParty> "SPD"@en . }  
+  UNION { <http://dbpedia.org/resource/Mecklenburg-Vorpommern> <http://www.w3.org/2000/01/rdf-schema#comment> ?o10 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o11 ;  <http://dbpedia.org/property/rulingParty> "SPD"@en . }
+  UNION { <http://dbpedia.org/resource/North_Rhine-Westphalia> <http://www.w3.org/2000/01/rdf-schema#comment> ?o12 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o13 ;  <http://dbpedia.org/property/rulingParty> "SPD"@en . }
+  UNION { <http://dbpedia.org/resource/Rhineland-Palatinate> <http://www.w3.org/2000/01/rdf-schema#comment> ?o14 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o15 ;  <http://dbpedia.org/property/rulingParty> "SPD"@en . }
+  UNION { <http://dbpedia.org/resource/Saxony-Anhalt> <http://www.w3.org/2000/01/rdf-schema#comment> ?o16 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o17 ;  <http://dbpedia.org/property/rulingParty> "SPD"@en . }  
+  UNION { <http://dbpedia.org/resource/Thuringia> <http://www.w3.org/2000/01/rdf-schema#comment> ?o18 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o19 ;  <http://dbpedia.org/property/rulingParty> "SPD"@en . }  }

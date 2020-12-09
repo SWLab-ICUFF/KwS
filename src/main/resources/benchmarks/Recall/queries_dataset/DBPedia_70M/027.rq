@@ -1,13 +1,17 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE  {
-     
-  { <http://dbpedia.org/resource/Chandragupta_%28board_game%29> rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/Commands_&_Colors:_Ancients>  rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/Fields_of_Fire_%28game%29>  rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/Paths_of_Glory_%28board_game%29> rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/Sword_of_Rome> rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/Twilight_Struggle> rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/Washington%27s_War> rdfs:label ?label. }
-}
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/Chandragupta_%28board_game%29> ',  ' <http://dbpedia.org/property/publisher> ', '<http://dbpedia.org/resource/GMT_Games>', ';',' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ', '<http://dbpedia.org/ontology/Game>') as ?10) 
+(concat('<http://dbpedia.org/resource/Commands_&_Colors:_Ancients> ',  ' <http://dbpedia.org/property/publisher> ', '<http://dbpedia.org/resource/GMT_Games>', ';',' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ', '<http://dbpedia.org/ontology/Game>') as ?11) 
+(concat('<http://dbpedia.org/resource/Fields_of_Fire_%28game%29> ',  ' <http://dbpedia.org/property/publisher> ', '<http://dbpedia.org/resource/GMT_Games>', ';',' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ', '<http://dbpedia.org/ontology/Game>') as ?12)
+(concat('<http://dbpedia.org/resource/Paths_of_Glory_%28board_game%29> ',  ' <http://dbpedia.org/property/publisher> ', '<http://dbpedia.org/resource/GMT_Games>', ';',' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ', '<http://dbpedia.org/ontology/Game>') as ?13)
+(concat('<http://dbpedia.org/resource/Sword_of_Rome> ',  ' <http://dbpedia.org/property/publisher> ', '<http://dbpedia.org/resource/GMT_Games>', ';',' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ', '<http://dbpedia.org/ontology/Game>') as ?14)
+(concat('<http://dbpedia.org/resource/Washington%27s_War> ',  ' <http://dbpedia.org/property/publisher> ', '<http://dbpedia.org/resource/GMT_Games>', ';',' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ', '<http://dbpedia.org/ontology/Game>') as ?15)
+(concat('<http://dbpedia.org/resource/Twilight_Struggle> ',  ' <http://dbpedia.org/property/publisher> ', '<http://dbpedia.org/resource/GMT_Games>', ';',' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ', '<http://dbpedia.org/ontology/Game>') as ?16)
+(concat('<http://dbpedia.org/resource/Washington%27s_War> ',  ' <http://dbpedia.org/property/publisher> ', '<http://dbpedia.org/resource/GMT_Games>', ';',' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ', '<http://dbpedia.org/ontology/Game>') as ?17)
+
+WHERE {  { <http://dbpedia.org/resource/Chandragupta_%28board_game%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/publisher> <http://dbpedia.org/resource/GMT_Games> ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Game> . }  
+  UNION { <http://dbpedia.org/resource/Commands_&_Colors:_Ancients> <http://www.w3.org/2000/01/rdf-schema#comment> ?o2 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o3 ;  <http://dbpedia.org/property/publisher> <http://dbpedia.org/resource/GMT_Games> ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Game> . }  
+  UNION { <http://dbpedia.org/resource/Fields_of_Fire_%28game%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o4 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o5 ;  <http://dbpedia.org/property/publisher> <http://dbpedia.org/resource/GMT_Games> ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Game> . }  
+  UNION { <http://dbpedia.org/resource/Paths_of_Glory_%28board_game%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o6 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o7 ;  <http://dbpedia.org/property/publisher> <http://dbpedia.org/resource/GMT_Games> ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Game> . }  
+  UNION { <http://dbpedia.org/resource/Sword_of_Rome> <http://www.w3.org/2000/01/rdf-schema#comment> ?o8 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o9 ;  <http://dbpedia.org/property/publisher> <http://dbpedia.org/resource/GMT_Games> ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Game> . }  
+  UNION { <http://dbpedia.org/resource/Twilight_Struggle> <http://www.w3.org/2000/01/rdf-schema#comment> ?o10 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o11 ;  <http://dbpedia.org/property/publisher> <http://dbpedia.org/resource/GMT_Games> ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Game> . } 
+  UNION { <http://dbpedia.org/resource/Washington%27s_War> <http://www.w3.org/2000/01/rdf-schema#comment> ?o12 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o13 ;  <http://dbpedia.org/property/publisher> <http://dbpedia.org/resource/GMT_Games> ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Game> . }  }
