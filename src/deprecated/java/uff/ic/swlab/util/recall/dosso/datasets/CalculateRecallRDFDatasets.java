@@ -18,7 +18,6 @@ import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.sparql.core.DatasetGraph;
-import uff.ic.swlab.util.recall.dosso.datasets.SPARQLMethods;
 
 /**
  *
