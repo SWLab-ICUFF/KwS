@@ -18,4 +18,32 @@ where {
     having (count(min(str(?o))) > 1)
   }
 };
+======================================================================================================
+delete {graph ?sol {?s ?p ?o}}
+where {
+  {
+    select ?sol
+    {
+      {select ?sol {graph ?sol {} FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))}}
+      graph ?sol {?s ?p []. ?s (!:_|^(!:_))* ?o. filter (isIRI(?o))}
+    }
+    group by ?sol
+    having (count(min(str(?o))) > 1)
+  }
+};
 
+
+delete {graph ?sol {?s ?p ?o}}
+where {
+            select ?sol
+            {
+                select ?sol ?s (min(?o) as ?o_)
+                {
+                    {select ?sol {graph ?sol {} FILTER(regex(str(?sol),"urn:graph:kws:[0-9]{3}:sol"))}}
+                    graph ?sol {?s (!:_|^(!:_))* ?o. filter (isIRI(?o))}}
+                }
+                group by ?sol ?s
+            }
+            group by ?sol
+            having (count(distinct ?o_) > 1)
+};
