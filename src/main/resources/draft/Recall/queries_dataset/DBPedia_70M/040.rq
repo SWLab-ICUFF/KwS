@@ -1,12 +1,5 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE  {
-     
-  { <http://dbpedia.org/resource/Mountain_Time_Zone> rdfs:label ?label.} 
-  	
-  
-  }
-      
-    
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/Salt_Lake_City> ',  ' <http://dbpedia.org/property/timezone> ', '<http://dbpedia.org/resource/Mountain_Time_Zone>') as ?10)
 
+
+WHERE {  { <http://dbpedia.org/resource/Salt_Lake_City> <http://dbpedia.org/property/timezone> <http://dbpedia.org/resource/Mountain_Time_Zone> . }  }

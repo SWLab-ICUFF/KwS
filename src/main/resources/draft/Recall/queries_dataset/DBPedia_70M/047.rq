@@ -1,20 +1,11 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE  {
-     
-  { <http://dbpedia.org/resource/List_of_Jiminy_Cricket_educational_serials> rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/The_Disney_Afternoon> rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/The_Mickey_Mouse_Club>  rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/Walt_Disney_anthology_television_series> rdfs:label ?label.}
-     
-    
-    
-    
-   
-  	
-  
-  }
-      
-    
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/List_of_Jiminy_Cricket_educational_serials> ',  ' <http://dbpedia.org/property/creator> ', '<http://dbpedia.org/resource/Walt_Disney> ', ';', '<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', '<http://dbpedia.org/ontology/TelevisionShow>' ) as ?10)
+(concat('<http://dbpedia.org/resource/The_Disney_Afternoon>  ',  ' <http://dbpedia.org/property/creator> ', '<http://dbpedia.org/resource/Walt_Disney> ', ';', '<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', '<http://dbpedia.org/ontology/TelevisionShow>' ) as ?11)
+(concat('<http://dbpedia.org/resource/Walt_Disney_anthology_television_series>  ',  ' <http://dbpedia.org/property/creator> ', '<http://dbpedia.org/resource/Walt_Disney> ', ';', '<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', '<http://dbpedia.org/ontology/TelevisionShow>' ) as ?12)
+(concat('<http://dbpedia.org/resource/The_Mickey_Mouse_Club>  ',  ' <http://dbpedia.org/property/creator> ', '<http://dbpedia.org/resource/Walt_Disney> ', ';', '<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', '<http://dbpedia.org/ontology/TelevisionShow>' ) as ?13)
 
+
+WHERE {  { <http://dbpedia.org/resource/List_of_Jiminy_Cricket_educational_serials> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/creator> <http://dbpedia.org/resource/Walt_Disney> ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/TelevisionShow> . }  
+  UNION { <http://dbpedia.org/resource/The_Disney_Afternoon> <http://www.w3.org/2000/01/rdf-schema#comment> ?o2 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o3 ;  <http://dbpedia.org/property/creator> <http://dbpedia.org/resource/Walt_Disney> ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/TelevisionShow> . } 
+  UNION { <http://dbpedia.org/resource/The_Mickey_Mouse_Club> <http://www.w3.org/2000/01/rdf-schema#comment> ?o4 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o5 ;  <http://dbpedia.org/property/creator> <http://dbpedia.org/resource/Walt_Disney> ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/TelevisionShow> . } 
+  UNION { <http://dbpedia.org/resource/Walt_Disney_anthology_television_series> <http://www.w3.org/2000/01/rdf-schema#comment> ?o6 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o7 ;  <http://dbpedia.org/property/creator> <http://dbpedia.org/resource/Walt_Disney> ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/TelevisionShow> . }  }

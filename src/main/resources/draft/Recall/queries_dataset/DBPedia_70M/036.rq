@@ -1,13 +1,12 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE  {
-     
-  { <http://dbpedia.org/resource/Ameland>  rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/Schiermonnikoog> rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/Terschelling>  rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/Texel> rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/Vlieland> rdfs:label ?label.}
-      
-    
-}
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/Ameland> ',  ' <http://dbpedia.org/property/subdivisionName> ', '<http://dbpedia.org/resource/Netherlands>') as ?10)
+(concat('<http://dbpedia.org/resource/Schiermonnikoog> ',  ' <http://dbpedia.org/property/subdivisionName> ', '<http://dbpedia.org/resource/Netherlands>') as ?11)
+(concat('<http://dbpedia.org/resource/Terschelling> ',  ' <http://dbpedia.org/property/subdivisionName> ', '<http://dbpedia.org/resource/Netherlands>') as ?12)
+(concat('<http://dbpedia.org/resource/Texel> ',  ' <http://dbpedia.org/property/subdivisionName> ', '<http://dbpedia.org/resource/Netherlands>') as ?13)
+(concat('<http://dbpedia.org/resource/Vlieland> ',  ' <http://dbpedia.org/property/subdivisionName> ', '<http://dbpedia.org/resource/Netherlands>') as ?14)
+
+WHERE {  { <http://dbpedia.org/resource/Ameland> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/subdivisionName> <http://dbpedia.org/resource/Netherlands> . }  
+  UNION { <http://dbpedia.org/resource/Schiermonnikoog> <http://www.w3.org/2000/01/rdf-schema#comment> ?o2 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o3 ;  <http://dbpedia.org/property/subdivisionName> <http://dbpedia.org/resource/Netherlands> . }  
+  UNION { <http://dbpedia.org/resource/Terschelling> <http://www.w3.org/2000/01/rdf-schema#comment> ?o4 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o5 ;  <http://dbpedia.org/property/subdivisionName> <http://dbpedia.org/resource/Netherlands> . }  
+  UNION { <http://dbpedia.org/resource/Texel> <http://www.w3.org/2000/01/rdf-schema#comment> ?o6 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o7 ;  <http://dbpedia.org/property/subdivisionName> <http://dbpedia.org/resource/Netherlands> . } 
+  UNION { <http://dbpedia.org/resource/Vlieland> <http://www.w3.org/2000/01/rdf-schema#comment> ?o8 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o9 ;  <http://dbpedia.org/property/subdivisionName> <http://dbpedia.org/resource/Netherlands> . }  }

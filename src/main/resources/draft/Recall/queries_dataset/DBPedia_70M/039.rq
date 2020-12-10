@@ -1,14 +1,9 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE  {
-     
-  { <http://dbpedia.org/resource/Alan_Shepard> rdfs:label ?label.} UNION{
-    <http://dbpedia.org/resource/Edgar_Mitchell> rdfs:label ?label.} UNION{
-    <http://dbpedia.org/resource/Stuart_Roosa>  rdfs:label ?label.
-  	
-  
-  }
-      
-    
-}
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/Alan_Shepard> ',  ' <http://dbpedia.org/property/mission> ', '<http://dbpedia.org/resource/Apollo_14>', ';', '<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', '<http://dbpedia.org/ontology/Astronaut>') as ?10)
+(concat('<http://dbpedia.org/resource/Edgar_Mitchell> ',  ' <http://dbpedia.org/property/mission> ', '<http://dbpedia.org/resource/Apollo_14>', ';', '<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', '<http://dbpedia.org/ontology/Astronaut>') as ?11)
+(concat('<http://dbpedia.org/resource/Stuart_Roosa> ',  ' <http://dbpedia.org/property/mission> ', '<http://dbpedia.org/resource/Apollo_14>', ';', '<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>', '<http://dbpedia.org/ontology/Astronaut>') as ?12)
+
+
+WHERE {  { <http://dbpedia.org/resource/Alan_Shepard> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/mission> <http://dbpedia.org/resource/Apollo_14> ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Astronaut> . } 
+  UNION { <http://dbpedia.org/resource/Edgar_Mitchell> <http://www.w3.org/2000/01/rdf-schema#comment> ?o2 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o3 ;  <http://dbpedia.org/property/mission> <http://dbpedia.org/resource/Apollo_14> ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Astronaut> . } 
+  UNION { <http://dbpedia.org/resource/Stuart_Roosa> <http://www.w3.org/2000/01/rdf-schema#comment> ?o4 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o5 ;  <http://dbpedia.org/property/mission> <http://dbpedia.org/resource/Apollo_14> ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Astronaut> . }  }

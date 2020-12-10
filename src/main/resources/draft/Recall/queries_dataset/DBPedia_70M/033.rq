@@ -1,8 +1,4 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE  {
-     
-  { <http://dbpedia.org/resource/Marcus_Adoro>  rdfs:label ?label.} 
-    
-}
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/Marcus_Adoro> ',  ' <http://dbpedia.org/property/born> ', '<http://dbpedia.org/resource/Philippines>', ';', ' <http://dbpedia.org/property/occupation>', '<http://dbpedia.org/resource/Surfing>') as ?10)
+
+WHERE {  { <http://dbpedia.org/resource/Marcus_Adoro> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/born> <http://dbpedia.org/resource/Philippines> ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Surfing> . }  }

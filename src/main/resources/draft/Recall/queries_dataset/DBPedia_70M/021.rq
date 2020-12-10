@@ -1,8 +1,6 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE  {
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/California>', ' ', ' <http://dbpedia.org/property/mineral>', ' <http://dbpedia.org/resource/Gold>') as ?10) 
 
-	?film <http://dbpedia.org/property/starring> <http://dbpedia.org/resource/William_Shatner> ;  		<http://dbpedia.org/property/director>  <http://dbpedia.org/resource/William_Shatner> . ?film <http://dbpedia.org/property/starring> ?actor.
-    ?film rdfs:label ?label.
-}
+
+
+WHERE { ?film <http://dbpedia.org/property/starring> <http://dbpedia.org/resource/William_Shatner> ;  <http://dbpedia.org/property/director>  <http://dbpedia.org/resource/William_Shatner> . ?film <http://dbpedia.org/property/starring> ?actor}

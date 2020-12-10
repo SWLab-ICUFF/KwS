@@ -18,8 +18,8 @@ import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
-import uff.ic.swlab.util.recall.dosso.datasets.SPARQLMethods;
 import org.apache.commons.text.similarity.JaccardSimilarity;
+import org.apache.jena.riot.RDFDataMgr;
 
 /**
  *
@@ -29,7 +29,7 @@ public class BuildRecall {
 
     public static HashMap<Integer, ArrayList<String>> getAnswers(String nameDatabase) throws FileNotFoundException, IOException {
         HashMap<Integer, ArrayList<String>> mapAnswers = new HashMap<>();
-        FileReader file = new FileReader(String.format("./src/main/resources/benchmarks/Recall/Results/%1$s_search_id.csv", nameDatabase));
+        FileReader file = new FileReader(String.format("./src/main/resources/draft/Recall/Results/%1$s_search_id.csv", nameDatabase));
         try ( BufferedReader br = new BufferedReader(file)) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -51,7 +51,7 @@ public class BuildRecall {
     }
 
     public static void ExportCSV(HashMap<Integer, Double> mapRecall, String nameService) throws FileNotFoundException {
-        File folder = new File(String.format("./src/main/resources/benchmarks/Recall/Results/%1$s_result.csv", nameService));
+        File folder = new File(String.format("./src/main/resources/draft/Recall/Results/%1$s_result.csv", nameService));
         try ( PrintWriter writer = new PrintWriter(folder)) {
             StringBuilder sb = new StringBuilder();
             sb.append("query");
@@ -73,6 +73,14 @@ public class BuildRecall {
         }
 
     }
+    
+       
+     public static Dataset readDataset(String filename){
+        
+        Dataset dataset = RDFDataMgr.loadDataset(filename) ;
+        return dataset;
+     }
+    
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
@@ -94,7 +102,7 @@ public class BuildRecall {
                 + "}";
         
 
-        SPARQLMethods sparqlMethods = null;
+        
         HashMap<Integer, ArrayList<String>> mapAnswers = getAnswers(nameDatabase);
 
         HashMap<Integer, Double> mapRecall = new HashMap<>();
@@ -103,9 +111,9 @@ public class BuildRecall {
             System.out.println("Calculing recall " + keywordNumber);
             ArrayList<String> listAnswer = mapAnswers.get(keywordNumber);
             Integer allAnswers = listAnswer.size();
-            String pathSG = String.format("./src/main/resources/benchmarks/IS/%1$s/%2$03d.nq.gz", nameDatabase, keywordNumber);
+            String pathSG = String.format("./src/main/resources/benchmarks/ESWC2021/%1$s/%2$03d.nq.gz", nameDatabase, keywordNumber);
             Double countAnswers = 0.0;
-            Dataset dataset = sparqlMethods.readDataset(pathSG);
+            Dataset dataset = readDataset(pathSG);
             for (String answerReference : listAnswer) {
                 answerReference = answerReference.toLowerCase().replace(" ", "");
                 QueryExecution q = QueryExecutionFactory.create(queryString, dataset);

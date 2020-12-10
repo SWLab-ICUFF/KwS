@@ -1,17 +1,4 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE  {
-     
-  { <http://dbpedia.org/resource/The_Scream> rdfs:label ?label.} 
-     
-    
-    
-    
-   
-  	
-  
-  }
-      
-    
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/The_Scream> ',  ' <http://dbpedia.org/property/museum> ', '<http://dbpedia.org/resource/National_Gallery_of_Norway> ', ';', '<http://dbpedia.org/property/artist>', '<http://dbpedia.org/resource/Edvard_Munch>' ) as ?10)
 
+WHERE {  { <http://dbpedia.org/resource/The_Scream> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/museum> <http://dbpedia.org/resource/National_Gallery_of_Norway> ;  <http://dbpedia.org/property/artist> <http://dbpedia.org/resource/Edvard_Munch> . }  }

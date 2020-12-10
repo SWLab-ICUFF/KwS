@@ -1,16 +1,12 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE  {
-     
-  { <http://dbpedia.org/resource/Arres%C3%B8> rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/B%C3%B8lling_lake> rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/Fures%C3%B8_%28lake%29> rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/Lake_Bagsv%C3%A6rd> rdfs:label ?label.} UNION {
-    <http://dbpedia.org/resource/The_Lakes,_Copenhagen> rdfs:label ?label.}
-  	
-  
-  }
-      
-    
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/Arres%C3%B8> ',  ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ', '<http://dbpedia.org/ontology/Lake>') as ?10)
+ (concat('<http://dbpedia.org/resource/B%C3%B8lling_lake> ',  ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ', '<http://dbpedia.org/ontology/Lake>') as ?11)
+ (concat('<http://dbpedia.org/resource/Fures%C3%B8_%28lake%29> ',  ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ', '<http://dbpedia.org/ontology/Lake>') as ?12)
+ (concat('<http://dbpedia.org/resource/Lake_Bagsv%C3%A6rd> ',  ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ', '<http://dbpedia.org/ontology/Lake>') as ?13)
+(concat('<http://dbpedia.org/resource/The_Lakes,_Copenhagen> ',  ' <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ', '<http://dbpedia.org/ontology/Lake>') as ?14)
 
+WHERE {  { <http://dbpedia.org/resource/Arres%C3%B8> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/basinCountries> "Denmark"@en ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Lake> . } 
+  UNION { <http://dbpedia.org/resource/B%C3%B8lling_lake> <http://www.w3.org/2000/01/rdf-schema#comment> ?o2 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o3 ;  <http://dbpedia.org/property/basinCountries> "Denmark"@en ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Lake> . }
+  UNION { <http://dbpedia.org/resource/Fures%C3%B8_%28lake%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o4 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o5 ;  <http://dbpedia.org/property/basinCountries> "Denmark"@en ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Lake> . }
+  UNION { <http://dbpedia.org/resource/Lake_Bagsv%C3%A6rd> <http://www.w3.org/2000/01/rdf-schema#comment> ?o6 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o7 ;  <http://dbpedia.org/property/basinCountries> "Denmark"@en ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Lake> . } 
+  UNION { <http://dbpedia.org/resource/The_Lakes,_Copenhagen> <http://www.w3.org/2000/01/rdf-schema#comment> ?o8 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o9 ;  <http://dbpedia.org/property/basinCountries> "Denmark"@en ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Lake> . }  }

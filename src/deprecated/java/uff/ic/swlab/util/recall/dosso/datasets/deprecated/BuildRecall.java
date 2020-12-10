@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uff.ic.swlab.util.recall.dosso.datasets;
+package uff.ic.swlab.util.recall.dosso.datasets.deprecated;
 
 import java.io.File;
 import java.io.FileNotFoundException;

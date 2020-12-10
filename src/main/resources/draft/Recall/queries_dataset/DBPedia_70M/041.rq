@@ -1,12 +1,4 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE  {
-     
-  { <http://dbpedia.org/resource/Michael_Bloomberg> rdfs:label ?label.} 
-  	
-  
-  }
-      
-    
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/Michael_Bloomberg> ',  ' <http://dbpedia.org/property/title> ', '<http://dbpedia.org/resource/Mayor_of_New_York_City>') as ?10)
 
+WHERE {  { <http://dbpedia.org/resource/Michael_Bloomberg> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/title> <http://dbpedia.org/resource/Mayor_of_New_York_City> . }  }

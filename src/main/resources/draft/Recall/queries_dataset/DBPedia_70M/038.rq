@@ -1,17 +1,19 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE  {
-     
-  { <http://dbpedia.org/resource/Aphrodite> rdfs:label ?label.} UNION{
-  	<http://dbpedia.org/resource/Athena> rdfs:label ?label.} UNION{
-    <http://dbpedia.org/resource/Demeter> rdfs:label ?label.} UNION{
-     <http://dbpedia.org/resource/Hebe_%28mythology%29> rdfs:label ?label.} UNION{
-    <http://dbpedia.org/resource/Hera>  rdfs:label ?label.} UNION{
-    <http://dbpedia.org/resource/Hygieia> rdfs:label ?label.} UNION{
-    <http://dbpedia.org/resource/Nike_%28mythology%29> rdfs:label ?label.}
-  
-    
-      
-    
-}
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/Aphrodite> ',  ' <http://dbpedia.org/property/abode> ', '<http://dbpedia.org/resource/Mount_Olympus>') as ?10)
+(concat('<http://dbpedia.org/resource/Athena> ',  ' <http://dbpedia.org/property/abode> ', '<http://dbpedia.org/resource/Mount_Olympus>') as ?11)
+(concat('<http://dbpedia.org/resource/Demeter> ',  ' <http://dbpedia.org/property/abode> ', '<http://dbpedia.org/resource/Mount_Olympus>') as ?12)
+(concat('<http://dbpedia.org/resource/Hebe_%28mythology%29> ',  ' <http://dbpedia.org/property/abode> ', '<http://dbpedia.org/resource/Mount_Olympus>') as ?13)
+(concat('<http://dbpedia.org/resource/Hera> ',  ' <http://dbpedia.org/property/abode> ', '<http://dbpedia.org/resource/Mount_Olympus>') as ?14)
+(concat('<http://dbpedia.org/resource/Hygieia> ',  ' <http://dbpedia.org/property/abode> ', '<http://dbpedia.org/resource/Mount_Olympus>') as ?15)
+(concat('<http://dbpedia.org/resource/Nike_%28mythology%29> ',  ' <http://dbpedia.org/property/abode> ', '<http://dbpedia.org/resource/Mount_Olympus>') as ?16)
+
+
+
+
+WHERE {  { <http://dbpedia.org/resource/Aphrodite> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/abode> <http://dbpedia.org/resource/Mount_Olympus> . }  
+  UNION { <http://dbpedia.org/resource/Athena> <http://www.w3.org/2000/01/rdf-schema#comment> ?o2 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o3 ;  <http://dbpedia.org/property/abode> <http://dbpedia.org/resource/Mount_Olympus> . } 
+  UNION { <http://dbpedia.org/resource/Demeter> <http://www.w3.org/2000/01/rdf-schema#comment> ?o4 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o5 ;  <http://dbpedia.org/property/abode> <http://dbpedia.org/resource/Mount_Olympus> . }  
+  UNION { <http://dbpedia.org/resource/Hebe_%28mythology%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o6 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o7 ;  <http://dbpedia.org/property/abode> <http://dbpedia.org/resource/Mount_Olympus> . }  
+  UNION { <http://dbpedia.org/resource/Hera> <http://www.w3.org/2000/01/rdf-schema#comment> ?o8 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o9 ;  <http://dbpedia.org/property/abode> <http://dbpedia.org/resource/Mount_Olympus> . }  
+  UNION { <http://dbpedia.org/resource/Hygieia> <http://www.w3.org/2000/01/rdf-schema#comment> ?o10 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o11 ;  <http://dbpedia.org/property/abode> <http://dbpedia.org/resource/Mount_Olympus> . }  
+  UNION { <http://dbpedia.org/resource/Nike_%28mythology%29> <http://www.w3.org/2000/01/rdf-schema#comment> ?o12 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o13 ;  <http://dbpedia.org/property/abode> <http://dbpedia.org/resource/Mount_Olympus> . }  }

@@ -55,7 +55,7 @@ public class BuildRecall {
     }
 
     public static void ExportCSV(HashMap<Integer, Double> mapRecall, String nameService) throws FileNotFoundException {
-        File folder = new File(String.format("./src/main/resources/benchmarks/Recall/Results/%1$s_result.csv", nameService));
+        File folder = new File(String.format("./src/main/resources/draft/Recall/Results/%1$s_result.csv", nameService));
         try ( PrintWriter writer = new PrintWriter(folder)) {
             StringBuilder sb = new StringBuilder();
             sb.append("query");
@@ -81,7 +81,7 @@ public class BuildRecall {
     public static HashMap<Integer, Double> calculateRecallSyntecticDatasets(String nameDataset, String serviceDatabase) throws IOException{
         HashMap<Integer, Double> mapRecall = new HashMap<>();
 
-        File folder = new File(String.format("./src/main/resources/benchmarks/IS/%1$s", nameDataset));
+        File folder = new File(String.format("./src/main/resources/benchmarks/ESWC2021/%1$s", nameDataset));
         File[] listOfFiles = folder.listFiles();
         Arrays.sort(listOfFiles);
         Integer count = 1;
@@ -91,7 +91,7 @@ public class BuildRecall {
                 //read S.G
                 Dataset dataset = ReadDataset(listOfFiles[i].toString());
 
-                String pathQuery = String.format("./src/main/resources/benchmarks/Recall/queries_dataset/%1$s/%2$03d.rq", nameDataset, count);
+                String pathQuery = String.format("./src/main/resources/draft/Recall/queries_dataset/%1$s/%2$03d.rq", nameDataset, count);
                 String queryString = readQuery(pathQuery);
                 QueryExecution q = QueryExecutionFactory.sparqlService(serviceDatabase, queryString);
                 ResultSet result = q.execSelect();
@@ -137,7 +137,7 @@ public class BuildRecall {
     public static HashMap<Integer, Double> calculateRecallDBPedia(String nameDataset, String serviceDatabase) throws IOException{
         HashMap<Integer, Double> mapRecall = new HashMap<>();
 
-        File folder = new File(String.format("./src/main/resources/benchmarks/IS/%1$s", nameDataset));
+        File folder = new File(String.format("./src/main/resources/benchmarks/ESWC2021/%1$s", nameDataset));
         File[] listOfFiles = folder.listFiles();
         Arrays.sort(listOfFiles);
         Integer count = 1;
@@ -147,7 +147,7 @@ public class BuildRecall {
                 //read S.G
                 Dataset dataset = ReadDataset(listOfFiles[i].toString());
 
-                String pathQuery = String.format("./src/main/resources/benchmarks/Recall/queries_dataset/%1$s/%2$03d.rq", nameDataset, count);
+                String pathQuery = String.format("./src/main/resources/draft/Recall/queries_dataset/%1$s/%2$03d.rq", nameDataset, count);
                 String queryString = readQuery(pathQuery);
                 QueryExecution q = QueryExecutionFactory.sparqlService(serviceDatabase, queryString);
                 ResultSet result = q.execSelect();

@@ -1,17 +1,4 @@
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?label
-WHERE  {
-     
-  { <http://dbpedia.org/resource/John_Lennon> rdfs:label ?label.} 
-     
-    
-    
-    
-   
-  	
-  
-  }
-      
-    
+SELECT DISTINCT (concat('<http://dbpedia.org/resource/John_Lennon> ',  ' ?p ', "'John Lennon'") as ?10)
 
+WHERE {  { <http://dbpedia.org/resource/John_Lennon> <http://dbpedia.org/property/instrument> "Vocals, guitar, piano, harmonica, harmonium, electronic organ, six-string bass"@en . }  }
