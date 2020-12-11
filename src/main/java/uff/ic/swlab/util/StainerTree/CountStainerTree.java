@@ -90,16 +90,7 @@ public class CountStainerTree {
                 + "  		?s ?p ?o.\n"
                 + "  }\n"
                 + "  FILTER(!isLiteral(?o))\n"
-                + "      \n"
-                + "      \n"
-                + "}\n"
-                + "  \n"
-                + "  		\n"
-                + "\n"
-                + "\n"
-                + "\n"
-                + "\n"
-                + "", sg);
+                + "}\n", sg);
         QueryExecution q = QueryExecutionFactory.create(queryString, dataset);
         ResultSet result = q.execSelect();
         while (result.hasNext()) {
