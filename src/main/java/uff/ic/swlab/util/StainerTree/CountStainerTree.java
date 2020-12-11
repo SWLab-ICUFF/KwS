@@ -55,42 +55,49 @@ public class CountStainerTree {
 
     }
 
-    public static List<String> getTerminalsSG(Dataset dataset, String sg) {
+    public static List<String> getTerminalsSG(Dataset dataset, String sg, HashMap<String, String> mapURI) {
         List<String> terminals = new ArrayList<>();
         String queryString = String.format("SELECT ?seeds\n"
-                + "  			WHERE{\n"
-                + "      			graph <urn:graph:kws:groups>{\n"
-                + "        			<%1$s> <http://www.w3.org/2000/01/rdf-schema#member> ?seeds.\n"
-                + "      			}\n"
-                + "			}\n"
-                + "    		group by ?seeds", sg);
+                + "                  			WHERE{\n"
+                + "                      			graph <urn:graph:kws:groups>{\n"
+                + "                        			<%1$s> <http://www.w3.org/2000/01/rdf-schema#member> ?seeds.\n"
+                + "    FILTER((EXISTS{graph <%1$s>{?seeds ?p [].}}) || (EXISTS{graph <%1$s>{[] ?p ?seeds.}}))\n"
+                + "    								\n"
+                + "                      			}\n"
+                + "                			}\n"
+                + "                    		group by ?seeds", sg);
 
         QueryExecution q = QueryExecutionFactory.create(queryString, dataset);
         ResultSet result = q.execSelect();
         while (result.hasNext()) {
             QuerySolution soln = result.nextSolution();
             String sgURI = String.valueOf(soln.get("seeds"));
-            terminals.add(sgURI);
+            String numberRepresentation = mapURI.get(sgURI);
+            terminals.add(numberRepresentation);
 
         }
         q.close();
         return terminals;
     }
 
-    public static Graph CreateGraphbySG(Dataset dataset, String sg) {
+    public static Graph CreateGraphbySG(Dataset dataset, String sg, HashMap<String, String> mapURI) {
         Graph graph = new Graph();
         String queryString = String.format("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX urn: <http://fliqz.com/>\n"
                 + "\n"
-                + "SELECT DISTINCT ?s ?p ?o\n"
+                + "SELECT ?s ?p ?o\n"
                 + "WHERE{\n"
                 + "  graph <%1$s>{\n"
                 + "  		?s ?p ?o.\n"
                 + "  }\n"
                 + "  FILTER(!isLiteral(?o))\n"
-                + "  		\n"
+                + "      \n"
+                + "      \n"
                 + "}\n"
+                + "  \n"
+                + "  		\n"
+                + "\n"
                 + "\n"
                 + "\n"
                 + "\n"
@@ -101,15 +108,18 @@ public class CountStainerTree {
             QuerySolution soln = result.nextSolution();
             String s = String.valueOf(soln.get("s"));
             String o = String.valueOf(soln.get("o"));
-            graph.addEdge(s, o);
+            String numberRepresentationS = mapURI.get(s);
+            String numberRepresentationO = mapURI.get(o);
+
+            graph.addEdge(numberRepresentationS, numberRepresentationO);
 
         }
         q.close();
 
         return graph;
     }
-    
-       public static void ExportCSV(HashMap<Integer, Integer> mapSTs, String nameDataset) throws FileNotFoundException {
+
+    public static void ExportCSV(HashMap<Integer, Integer> mapSTs, String nameDataset) throws FileNotFoundException {
         File folder = new File(String.format("./src/main/resources/draft/STs/Results/%1$s_result.csv", nameDataset));
         try ( PrintWriter writer = new PrintWriter(folder)) {
             StringBuilder sb = new StringBuilder();
@@ -133,28 +143,78 @@ public class CountStainerTree {
 
     }
 
+    public static ArrayList<String> getEntities(Dataset dataset, String sg) {
+        ArrayList<String> entities = new ArrayList<>();
+        String queryString = String.format("SELECT DISTINCT ?s ?o\n"
+                + "WHERE{\n"
+                + "   	graph <%1$s>{\n"
+                + "  			?s ?p ?o.\n"
+                + "    		FILTER(!regex(str(?s), \"urn:graph:kws:[0-9]{3}:sol\"))\n"
+                + "    		FILTER(!regex(str(?o), \"urn:graph:kws:[0-9]{3}:sol\"))\n"
+                + "    		FILTER(!isLiteral(?s)) FILTER(!isLiteral(?o))\n"
+                + "	}\n"
+                + "}", sg);
+        QueryExecution q = QueryExecutionFactory.create(queryString, dataset);
+        ResultSet result = q.execSelect();
+        while (result.hasNext()) {
+            QuerySolution soln = result.nextSolution();
+            String entity = String.valueOf(soln.get("s"));
+            String entity_o = String.valueOf(soln.get("o"));
+            entities.add(entity);
+            entities.add(entity_o);
+
+        }
+        q.close();
+
+        return entities;
+
+    }
+
+    public static HashMap<String, String> createRepresentationURI(Dataset dataset, String sg) {
+        HashMap<String, String> mapURI = new HashMap<>();
+        Integer count = 1;
+        ArrayList<String> entities = getEntities(dataset, sg);
+
+        for (String entity : entities) {
+            if (!mapURI.containsKey(entity)) {
+                String numberRepresentation = count.toString();
+                mapURI.put(entity, numberRepresentation);
+                count++;
+            }
+        }
+        return mapURI;
+
+    }
+
     public static void main(String[] args) throws FileNotFoundException {
         String nameDataset = "Mondial";
         File folder = new File(String.format("./src/main/resources/benchmarks/ESWC2021/%1$s", nameDataset));
         File[] listOfFiles = folder.listFiles();
         Arrays.sort(listOfFiles);
         HashMap<Integer, Integer> mapST = new HashMap<>();
-        
+
         Integer count = 1;
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].toString().endsWith(".nq.gz")) {
-                System.out.println(count);
-                Dataset dataset = ReadDataset(listOfFiles[i].toString());
-                ArrayList<String> listSG = getSG(dataset);
-                Integer total = 0;
-                for (String sg : listSG) {
-                    List<String> terminals = getTerminalsSG(dataset, sg);
-                    Graph graph = CreateGraphbySG(dataset, sg);
-                    List<Graph> steinerTrees = Mitre.execute(graph, terminals);
-                    total = total + steinerTrees.size();
+                
+                if ((count != 11) && (count != 14) && (count != 15)) {
+                    System.out.println("-----------------------"+count+"-----------------------------");
+                    Dataset dataset = ReadDataset(listOfFiles[i].toString());
+                    ArrayList<String> listSG = getSG(dataset);
+                    Integer total = 0;
+                    for (String sg : listSG) {
+                        HashMap<String, String> mapURI = createRepresentationURI(dataset, sg);
+                        List<String> terminals = getTerminalsSG(dataset, sg, mapURI);
+                        Graph graph = CreateGraphbySG(dataset, sg, mapURI);
+                        List<Graph> steinerTrees = Mitre.execute(graph, terminals);
+                        total = total + steinerTrees.size();
+
+                    }
+                    mapST.put(count, total);
+                    dataset.close();
+                    System.out.println("TOTAL:" + total);
                 }
-                mapST.put(count, total);
-                dataset.close();
+                count++;
 
             }
         }
