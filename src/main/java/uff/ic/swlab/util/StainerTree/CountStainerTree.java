@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
@@ -78,6 +79,7 @@ public class CountStainerTree {
     }
 
     public static Graph CreateGraphbySG(Dataset dataset, String sg, HashMap<String, String> mapURI) {
+        Map<String, String> edges = new HashMap<>();
         Graph graph = new Graph();
         String queryString = String.format("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
@@ -104,11 +106,13 @@ public class CountStainerTree {
             QuerySolution soln = result.nextSolution();
             String s = String.valueOf(soln.get("s"));
             String o = String.valueOf(soln.get("o"));
-            String numberRepresentationS = mapURI.get(s);
-            String numberRepresentationO = mapURI.get(o);
-
-            graph.addEdge(numberRepresentationS, numberRepresentationO);
-
+            if (!(edges.containsKey(s) && edges.get(s).equals(o))
+                    && !(edges.containsKey(o) && edges.get(s).equals(s))) {
+                String numberRepresentationS = mapURI.get(s);
+                String numberRepresentationO = mapURI.get(o);
+                graph.addEdge(numberRepresentationS, numberRepresentationO);
+                edges.put(s, o);
+            }
         }
         q.close();
 
@@ -142,6 +146,7 @@ public class CountStainerTree {
 
     public static ArrayList<String> getEntities(Dataset dataset, String sg) {
         ArrayList<String> entities = new ArrayList<>();
+
         String queryString = String.format("SELECT DISTINCT ?s ?o\n"
                 + "WHERE{\n"
                 + "   	graph <%1$s>{\n"
@@ -159,7 +164,6 @@ public class CountStainerTree {
             String entity_o = String.valueOf(soln.get("o"));
             entities.add(entity);
             entities.add(entity_o);
-
         }
         q.close();
 
