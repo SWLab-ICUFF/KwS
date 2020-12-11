@@ -12,14 +12,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import mitre.Mitre;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.riot.RDFDataMgr;
-import util.Graph;
 
 /**
  *
@@ -64,8 +62,7 @@ public class CountStainerTree {
                 + "    FILTER((EXISTS{graph <%1$s>{?seeds ?p [].}}) || (EXISTS{graph <%1$s>{[] ?p ?seeds.}}))\n"
                 + "    								\n"
                 + "                      			}\n"
-                + "                			}\n"
-                + "                    		group by ?seeds", sg);
+                + "                			}\n", sg);
 
         QueryExecution q = QueryExecutionFactory.create(queryString, dataset);
         ResultSet result = q.execSelect();
@@ -84,7 +81,6 @@ public class CountStainerTree {
         Graph graph = new Graph();
         String queryString = String.format("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
-                + "PREFIX urn: <http://fliqz.com/>\n"
                 + "\n"
                 + "SELECT ?s ?p ?o\n"
                 + "WHERE{\n"
@@ -119,7 +115,8 @@ public class CountStainerTree {
         return graph;
     }
 
-    public static void ExportCSV(HashMap<Integer, Integer> mapSTs, String nameDataset) throws FileNotFoundException {
+    public static void ExportCSV(HashMap<Integer, Integer> mapSTs, String nameDataset) throws
+            FileNotFoundException {
         File folder = new File(String.format("./src/main/resources/draft/STs/Results/%1$s_result.csv", nameDataset));
         try ( PrintWriter writer = new PrintWriter(folder)) {
             StringBuilder sb = new StringBuilder();
@@ -149,9 +146,9 @@ public class CountStainerTree {
                 + "WHERE{\n"
                 + "   	graph <%1$s>{\n"
                 + "  			?s ?p ?o.\n"
-                + "    		FILTER(!regex(str(?s), \"urn:graph:kws:[0-9]{3}:sol\"))\n"
-                + "    		FILTER(!regex(str(?o), \"urn:graph:kws:[0-9]{3}:sol\"))\n"
-                + "    		FILTER(!isLiteral(?s)) FILTER(!isLiteral(?o))\n"
+                + "    		FILTER(!regex(str(?s), \"urn:\"))\n"
+                + "    		FILTER(!regex(str(?o), \"urn:\"))\n"
+                + "    		FILTER(!isLiteral(?o))\n"
                 + "	}\n"
                 + "}", sg);
         QueryExecution q = QueryExecutionFactory.create(queryString, dataset);
@@ -175,13 +172,12 @@ public class CountStainerTree {
         Integer count = 1;
         ArrayList<String> entities = getEntities(dataset, sg);
 
-        for (String entity : entities) {
+        for (String entity : entities)
             if (!mapURI.containsKey(entity)) {
                 String numberRepresentation = count.toString();
                 mapURI.put(entity, numberRepresentation);
                 count++;
             }
-        }
         return mapURI;
 
     }
@@ -194,11 +190,11 @@ public class CountStainerTree {
         HashMap<Integer, Integer> mapST = new HashMap<>();
 
         Integer count = 1;
-        for (int i = 0; i < listOfFiles.length; i++) {
+        for (int i = 0; i < listOfFiles.length; i++)
             if (listOfFiles[i].toString().endsWith(".nq.gz")) {
-                
+
                 if ((count != 11) && (count != 14) && (count != 15)) {
-                    System.out.println("-----------------------"+count+"-----------------------------");
+                    System.out.println("-----------------------" + count + "-----------------------------");
                     Dataset dataset = ReadDataset(listOfFiles[i].toString());
                     ArrayList<String> listSG = getSG(dataset);
                     Integer total = 0;
@@ -217,7 +213,6 @@ public class CountStainerTree {
                 count++;
 
             }
-        }
         ExportCSV(mapST, nameDataset);
 
     }
