@@ -2,9 +2,9 @@
 
 This project contains an algorithm implementation to construct RDF Keyword Search Benchmarks and four computed benchmarks. The benchmarks were inspired by Coffman and Weaver [1] and Dossoand Silvello[2]. The used datasets are available at https://doi.org/10.6084/m9.figshare.11347676.
 
-The Java class BuildBenchmark scans the src/main/resources/benchmarks/ESWC2021/**dataset name**/query.txt files and runs, for each file, a sequence of SPARQL scripts available in src/main/resources/sparql/KwS/v5/1/1, to compute the solution generators. 
+The Java class BuildBenchmark scans the src/main/resources/benchmarks/ESWC2021/**dataset name**/query.txt files and runs, for each file, a sequence of SPARQL scripts available at src/main/resources/sparql/KwS/v5/1/1, to compute the solution generators. 
   
-The solution generators computed for each keyword query are available in src/main/resources/benchmarks/ESWC2021/**dataset name**/**query number**.nq.gz.
+The solution generators computed for each keyword query are available at src/main/resources/benchmarks/ESWC2021/**dataset name**/**query number**.nq.gz.
   
 Project dependency: https://github.com/lapaesleme/SWLabJenaARQExtensions
 
