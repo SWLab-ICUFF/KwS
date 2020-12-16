@@ -1,6 +1,7 @@
 package uff.ic.swlab.util.StainerTree;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -104,6 +105,25 @@ public class Graph {
         edges.add(new Edge(node1, node2));
     }
 
+    public void addEdges(int[] indexes) {
+        for (int index : indexes) {
+            Edge edge = edges.get(index);
+            Node n1 = nodes.get(edge.node1);
+            if (n1 == null) {
+                n1 = new Node(edge.node1);
+                nodes.put(edge.node1, n1);
+            }
+
+            Node n2 = nodes.get(edge.node2);
+            if (n2 == null) {
+                n2 = new Node(edge.node2);
+                nodes.put(edge.node2, n2);
+            }
+            n1.addAdjacent(n2);
+            n2.addAdjacent(n1);
+        }
+    }
+
     public void removeEdge(int index) {
         Node n1 = nodes.get(edges.get(index).getNode1());
         Node n2 = nodes.get(edges.get(index).getNode2());
@@ -114,6 +134,11 @@ public class Graph {
     public void removeEdges(int[] indexes) {
         for (int index : indexes)
             removeEdge(index);
+    }
+
+    public void clear() {
+        for (Node node : nodes.values())
+            node.adjacents = new HashMap<>();
     }
 
     public void reset() {
@@ -164,9 +189,8 @@ public class Graph {
             return true;
         return false;
     }
-    
-    
-    public static Integer ComputeSubGraps(Graph g){
+
+    public static Integer ComputeSubGraps(Graph g) {
         int r = 0, total = 0, count = 0;
         do {
             r++;
@@ -187,33 +211,31 @@ public class Graph {
         //System.out.println(total);
         return total;
     }
-        
-    
 
-//    public static void main(String[] args) {
-//        Graph g = new Graph();
-//        g.addEdge("A", "C");
-//        g.addEdge("A", "E");
-//        g.addEdge("E", "B");
-//        g.addEdge("E", "D");
-//        g.addEdge("E", "C");
-//
-//        int r = 0, total = 0, count = 0;
-//        do {
-//            r++;
-//            count = 0;
-//            Iterator<int[]> combinations = CombinatoricsUtils.combinationsIterator(g.edges(), r);
-//            while (combinations.hasNext()) {
-//                int[] indexes = combinations.next();
-//                g.removeEdges(indexes);
-//                if (g.isConnected()) {
-//                    //System.out.println(Arrays.toString(indexes));
-//                    count++;
-//                    total++;
-//                }
-//                g.reset();
-//            }
-//        } while (count > 0);
-//        System.out.println(total);
-//    }
+    public static void main(String[] args) {
+        Graph g = new Graph();
+        g.addEdge("A", "C");
+        g.addEdge("A", "E");
+        g.addEdge("E", "B");
+        g.addEdge("E", "D");
+        g.addEdge("E", "C");
+
+        int r = g.vertices() - 1, total = 0, count = 0;
+        do {
+            count = 0;
+            Iterator<int[]> combinations = CombinatoricsUtils.combinationsIterator(g.edges(), r);
+            while (combinations.hasNext()) {
+                int[] indexes = combinations.next();
+                g.clear();
+                g.addEdges(indexes);
+                if (g.isConnected()) {
+                    System.out.println(Arrays.toString(indexes));
+                    count++;
+                    total++;
+                }
+            }
+            r++;
+        } while (count == 0);
+        System.out.println(total);
+    }
 }
