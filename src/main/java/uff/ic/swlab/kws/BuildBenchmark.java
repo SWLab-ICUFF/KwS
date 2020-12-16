@@ -47,7 +47,7 @@ public class BuildBenchmark {
         //String path_database = "IMDb";
         //String path_database = "DBPedia_70M";
 
-        try ( InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/%2$s/queries_.txt", benchmark, path_database)));  Scanner sc = new Scanner(in)) {
+        try ( InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/%2$s/queries.txt", benchmark, path_database)));  Scanner sc = new Scanner(in)) {
             int i = 0;
             while (sc.hasNext()) {
                 i++;
