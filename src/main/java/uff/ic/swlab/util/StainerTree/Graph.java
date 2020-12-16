@@ -191,25 +191,25 @@ public class Graph {
     }
 
     public static Integer ComputeSubGraps(Graph g) {
-        int r = 0, total = 0, count = 0;
+        int r = g.vertices() - 1, total = 0, count = 0;
         do {
-            r++;
             count = 0;
             Iterator<int[]> combinations = CombinatoricsUtils.combinationsIterator(g.edges(), r);
+            System.out.println("Gerou combinacoes");
             while (combinations.hasNext()) {
-                System.out.println(r);
                 int[] indexes = combinations.next();
-                g.removeEdges(indexes);
+                g.clear();
+                g.addEdges(indexes);
                 if (g.isConnected()) {
-                    //System.out.println(Arrays.toString(indexes));
+                    System.out.println(Arrays.toString(indexes));
                     count++;
                     total++;
                 }
-                g.reset();
             }
-        } while (count > 0);
-        //System.out.println(total);
+            r++;
+        } while (count == 0);
         return total;
+    
     }
 
     public static void main(String[] args) {
