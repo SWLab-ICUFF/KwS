@@ -1,0 +1,6 @@
+4
+QALD2_te-90	Where is the residence of the prime minister of Spain?
+
+-- current tenants prime minister of spain --
+
+CONSTRUCT {<http://dbpedia.org/resource/Palace_of_Moncloa> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/currentTenants> <http://dbpedia.org/resource/Prime_Minister_of_Spain> . } WHERE {  { <http://dbpedia.org/resource/Palace_of_Moncloa> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/currentTenants> <http://dbpedia.org/resource/Prime_Minister_of_Spain> . }  }

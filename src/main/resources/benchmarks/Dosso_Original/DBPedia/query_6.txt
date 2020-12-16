@@ -1,0 +1,6 @@
+6
+QALD2_te-91	Which U.S. State has the abbreviation MN?
+
+-- postalabbreviation MN --
+
+CONSTRUCT {<http://dbpedia.org/resource/Minnesota> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/postalabbreviation> "MN"@en . } WHERE {  { <http://dbpedia.org/resource/Minnesota> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/postalabbreviation> "MN"@en . }  }

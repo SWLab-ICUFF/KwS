@@ -1,0 +1,6 @@
+35
+QALD2_te-49	Which other weapons did the designer of the Uzi develop?
+
+-- Uzi designer --
+
+CONSTRUCT {<http://dbpedia.org/resource/Uzi> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/designer> ?o2 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Weapon> .<http://dbpedia.org/resource/Minebea_PM-9> <http://www.w3.org/2000/01/rdf-schema#comment> ?o3 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o4 ;  <http://dbpedia.org/property/designer> ?o5 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Weapon> . } WHERE {  { <http://dbpedia.org/resource/Uzi> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/designer> ?o2 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Weapon> . }  UNION { <http://dbpedia.org/resource/Minebea_PM-9> <http://www.w3.org/2000/01/rdf-schema#comment> ?o3 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o4 ;  <http://dbpedia.org/property/designer> ?o5 ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Weapon> . }  }

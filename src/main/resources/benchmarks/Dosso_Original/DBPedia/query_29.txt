@@ -1,0 +1,6 @@
+29
+QALD2_te-42	Who is the husband of Amanda Palmer
+
+-- Amanda Palmer spouse --
+
+CONSTRUCT {<http://dbpedia.org/resource/Amanda_Palmer> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/spouse> <http://dbpedia.org/resource/Neil_Gaiman> . } WHERE {  { <http://dbpedia.org/resource/Amanda_Palmer> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/spouse> <http://dbpedia.org/resource/Neil_Gaiman> . }  }

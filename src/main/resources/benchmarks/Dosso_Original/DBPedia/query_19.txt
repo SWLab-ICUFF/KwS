@@ -1,0 +1,7 @@
+19
+
+QALD2_te-27	Sean Parnell is the governor of which U.S. state?
+
+-- Sean Parnell governor --
+
+CONSTRUCT {<http://dbpedia.org/resource/Alaska> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/governor> <http://dbpedia.org/resource/Sean_Parnell> . } WHERE {  { <http://dbpedia.org/resource/Alaska> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/governor> <http://dbpedia.org/resource/Sean_Parnell> . }  }

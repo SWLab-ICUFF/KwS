@@ -1,0 +1,6 @@
+25
+QALD2_te-35	Who developed Skype?
+
+-- products Skype --
+
+CONSTRUCT {<http://dbpedia.org/resource/Skype_Limited> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/products> "Skype, VoIP client for multiple platforms"@en . } WHERE {  { <http://dbpedia.org/resource/Skype_Limited> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/products> "Skype, VoIP client for multiple platforms"@en . }  }

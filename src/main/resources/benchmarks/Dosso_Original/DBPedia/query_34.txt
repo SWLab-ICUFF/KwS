@@ -1,0 +1,7 @@
+34
+QALD2_tr-15	Who created Goofy?
+
+-- goofy creator --
+
+
+CONSTRUCT {<http://dbpedia.org/resource/Goofy> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/creator> <http://dbpedia.org/resource/Art_Babbitt> . } WHERE {  { <http://dbpedia.org/resource/Goofy> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/creator> <http://dbpedia.org/resource/Art_Babbitt> . }  }

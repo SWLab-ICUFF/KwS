@@ -1,0 +1,6 @@
+query 2
+2 QALD2_te-2 Who was the successor of John F. Kennedy?
+
+-- John F. Kennedy predecessor --
+
+CONSTRUCT {<http://dbpedia.org/resource/Lyndon_B._Johnson> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/predecessor> <http://dbpedia.org/resource/John_F._Kennedy> . } WHERE {  { <http://dbpedia.org/resource/Lyndon_B._Johnson> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/predecessor> <http://dbpedia.org/resource/John_F._Kennedy> . }  }

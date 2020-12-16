@@ -1,0 +1,6 @@
+49
+QALD2_te-76	List the children of Margaret Thatcher.
+
+-- Margaret Thatcher children --
+
+CONSTRUCT {<http://dbpedia.org/resource/Margaret_Thatcher> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/children> ?o2 . } WHERE {  { <http://dbpedia.org/resource/Margaret_Thatcher> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/children> ?o2 . }  }

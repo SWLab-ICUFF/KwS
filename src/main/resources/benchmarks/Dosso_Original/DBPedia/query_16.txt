@@ -1,0 +1,7 @@
+16
+QALD2_te-22	Who is the governor of Texas?
+
+
+-- governor of Texas --
+
+CONSTRUCT {<http://dbpedia.org/resource/Rick_Perry> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/title> <http://dbpedia.org/resource/Governor_of_Texas> . } WHERE {  { <http://dbpedia.org/resource/Rick_Perry> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/title> <http://dbpedia.org/resource/Governor_of_Texas> . }  }

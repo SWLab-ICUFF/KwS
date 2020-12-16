@@ -1,0 +1,6 @@
+41
+QALD2_tr-43	Who is the mayor of New York City?
+
+-- mayor of new york city --
+
+CONSTRUCT {<http://dbpedia.org/resource/Michael_Bloomberg> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/title> <http://dbpedia.org/resource/Mayor_of_New_York_City> . } WHERE {  { <http://dbpedia.org/resource/Michael_Bloomberg> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/title> <http://dbpedia.org/resource/Mayor_of_New_York_City> . }  }

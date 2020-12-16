@@ -1,0 +1,27 @@
+1=GraduateStudent takesCourse Department0 University0 GraduateCourse0
+
+2=GraduateStudent University Department memberOf subOrganizationOf undergraduateDegreeFrom
+
+3=Publication publicationAuthor Department0 University0 AssistantProfessor0
+
+4=FullProfessor worksFor Department0 University0 emailAddress telephone
+
+5=UndergraduateStudent memberOf Department0 University0
+
+6=FullProfessor
+
+7=GraduateStudent takesCourse GraduateCourse Department0 University0 AssociateProfessor0 teacherOf
+
+8=UndergraduateStudent Department memberOf subOrganizationOf University0 emailAddress
+
+9=UndergraduateStudent advisor teacherOf Course takesCourse AssistantProfessor
+
+10=GraduateStudent takesCourse Department0 University0 GraduateCourse0
+
+11=ResearchGroup subOrganizationOf  Department0  University0
+
+12=worksFor Department FullProfessor subOrganizationOf University7
+
+13=GraduateStudent undergraduateDegreeFrom University5
+
+14=UndergraduateStudent

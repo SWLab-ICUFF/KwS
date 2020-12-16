@@ -1,0 +1,6 @@
+31
+QALD2_te-44	Which cities does the Weser flow through?
+
+-- Weser city --
+
+CONSTRUCT {<http://dbpedia.org/resource/Weser> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/city> ?o2 . } WHERE {  { <http://dbpedia.org/resource/Weser> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/city> ?o2 . }  }

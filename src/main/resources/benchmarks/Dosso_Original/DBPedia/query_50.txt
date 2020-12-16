@@ -1,0 +1,10 @@
+50
+QALD2_te-77	Who was called Scarface?
+
+-- Scarface nickname --
+
+CONSTRUCT {<http://dbpedia.org/resource/Al_Capone> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/nickname> <http://dbpedia.org/resource/Scarface> . } WHERE {  { <http://dbpedia.org/resource/Al_Capone> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/nickname> <http://dbpedia.org/resource/Scarface> . }  }
+
+
+
+

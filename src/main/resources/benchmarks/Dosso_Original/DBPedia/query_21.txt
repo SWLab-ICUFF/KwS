@@ -1,0 +1,6 @@
+21
+QALD2_te-29	Give me all actors starring in movies directed by and starring William Shatner.
+
+-- starring director William Shatner --
+
+CONSTRUCT WHERE { ?film <http://dbpedia.org/property/starring> <http://dbpedia.org/resource/William_Shatner> ;  <http://dbpedia.org/property/director>  <http://dbpedia.org/resource/William_Shatner> . ?film <http://dbpedia.org/property/starring> ?actor}

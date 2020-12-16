@@ -1,0 +1,9 @@
+45
+
+
+QALD2_te-65	Which instruments did John Lennon play?
+
+-- John Lennon instrument --
+
+
+CONSTRUCT {<http://dbpedia.org/resource/John_Lennon> <http://dbpedia.org/property/instrument> "Vocals, guitar, piano, harmonica, harmonium, electronic organ, six-string bass"@en . } WHERE {  { <http://dbpedia.org/resource/John_Lennon> <http://dbpedia.org/property/instrument> "Vocals, guitar, piano, harmonica, harmonium, electronic organ, six-string bass"@en . }  }

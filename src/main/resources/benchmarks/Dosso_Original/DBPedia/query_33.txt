@@ -1,0 +1,6 @@
+33
+QALD2_te-46	Which professional surfers were born on the Philippines?
+
+-- born Philippines occupation surfing --
+
+CONSTRUCT {<http://dbpedia.org/resource/Marcus_Adoro> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/born> <http://dbpedia.org/resource/Philippines> ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Surfing> . } WHERE {  { <http://dbpedia.org/resource/Marcus_Adoro> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/born> <http://dbpedia.org/resource/Philippines> ;  <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Surfing> . }  }

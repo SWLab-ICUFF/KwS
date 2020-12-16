@@ -1,0 +1,6 @@
+5 
+QALD2_te-6	Give me all professional skateboarders from Sweden.
+
+-- professional skateboarders Sweden--
+
+CONSTRUCT WHERE {<http://dbpedia.org/resource/Ali_Boulala> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ; <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ; <http://dbpedia.org/property/occupation> ?o2 ; <http://dbpedia.org/property/placeOfBirth> ?o3 .<http://dbpedia.org/resource/Tony_Magnusson> <http://www.w3.org/2000/01/rdf-schema#comment> ?o4 ; <http://www.w3.org/2000/01/rdf-schema#label> ?o5 ; <http://dbpedia.org/property/occupation> ?o6 ; <http://dbpedia.org/property/placeOfBirth> ?o7 .}

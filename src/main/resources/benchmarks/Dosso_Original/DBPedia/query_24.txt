@@ -1,0 +1,7 @@
+24
+
+QALD2_te-34	In which military conflicts did Lawrence of Arabia participate?
+
+-- T E Lawrence battles -- 
+
+CONSTRUCT {<http://dbpedia.org/resource/T._E._Lawrence> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/battles> ?o2 . } WHERE {  { <http://dbpedia.org/resource/T._E._Lawrence> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/battles> ?o2 . }  }

@@ -1,0 +1,10 @@
+
+
+
+15
+QALD2_te-21	What is the capital of Canada?
+
+
+-- Canada Capital --
+
+CONSTRUCT {<http://dbpedia.org/resource/Ottawa> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/subdivisionName> <http://dbpedia.org/resource/National_Capital_Region_%28Canada%29> . } WHERE {  { <http://dbpedia.org/resource/Ottawa> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/subdivisionName> <http://dbpedia.org/resource/National_Capital_Region_%28Canada%29> . }  }

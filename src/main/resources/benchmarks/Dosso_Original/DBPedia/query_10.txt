@@ -1,0 +1,6 @@
+10
+QALD2_te-84	Who created the comic Captain America?
+
+-- Captain America creator notable works --
+
+CONSTRUCT {<http://dbpedia.org/resource/Jack_Kirby> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/type> "creator"@en ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/ComicsCreator> ;  <http://dbpedia.org/property/notableWorks> "Captain America"@en . } WHERE {  { <http://dbpedia.org/resource/Jack_Kirby> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/type> "creator"@en ;  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/ComicsCreator> ;  <http://dbpedia.org/property/notableWorks> "Captain America"@en . }  }

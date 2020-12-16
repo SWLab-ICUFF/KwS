@@ -1,0 +1,6 @@
+37
+QALD2_te-53	What is the ruling party in Lisbon?
+
+-- Lisbon leader party --
+
+CONSTRUCT {<http://dbpedia.org/resource/Lisbon> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/leaderParty> <http://dbpedia.org/resource/Socialist_Party_%28Portugal%29> . } WHERE {  { <http://dbpedia.org/resource/Lisbon> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/leaderParty> <http://dbpedia.org/resource/Socialist_Party_%28Portugal%29> . }  }

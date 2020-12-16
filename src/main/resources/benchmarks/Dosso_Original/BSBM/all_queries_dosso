@@ -1,0 +1,30 @@
+#queries for the BSBM dataset
+
+1=ProductType1 productFeature ProductFeature1 ProductFeature2 productPropertyNumeric1
+
+2=dataFromProducer1 Product1 comment producer publisher productFeature productPropertyTextual1 productPropertyTextual2 productPropertyTextual3 productPropertyNumeric1 productPropertyNumeric2
+
+3=ProductType1 productFeature ProductFeature1 productPropertyNumeric1 productPropertyNumeric3
+
+#query 4.1
+4=ProductType1 productFeature ProductFeature1 ProductFeature2 productPropertyNumeric1
+
+#query 4.2
+13=ProductType1 productFeature ProductFeature11 productPropertyTextual1 productPropertyNumeric2
+
+
+5=productFeature productPropertyNumeric1 productPropertyNumeric2 dataFromProducer1 Product1 productPropertyNumeric2
+
+6=Product label undertaken
+
+7=dataFromProducer17 Product810 price vendor country FR publisher validTo reviewFor dataFromProducer17 Product810 reviewer rating1 rating2 name
+
+8=reviewFor dataFromProducer15 Product702 title text reviewDate reviewer rating1 rating2 rating3 rating4 name
+
+9=dataFromRatingSite3 Review26200 reviewer
+
+10=product dataFromProducer27 Product1265 vendor publisher country US deliveryDays price
+
+11=dataFromVendor1 Offer352
+
+12=dataFromVendor1 Offer1509 product vendor offerWebpage price deliveryDays validTo label homepage

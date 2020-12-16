@@ -1,0 +1,8 @@
+28
+
+QALD2_te-41	Who founded Intel?
+
+-- Intel founder --
+
+
+CONSTRUCT {<http://dbpedia.org/resource/Intel> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/founder> <http://dbpedia.org/resource/Robert_Noyce> ;  <http://dbpedia.org/property/founder> <http://dbpedia.org/resource/Gordon_Moore> . } WHERE {  { <http://dbpedia.org/resource/Intel> <http://www.w3.org/2000/01/rdf-schema#comment> ?o0 ;  <http://www.w3.org/2000/01/rdf-schema#label> ?o1 ;  <http://dbpedia.org/property/founder> <http://dbpedia.org/resource/Robert_Noyce> ;  <http://dbpedia.org/property/founder> <http://dbpedia.org/resource/Gordon_Moore> . }  }

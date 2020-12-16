@@ -1,0 +1,6 @@
+40
+QALD2_te-58	What is the time zone of Salt Lake City?
+
+-- Salt Lake City timezone --
+
+CONSTRUCT {<http://dbpedia.org/resource/Salt_Lake_City> <http://dbpedia.org/property/timezone> <http://dbpedia.org/resource/Mountain_Time_Zone> . } WHERE {  { <http://dbpedia.org/resource/Salt_Lake_City> <http://dbpedia.org/property/timezone> <http://dbpedia.org/resource/Mountain_Time_Zone> . }  }
