@@ -10,6 +10,7 @@ PREFIX agg: <http://uff.ic.swlab.jena.sparql.aggregate/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 
+
 ######################################################################################################
 # Trazer matching triples das propriedades encontradas nos solution generartors
 ######################################################################################################
@@ -52,17 +53,17 @@ WHERE{
 
 
 
-INSERT {GRAPH ?sol {?p rdfs:label ?label. ?s ?p ?v.}}
+INSERT {GRAPH ?sol {?p rdfs:label ?label. ?s ?p ?v. ?s_ ?p ?s. ?s_ rdfs:label ?label_s_. ?s_ rdfs:comment ?comment}}
 WHERE{
     SERVICE <%2$s>{
-        SELECT DISTINCT ?s ?p ?v
+        SELECT DISTINCT ?s ?p ?v ?s_ ?p ?s ?label ?label_s_ ?comment
         where {
             graph kwsg:indexed {
                 (?p ?score ?label) text:query (kws:comment '%1$s').
 
             }
             filter (exists {[] ?p []})
-            {?s ?p ?v.} 
+            {?s ?p ?v.} UNION {?s_ ?p ?s. ?s_ rdfs:label ?label_s_. OPTIONAL{?s_ rdfs:comment ?comment}}
         }
     }
 

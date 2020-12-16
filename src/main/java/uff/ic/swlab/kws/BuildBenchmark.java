@@ -35,13 +35,17 @@ import org.apache.jena.riot.RDFDataMgr;
 public class BuildBenchmark {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException, InterruptedException {
-        String database = "DBPedia_70M";
+        String database = "Mondial_ShortPaper";
+        //String database = "IMDb";
+        //String database = "DBPedia_70M";
         String serviceDatabase = String.format("http://semanticweb.inf.puc-rio.br:3030/%1$s/sparql", database);
         String service2 = "http://semanticweb.inf.puc-rio.br:3030/KwS.temp/sparql";
 
         String kwsVersion = "v5/1/1";
-        String benchmark = "IS";
-        String path_database = "DBPedia_70M";
+        String benchmark = "ESWC2021";
+        String path_database = "Mondial";
+        //String path_database = "IMDb";
+        //String path_database = "DBPedia_70M";
 
         try ( InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/%2$s/queries_.txt", benchmark, path_database)));  Scanner sc = new Scanner(in)) {
             int i = 0;
@@ -59,6 +63,7 @@ public class BuildBenchmark {
         }
 
     }
+    
 
     public static void run(String kwsVersion, String serviceDatabase, String service2, String keywordQuery, String benchmarkNS, String filename, String database) throws FileNotFoundException, IOException, InvalidNameException, InterruptedException {
         FusekiServer fuseki = new FusekiServer("semanticweb.inf.puc-rio.br", 3030);

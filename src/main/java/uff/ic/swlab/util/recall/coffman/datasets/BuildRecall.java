@@ -73,14 +73,12 @@ public class BuildRecall {
         }
 
     }
-    
-       
-     public static Dataset readDataset(String filename){
-        
-        Dataset dataset = RDFDataMgr.loadDataset(filename) ;
+
+    public static Dataset readDataset(String filename) {
+
+        Dataset dataset = RDFDataMgr.loadDataset(filename);
         return dataset;
-     }
-    
+    }
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
@@ -88,11 +86,10 @@ public class BuildRecall {
         //Mondial
 //        String nameDatabase = "Mondial";
 //        Double similarityTrashold = 1.0;
-        
         //IMDb
         String nameDatabase = "IMDb";
         Double similarityTrashold = 0.7;
-        
+
         String queryString = "SELECT DISTINCT ?o\n"
                 + "WHERE{\n"
                 + "  graph ?sol{\n"
@@ -100,9 +97,7 @@ public class BuildRecall {
                 + "    FILTER(isLiteral(?o))\n"
                 + "  }\n"
                 + "}";
-        
 
-        
         HashMap<Integer, ArrayList<String>> mapAnswers = getAnswers(nameDatabase);
 
         HashMap<Integer, Double> mapRecall = new HashMap<>();

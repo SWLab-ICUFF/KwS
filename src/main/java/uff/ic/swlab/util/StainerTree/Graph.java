@@ -164,21 +164,16 @@ public class Graph {
             return true;
         return false;
     }
-
-    public static void main(String[] args) {
-        Graph g = new Graph();
-        g.addEdge("A", "C");
-        g.addEdge("A", "E");
-        g.addEdge("E", "B");
-        g.addEdge("E", "D");
-        g.addEdge("E", "C");
-
+    
+    
+    public static Integer ComputeSubGraps(Graph g){
         int r = 0, total = 0, count = 0;
         do {
             r++;
             count = 0;
             Iterator<int[]> combinations = CombinatoricsUtils.combinationsIterator(g.edges(), r);
             while (combinations.hasNext()) {
+                System.out.println(r);
                 int[] indexes = combinations.next();
                 g.removeEdges(indexes);
                 if (g.isConnected()) {
@@ -189,6 +184,36 @@ public class Graph {
                 g.reset();
             }
         } while (count > 0);
-        System.out.println(total);
+        //System.out.println(total);
+        return total;
     }
+        
+    
+
+//    public static void main(String[] args) {
+//        Graph g = new Graph();
+//        g.addEdge("A", "C");
+//        g.addEdge("A", "E");
+//        g.addEdge("E", "B");
+//        g.addEdge("E", "D");
+//        g.addEdge("E", "C");
+//
+//        int r = 0, total = 0, count = 0;
+//        do {
+//            r++;
+//            count = 0;
+//            Iterator<int[]> combinations = CombinatoricsUtils.combinationsIterator(g.edges(), r);
+//            while (combinations.hasNext()) {
+//                int[] indexes = combinations.next();
+//                g.removeEdges(indexes);
+//                if (g.isConnected()) {
+//                    //System.out.println(Arrays.toString(indexes));
+//                    count++;
+//                    total++;
+//                }
+//                g.reset();
+//            }
+//        } while (count > 0);
+//        System.out.println(total);
+//    }
 }
