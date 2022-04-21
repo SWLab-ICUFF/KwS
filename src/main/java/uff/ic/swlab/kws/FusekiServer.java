@@ -11,14 +11,14 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.Asserts;
 import org.apache.jena.query.Dataset;
-import org.apache.jena.query.DatasetAccessor;
-import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdfconnection.RDFConnection;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
@@ -31,8 +31,7 @@ import org.apache.jena.update.UpdateExecutionFactory;
 import org.apache.jena.update.UpdateFactory;
 import org.apache.jena.update.UpdateProcessor;
 import org.apache.jena.update.UpdateRequest;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import uff.ic.swlab.jena.sparql.aggregate.AccTMinMax;
 import uff.ic.swlab.jena.sparql.aggregate.KwFreqScore;
 import uff.ic.swlab.jena.sparql.aggregate.MinimumCommonString;
@@ -84,7 +83,7 @@ public class FusekiServer {
         List<String> graphNames = new ArrayList<>();
 
         String queryString = "select distinct ?g where {graph ?g {[] ?p [].}}";
-        try (QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
+        try ( QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
             ResultSet rs = exec.execSelect();
             while (rs.hasNext())
                 graphNames.add(rs.next().getResource("g").getURI());
@@ -98,7 +97,7 @@ public class FusekiServer {
         List<String> graphNames = new ArrayList<>();
 
         String queryString = "select distinct ?g where {graph ?g {[] ?p [].}}";
-        try (QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
+        try ( QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
             ((QueryEngineHTTP) exec).setTimeout(timeout);
             ResultSet rs = exec.execSelect();
             while (rs.hasNext())
@@ -161,41 +160,113 @@ public class FusekiServer {
         }
     }
 
-    public synchronized void putModel(Model sourceModel, String datasetname) throws InvalidNameException {
-        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
-        accessor.putModel(sourceModel);
-        Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", "default graph"));
-    }
+//    public synchronized void putModel(Model sourceModel, String datasetname) throws InvalidNameException {
+//        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
+//        accessor.putModel(sourceModel);
+//        Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", "default graph"));
+//    }
+    public void putModel(Model sourceModel, String datasetname) throws
+            InvalidNameException {
+        Asserts.notNull(sourceModel, "graphUri");
+        Asserts.notEmpty(datasetname, "datasetname");
+        Asserts.notBlank(datasetname, "datasetname");
 
-    public synchronized void putModel(Model sourceModel, String datasetname, String graphUri) throws InvalidNameException {
-        if (graphUri != null && !graphUri.equals("")) {
-            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
-            accessor.putModel(graphUri, sourceModel);
-            Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1s>).", graphUri));
-            return;
+        //final DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getReadURL(datasetname), HttpClients.createDefault());
+        //accessor.putModel(sourceModel);
+        //Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", "default graph"));
+        //
+        // Doc: https://jena.apache.org/documentation/rdfconnection/
+        try ( RDFConnection conn = RDFConnection.connect(getDataURL(datasetname))) {
+            conn.put(sourceModel);
+            LogManager.getLogger("info").log(org.apache.logging.log4j.Level.INFO, String.format("Dataset saved (<%1$s>).", "default graph"));
         }
-        throw new InvalidNameException(String.format("Invalid graph URI: %1s.", graphUri));
     }
 
-    public synchronized Model getModel(String datasetname, String graphUri) throws InvalidNameException {
-        if (graphUri != null && !graphUri.equals("")) {
-            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
-            Model model = accessor.getModel(graphUri);
-            if (model != null)
-                return model;
-            else
-                return ModelFactory.createDefaultModel();
+//    public synchronized void putModel(Model sourceModel, String datasetname, String graphUri) throws
+//            InvalidNameException {
+//        if (graphUri != null && !graphUri.equals("")) {
+//            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
+//            accessor.putModel(graphUri, sourceModel);
+//            Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1s>).", graphUri));
+//            return;
+//        }
+//        throw new InvalidNameException(String.format("Invalid graph URI: %1s.", graphUri));
+//    }
+    public void putModel(Model sourceModel, String datasetname, String graphUri) throws InvalidNameException {
+        Asserts.notNull(sourceModel, "graphUri");
+        Asserts.notEmpty(datasetname, "datasetname");
+        Asserts.notBlank(datasetname, "datasetname");
+        Asserts.notEmpty(graphUri, "graphUri");
+        Asserts.notBlank(graphUri, "graphUri");
+
+        //final DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getReadURL(datasetname),HttpClients.createDefault());
+        //accessor.putModel(graphUri, sourceModel);
+        //Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1s>).", graphUri));
+        //
+        // Doc: https://jena.apache.org/documentation/rdfconnection/
+        try ( RDFConnection conn = RDFConnection.connect(getDataURL(datasetname))) {
+            conn.put(graphUri, sourceModel);
+            LogManager.getLogger("info").log(org.apache.logging.log4j.Level.INFO, String.format("Dataset saved (<%1s>).", graphUri));
         }
-        throw new InvalidNameException(String.format("Invalid graph URI: %1s.", graphUri));
     }
 
-    public synchronized Model getModel(String datasetname) {
-        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
-        Model model = accessor.getModel();
-        if (model != null)
-            return model;
-        else
-            return ModelFactory.createDefaultModel();
+//    public synchronized Model getModel(String datasetname) {
+//        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
+//        Model model = accessor.getModel();
+//        if (model != null)
+//            return model;
+//        else
+//            return ModelFactory.createDefaultModel();
+//    }
+    public Model getModel(String datasetname) {
+        Asserts.notEmpty(datasetname, "datasetname");
+        Asserts.notBlank(datasetname, "datasetname");
+
+        //final DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getReadURL(datasetname), HttpClients.createDefault());
+        //final Model model = accessor.getModel();
+        //if (model != null)
+        //    return model;
+        //else
+        //    return ModelFactory.createDefaultModel();
+        //
+        // Doc: https://jena.apache.org/documentation/rdfconnection/
+        try ( RDFConnection conn = RDFConnection.connect(getDataURL(datasetname))) {
+            Model model = conn.fetch();
+            return model == null ? ModelFactory.createDefaultModel() : model;
+        }
+    }
+
+//    public synchronized Model getModel(String datasetname, String graphUri) throws InvalidNameException {
+//        if (graphUri != null && !graphUri.equals("")) {
+//            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
+//            Model model = accessor.getModel(graphUri);
+//            if (model != null)
+//                return model;
+//            else
+//                return ModelFactory.createDefaultModel();
+//        }
+//        throw new InvalidNameException(String.format("Invalid graph URI: %1s.", graphUri));
+//    }
+    public Model getModel(String datasetname, String graphUri) throws
+            InvalidNameException {
+        Asserts.notEmpty(datasetname, "datasetname");
+        Asserts.notBlank(datasetname, "datasetname");
+        Asserts.notEmpty(graphUri, "graphUri");
+        Asserts.notBlank(graphUri, "graphUri");
+
+        //final DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getReadURL(datasetname), HttpClients.createDefault());
+        //final Model model = accessor.getModel(graphUri);
+        //if (model != null)
+        //    return model;
+        //else
+        //    return ModelFactory.createDefaultModel();
+        //
+        // Doc: https://jena.apache.org/documentation/rdfconnection/
+        try ( RDFConnection conn = RDFConnection.connect(getDataURL(datasetname))) {
+            Model model = conn.fetch(graphUri);
+            return model == null ? ModelFactory.createDefaultModel() : model;
+        }
+
     }
 
     public Dataset getDataset(String datasetname) {
