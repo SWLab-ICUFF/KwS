@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uff.ic.swlab.kws;
 
 import java.io.File;
@@ -13,10 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Scanner;
 import java.util.zip.GZIPOutputStream;
 import javax.naming.InvalidNameException;
@@ -28,13 +20,10 @@ import org.apache.jena.query.ResultSet;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 
-/**
- *
- * @author angelo
- */
 public class BuildBenchmark {
 
-    public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException, InterruptedException {
+    public static void main(String[] args) throws FileNotFoundException, IOException, InvalidNameException,
+            InterruptedException {
         String database = "Mondial_ShortPaper";
         //String database = "IMDb";
         //String database = "DBPedia_70M";
@@ -47,7 +36,8 @@ public class BuildBenchmark {
         //String path_database = "IMDb";
         //String path_database = "DBPedia_70M";
 
-        try ( InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/%2$s/queries.txt", benchmark, path_database)));  Scanner sc = new Scanner(in)) {
+        try ( InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/%2$s/queries.txt", benchmark, path_database)));
+                 Scanner sc = new Scanner(in)) {
             int i = 0;
             while (sc.hasNext()) {
                 i++;
@@ -63,9 +53,9 @@ public class BuildBenchmark {
         }
 
     }
-    
 
-    public static void run(String kwsVersion, String serviceDatabase, String service2, String keywordQuery, String benchmarkNS, String filename, String database) throws FileNotFoundException, IOException, InvalidNameException, InterruptedException {
+    public static void run(String kwsVersion, String serviceDatabase, String service2, String keywordQuery, String benchmarkNS, String filename, String database) throws
+            FileNotFoundException, IOException, InvalidNameException, InterruptedException {
         FusekiServer fuseki = new FusekiServer("semanticweb.inf.puc-rio.br", 3030);
         Integer interationSeed = 0;
         String queryString = "";
@@ -123,9 +113,9 @@ public class BuildBenchmark {
                 new_q.close();
 
                 //se nao inseriu nenhuma keyword
-                if (NewkeywordsNotSearch.equals(keywordsNotSearch)) {
+                if (NewkeywordsNotSearch.equals(keywordsNotSearch))
                     break;
-                } else {
+                else {
                     //verificando novas palavras chaves
                     queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_03_search_new_seeds.rq", kwsVersion));
                     queryString = String.format(queryString, format_keywordQuery);
@@ -182,7 +172,7 @@ public class BuildBenchmark {
         queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_08_paths_4.rq", kwsVersion));
         queryString = String.format(queryString, serviceDatabase, service2);
         fuseki.execUpdate(queryString, "KwS.temp");
-        
+
         System.out.println("Deletando grafo de pares....");
         queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/delete_pairs.rq", kwsVersion));
         queryString = String.format(queryString);
@@ -200,7 +190,7 @@ public class BuildBenchmark {
         queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_10_predicates_1.rq", kwsVersion));
         queryString = String.format(queryString, keywordQuery, serviceDatabase, service2, format_keywordQuery, benchmarkNS, "KwS.temp");
         fuseki.execUpdate(queryString, "KwS.temp");
-     
+
         System.out.println("Calculando o score das soluções...");
         queryString = readQuery(String.format("./src/main/resources/sparql/KwS/%1$s/kws_11_score.rq", kwsVersion));
         queryString = String.format(queryString, keywordQuery, serviceDatabase, service2, format_keywordQuery, "KwS.temp");
@@ -229,7 +219,8 @@ public class BuildBenchmark {
     }
 
     private static void bkpDataset(Dataset dataset, String filename) throws FileNotFoundException, IOException {
-        try ( OutputStream out = new FileOutputStream(new File(filename));  GZIPOutputStream out2 = new GZIPOutputStream(out)) {
+        try ( OutputStream out = new FileOutputStream(new File(filename));
+                 GZIPOutputStream out2 = new GZIPOutputStream(out)) {
             RDFDataMgr.write(out2, dataset, Lang.NQUADS);
             out2.finish();
             out.flush();

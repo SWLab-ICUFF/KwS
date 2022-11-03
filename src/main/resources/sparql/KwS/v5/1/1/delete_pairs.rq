@@ -1,3 +1,1 @@
-prefix kwsg: <urn:graph:kws:>
-
-DROP GRAPH kwsg:pairs;
+DROP GRAPH <urn:uuid:verbalizations>;
