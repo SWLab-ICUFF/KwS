@@ -5,7 +5,6 @@
  */
 package inf.puc.rio.br.Model;
 
-import java.util.ArrayList;
 import java.util.Set;
 
 /**
@@ -13,13 +12,13 @@ import java.util.Set;
  * @author angelo
  */
 public class Pattern {
-    
+
     private String pattern;
     private Set<String> keywordLabel;
     private Set<String> keywordGeneral;
-    
-    public Pattern(){
-        
+
+    public Pattern() {
+
     }
 
     /**
@@ -63,14 +62,5 @@ public class Pattern {
     public void setKeywordGeneral(Set<String> keywordGeneral) {
         this.keywordGeneral = keywordGeneral;
     }
-    
-    
 
-
-    
-    
-    
-    
-    
-    
 }

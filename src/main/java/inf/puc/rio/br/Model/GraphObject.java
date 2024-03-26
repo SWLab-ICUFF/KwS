@@ -14,13 +14,13 @@ import util.Graph;
  * @author angelo
  */
 public class GraphObject {
-    
+
     private Graph graph;
     private HashMap<ArrayList<String>, String> representationEdges;
     private HashMap<ArrayList<String>, String> repeatedRelations;
-    
-    public GraphObject(){
-        
+
+    public GraphObject() {
+
     }
 
     /**
@@ -64,7 +64,5 @@ public class GraphObject {
     public void setRepeatedRelations(HashMap<ArrayList<String>, String> repeatedRelations) {
         this.repeatedRelations = repeatedRelations;
     }
-    
-    
-    
+
 }

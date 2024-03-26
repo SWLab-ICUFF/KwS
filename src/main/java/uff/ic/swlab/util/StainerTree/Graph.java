@@ -209,7 +209,7 @@ public class Graph {
             r++;
         } while (count == 0);
         return total;
-    
+
     }
 
     public static void main(String[] args) {

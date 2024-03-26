@@ -19,7 +19,7 @@ public class BuildRecall {
 
     public static void ExportCSV(HashMap<Integer, Double> mapRecall, String nameService) throws FileNotFoundException {
         File folder = new File(String.format("./src/main/resources/benchmarks/Recall/Results/%1$s_result.csv", nameService));
-        try ( PrintWriter writer = new PrintWriter(folder)) {
+        try (PrintWriter writer = new PrintWriter(folder)) {
             StringBuilder sb = new StringBuilder();
             sb.append("query");
             sb.append(',');

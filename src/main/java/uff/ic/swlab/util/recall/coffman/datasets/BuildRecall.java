@@ -13,12 +13,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import org.apache.commons.text.similarity.JaccardSimilarity;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
-import org.apache.commons.text.similarity.JaccardSimilarity;
 import org.apache.jena.riot.RDFDataMgr;
 
 /**
@@ -30,16 +30,15 @@ public class BuildRecall {
     public static HashMap<Integer, ArrayList<String>> getAnswers(String nameDatabase) throws FileNotFoundException, IOException {
         HashMap<Integer, ArrayList<String>> mapAnswers = new HashMap<>();
         FileReader file = new FileReader(String.format("./src/main/resources/draft/Recall/Results/%1$s_search_id.csv", nameDatabase));
-        try ( BufferedReader br = new BufferedReader(file)) {
+        try (BufferedReader br = new BufferedReader(file)) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(";");
                 Integer keyowrdNumber = Integer.parseInt(values[0]);
                 ArrayList<String> listAnswers = new ArrayList<>();
                 String[] answers = values[1].replace("[", "").replace("]", "").split(",");
-                for (int i = 0; i < answers.length; i++) {
+                for (int i = 0; i < answers.length; i++)
                     listAnswers.add(answers[i]);
-                }
                 mapAnswers.put(keyowrdNumber, listAnswers);
 
             }
@@ -52,7 +51,7 @@ public class BuildRecall {
 
     public static void ExportCSV(HashMap<Integer, Double> mapRecall, String nameService) throws FileNotFoundException {
         File folder = new File(String.format("./src/main/resources/draft/Recall/Results/%1$s_result.csv", nameService));
-        try ( PrintWriter writer = new PrintWriter(folder)) {
+        try (PrintWriter writer = new PrintWriter(folder)) {
             StringBuilder sb = new StringBuilder();
             sb.append("query");
             sb.append(',');

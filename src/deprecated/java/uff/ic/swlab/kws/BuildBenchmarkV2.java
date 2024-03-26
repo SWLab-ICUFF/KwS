@@ -76,8 +76,7 @@ public class BuildBenchmarkV2 {
 
             new FusekiServer("localhost", 3030).execUpdate(readQuery(String.format("./src/main/sparql/KwS/%1$s/kws_00_prepare.rq", kwsVersion)), "KwS.stats");
 
-            try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/Mondial/queries_.txt", benchmark)));
-                    Scanner sc = new Scanner(in)) {
+            try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/Mondial/queries_.txt", benchmark))); Scanner sc = new Scanner(in)) {
 
                 int i = 0;
                 while (sc.hasNext()) {
@@ -174,8 +173,7 @@ public class BuildBenchmarkV2 {
     }
 
     private static void bkpDataset(Dataset dataset, String filename) throws FileNotFoundException, IOException {
-        try (OutputStream out = new FileOutputStream(new File(filename));
-                GZIPOutputStream out2 = new GZIPOutputStream(out)) {
+        try (OutputStream out = new FileOutputStream(new File(filename)); GZIPOutputStream out2 = new GZIPOutputStream(out)) {
             RDFDataMgr.write(out2, dataset, Lang.NQUADS);
             out2.finish();
             out.flush();

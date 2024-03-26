@@ -23,9 +23,7 @@ import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
-import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.Statement;
@@ -51,7 +49,7 @@ public class GenerateKeywordQuery {
 
         ArrayList<Pattern> listPattern = new ArrayList<>();
         ArrayList<Model> listSTs = kw.getListModel();
-        
+
         ArrayList<String> allPatterns = new ArrayList<>();
         for (Model modelST : listSTs) {
 
@@ -70,16 +68,15 @@ public class GenerateKeywordQuery {
                     Statement stmt = modelIterator.nextStatement();
 
                     String classObject = stmt.getObject().toString();
-                    if (classObject.contains("_Mirror_")) {
+                    if (classObject.contains("_Mirror_"))
                         classObject = classObject.replaceAll("_Mirror_[0-9]", "");
-                    }
                     String pattern = "?instanceSubjectNumber" + instanceSubjectNumber + " a " + "<" + classObject + ">.";
                     patternList.add(pattern);
                     classesURI.add(classObject);
 
                 }
                 variablesSet.add("?instanceSubjectNumber" + instanceSubjectNumber);
-                
+
             } else if (modelST.size() <= 2) {
                 while (modelIterator.hasNext()) {
 
@@ -115,9 +112,8 @@ public class GenerateKeywordQuery {
 
                 }
                 //construindo o set de variables
-                for (Map.Entry<String, String> entry : mapInstance.entrySet()) {
+                for (Map.Entry<String, String> entry : mapInstance.entrySet())
                     variablesSet.add(entry.getValue());
-                }
 
             }
 
@@ -126,7 +122,7 @@ public class GenerateKeywordQuery {
 
             if (patternList.size() > 0 && !allPatterns.contains(queryPatternInstance)) {
                 allPatterns.add(queryPatternInstance);
-                
+
                 String querygetInstance = Utils.readQuery(String.format("%1$s/get_instance.rq", Constants.pathSparlInstance));
                 querygetInstance = String.format(querygetInstance, queryPatternInstance, variables);
                 QueryExecution qInstance = QueryExecutionFactory.create(querygetInstance, Neighborhood);
@@ -137,10 +133,8 @@ public class GenerateKeywordQuery {
                 for (Map.Entry<String, String> entry : mapInstance.entrySet()) {
                     String className = entry.getKey();
                     //revisar
-                    if (className.contains("_Mirror_")) {
+                    if (className.contains("_Mirror_"))
                         className = className.replaceAll("_Mirror_[0-9]", "");
-
-                    }
                     classesURI.add(className);
                     String pattern = entry.getValue() + " a " + "<" + className + ">.";
                     patternList.add(pattern);
@@ -169,26 +163,23 @@ public class GenerateKeywordQuery {
                         String uriInstance = soln.get(var).toString();
                         listURIInstace.add(uriInstance);
                     }
-                    
+
                     GenerateKeywords generate = new GenerateKeywords(kw, listURIInstace, classesURI, predicatesList);
-                    
+
                     String keywordClass = generate.generateKeywordClass();
                     String propertyLabels = generate.generateKeywordObjectProperties();
                     String entities = generate.generateKeywordEntity();
-              
-                    
+
                     String keywordsLabels = keywordClass + " " + propertyLabels + " " + entities;
-                    
-                    if(!keywordLabelsList.contains(keywordsLabels)){
+
+                    if (!keywordLabelsList.contains(keywordsLabels)) {
                         keywordLabelsList.add(keywordsLabels);
                         System.out.println(keywordsLabels);
                     }
-                    
-
 
                 }
-                
-                if(keywordLabelsList.size() > 0){
+
+                if (keywordLabelsList.size() > 0) {
                     pattern.setKeywordLabel(keywordLabelsList);
 
                     listPattern.add(pattern);
@@ -210,22 +201,18 @@ public class GenerateKeywordQuery {
             Resource subject = stmt.getSubject();
             RDFNode object = stmt.getObject();
 
-            for (Entity entity : allEntities) {
+            for (Entity entity : allEntities)
                 if (subject.getURI().equals(entity.getUriEntity()) && !entitiyList.contains(entity)) {
                     entitiyList.add(entity);
                     break;
                 }
-            }
 
-            if (object instanceof Resource) {
-                for (Entity entity : allEntities) {
+            if (object instanceof Resource)
+                for (Entity entity : allEntities)
                     if (object.toString().equals(entity.getUriEntity()) && !entitiyList.contains(entity)) {
                         entitiyList.add(entity);
                         break;
                     }
-
-                }
-            }
 
         }
 

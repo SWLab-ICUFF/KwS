@@ -21,7 +21,6 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdfconnection.RDFConnection;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.WebContent;
-import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.sparql.expr.aggregate.Accumulator;
 import org.apache.jena.sparql.expr.aggregate.AccumulatorFactory;
 import org.apache.jena.sparql.expr.aggregate.AggCustom;
@@ -32,9 +31,6 @@ import org.apache.jena.update.UpdateFactory;
 import org.apache.jena.update.UpdateProcessor;
 import org.apache.jena.update.UpdateRequest;
 import org.apache.logging.log4j.LogManager;
-import uff.ic.swlab.jena.sparql.aggregate.AccTMinMax;
-import uff.ic.swlab.jena.sparql.aggregate.KwFreqScore;
-import uff.ic.swlab.jena.sparql.aggregate.MinimumCommonString;
 
 public class FusekiServer {
 
@@ -83,7 +79,7 @@ public class FusekiServer {
         List<String> graphNames = new ArrayList<>();
 
         String queryString = "select distinct ?g where {graph ?g {[] ?p [].}}";
-        try ( QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
+        try (QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
             ResultSet rs = exec.execSelect();
             while (rs.hasNext())
                 graphNames.add(rs.next().getResource("g").getURI());
@@ -97,7 +93,7 @@ public class FusekiServer {
         List<String> graphNames = new ArrayList<>();
 
         String queryString = "select distinct ?g where {graph ?g {[] ?p [].}}";
-        try ( QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
+        try (QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
             ((QueryEngineHTTP) exec).setTimeout(timeout);
             ResultSet rs = exec.execSelect();
             while (rs.hasNext())
@@ -176,7 +172,7 @@ public class FusekiServer {
         //Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", "default graph"));
         //
         // Doc: https://jena.apache.org/documentation/rdfconnection/
-        try ( RDFConnection conn = RDFConnection.connect(getDataURL(datasetname))) {
+        try (RDFConnection conn = RDFConnection.connect(getDataURL(datasetname))) {
             conn.put(sourceModel);
             LogManager.getLogger("info").log(org.apache.logging.log4j.Level.INFO, String.format("Dataset saved (<%1$s>).", "default graph"));
         }
@@ -204,7 +200,7 @@ public class FusekiServer {
         //Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1s>).", graphUri));
         //
         // Doc: https://jena.apache.org/documentation/rdfconnection/
-        try ( RDFConnection conn = RDFConnection.connect(getDataURL(datasetname))) {
+        try (RDFConnection conn = RDFConnection.connect(getDataURL(datasetname))) {
             conn.put(graphUri, sourceModel);
             LogManager.getLogger("info").log(org.apache.logging.log4j.Level.INFO, String.format("Dataset saved (<%1s>).", graphUri));
         }
@@ -230,7 +226,7 @@ public class FusekiServer {
         //    return ModelFactory.createDefaultModel();
         //
         // Doc: https://jena.apache.org/documentation/rdfconnection/
-        try ( RDFConnection conn = RDFConnection.connect(getDataURL(datasetname))) {
+        try (RDFConnection conn = RDFConnection.connect(getDataURL(datasetname))) {
             Model model = conn.fetch();
             return model == null ? ModelFactory.createDefaultModel() : model;
         }
@@ -262,7 +258,7 @@ public class FusekiServer {
         //    return ModelFactory.createDefaultModel();
         //
         // Doc: https://jena.apache.org/documentation/rdfconnection/
-        try ( RDFConnection conn = RDFConnection.connect(getDataURL(datasetname))) {
+        try (RDFConnection conn = RDFConnection.connect(getDataURL(datasetname))) {
             Model model = conn.fetch(graphUri);
             return model == null ? ModelFactory.createDefaultModel() : model;
         }

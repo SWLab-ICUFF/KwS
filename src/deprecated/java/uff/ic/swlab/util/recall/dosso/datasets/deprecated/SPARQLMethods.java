@@ -11,30 +11,26 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.riot.RDFDataMgr;
-import org.apache.jena.tdb.TDBFactory;
 
 /**
  *
  * @author angelo
  */
 public class SPARQLMethods {
-    
-     public static String readQuery(String filename) throws FileNotFoundException, IOException {
+
+    public static String readQuery(String filename) throws FileNotFoundException, IOException {
         File file = new File(filename);
         byte[] data = new byte[(int) file.length()];
-        try ( FileInputStream fis = new FileInputStream(file)) {
+        try (FileInputStream fis = new FileInputStream(file)) {
             fis.read(data);
         }
         return new String(data, "UTF-8");
     }
-     
-     
-     public static Dataset readDataset(String filename){
-        
-        Dataset dataset = RDFDataMgr.loadDataset(filename) ;
+
+    public static Dataset readDataset(String filename) {
+
+        Dataset dataset = RDFDataMgr.loadDataset(filename);
         return dataset;
-     }
-    
-     
-     
+    }
+
 }

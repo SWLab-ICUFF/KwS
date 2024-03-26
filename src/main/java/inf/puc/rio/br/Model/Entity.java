@@ -5,9 +5,7 @@
  */
 package inf.puc.rio.br.Model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -20,10 +18,9 @@ public class Entity {
     private String label;
     private HashMap<String, String> mapDataProperties;
     private Set<String> LabelProperties;
-    
-    
-    public Entity(){
-        
+
+    public Entity() {
+
     }
 
     /**
@@ -82,11 +79,4 @@ public class Entity {
         this.LabelProperties = LabelProperties;
     }
 
-    
-    
-
-    
-    
-    
-    
 }

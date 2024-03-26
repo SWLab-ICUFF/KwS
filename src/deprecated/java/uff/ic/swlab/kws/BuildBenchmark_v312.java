@@ -31,8 +31,7 @@ public class BuildBenchmark_v312 {
 
         System.out.println(benchmark);
 
-        try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/DBpedia/queries_.txt", benchmark)));
-                Scanner sc = new Scanner(in)) {
+        try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/DBpedia/queries_.txt", benchmark))); Scanner sc = new Scanner(in)) {
             int i = 0;
             while (sc.hasNext()) {
                 i++;
@@ -192,8 +191,7 @@ public class BuildBenchmark_v312 {
     }
 
     private static void bkpDataset(Dataset dataset, String filename) throws FileNotFoundException, IOException {
-        try (OutputStream out = new FileOutputStream(new File(filename));
-                GZIPOutputStream out2 = new GZIPOutputStream(out)) {
+        try (OutputStream out = new FileOutputStream(new File(filename)); GZIPOutputStream out2 = new GZIPOutputStream(out)) {
             RDFDataMgr.write(out2, dataset, Lang.NQUADS);
             out2.finish();
             out.flush();

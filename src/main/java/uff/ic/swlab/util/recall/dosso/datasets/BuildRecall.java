@@ -35,7 +35,7 @@ public class BuildRecall {
     public static String readQuery(String filename) throws FileNotFoundException, IOException {
         File file = new File(filename);
         byte[] data = new byte[(int) file.length()];
-        try ( FileInputStream fis = new FileInputStream(file)) {
+        try (FileInputStream fis = new FileInputStream(file)) {
             fis.read(data);
         }
         return new String(data, "UTF-8");
@@ -46,10 +46,9 @@ public class BuildRecall {
 
         QueryExecution q = QueryExecutionFactory.create(queryString, dataset);
         ResultSet result = q.execSelect();
-        while (result.hasNext()) {
+        while (result.hasNext())
             //QuerySolution soln = result.nextSolution();
             return true;
-        }
 
         return false;
 
@@ -57,7 +56,7 @@ public class BuildRecall {
 
     public static void ExportCSV(HashMap<Integer, Double> mapRecall, String nameService) throws FileNotFoundException {
         File folder = new File(String.format("./src/main/resources/draft/Recall/Results/%1$s_result.csv", nameService));
-        try ( PrintWriter writer = new PrintWriter(folder)) {
+        try (PrintWriter writer = new PrintWriter(folder)) {
             StringBuilder sb = new StringBuilder();
             sb.append("query");
             sb.append(',');
@@ -86,8 +85,8 @@ public class BuildRecall {
         File[] listOfFiles = folder.listFiles();
         Arrays.sort(listOfFiles);
         Integer count = 1;
-        for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].toString().endsWith(".nq.gz")) {
+        for (int i = 0; i < listOfFiles.length; i++)
+            if (listOfFiles[i].toString().endsWith(".nq.gz"))
                 //System.out.println(i);
                 if ((count == 1)) {
                     //read S.G
@@ -115,9 +114,8 @@ public class BuildRecall {
                             }
 
                         }
-                        if (answer_flag == 0) {
+                        if (answer_flag == 0)
                             ansewrsFind++;
-                        }
 
                         allAnsewrs++;
                     }
@@ -129,9 +127,6 @@ public class BuildRecall {
                     dataset.close();
                     System.gc();
                 }
-
-            }
-        }
         return mapRecall;
 
     }
@@ -143,7 +138,7 @@ public class BuildRecall {
         File[] listOfFiles = folder.listFiles();
         Arrays.sort(listOfFiles);
         Integer count = 1;
-        for (int i = 0; i < listOfFiles.length; i++) {
+        for (int i = 0; i < listOfFiles.length; i++)
             if (listOfFiles[i].toString().endsWith(".nq.gz")) {
                 //System.out.println(i);
                 //read S.G
@@ -164,9 +159,8 @@ public class BuildRecall {
                     while (iteratorVars.hasNext()) {
 
                         String triplePattern = String.valueOf(soln.get(iteratorVars.next()));
-                        if (executeTriplePattern(dataset, triplePattern)) {
+                        if (executeTriplePattern(dataset, triplePattern))
                             ansewrsFind++;
-                        }
 
                         allAnsewrs++;
                     }
@@ -184,7 +178,6 @@ public class BuildRecall {
                 count++;
 
             }
-        }
         return mapRecall;
 
     }

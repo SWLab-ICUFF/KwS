@@ -36,8 +36,7 @@ public class BuildBenchmark {
         //String path_database = "IMDb";
         //String path_database = "DBPedia_70M";
 
-        try ( InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/%2$s/queries.txt", benchmark, path_database)));
-                 Scanner sc = new Scanner(in)) {
+        try (InputStream in = new FileInputStream(new File(String.format("./src/main/resources/benchmarks/%1$s/%2$s/queries.txt", benchmark, path_database))); Scanner sc = new Scanner(in)) {
             int i = 0;
             while (sc.hasNext()) {
                 i++;
@@ -219,8 +218,7 @@ public class BuildBenchmark {
     }
 
     private static void bkpDataset(Dataset dataset, String filename) throws FileNotFoundException, IOException {
-        try ( OutputStream out = new FileOutputStream(new File(filename));
-                 GZIPOutputStream out2 = new GZIPOutputStream(out)) {
+        try (OutputStream out = new FileOutputStream(new File(filename)); GZIPOutputStream out2 = new GZIPOutputStream(out)) {
             RDFDataMgr.write(out2, dataset, Lang.NQUADS);
             out2.finish();
             out.flush();
@@ -231,7 +229,7 @@ public class BuildBenchmark {
     private static String readQuery(String filename) throws FileNotFoundException, IOException {
         File file = new File(filename);
         byte[] data = new byte[(int) file.length()];
-        try ( FileInputStream fis = new FileInputStream(file)) {
+        try (FileInputStream fis = new FileInputStream(file)) {
             fis.read(data);
         }
         return new String(data, "UTF-8");

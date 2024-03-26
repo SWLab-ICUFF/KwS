@@ -26,7 +26,6 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
-;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
 import util.Graph;
@@ -35,8 +34,6 @@ import util.Graph;
  *
  * @author angelo
  */
-
-
 public class StainerTreeFunctions {
 
     public static ArrayList<Model> createSTOnlyNode(Set<Set<String>> powerSet, ArrayList<Model> modelSts) {
@@ -48,9 +45,8 @@ public class StainerTreeFunctions {
                 String predicate = "urn:graph:kws:inducer:predicate";
                 String triple = "";
 
-                for (String element : set) {
+                for (String element : set)
                     triple = vURI + " " + predicate + " " + element + "";
-                }
 
                 listTriple.add(triple);
                 Model modelST = Utils.createModelFromTriples(listTriple);
@@ -84,9 +80,8 @@ public class StainerTreeFunctions {
             if (representationURI.containsKey(predicateURI)) {
                 ArrayList<ArrayList<String>> listAllNodes = representationURI.get(predicateURI);
                 listAllNodes.add(listNode);
-            } else {
+            } else
                 representationURI.put(predicateURI, listNodesSubjectandObject);
-            }
 
         }
 
@@ -180,7 +175,7 @@ public class StainerTreeFunctions {
 
         Integer count = 1;
         Integer countSet = 1;
-        for (Set<String> set : powerSet) {
+        for (Set<String> set : powerSet)
 //            if (set.contains("http://www.semwebtech.org/mondial/10/meta#Country") && set.contains("http://www.semwebtech.org/mondial/10/meta#Organization") && set.contains("http://www.semwebtech.org/mondial/10/meta#Country_Mirror_0")
 //                    && set.size() == 3) {
 //                System.out.println("oi");
@@ -201,7 +196,6 @@ public class StainerTreeFunctions {
                     for (Graph tree : steinerTrees) {
 
                         //System.out.println(tree);
-
                         ArrayList<String> listTriple = transformGraph(tree, representationNode, graphObject);
                         Model modelST = Utils.createModelFromTriples(listTriple);
                         //Utils.printTriples(modelST);
@@ -233,9 +227,8 @@ public class StainerTreeFunctions {
                                 String subject = stmt.getSubject().toString();
                                 String object = stmt.getObject().toString();
 
-                                if (!subject.equals(s) && !object.equals(o)) 
+                                if (!subject.equals(s) && !object.equals(o))
                                     model.add(stmt);
-                                
 
                             }
                             //listSTs.add(model);
@@ -249,8 +242,6 @@ public class StainerTreeFunctions {
                 }
 
             }
-
-        }
 
         return listSTs;
     }

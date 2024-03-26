@@ -20,17 +20,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
 import org.apache.jena.query.QueryExecution;
@@ -60,9 +56,8 @@ public class Utils {
             int vVisited = nodesVisited.get(0);
             int jVisited = nodesVisited.get(1);
 
-            if (vVisited == v && jVisited == j) {
+            if (vVisited == v && jVisited == j)
                 return true;
-            }
         }
 
         return result;
@@ -99,9 +94,9 @@ public class Utils {
             for (inf.puc.rio.br.Model.Pattern pattern : listPattern) {
                 String patternString = pattern.getPattern();
 
-                if (!mapLabels.containsKey(patternString)) {
+                if (!mapLabels.containsKey(patternString))
                     mapLabels.put(patternString, pattern.getKeywordLabel());
-                } else {
+                else {
                     Set<String> setInstances = mapLabels.get(patternString);
                     setInstances.addAll(pattern.getKeywordLabel());
 
@@ -120,9 +115,8 @@ public class Utils {
             writerLabel.println(pattern);
             writerLabel.println("\n");
 
-            for (String keywords : keywordsSet) {
+            for (String keywords : keywordsSet)
                 writerLabel.println(String.join("\n", keywords));
-            }
 
         }
         writerLabel.close();
@@ -192,11 +186,9 @@ public class Utils {
     public static Set<Set<String>> filterPowerSetbyClass(Set<Set<String>> powerSet, String nodeFilter) {
         Set<Set<String>> powerSetFilter = new HashSet<>();
 
-        for (Set<String> set : powerSet) {
-            if (set.contains(nodeFilter)) {
+        for (Set<String> set : powerSet)
+            if (set.contains(nodeFilter))
                 powerSetFilter.add(set);
-            }
-        }
 
         return powerSetFilter;
     }
@@ -204,11 +196,9 @@ public class Utils {
     public static Set<Set<String>> filterSizeElementsPowerSet(Set<Set<String>> powerSet) {
         Set<Set<String>> powerSetFilter = new HashSet<>();
 
-        for (Set<String> set : powerSet) {
-            if ((set.size() > 0) && (set.size() <= 3)) {
+        for (Set<String> set : powerSet)
+            if ((set.size() > 0) && (set.size() <= 3))
                 powerSetFilter.add(set);
-            }
-        }
 
         return powerSetFilter;
 
@@ -220,39 +210,35 @@ public class Utils {
         for (Set<String> set : powerSet) {
             int countMirrors = 0;
 
-            for (String element : set) {
-                if (element.contains("_Mirror_")) {
+            for (String element : set)
+                if (element.contains("_Mirror_"))
                     countMirrors++;
-                }
-
-            }
-            if ((countMirrors == 1)) {
+            if ((countMirrors == 1))
                 powerSetFilter.add(set);
-            }
 
         }
 
         return powerSetFilter;
 
     }
-    
+
 //    public static Set<Set<String>> powerSet(Set<String> elements)
 //    {
 //        // convert set to a list
 //        List<String> S = new ArrayList<>(elements);
-// 
+//
 //        // `N` stores the total number of subsets
 //        //long N = (long) Math.pow(2, S.size());
 //        long N = 10000000;
-//        
+//
 //        // Set to store subsets
 //        Set<Set<String>> result = new HashSet<>();
-// 
+//
 //        // generate each subset one by one
 //        for (int i = 0; i < N; i++)
 //        {
 //            Set<String> set = new HashSet<>();
-// 
+//
 //            // check every bit of `i`
 //            //max 2ˆ4
 //            for (int j = 0; j < 3; j++)
@@ -264,11 +250,9 @@ public class Utils {
 //            }
 //            result.add(set);
 //        }
-// 
+//
 //        return result;
 //    }
-
-
     //see: https://stackoverflow.com/questions/1670862/obtaining-a-powerset-of-a-set-in-java
     public static <T> Set<Set<T>> powerSet(Set<T> originalSet, int maxSizeSet) {
         Set<Set<T>> sets = new HashSet<Set<T>>();
@@ -280,16 +264,14 @@ public class Utils {
         T head = list.get(0);
         Set<T> rest = new HashSet<T>(list.subList(1, list.size()));
 
-        for (Set<T> set : powerSet(rest, maxSizeSet)) {
+        for (Set<T> set : powerSet(rest, maxSizeSet))
             if (set.size() <= maxSizeSet - 1) {
-            Set<T> newSet = new HashSet<T>();
-            newSet.add(head);
-            newSet.addAll(set);
-            sets.add(newSet);
-            sets.add(set);
-           }
-
-        }
+                Set<T> newSet = new HashSet<T>();
+                newSet.add(head);
+                newSet.addAll(set);
+                sets.add(newSet);
+                sets.add(set);
+            }
 
         return sets;
     }
@@ -345,13 +327,11 @@ public class Utils {
                 listMirrorSubject.add(uriSubjectNode);
                 listMirrorObject.add(uriObjectNode);
             }
-            if (!mapMirrosSubject.containsKey(subject)) {
+            if (!mapMirrosSubject.containsKey(subject))
                 mapMirrosSubject.put(subject, listMirrorSubject);
-            }
 
-            if (!mapMirrosObject.containsKey(object)) {
+            if (!mapMirrosObject.containsKey(object))
                 mapMirrosObject.put(object, listMirrorObject);
-            }
 
         }
 
@@ -416,11 +396,10 @@ public class Utils {
 
             System.out.print(subject.toString());
             System.out.print(" " + predicate.toString() + " ");
-            if (object instanceof Resource) {
+            if (object instanceof Resource)
                 System.out.print(object.toString());
-            } else {
+            else
                 System.out.print(" \"" + object.toString() + "\"");
-            }
             System.out.println(" .");
         }
     }
@@ -430,11 +409,9 @@ public class Utils {
     }
 
     public static <T, E> T getKeyByValue(Map<T, E> map, E value) {
-        for (Map.Entry<T, E> entry : map.entrySet()) {
-            if (Objects.equals(value, entry.getValue())) {
+        for (Map.Entry<T, E> entry : map.entrySet())
+            if (Objects.equals(value, entry.getValue()))
                 return entry.getKey();
-            }
-        }
         return null;
     }
 
@@ -446,9 +423,8 @@ public class Utils {
             element = array[rnd];
 
             int find = 0;
-            if (!elementsNotSort.contains(element)) {
+            if (!elementsNotSort.contains(element))
                 loop = false;
-            }
 
         }
 
@@ -462,9 +438,8 @@ public class Utils {
         Pattern p = Pattern.compile("[a-zA-Z]+");
         Matcher match = p.matcher(text);
 
-        while (match.find()) {
+        while (match.find())
             words.add(match.group());
-        }
 
         return words;
 
@@ -503,18 +478,16 @@ public class Utils {
             listFormat.add(formatter7);
 
             int flag = 0;
-            for (SimpleDateFormat format : listFormat) {
+            for (SimpleDateFormat format : listFormat)
                 try {
-                    Date date = format.parse(dateString);
-                    flag = 1;
-                    break;
-                } catch (Throwable e) {
-                    continue;
-                }
+                Date date = format.parse(dateString);
+                flag = 1;
+                break;
+            } catch (Throwable e) {
+                continue;
             }
-            if (flag == 1) {
+            if (flag == 1)
                 return true;
-            }
 
             return false;
         } catch (Throwable e) {
@@ -575,11 +548,9 @@ public class Utils {
 
     public static Entity findEntity(ArrayList<Entity> allEntities, String uri) {
 
-        for (Entity entity : allEntities) {
-            if (entity.getUriEntity().equals(uri)) {
+        for (Entity entity : allEntities)
+            if (entity.getUriEntity().equals(uri))
                 return entity;
-            }
-        }
 
         return null;
     }

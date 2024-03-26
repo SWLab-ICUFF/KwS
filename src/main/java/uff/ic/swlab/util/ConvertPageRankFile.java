@@ -19,11 +19,10 @@ public class ConvertPageRankFile {
         String filename = "/Users/lapaesleme/local/var/temp/2019-11-09.allwiki.links.rank";
         new File(tdbDir).mkdirs();
 
-        try (InputStream in = new FileInputStream(filename);
-                Writer out = new OutputStreamWriter(
-                        new GZIPOutputStream(
-                                new BufferedOutputStream(
-                                        new FileOutputStream(filename + ".nq.gz"))))) {
+        try (InputStream in = new FileInputStream(filename); Writer out = new OutputStreamWriter(
+                new GZIPOutputStream(
+                        new BufferedOutputStream(
+                                new FileOutputStream(filename + ".nq.gz"))))) {
 
             Scanner scan = new Scanner(in);
             while (scan.hasNext()) {
